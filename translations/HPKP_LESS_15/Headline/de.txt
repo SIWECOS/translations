@@ -1,0 +1,1 @@
+Die [[Verschlüsselung|öffentlichen Schlüssel]] sind für weniger als 15 Tage [[HTTP_Public_Key_Pinning|gepinnt]].

@@ -1,0 +1,1 @@
+The Content Security Policy is a security concept that is designed to reduce the risk of injection and execution of malicious commands in a web application (content injection attacks). By means of a whitelist (list of allowed sources), it determines from which [[Quellen]] Javascript code, images, fonts, and other content may be integrated into your site.

@@ -1,0 +1,82 @@
+in Arbeit...
+
+{| 
+|
+== Was ist eine .htaccess -Datei? ==
+
+Eine .htaccess-Datei ist eine reine Textdatei, die dazu dient, die Konfiguration eines Apache Webservers zu beeinflussen, auch wenn man keinen direkten Zugriff auf die Hauptkonfigurationsdatei (httpd.conf) des Webservers hat oder eben diese nicht ändern möchte, da dazu der Apache neu gestartet werden muss. Keinen direkten Zugriff auf die ''httpd.conf'' haben Sie beispielsweise, wenn Sie Ihre Webseite bei einem Hoster wie 1&1 oder Strato abgelegt haben.
+
+In der Regel wird die erstellte '''.htaccess'''-Datei im Hauptverzeichnis der Website hochgeladen, da sich die darin eingetragene Konfiguration immer auf alle Dateien im Hauptverzeichnis inklusive allen Unterordnern bezieht. Mit der .htaccess-Datei können Sie also verzeichnisbezogene Regeln aufstellen, denn die Datei ist ein Bestandteil der Konfiguration des Webservers.
+
+
+== Wie bearbeite ich eine .htaccess -Datei? ==
+
+[[File:htaccess_erstellen.png|left|400px]] Um eine .htaccess-Datei zu erstellen, müssen Sie Ihren Editor (z. B. Notepad oder Notepad++) öffnen und über '''Datei => neu''' ein neues Textdokument erstellen. Nun können Sie einzelne Änderungen der Konfiguration eintragen und abschließend über "Speichern unter" als '''.htaccess''' (ohne Endung) abspeichern (siehe Bild, anklicken um es größer zu sehen).
+|}
+
+
+{| 
+| 
+== Welche Konfigurations-Möglichkeiten bietet eine .htaccess-Datei? ==
+
+Es gibt unendlich viele Möglichkeiten, über die .htaccess-Datei den Webserver mit zusätzlichen Konfigurationen zu ändern und/oder abzusichern.
+
+Einige häufig genutzte Elemente sind:
+
+* Zugriffskontrolle auf Dateien oder ganze Verzeichnisse
+* Verzeichnisoptionen einstellen
+* Verzeichnis-Browsing einstellen
+* Fehlermeldungen selbst gestalten
+* Weiterleitungen einrichten
+* Zugriffssperre für bestimmte IP-Adressen, Hostnamen oder IP-Bereiche
+* Passwortschutz‎
+* Header-Einstellungen
+* URL-Pfade umschreiben
+* usw.
+
+
+
+== Beispieldatei ==
+
+'''Beispiel einer .htaccess''' angepasst für den '''HTTP Security Header Scanner''' (Achtung: Es handelt sich hier um ein Beispiel und muss entsprechend den eigenen Seiten angepasst werden).
+<pre>
+
+#Content Security Policy
+Header set Content-Security-Policy "default-src 'none'; frame-src 'self'; font-src 'self'; img-src 'self' siwecos.de; script-src 'self'; style-src 'self';"
+
+#HTTP Content-Types
+AddCharset UTF-8 .html
+
+#Public Key Pins
+Header set Public-Key-Pins "pin-sha256=\"base64+primary==\"; pin-sha256=\"base64+backup==\"; max-age=5184000; includeSubDomains"
+
+#Strict-Transport-Security
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+#X-Content-Type-Options
+Header always set X-Content-Type-Options "nosniff"
+
+#X-Frame-Options
+Header always set X-Frame-Options "SAMEORIGIN"
+
+#X-Xss-Protection
+Header always set X-Xss-Protection "1; mode=block"
+
+#Referrer-Policy
+Header set Referrer-Policy "strict-origin"
+
+
+</pre>
+
+== Weiterführende Links zum Thema ==
+
+SelfHTML Wiki: https://wiki.selfhtml.org/wiki/Webserver/htaccess <br />
+Wikipedia: https://de.wikipedia.org/wiki/Htaccess <br />
+SEO Anwendungsbeispiele: https://www.seo-trainee.de/htaccess-datei-basics-und-anwendungsbeispiele/
+|}
+
+[[Category:Sicherheitstipps]]
+[[Category:Was_ist_Was]]
+[[Category:Glossar]]
+[[Category:FAQ]]
+

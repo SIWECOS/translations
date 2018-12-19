@@ -1,0 +1,1 @@
+Der [[Header|HTTP-Header]] ist korrekt gesetzt.

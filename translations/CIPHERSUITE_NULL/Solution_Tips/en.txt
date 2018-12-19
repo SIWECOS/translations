@@ -1,0 +1,1 @@
+Deactivate support for NULL encryption methods.

@@ -1,0 +1,1 @@
+Deactivate support for anonymous key exchange in the encryption method settings. As a consequence of the known TLS vulnerabilities, the most important rule is to use TLS 1.2 whenever possible. SSL 3.0 should be disabled in the Browser.

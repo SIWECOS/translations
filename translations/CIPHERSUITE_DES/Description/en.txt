@@ -1,0 +1,1 @@
+Your web server / your website is configured to support the outdated DES encryption method (Ciphersuites), which is regarded as insecure. This makes you vulnerable to man-in-the-middle attacks.

@@ -1,0 +1,1 @@
+The HTTP content type is configured incorrectly

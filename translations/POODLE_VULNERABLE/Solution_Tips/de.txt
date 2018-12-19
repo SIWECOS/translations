@@ -1,0 +1,1 @@
+Deaktivieren Sie umgehend das veraltete Verschlüsselungsprotokoll [[SSL|SSL3]] auf ihrem Server!

@@ -1,0 +1,1 @@
+Verwundbar durch [[Tls-Poodle-Schwachstelle/DE/Background|TLS-Poodle]]

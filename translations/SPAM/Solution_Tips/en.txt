@@ -1,0 +1,29 @@
+'''<span style="color:#c31622"> Take down the website!<span>'''
+
+Take down your website to prevent users from accessing it, and to prevent Google from removing the website from its index, which would delete a positive ranking. You also avoid being blocked by your hosting provider.
+
+To check if the website shows any of the typical spam characteristics, call up the website in the browser, then right-click to "view page source". In this view, you can use '''Ctrl+f''' (search) to check your source code for typical signs of online fraud through advertisements for medications or dubious credit offers.
+
+'''Some terms to search for''':<br>
+- „payday“<br>
+- „Pharma“<br>
+- „Viagra“<br>
+- „Cialis“<br><br>
+'''- Find out how and when it was possible for third parties to access your domain. '''<br>
+
+Check your logfiles for unauthorized access from unknown [[IP-Adresse|Quell-IP-Adressen]]. As a starting point for your investigation, the time stamp of the manipulated or uploaded file can give you a hint when the attack happened and by which gateway the attackers gained access.
+
+'''- Change your login data!'''<br>
+'''- Web frontend (hosting contract, [[Content-Management-Systeme|Content-Management-System]])'''<br>
+'''- [[FTP]] or [[SSH]] access'''<br>
+'''- [[Datenbank]] [[starke Passwörter|Passwörter]]'''<br>
+
+Restore a malware-free [[Daten sichern|Backup]]!
+To do this, delete all the files on your webspace. In this way, you will make sure that you do not overlook malicious files from the compromised system which were used as a backdoor by the attackers.
+Before restoring from the backup, make sure that the intended backup is not yet infected by the malicious code that we detected, and if necessary, use an even older backup.
+If the backup is malware-free, restore it and then install any updates for your system. Only after this is done, put the website back online.
+
+''' - If you do not have a backup of your website, consider a completely new installation. Manual cleanups usually take up a lot of time and should only be carried out by qualified experts.'''<br>
+
+Check your local computer for malicious software! The website [https://www.botfrei.de botfrei.de] offers helpful information and software.
+With the EU-Cleaner, you can remove various malicious programs from your computer. (https://www.botfrei.de/de/eucleaner/index.html)

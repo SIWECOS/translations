@@ -1,0 +1,1 @@
+You should not transfer your user credentials (name and password).

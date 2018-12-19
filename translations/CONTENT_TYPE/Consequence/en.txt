@@ -1,0 +1,1 @@
+By specifying the correct header declaration, various [[Cross-Site-Scripting|XSS-Angriffe]] can be prevented. If the [https://en.wikipedia.org/wiki/Character_encoding Character encoding] is not specified, some [[Browser|Webbrowser]] will try to interpret the source code, thus making certain attacks possible which require a different character set.

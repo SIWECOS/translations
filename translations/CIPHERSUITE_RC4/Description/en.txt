@@ -1,0 +1,1 @@
+Your web server / your website is configured to support the outdated RC4 encryption method ([[Cipher Suite|Cipher Suites]]), which is regarded as insecure. This makes you vulnerable to [[Man-in-the-middle|Man-in-the-middle Attacken]].

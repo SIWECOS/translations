@@ -1,0 +1,1 @@
+Cross Site Scripting protection is not active or configured incorrectly.

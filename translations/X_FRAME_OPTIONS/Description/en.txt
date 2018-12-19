@@ -1,0 +1,1 @@
+X-Frame-Options helps to prevent attacks carried out by rendering content within a frame. This largely mitigates the risk of [[Clickjacking]] attacks. Downgrading attacks, as known in the Internet Explorer, are also minimized.

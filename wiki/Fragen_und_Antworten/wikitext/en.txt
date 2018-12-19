@@ -1,0 +1,17 @@
+back to [[Hauptseite]]<br />
+
+== FAQ collection ==
+<br>
+<div style="margin: 0; margin-right:10px; border: 1px solid #dfdfdf; padding: 0 1em 1em 1em; background-color:#F8F8FF; align:right;">
+*[https://siwecos.de/ueber-das-projekt/ Fragen zu Siwecos]<br />
+*[[Fragen_und_Antworten_siwecos|Allgemeine Fragen zum Dienst]]<br />
+*[[Registrieren bei Siwecos]]<br />
+*[[Siwecos-Siegel | Wie binde ich das Siwecos-Siegel auf meiner Seite ein?]]<br />
+*[[Wordpress-Header | Siwecos-Metatag in den Wordpress-Header einfügen ]]<br />
+*[[Jimdo-Header | Siwecos-Metatag in den Jimdo-Header einfügen ]]<br />
+*[[Wordpress_siegel_einbinden | Siwecos-Siegel in Wordpress integrieren]] <br />
+*[[das Siwecos-Siegel wird nicht angezeigt | Warum wird das Siwecos-Siegel nicht richtig angezeigt?]]
+</div>
+
+
+[[Category:FAQ]]

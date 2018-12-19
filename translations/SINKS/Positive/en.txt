@@ -1,0 +1,1 @@
+No unsafe code components for DOMXSS sinks were recognized in an automatic check.

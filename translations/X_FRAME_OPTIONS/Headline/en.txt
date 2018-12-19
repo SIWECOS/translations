@@ -1,0 +1,1 @@
+Checking the HTTP header X-frame options

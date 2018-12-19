@@ -1,0 +1,1 @@
+By the current state of knowledge, the JavaScript libraries are not vulnerable to known security flaws.

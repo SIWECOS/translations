@@ -1,0 +1,10 @@
+Halten Sie installierte Webserver und das [[Content-Management-System-Gefunden/DE|Content Management System]] immer auf dem aktuellsten Stand. Manche CMS-Systeme erlauben es Versionsinformationen zu verstecken. Nutzen sie dieses Feature falls verfügbar, evtl. ist z.B. das WordPress Plugin "[http://wp-premiumthemes.de/hide-my-wp-tutorial-deutsch/ Hide My WP]" interessant für Sie.
+
+'''Weiteres Beispiel für WordPress:'''
+Damit Angreifer oder Hacker z.B. nicht direkt die WordPress-Version auslesen können, kann man folgende Codezeile in der Datei '''functions.php''' ganz am Ende einfügen:
+
+'''--snip'''
+
+remove_action('wp_head','wp_generator');
+
+'''--snap'''

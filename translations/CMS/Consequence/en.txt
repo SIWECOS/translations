@@ -1,0 +1,1 @@
+It is possible to read the version of the CMS from the outside. If the CMS is not up to date, criminals can exploit various security flaws to compromise the system and to store malicious code.

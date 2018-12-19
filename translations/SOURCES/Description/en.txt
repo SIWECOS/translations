@@ -1,0 +1,1 @@
+During the check, at least one vulnerability was found on the web page that could be controlled by an external, potentially untrustworthy source.

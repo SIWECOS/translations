@@ -1,0 +1,1 @@
+ Der [[HTTP_Strict_Transport_Security|HSTS]] Schutz ist inaktiv, die Kommunikation zwischen Ihrer Webseite und den Besuchern kann abgehört und manipuliert werden. 

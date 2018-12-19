@@ -1,0 +1,1 @@
+The value of 'max-age' is less than 6 months.

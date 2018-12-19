@@ -1,0 +1,8 @@
+'''<span style="color:#c31622">Initiative-S Scanner<span>'''
+<br>
+
+Dieser Scanner der [https://initiative-s.de/de/index.html Initiative-S] gleicht die Domain mit uns bekannten Sperrlisten ([https://de.wikipedia.org/wiki/Schwarze_Liste Blacklisten]) auf [[Phishing]], [[Malware]] und [[Spam]] ab.<br>
+
+*[[Phishing-Inhalte/DE|PHISHING-Inhalte]]<br>
+*[[Spam-Inhalte/DE|SPAM-Inhalte]]<br>
+*[[Malware-Inhalte/DE|MALWARE-Inhalte]]<br>

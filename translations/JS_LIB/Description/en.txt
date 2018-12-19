@@ -1,0 +1,1 @@
+A JavaScript library you are using was detected. An attacker could use this information to search for vulnerabilites on your website.

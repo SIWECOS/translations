@@ -1,0 +1,1 @@
+The Content Security Policy is a powerful way to increase the security on web pages. It is important to know that the list should be checked regularly (prevents injection of external content or code). On the other hand, it is rarely possible to integrate a secure CSP header without modifying the source code of the web page.

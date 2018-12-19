@@ -1,0 +1,1 @@
+Die Angabe "%META%" im HTML-Header ist korrekt gesetzt.

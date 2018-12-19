@@ -1,0 +1,1 @@
+Unsecured cookies can be altered or read through a man-in-the-middle attack.

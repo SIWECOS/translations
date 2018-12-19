@@ -1,0 +1,1 @@
+A padding oracle attack is a cryptographic attack that decrypts an encrypted message. The plain text is expanded with code to make it compatible with the cryptographic elementary components so that a response can be sent to the sender.

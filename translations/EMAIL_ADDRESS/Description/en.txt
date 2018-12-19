@@ -1,0 +1,1 @@
+Your website contains at least one machine-readable email address. This allows third parties to collect the stored email addresses automatically by the use of web crawlers (also called spiders, searchbots or robots). The collected email addresses can then be stored in an internal database together with other information about your website.

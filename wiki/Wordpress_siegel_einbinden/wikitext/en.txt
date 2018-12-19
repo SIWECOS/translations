@@ -1,0 +1,40 @@
+
+== Embedding the Siwecos seal in Wordpress ==
+
+{|
+|- In the Content Managment System '''Wordpress''', you can embed the Siwecos seal even without FTP access.
+|
+'''Instructions:''' <br>
+* "'''Right-click with the mouse'''" on '''[https://siwecos.de/wp-content/plugins/seal-of-trust/seal.js seal.js]''' and, depending on your operating system, select "'''Save link as'''" or "'''Save target as'''", and save the seal image file in a directory of your choice (for example on the desktop).<br>
+* In the next step, on the right-hand side in WordPress, select the menu option '''"Media"''' and click the option '''"Select file"''' (image) in the media center, then select the file "seal.js" that you saved previously.
+<br>
+[[File:Bildschirmfoto_vom_2018-05-07_09-46-44.png|left|600px| Bild1]]
+<br />
+|}
+
+{|
+|-
+|
+* When the seal image file has been uploaded to the media center, it must be embedded in your website. To do this, select the menu option '''"Design"''' - '''"Widgets"'''.
+* As you can see in our illustration, there is a selection of widgets (audio, image, gallery) from which you select the '''"HTML block"''' and insert it in the area (for example Footer1) where you want the seal to be displayed.
+<br />
+[[File:Bildschirmfoto_vom_2018-05-07_10-33-39.png|left|600px]]
+<br />
+|}
+
+{|
+|-
+|
+* Copy the given code into the HTML widget.
+* Please note that you must replace the code section '''"My domain"''' by the name your domain as registered with Siwecos, for example '''www.botfrei.de'''.
+* The path for the image must be changed accordingly (for example '''/wp-content/uploads/2018/05/seal.js''')
+<br>
+--snip
+<pre>
+<a href="https://siwecos.de/scanned-by-siwecos?data-siwecos=My Domain&format=d.m.y">
+  <svg width="150" height="58" id="siwecos-seal"/>
+  <script src="/wp-content/uploads/2018/05/seal.js"></script>
+</a>
+</pre>
+--snap
+|}

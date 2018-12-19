@@ -1,0 +1,1 @@
+A phone number was found. An attacker could use this information to manipulate employees and to gain information that should remain secret.

@@ -1,0 +1,1 @@
+CRIME can be defeated by preventing the use of compression. Either on the client side, if the browser disables the compression of SPDY requests, or if the web page prevents the use of data compression for such transactions using the protocol negotiation characteristics of the TLS protocol. Deactivate [[Transport Layer Security|TLS-Compression]] on your server.

@@ -1,0 +1,41 @@
+
+== Das Siwecos-Siegel in Wordpress einbinden ==
+
+{| 
+|- Im Content Managment System '''Wordpress''' können Sie das Siwecos-Siegel auch ohne FTP-Zugang integrieren.
+| 
+'''Anleitung:''' <br>
+* Klicken Sie dazu mit der "'''rechten Maustaste'''" auf '''[https://siwecos.de/wp-content/plugins/seal-of-trust/seal.js seal.js]''' und wählen je nach Betriebssystem "'''Link speichern unter'''" bzw. "'''Ziel speichern unter'''" und speichern die Datei des Siegels an einem Ort Ihrer Wahl (z.B. auf dem Desktop).<br>
+* Gehen Sie im nächsten Schritt in Wordpress auf der rechten Seite auf den Menüpunkt '''"Medien"''' und in der Mediathek auf '''"Datei auswählen"'''(Bild) und wählen das zuvor abgelegte "seal.js" vom Desktop.
+<br>
+[[File:Bildschirmfoto_vom_2018-05-07_09-46-44.png|left|600px| Bild1]]
+<br />
+|}
+
+{| 
+|-
+|
+* Wurde die Datei des Siegels in die Mediathek geladen, muss sie noch auf Ihrer Webseite eingebunden werden. Dazu gehen Sie im Menü auf '''"Design"''' - '''"Widgets"'''.
+* Wie in unserem Bild zu sehen, wählen Sie in der Auswahl der Widgets (Audio, Bild, Galerie), den '''"HTML-Baustein"''' und fügen diesen in den Bereich (z.B. Footer1), wo das Siegel erschienen soll.  
+<br />
+[[File:Bildschirmfoto_vom_2018-05-07_10-33-39.png|left|600px]]
+<br />
+|}
+
+{| 
+|- 
+|
+* In das HTML-Widget kopieren Sie den angegebenen Code.
+* Beachten Sie, dass Sie im Code die Zeile '''"Ihre bei Siwecos eingetragene Domain"''' durch Ihre bei Siwecos registrierte Domain z.B. '''www.botfrei.de''' ersetzen.
+* Entsprechend muss der Pfad für das Bild geändert werden (z.B. '''/wp-content/uploads/2018/05/seal.js''')
+<br>
+--snip
+<pre>
+<a href="https://siwecos.de/scanned-by-siwecos?data-siwecos=Ihre bei Siwecos eingetragene Domain&format=d.m.y">
+  <svg width="150" height="58" id="siwecos-seal"/>
+  <script src="/wp-content/uploads/2018/05/seal.js"></script>
+</a>
+</pre>
+--snap
+|}
+

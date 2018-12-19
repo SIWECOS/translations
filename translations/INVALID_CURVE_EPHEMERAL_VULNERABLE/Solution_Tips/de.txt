@@ -1,0 +1,1 @@
+Spielen sie umgehend ein Update für ihre [[Transport Layer Security|TLS-Implementierung]] auf ihren Server ein.

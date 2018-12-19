@@ -1,0 +1,1 @@
+HTTP header X-Frame-Options not set.

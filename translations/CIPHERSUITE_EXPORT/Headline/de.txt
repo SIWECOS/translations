@@ -1,0 +1,1 @@
+Überprüfung auf schwache Verschlüsselungs-Funktionen

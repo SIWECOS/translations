@@ -1,0 +1,68 @@
+== The Siwecos verification procedure==
+
+
+All domains which are registered for verification at Siwecos must be verified and cross-checked. To do this, Siwecos offers two different methods (file, meta tag). '''Which of the two methods you use is up to you, but it must be either of the two.'''
+
+What is the purpose of verification? Verification ensures that you are the real domain owner in compliance with data protection regulation.
+
+[[File:Verifizierung_st1.png]]
+
+<br>
+== Verification by META tag! ==
+
+You can confirm ownership of a website by adding an individual <meta> tag, specified by us, to the '''HTML code of the start page of your domain'''. Our scanner checks whether the meta tag is at the correct position. If the tag is not found, information about the detected errors is given. This tag is assigned to a specific user.
+
+<br>
+1. Download the start page (for example index.html) to your computer and open the file in the editor.<br>
+2. Copy '''Your individual meta tag''' into the file. The following example shows the correct position.
+<pre>
+---Header example---
+
+<HTML>
+<HEAD>
+<TITLE>My title</TITLE><br>
+<!--This line only:--> <meta name="siwecostoken" content="Your own code/token" />
+</HEAD>
+<BODY>
+
+</pre>
+<br>
+3. When you have entered your meta tag in the start page, save the file and upload it again to your directory on the webspace.<br>
+4. If you have questions about errors that may occur, please refer to the instructions of [https://support.google.com/webmasters/answer/35179?hl=de google.de]
+
+
+<br>
+
+== Verification by file via FTP upload ==
+
+You can confirm ownership of a website by uploading '''an individual .html file to the root directory on your webspace''', for example via FTP upload. This individual file is assigned to a domain.
+
+'''The code "siw6tbi9HS5KV" that is used here is only an example!'''
+<br><br>
+1. Create a new HTML file (to do this, right-click on the desktop and select "New" -> "Text document").<br>
+2. Open the text file and copy your code, for example '''siw6tbi9HS5KV''' without the file extension, into the first line.
+[[File:Gedit-datei.png|none|Beispiel: Datei]]
+3. Select "File" -> "Save as", enter the individual file name specified by us, for example '''siw6tbi9HS5KV.html''', and save the file on your desktop.<br>
+4. Using the [https://en.wikipedia.org/wiki/FileZilla FTP program], upload the newly created HTML file to the main directory of your domain.<br>
+5. Then check whether the file is accessible.<pre>http://YourDomain/siw6tbi9HS5KV.html</pre>
+6. The browser should show the following information.
+[[File:Html_file.png|none|Beispiel: Aufruf der Seite ]]
+7. Finally you can verify your domain in Siwecos.
+
+
+<br>
+== Delete domain and further actions==
+
+[[File:Loeschen.png]]
+
+You can remove the registered domain at any time from the '''Domain overview from the Siwecos monitoring service'''. The domain will be deleted from our system completely, including all scan results. It is not possible to restore the deleted data. However, you can register the domain again at any time with the verification procedure.
+
+'''Please note:''' When the domain has been deleted from our system, please remove any stored '''Meta tags or HTML files''' from your system.
+
+
+
+
+
+
+<br />
+<br />

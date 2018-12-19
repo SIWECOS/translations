@@ -1,0 +1,1 @@
+Schwacher [[Hashing|Hash-Algorithmus]]

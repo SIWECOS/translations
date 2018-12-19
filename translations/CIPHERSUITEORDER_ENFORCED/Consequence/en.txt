@@ -1,0 +1,1 @@
+You are leaving it to the visitor of your website to decide how securely you communicate.

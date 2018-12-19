@@ -1,0 +1,1 @@
+Veraltete Protokollversion [[SSL|SSL2]] unterstützt

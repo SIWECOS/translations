@@ -1,0 +1,1 @@
+Ihre Domain ‘%site%’ wurde in folgenden Spam-Listen gefunden: %where%

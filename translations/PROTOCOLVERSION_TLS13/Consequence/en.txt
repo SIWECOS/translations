@@ -1,0 +1,1 @@
+TLS 1.3 is not supported by any internet browser in the standard configuration, so you will not win or lose any customers if you do not support this version.

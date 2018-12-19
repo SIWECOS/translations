@@ -1,0 +1,1 @@
+Eine sichere Konfiguration der Content Security Policy ([[Content-Security-Policy-Schwachstelle/DE/Background|CSP]]) wurde gefunden.

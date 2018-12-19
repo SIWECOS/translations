@@ -1,0 +1,1 @@
+Check of JavaScript code for DOMXSS sources

@@ -1,0 +1,1 @@
+The [[Server]] has not sent a [[Zertifikate|Zertifikat]]. This is unusual and should not occur. The server should check its [[Transport_Layer_Security|TLS-Konfiguration]] and, if necessary, disable [[Schluesselaustauschverfahren/DE|anonyme Ciphersuites]].

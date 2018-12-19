@@ -1,0 +1,1 @@
+Konfigurieren Sie Ihren Webserver so, dass der Webserver die [[Verschlüsselungsmethodik/DE|Verschlüsselungsmethodik]] bei der Kommunikation zwischen Ihrer Webseite und dem Webbrowser des Besuchers bestimmt.

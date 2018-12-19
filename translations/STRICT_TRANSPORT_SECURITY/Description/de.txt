@@ -1,0 +1,1 @@
+Strict-Transport-Security ([[HTTP_Strict_Transport_Security|HSTS]]) stellt sicher, dass die Webseite für eine bestimmte Zeit lediglich über [[HTTPS]] gesicherte Verbindung aufgerufen werden kann. Der Webseitenbetreiber kann diesbezüglich u.a. definieren, wie lange das Zeitinterval ist und ob diese Regelung auch für [[Domain|Subdomains]] gelten soll.

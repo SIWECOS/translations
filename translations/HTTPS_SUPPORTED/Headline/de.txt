@@ -1,0 +1,1 @@
+Der Server “%HOST%“ scheint kein TLS zu unterstützen. Dies bedeutet, dass Sie keinerlei Verschlüsselung einsetzen um Ihre Daten und die Ihrer Kunden zu schützen.

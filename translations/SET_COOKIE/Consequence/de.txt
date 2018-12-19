@@ -1,0 +1,1 @@
+Wenn Cookies nicht abgesichert werden, können sie über einen [[Man-in-the-middle]] Angriff veränndert oder abgegriffen werden.

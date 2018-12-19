@@ -1,0 +1,27 @@
+Use the CSP with default-src 'none' and without unsafe-eval or unsafe-inline directives. For more information about '''Content Security Policy''', please refer to '''[https://wiki.selfhtml.org/wiki/Sicherheit/Content_Security_Policy SELFHTML>>]'''
+
+
+--snip<br>
+
+'''Example for the header on the start page:'''
+
+<pre>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+<meta http-equiv="X-WebKit-CSP" content="default-src 'self'; script-src 'self'"></pre>
+
+'''Configuration of the web server'''
+
+If you can configure your own web server, which is usually not possible in low-budget hosting packages, there is this option via '''changes to .htaccess''':
+
+<pre># Download / Load content only from explicitly allowed sites
+# Example: Allow everything from own domain, nothing from external sources:
+
+Header set Content-Security-Policy "default-src 'none'; frame-src 'self'; font-src 'self';img-src 'self' siwecos.de; object-src 'self'; script-src 'self'; style-src 'self';"
+
+</pre>
+
+--snap
+
+Here is an example of an .htaccess file which will set the '''HTTP-Security-Header-Scanner''' to green.
+([[Htaccess|.htaccess-Beispiel]])

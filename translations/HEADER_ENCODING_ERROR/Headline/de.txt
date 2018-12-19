@@ -1,0 +1,1 @@
+Der Header <b>%HEADER_NAME%</b> enthält [[Ersetzungszeichen/DE|nicht-verarbeitbare]] Zeichen.

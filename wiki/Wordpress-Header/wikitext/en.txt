@@ -1,0 +1,21 @@
+
+== Insert Siwecos Meta tag in the WordPress header ==
+
+As administrator in WordPress, you can edit several system files manually via the backend.
+
+
+[[File:Wp_header_php.png| 600px]]
+
+
+
+'''Instructions:'''
+
+*Log in to your WordPress account ('''administrator rights are required''').
+*In the menu (on the left), select "'''Design'''" and select the "'''Editor'''".
+*On the right, the selection "'''Theme files'''" is shown.
+*Select the file "'''header.php'''", and the content of the "'''header.php'''" is shown in the editor area in the center.
+*Now you can edit the "'''header.php'''" file.
+*Copy your "'''[[Domain-Verifizierung | Meta Informationen von Siwecos]]'''" into the section between the '''<head> </head>''' tags (see illustration).
+*If everything is OK, you must save the changes. You can do this in the lower section of WordPress "'''Update file'''".
+*Now your domain is ready for verification by Siwecos.
+*Move on to [https://siwecos.de siwecos.de]

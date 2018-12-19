@@ -1,0 +1,1 @@
+Criminals hack the website to gain access, unnoticed by the owner, and deposit malicious code or phishing content on the [[Server|Webspace]] in order to steal the visitor's personal data.

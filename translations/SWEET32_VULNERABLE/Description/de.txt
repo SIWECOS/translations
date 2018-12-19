@@ -1,0 +1,1 @@
+Der Server ist verwundbar durch [[Sweet32-Schwachstelle/DE/Background|Sweet32]], welcher es einem Angreifer erlaubt, Teile der Kommunikation zu entschlüsseln, falls über eine Verbindung große Mengen Daten transferiert werden.

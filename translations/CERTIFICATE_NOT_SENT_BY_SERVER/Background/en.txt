@@ -1,0 +1,1 @@
+It is theoretically possible to configure a [[Transport_Layer_Security|TLS-Server]] so that it will not send a [[Zertifikate|Zertifikat]] to identify itself and only encrypt without signing its public key. A client that wants to connect to the server cannot check whether it is really communicating with the server it expects. This type of configuration is very rare.

@@ -1,0 +1,1 @@
+Your web server / your website is configured to make connections using an insecure encryption method ([https://siwecos.de/wiki/Cipher_Suite Ciphersuites]) without access rights control. This makes you vulnerable to [[Man-in-the-middle|Man-in-the-middle Attacken]].

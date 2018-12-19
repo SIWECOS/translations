@@ -1,0 +1,1 @@
+The published phone numbers should be limited to those which are actually intended for communication with customers. Also, an employee who uses the phone should be aware of the dangers of social engineering attacks and should know the methods of social engineers.

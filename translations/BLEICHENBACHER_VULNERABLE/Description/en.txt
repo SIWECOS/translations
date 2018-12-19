@@ -1,0 +1,1 @@
+The server is vulnerable to a Bleichenbacher attack (ROBOT). Through such an attack, the communication can be decoded and user input, such as passwords, can be read as clear text during transfer.

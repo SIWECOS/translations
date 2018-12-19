@@ -1,0 +1,1 @@
+More than 50 percent of all JavaScript functions from the 10,000 most popular websites are never used. Many other features are rather pointless, and from a security point of view a good number of JavaScript features seem questionable. For example, for the "Web Audio API" at least 10 security flaws according to CVE standard have been reported in the past three years.

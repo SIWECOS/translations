@@ -1,0 +1,1 @@
+Der [[Header|HTTP-Header]] X-XSS-Protection definiert wie in [[Browser]] eingebaute XSS-Filter konfiguriert werden. Eine Default-Installation kann eine unzureichende Konfiguration offenbaren.

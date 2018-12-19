@@ -1,0 +1,1 @@
+Überprüft ob Flags zur Cookie Sicherheit gesetzt sind.

@@ -1,0 +1,1 @@
+Outdated protocol version SSL3 not supported

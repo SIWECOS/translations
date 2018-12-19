@@ -1,0 +1,1 @@
+Ihr Webserver/Ihre Webseite ist so konfiguriert, dass Sie die mittlerweile als unsicher geltende Verschlüsselungsfunktion [[Rc4_Verschlüsselungsmethodik|RC4]] weiterhin unterstützt. Dies ermöglicht [[Man-in-the-middle|Man-in-the-middle Attacken]]. 

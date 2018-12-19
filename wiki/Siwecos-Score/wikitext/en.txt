@@ -1,0 +1,35 @@
+== What does the SIWECOS score indicate? ==
+
+The SIWECOS score is only an additional visualization of your website's security status. The results of the individual scanners are much more important for the security status of your website.
+
+If a green value is shown for your website, you are on the safe side, whether the value is 85, 95 or 100. The missing points only indicate recommendations for the optimum configuration.
+
+If the SIWECOS score for your website shows a yellow value, we recommend that you fix the detected security flaws because they pose a certain risk.
+
+If the SIWECOS score shows a red value, there is at least one significant security problem on your website. We recommend that you fix any security flaws urgently, otherwise you will be defenseless against possible cyber attacks.
+
+Further information about the individual scanners, and the security flaws they detect, together with recommendations of solutions and further actions to take, can be found in our SIWECOS wiki under https://www.siwecos.de/wiki/Hauptseite
+
+
+'''How do we calculate the SIWECOS score?'''
+
+The SIWECOS score for your website is calculated from over 100 different factors, weighted according to the severity of the detected security flaws and the checked segments of your website.  In addition, the five SIWECOS scanners show detailed results for their respective scan segments.
+These subdivided results will help you analyze and fix the detected security flaws.
+
+
+'''Why is my total result shown in red, although four out of five SIWECOS scanners show green results?'''
+
+We set the total result to a low value deliberately if a critical security flaw is detected. We do this to avoid giving website owners a false sense of security if, for example, 37 out of 39 scanners show no problems.
+
+For example, if an exploit has been deposited on your webserver, your website is unsafe, even if all other checks were completed without error. The situation is similar, for example, if you are using a Content Management System version that has a known security flaw. If no encryption is used, or if there are serious vulnerabilities such as Heartbleed or DROWN, this will also influence the total result in the same way.
+
+
+'''Can I get a detailed result for my score?'''
+
+Please understand that it is not possible for us to give you a detailed account of the calculated score. By giving an explanation of the results for the individual scanners and tests, together with the recommendations in our wiki, the results that we show in the overview are intended to provide you with the best possible support in solving your security problems. As mentioned above, the score is only intended as a visualization.
+
+
+'''Feedback, notes and comments'''
+
+We are open for any kind of feedback, notes and comments on SIWECOS. Of course, this includes our calculation of the SIWECOS score, or the weighting of individual scan and test results.
+We look forward to your professional input concerning error detection and calculation of the SIWECOS score. Contact: technik@siwecos.de

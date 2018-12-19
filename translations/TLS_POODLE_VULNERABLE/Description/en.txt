@@ -1,0 +1,1 @@
+The [[Server]] is vulnerable to a variant of the POODLE attack on [[Transport Layer Security|TLS]], which allows an attacker to decrypt the communication.

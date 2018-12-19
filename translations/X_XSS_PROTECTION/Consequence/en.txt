@@ -1,0 +1,1 @@
+Prevents reflected [[Cross-Site-Scripting|XSS-Angriffe]]. Easy to implement, and requires no further adjustments on the website.

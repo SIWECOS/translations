@@ -1,0 +1,1 @@
+Strict Transport Security ensures that the website can only be accessed via a secure [[HTTPS]] connection for a specified time period. The website operator can define the length of the time period, and whether this rule should also apply to subdomains.

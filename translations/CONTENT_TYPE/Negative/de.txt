@@ -1,0 +1,1 @@
+Inkorrekte HTTP Content-Type Konfiguration

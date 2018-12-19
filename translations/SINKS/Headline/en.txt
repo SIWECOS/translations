@@ -1,0 +1,1 @@
+Checking the JavaScript code for DOMXSS sinks

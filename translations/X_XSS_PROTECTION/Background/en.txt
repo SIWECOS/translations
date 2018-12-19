@@ -1,0 +1,1 @@
+This header activates the [[Cross-Site-Scripting]] (XSS) protection that is built into most current browsers (Internet Explorer, Chrome and Safari). This protection is active by default, so this header is only there to enable the page filter again if the user has disabled it. In addition, it is only supported in IE 8+, Opera, Chrome and Safari.

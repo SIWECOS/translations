@@ -1,0 +1,36 @@
+==Was bedeutet der SIWECOS Score? ==
+
+Der SIWECOS Score dient lediglich als ergänzende Visualisierungshilfe für den Sicherheitsstatus ihrer Webseite. Wesentlich wichtiger für den Sicherheitsstatus ihrer Webseiten sind die Ergebnisse der einzelnen Scanner. 
+
+Solange Ihnen ein grüner Wert für Ihre Webseiten angezeigt wird, sind Sie auf der sicheren Seite, unabhängig davon ob der Wert 85, 95 oder 100 beträgt. Die fehlenden Punkte stellen dabei lediglich Empfehlungen für eine optimale Konfiguration dar. 
+
+Sollten Ihr SIWECOS Score für ihre Webseite einen gelben Wert anzeigen, empfehlen wir Ihnen diese Schwachstellen zu beheben, da diese mit einem gewissen Risiko verbunden sind. 
+
+Sollte der SIWECOS Score einen roten Wert anzeigen, liegt mindestens ein signifikantes Sicherheitsproblem auf ihrer Webseite vor. Wir empfehlen Ihnen dringend diese Schwachstellen zu beheben, da Sie sonst möglichen Cyberangriffen ggf. schutzlos ausgeliefert sind.  
+
+Weitere Informationen zu den einzelnen Scannern und den damit verbundenen Schwachstellen finden Sie zusammen mit Lösungs-und Handlungsempfehlungen in unserem SIWECOS-Wiki unter https://www.siwecos.de/wiki/Hauptseite 
+
+
+'''Wie berechnet sich der SIWECOS Score?''' 
+
+Der SIWECOS Score für Ihre Webseite berechnet sich aus über 100 verschiedenen Faktoren mit unterschiedlichen Gewichtungen je nach erkannter Schwachstelle und überprüften Segmenten auf Ihrer Webseite.  Zusätzlich zeigen die 5 SIWECOS Scanner eigene Ergebnisse für ihr Scan-Segment an. 
+Diese Teil-Ergebnisse unterstützten Sie dabei zielgerecht die entdeckte Schwachstelle zu ermitteln und zu beheben. 
+
+
+'''Wieso liegt mein Gesamtergebnis im roten Bereich obwohl doch 4/5 SIWECOS Scanner ein grünes Ergebnis anzeigen?''' 
+
+Wir setzen bei der Kalkulation bewusst das Gesamtergebnis auf einen niedrigen Wert, wenn eine kritische Schwachstelle bei Ihnen erkannt wurde. Damit möchten wir vermeiden, dass ein Webseiten-Betreiber sich in falscher Sicherheit wägt, wenn z.B. 37/39 Scannern ohne Fund geblieben sind. 
+ 
+Wenn auf Ihrer Webseite z.B. ein Exploit hinterlegt wurde, ist ihre Webseite unsicher, unabhängig davon, ob alle weiteren Überprüfungen ohne Fehler durchgeführt wurden. Ähnliches trifft z.B. auch zu, wenn Sie ein Content Management System einsetzen, dessen Version nachweislich eine Schwachstelle aufweist.  Ebenso beeinflusst z.B. eine fehlende Verschlüsselung oder das Vorkommen gravierender Sicherheitslücken wie Heartbleed oder DROWN das Gesamtergebnis.
+
+
+'''Kann ich ein detailliertes Ergebnis meines Scores einsehen?''' 
+
+Bitte haben Sie Verständnis dafür, dass es uns nicht möglich ist Ihnen eine detaillierte Auflistung des ermittelten Scores zur Verfügung zu stellen. Wir versuchen mit den in der Übersicht bereitgestellten Ergebnissen der einzelnen Scanner und Tests sowie dem Empfehlungen in unserem Wiki Ihnen die bestmögliche Hilfestellung bei der Lösung der Sicherheitsprobleme zu geben. Der Score dient wie zuvor erwähnt dabei nur als visuelle Orientierungshilfe. 
+
+
+'''Feedback, Anmerkungen und Kommentare''' 
+
+Wir sind für Feedback, Anmerkungen und Kommentare jeder Art zu SIWECOS offen. Dazu gehört selbstverständlich auch unsere Berechnung des SIWECOS Score oder die Gewichtung einzelner Scan-und Testergebnisse. 
+Wir freuen uns deshalb über ihren fachlichen Input bei der Erkennung und Berechnung des SIWECOS Scores. Kontakt: technik@siwecos.de
+

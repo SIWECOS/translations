@@ -1,0 +1,1 @@
+[[Public-Key-Pins-Deaktiviert/DE/Background|Public-Key-Pinning]] nicht vorhanden. (HPKP wird derzeit nicht überprüft)

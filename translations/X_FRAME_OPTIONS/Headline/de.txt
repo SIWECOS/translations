@@ -1,0 +1,1 @@
+Überprüfung der HTTP-Header X-Frame Optionen

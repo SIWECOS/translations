@@ -1,0 +1,146 @@
+== Embedding the Siwecos seal on your website ==
+<br />
+[[File:siwecos_siegel.png|left|200px]] To show when the Siwecos scanners last checked your website, you can embed our Siwecos seal on your website.
+<br />
+<br />
+<br />
+'''Please note that the seal can only be embedded if you have [https://siwecos.de/app/#/register registered] with Siwecos!'''
+<br />
+<span style="color:#c31622"><font size="5">
+There are three ways to embed the Siwecos seal on your website
+</font><span>
+<br />
+<p>
+'''Note''': Currently you cannot use the seal on Domains with IDN names.
+</p>
+=='''<span style="color:#c31622">Option 1:<span>''' (seal is stored locally in your own webspace)==
+
+For this option, you store a small JavaScript file locally on your webserver. The advantage is that the seal will be shown on your website even if the Siwecos server is not available. In this case, only the date of the last scan will be replaced by '''Standby'''.
+
+<br />
+'''Instructions:'''
+* "'''Right-click with the mouse'''" on '''[https://siwecos.de/wp-content/plugins/seal-of-trust/seal.js seal.js]''' and, depending on your operating system, select "'''Save link as'''" or "'''Save target as'''" (see images), and save the seal image file in a directory of your choice (for example on the desktop).<br />
+
+{|
+|-
+|[[File:kontextmenue_speichern.png|Link speichern unter]] |[[File:kontext_menue_speichern2.png|Ziel speichern unter|200px]]<br />
+
+* Then upload the file to your website directory on the server of your hosting provider. In this directory, there is usually a subdirectory for '''JavaScript (for example 'src')'''. Save the file '''"seal.js"''' in this subdirectory.<br />
+* After this, the following code must be copied into the start page at the position where you want the seal to be shown:
+|}
+<br />
+
+'''Seal with direct link to our "certificate page".'''
+
+--snip
+
+<code>
+<a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|eigene_Webseite}}">
+
+&nbsp;&nbsp;<svg width="150" height="58" id="siwecos-seal" data-format="d.m.y"/>
+
+&nbsp;&nbsp;<script src="Pfad zum seal.js"></script>
+
+</a>
+</code>
+
+--snap
+
+
+Explanation for the source code:
+
+*'''width''' the width of the seal to be displayed.
+*'''height''' the heigth of the seal to be displayed.
+*'''data-siwecos''' your domain, without http / https{{#if:{{#urlget:userdomain}} | &nbsp;({{#urlget: userdomain}}) }}.
+*'''format''' (optional) the desired format.
+*'''src''' the path where the JavaScript can be found, for example /src/seal.js.
+
+The date's format ideally consist of 5 characters. The recommended Formats are:
+
+*'''d.m.y''' or '''d-m-y''' for british english format.
+*'''y-m-d''' for ISO-8601 format.
+
+
+
+
+
+=='''<span style="color:#c31622">Option 2:<span>'''  (seal is loaded from the Siwecos server)==
+
+This option is intended for users who are not familiar with website editing. All you need to do is to copy the provided code into the source code of your website and to enter the name of your website '''("my_Website")'''. '''The drawback of this option''' is that the image for the seal is loaded directly from the Siwecos server. If the Siwecos server is not available, the seal will not be displayed on your website.
+
+
+* Copy the code into your source code, for example into the start page of your website.
+
+--snip
+
+<code>
+<a href="https&#58;//siwecos.de/scanned-by-siwecos?data-siwecos={{#urlget:userdomain|my_Website}}"><img width="150" src="https://siwecos.de/wp-content/plugins/seal-of-trust/seal.php/My Website/d-m-y"></a>
+</code>
+
+--snap
+
+{{#if: {{#urlget:userdomain}} | |
+* Replace '''"my_Website"''' in the code with your '''domain name''' (without http/https)
+* '''<span style="color:#c31622">Attention:'''<span> This is the part that causes the most problems for users. Please make sure that you enter the domain name exactly as you have registered it with Siwecos (Example: If www.botfrei.de was registered, then www.botfrei.de must be entered for the seal!)
+<br />
+'''Complete example:'''
+[[File:Siegel_botfrei.png|left|800px]]
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+}}
+
+The date's format ideally consist of 5 characters. The recommended Formats are:
+
+*'''d.m.y''' or '''d-m-y''' for british english format.
+*'''y-m-d''' for ISO-8601 format.
+<br />
+'''Recommendation:''' Embedding the seal for the [[Content-Security-Policy-Vulnerability/EN | Content Security Policy]] ("img-src 'self' siwecos.de;")
+
+
+
+
+=='''<span style="color:#c31622">Option 3:<span>''' (Seal as a static image)==
+
+For this option you store the seal statically on your website. No data ('''e.g. the date of the daily scan''') will be loaded from Siwecos.
+
+
+* Static Seal
+[[File:seal_siwecos_static_final.png]]
+
+* Download the seal (right mouse click on the seal, '''Save Image as…''')
+* Copy the code below into your source code, for example into the start page of your website. Adjust {{#if: {{#urlget:userdomain}} | | the name of your website '''("my_Website")''' and }} the '''("path to the image")'''.
+
+
+--snip
+
+<code>
+<a href="https&#58;//siwecos.de/scanned-by-siwecos?data-siwecos={{#urlget:userdomain|my_Website}}"><img src="path to the image"></a>
+</code>
+
+--snap
+
+<br />
+
+=='''<span style="color:#c31622">Seal from the perspective of data protection <span>''' ==
+<br />
+'''SiWECOS - Seal'''
+<br /><br />
+As a user of the SIWECOS website scanner, you have the possibility to incorporate the SIWECOS Seal on your website. TheSIWECOS Seal highlights, for visitors to your website, that the site they are surfing on is a secure website that is subject to regular security checks through the use of the SIWECOS website scanner. When the Seal is accessed, the webserver automatically saves a so-called server-logfile of the website visitor. This server-logfile contains the following user data:
+
+'''-	IP address of the accessing computer<br />'''
+'''-	Date and time of access<br />'''
+'''-	Data volume transferred and the querying provider.<br />'''
+
+The legal foundation for the processing of the IP address is Art. 6 (1) f) GDPR. Our legitimate interestarises out of the following list of purposes for data collection.
+The IP address of your device and the further data listed above are used by us for the following purposes:
+
+'''-	Presentation of the SIWECOS Seal on the website being surfed<br />'''
+
+SIWECOS generates no user profile data collected and no inferences are made regarding the identity of the website visitor. These data are alanyzed exclusively to ensure the disruption-free operation and are automatically overwritten at the latest seven days after the visit to the website.
+
+<br />
+'''For further information, please refer to our [[Frequently Asked Questions | FAQ]]'''

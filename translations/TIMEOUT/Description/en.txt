@@ -1,0 +1,7 @@
+A timeout means that the scan of your domain took longer than usual.
+
+Some possible reasons are:
+
+Your server is currently not available, or it is overloaded.
+
+Our scanner server is currently overloaded.

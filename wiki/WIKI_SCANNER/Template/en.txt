@@ -1,0 +1,18 @@
+=== <span style="color:#c31622">{{:{{PAGENAME}}/Headline}}<span>===
+
+{| class="wikitable"
+|'''Check'''|| {{:{{PAGENAME}}/Negative}}
+|-
+|'''Beschreibung'''||  {{:{{PAGENAME}}/Description}}
+|-
+|'''Hintergrund'''||  {{:{{PAGENAME}}/Background}}
+|-
+|'''Auswirkung'''||  {{:{{PAGENAME}}/Consequence}}
+|-
+|'''Lösung / Tipps'''||  {{:{{PAGENAME}}/Solution_Tips}}
+|}
+
+
+[[Category:Siwecos-Scanner]]
+[[Category:{{:{{PAGENAME}}/Category}}]]
+[[Category:Glossar]]

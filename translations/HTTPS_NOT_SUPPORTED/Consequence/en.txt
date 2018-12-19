@@ -1,0 +1,1 @@
+Everyone can read your data or manipulate the content of your website during transmission.

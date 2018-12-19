@@ -1,0 +1,1 @@
+Cookies should be secured by setting the HttpOnly and Secure flags to ensure they cannot be read or altered by others.

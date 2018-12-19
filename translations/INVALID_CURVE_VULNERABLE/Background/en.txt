@@ -1,0 +1,1 @@
+For cryptographic encryption, elliptic curves must be selected very carefully because the keys are created from certain points on a curve, which is not easy to do.

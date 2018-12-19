@@ -1,0 +1,1 @@
+For small and medium-sized companies, the target group of SIWECOS, this header is usable, but not an absolute must. If this header is configured wrongly, your website may not be available for users for a long period of time, namely until the correct [[Zertifikate]] are used, or until the previously sent header expires.
