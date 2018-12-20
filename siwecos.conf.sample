@@ -1,0 +1,31 @@
+# simple config file
+# - # starts a comment
+# - empty lines are ignored
+# - settings are lines which
+#   - start with a word
+#   - followed by
+#     - whitespace or
+#     - an = surrounded by optional whitespace
+#   - followed by the setting's value
+#     - optionally enclosed in " or '
+#     - backslashes will escape the next character
+#
+# This is the directory where the language file will be created
+LANGUAGE_DIR       .../siwecos-business-layer/resources/lang
+#
+# This is the name of the language file
+LANGUAGE_FILE      siwecos.php
+#
+# The target-attribute's name for wiki links
+TARGET_WIKI_LINK   siwecos_wiki
+#
+# The target-attribute's name for external links
+TARGET_EXTERN_LINK siwecos_extern
+#
+# This is the path to the directory where all translations can be found.
+# defaults to "translations" in the executable's directory
+# TRANSLATIONS_DIR .../translations
+#
+# This is the path to the language template file.
+# Default is a file called "dir2lang.txt" in the executable's directory.
+# LANG_TEMPLATE .../dir2lang.txt

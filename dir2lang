@@ -58,18 +58,6 @@ Like B<--dryrun> but keep the files in DIRNAME.
 
 =cut
 ###########################################################
-my $settingsfile= '';
-###########################################################
-=item B<--settings> SETTINGSFILE
-
-=item B<-s> SETTINGSFILE
-
-Path to the settings file.
-
-Default is "siwecos.conf" in the executable's directory.
-
-=cut
-###########################################################
 my $configfile= '';
 ###########################################################
 =item B<--config> CONFIGFILE
