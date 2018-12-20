@@ -1,0 +1,521 @@
+#!/usr/bin/perl
+=head1 NAME
+
+dir2lang - Convert SIWECOS translations to be used by the application
+
+=head1 SYNOPSIS
+
+B<dir2lang> [B<-v>] [B<--dryrun>] [B<--test> DIRNAME] [more options]
+
+B<dir2lang> B<--help>|B<--man>
+
+=head1 Description
+
+dir2lang will take all SIWECOS translations found in a subdirectory
+"translations" and copy them into a PHP file.
+
+=cut
+use strict;
+use warnings;
+use POSIX;
+use File::Path;
+use File::Temp qw/ tempdir /;
+use FindBin qw($Bin $Script);
+use Getopt::Long qw(:config no_ignore_case);
+use Pod::Usage;
+use lib "$Bin/lib";
+use MediaWiki::API;
+use Config::Simplest;
+use SimpleProgressBar;
+use utf8;
+
+binmode(STDOUT, ":utf8");
+
+=head1 options
+
+=over 4
+
+=cut
+
+###########################################################
+my $dryrun = 0;
+###########################################################
+=item B<--dryrun>
+
+=item B<-d>
+
+Just test the translations.
+
+=cut
+###########################################################
+my $test = '';
+###########################################################
+=item B<--test> DIRNAME
+
+=item B<-t> DIRNAME
+
+Like B<--dryrun> but keep the files in DIRNAME.
+
+=cut
+###########################################################
+my $settingsfile= '';
+###########################################################
+=item B<--settings> SETTINGSFILE
+
+=item B<-s> SETTINGSFILE
+
+Path to the settings file.
+
+Default is "siwecos.conf" in the executable's directory.
+
+=cut
+###########################################################
+my $configfile= '';
+###########################################################
+=item B<--config> CONFIGFILE
+
+=item B<-c> CONFIGFILE
+
+Path to the config file.
+
+Default is "siwecos.conf" in the executable's directory.
+
+=cut
+###########################################################
+my $wikiconf= '';
+###########################################################
+=item B<--wikiconf> WIKI.CONF
+
+=item B<-w> WIKI.CONF
+
+Path to the wiki.conf configuration file.
+
+Default is "wiki.conf" in the executable's directory.
+
+=cut
+###########################################################
+my $verbose= 0;
+###########################################################
+=item B<-v>
+
+Verbose output.
+
+=cut
+###########################################################
+help() unless GetOptions(
+    'v+'         => \$verbose,
+    'dryrun'     => \$dryrun,
+    'test=s'     => \$test,
+    'wikiconf=s' => \$wikiconf,
+    'config=s'   => \$configfile,
+    'h|help'     => \&help,
+    'm|man'      => \&man,
+);
+
+###########################################################
+=item B<--help>
+
+short help page
+
+=item B<--man>
+
+show man page
+
+=back
+
+=cut
+###########################################################
+
+sub help { pod2usage(-verbose=>1); }
+sub man  { pod2usage(-verbose=>2); }
+
+my $CLEARLINE= "\r\x1b[2K";
+my $CURSORUP= "\r\x1b[1A";
+$|=1;
+
+# Configuration files
+# Location and names of some directories / files
+# $Bin = absolute path of this script
+# $Script = filename of this script
+###########################################################
+=head1 files
+
+=over 4
+
+=cut
+
+###########################################################
+my $settings= get_config($wikiconf || "$Bin/wiki.conf", qw(WIKI API));
+###########################################################
+=item B<wiki.conf>
+
+The B<wiki.conf> file has to be in the same directory as the executable.
+
+Alternatively it can be defined with the B<--wikiconf> option.
+
+Required definitions in here are
+
+=over 4
+
+=item B<API>
+
+The UrL of the MediaWiki API.
+
+=item B<WIKI>
+
+The URL of the Wiki.
+
+=back
+
+=cut
+###########################################################
+my $config= get_config($configfile || "$Bin/siwecos.conf");
+###########################################################
+=item B<siwecos.conf>
+
+The B<siwecos.conf> file has to be in the same directory as the executable.
+
+Alternatively it can be defined with the B<--config> option.
+
+Required definitions in here are
+
+=over 4
+
+=cut
+###########################################################
+my $LANGUAGE_DIR= $config->{LANGUAGE_DIR} || "$Bin/lang";
+###########################################################
+=item B<LANGUAGE_DIR>
+
+This needs to be the path to the siwecos-business-layer's lang directory in resources.
+Here the language file will be stored.
+
+Default is the directory "lang" in the executables directory.
+
+=cut
+###########################################################
+my $LANGUAGE_FILE= $config->{LANGUAGE_FILE} || "siwecos.php";
+###########################################################
+=item B<LANGUAGE_FILE>
+
+This is just the name of the language file.
+Do not put a path here,
+
+Default is "siwecos.php".
+
+=cut
+###########################################################
+my $WIKI_LINK= $config->{TARGET_WIKI_LINK} || "siwecos_wiki";
+###########################################################
+=item B<TARGET_WIKI_LINK>
+
+This name will be used for the target attribute in generated HTML for all links which point to the wiki.
+
+Default is "siwecos_wiki".
+
+=cut
+###########################################################
+my $WIKI_EXTERN= $config->{TARGET_EXTERN_LINK} || "siwecos_extern";
+###########################################################
+=item B<TARGET_EXTERN_LINK>
+
+This name will be used for the target attribute in generated HTML for all links which point to external sites.
+
+Default is "siwecos_extern".
+
+=cut
+###########################################################
+my $TRANSLATIONS= $config->{TRANSLATIONS_DIR} || "$Bin/translations";
+###########################################################
+=item B<TRANSLATIONS_DIR>
+
+This is the path to the directory where all translations can be found.
+
+Default is the directory "translations" in the executable's directory.
+
+=cut
+###########################################################
+my $TEMPLATEFILE= $config->{LANG_TEMPLATE} || "$Bin/$Script.txt";
+###########################################################
+=item B<LANG_TEMPLATE>
+
+This is the path to the language template file.
+
+Default is a file called "dir2lang.txt" in the executable's directory.
+
+=cut
+
+=back
+
+=back
+
+=cut
+###########################################################
+
+# Expected purposes
+my $CATEGORY     = 'Category';
+my $DESCRIPTION  = 'Description';
+my $HEADLINE     = 'Headline';
+my $LINK         = 'Link';
+my $ERROR_TEXT   = 'Negative';
+my $SUCCESS_TEXT = 'Positive';
+my $TIPP         = 'Solution_Tips';
+
+my %PREPARE = (
+    $CATEGORY     => \&oneline,
+    $DESCRIPTION  => \&parse_wiki,
+    $HEADLINE     => \&oneline_wiki,
+    $LINK         => \&wikilink,
+    $ERROR_TEXT   => \&oneline_wiki,
+    $SUCCESS_TEXT => \&oneline_wiki,
+    $TIPP         => \&parse_wiki,
+);
+
+# Prepare some output stuff
+my @SEQUENCE; # Sequence of placeholders in output
+my %SUFFIX;   # Suffix for the placholder
+my $fill= 0;  # number of spaces to use to align values vertically
+my $v=0;
+foreach (
+    # This defines the sequence in the output file
+    # As well as the SUFFIX appended to the placholder
+    $HEADLINE     => '',
+    $SUCCESS_TEXT => 'SUCCESS',
+    $ERROR_TEXT   => 'ERROR',
+    $DESCRIPTION  => 'ERROR_DESC',
+    $TIPP         => 'TIPS',
+    $LINK         => 'LINK',
+) {
+    # This will set up the required data structures
+    if ($v) {
+        my $suffix= $_;
+        $suffix= "_$_" if $_;
+        $SUFFIX{$SEQUENCE[$#SEQUENCE]}= $suffix;
+        my $l= length $suffix;
+        $fill= $l if $l > $fill;
+    } else {
+        push @SEQUENCE, $_;
+    }
+    $v= 1-$v;
+}
+
+# First prepare the template
+open my $template, '<', $TEMPLATEFILE
+    or die "Cannot read template $TEMPLATEFILE: $!\n";
+my @template= <$template>;
+close $template;
+
+die "Cannot access directory $TRANSLATIONS\n"
+    unless -x $TRANSLATIONS and -r $TRANSLATIONS;
+# get all translation filenames
+# Directory structure is $TRANSLATIONS / placeholder / purpose / language ".txt"
+# Also collect categories
+my $language_data= {};
+my $categories= {};
+my %category_missing;
+my %category_found;
+my %translations_found;
+my %translations_language;
+my $todo;
+foreach( glob("$TRANSLATIONS/*/*/*.txt") ) {
+    # Split pathname into parts
+    my ($placeholder, $purpose, $lang)= (split m#/#, $_)[-3..-1];
+    # remove filename extension
+    $lang=~ s#\.[^./]+$##;
+    next unless $purpose eq 'Category'
+        or exists $SUFFIX{$purpose};
+    # Read the file
+    if( open my $trans, '<', $_ ) {
+        binmode($trans, ":utf8");
+        # into our data structures
+        my $text= do {
+            local $/;
+            <$trans>;
+        };
+        for ($text) {
+            chomp;
+            s/[ \t]+$//gm;
+        }
+        close $trans;
+        # If a category is set, setup the category data structure
+        if( $purpose eq "Category" ) {
+            $language_data->{$lang}->{$placeholder} ||= {};
+            $categories->{$lang}->{$text}->{$placeholder} = $language_data->{$lang}->{$placeholder};
+            ++$category_found{$lang}->{$placeholder};
+        } else {
+            $language_data->{$lang}->{$placeholder}->{$purpose}= $text;
+            ++$category_missing{$lang}->{$placeholder};
+            my $text= "$purpose for $placeholder";
+            ++$translations_found{$text};
+            ++$translations_language{$lang}->{$text};
+            ++$todo;
+        }
+    }
+    else {
+        warn $CLEARLINE."Can't read $_: $!";
+    }
+}
+# All translations are in memory now
+
+# debug my $count;
+# debug while (my($lang, $v) = each %$categories) {
+# debug     while (my($cat, $v) = each %$v) {
+# debug         while (my($pl, $v) = each %$v) {
+# debug             while (my($pu, $v) = each %$v) {
+# debug                 ++$count;
+# debug             }
+# debug         }
+# debug     }
+# debug }
+# debug die $count,"\t",$todo;
+
+my $lang_dir = tempdir( DIR => $Bin, CLEANUP => 1 )
+    or die "Failed to create a temorary directory in $Bin: $!\n";
+
+# We need to use the wiki
+my $mw = MediaWiki::API->new({
+    api_url => $settings->{API},
+});
+
+my $progress= SimpleProgressBar->new(
+    max => $todo,
+    rotator => ($todo > 100) ? "\x{2838}\x{28b0}\x{28e0}\x{28c4}\x{2846}\x{2807}\x{280b}\x{2819}" : undef,
+    cursor => 1,
+    fill => "\x{28ff}",
+    empty => "\x{2880}",
+);
+my $done;
+# Go through each language
+foreach my $language (keys %$categories) {
+    delete @{$category_missing{$language}}{ keys %{$category_found{$language}} };
+    foreach my $placeholder (sort keys %{$category_missing{$language}}) {
+        warn $CLEARLINE."Missing $language category for $placeholder\n";
+        $categories->{$language}->{"* NO CATEGORY *"}->{$placeholder}=$language_data->{$language}->{$placeholder};
+    }
+    foreach (sort keys %translations_found) {
+        next if exists $translations_language{$language}->{$_};
+        warn $CLEARLINE."Missing $language $_\n";
+    }
+    my $cats= $categories->{$language};
+    # Create a directory for the language
+    mkdir "$lang_dir/$language"
+        or die $CLEARLINE."Failed to create directory $lang_dir/$language: $!\n";
+    # Create the language file for the current language
+    open my $out, '>', "$lang_dir/$language/$LANGUAGE_FILE"
+        or die $CLEARLINE."Failed to create $lang_dir/$language/$LANGUAGE_FILE: $!\n";
+    binmode($out, ':utf8');
+    # Work through the template lines
+    foreach (@template) {
+        # Until the placeholder /* DATA HERE */ is found
+		if( m#^(\s*)/\*\s*DATA\s*HERE\s*\*/\s*#)  {
+            # Remember the indent
+            my $indent= $1;
+            # Go through each category in alphabetical order
+            foreach my $category (sort keys %$cats) {
+                # Print the category as comment
+                print $out "$indent//\n$indent// Category: $category\n";
+                my $placeholders= $cats->{$category};
+                # Go through each placeholder in alphabetical order
+                foreach my $placeholder (sort keys %$placeholders){
+                    # Print the placeholder as a comment
+                    print $out "$indent//\n$indent// $placeholder\n";
+                    my $p= $placeholders->{$placeholder};
+                    # Go through each of the purposes we want to print
+                    # They are defined at the top under "# Prepare some output stuff"
+                    foreach my $purpose (@SEQUENCE) {
+                        my $text= $p->{$purpose};
+                        # Skip this entry if there is nothing to be printed
+                        next unless defined $text;
+                        $progress->update($done++);
+                        my $prepare= $PREPARE{$purpose};
+                        if( $prepare ){
+                            $text= $prepare->($mw, $text, $placeholder, $purpose, $language);
+                        }
+                        my $suffix= $SUFFIX{$purpose};
+                        my $fillstring= ' ' x ($fill - length $suffix);
+                        print $out "$indent'$placeholder$suffix'$fillstring => \"$text\",\n";
+                    }
+                }
+            }
+		} else {
+            # Print an unmodified template line
+    		print $out $_;
+		}
+	}
+}
+$progress->update($done);
+if ($dryrun) {
+    # remove newly created language files
+    rmtree($lang_dir);
+} else {
+    # remove existing language files
+    $LANGUAGE_DIR = $test if $test;
+    if ( -e $LANGUAGE_DIR ) {
+        rmtree($LANGUAGE_DIR);
+    }
+    # rename the new language file directory
+    rename $lang_dir, $LANGUAGE_DIR
+        or die "Failed to create directory $LANGUAGE_DIR: $!\n";
+}
+
+sub parse_wiki {
+    my($mw, $text, $placeholder, $purpose, $lang)= @_;
+    print "\n",$CLEARLINE,"Parsing $placeholder, $purpose, $lang" if $verbose;
+    my $result= $mw->api({
+        action => 'parse',
+        format => 'json',
+        title => 'none',
+        text => $text,
+        prop => 'text|links|externallinks',
+        disablelimitreport => 'true',
+    });
+    if( not $result ) {
+        die $mw->{error}->{details}. ' ('. $mw->{error}->{code} . ')';
+    }
+    local($_)= $result->{parse}->{text}->{'*'};
+    foreach my $link (@{$result->{parse}->{links}}) {
+        my $linktext= quotemeta $link->{'*'};
+        if (not exists $link->{exists}) {
+            print $CURSORUP if $verbose;
+            warn $CLEARLINE."Missing link: $linktext in $placeholder, $purpose, $lang.\n";
+            print "\n" if $verbose;
+        }
+        s#(<a\b[^>]+\b)(href=")/wiki(/[^>"]+"[^>]+\btitle="$linktext")#"$1target=\x22$WIKI_LINK\x22 $2".$settings->{WIKI}.$3#ge;
+    }
+    foreach my $link (@{$result->{parse}->{externallinks}}) {
+        my $linktext= quotemeta $link;
+        s#(<a\b[^>]*href="$linktext"[^>]*>)#replace_target($1, $WIKI_EXTERN)#ge;
+    }
+    s/\\/\\\\/sg;
+    s/\n/\\n/sg;
+    s/\r/\\r/sg;
+    s/"/\\"/sg;
+    print $CLEARLINE,$CURSORUP if $verbose;
+    return $_;
+}
+
+sub oneline_wiki {
+    local($_)= parse_wiki(@_);
+    s#</?p>##sg;
+    s/&#160;/ /sg;
+    return $_;
+}
+
+sub oneline {
+    my($mw, $text, $placeholder, $purpose)= @_;
+    local($_)= $text;
+    s/[\r\n]+/ /sg;
+    s/&#160;/ /sg;
+    return $_;
+}
+
+sub wikilink {
+    my($mw, $text, $placeholder, $purpose, $lang)= @_;
+    return $settings->{WIKI}."/$text/".uc($lang);
+}
+
+sub replace_target {
+    my($a, $target)= @_;
+    $a=~ s/(?<=\btarget=)(["'']).*?\1/$1$target$1/g;
+    return $a;
+}
