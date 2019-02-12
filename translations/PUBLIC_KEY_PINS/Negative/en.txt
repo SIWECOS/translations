@@ -1,1 +1,1 @@
-Public Key Pinning is not available.
+[https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning Public Key Pinning] is not available (HPKP is currently not under review).

@@ -1,1 +1,1 @@
-Moderne TLS 1.3 unterstützt
+Modernes [[Transport_Layer_Security|TLS 1.3 Protokoll]] wird unterstützt.

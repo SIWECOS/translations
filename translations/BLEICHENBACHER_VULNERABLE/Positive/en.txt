@@ -1,1 +1,1 @@
-Not vulnerable to Bleichenbacher (ROBOT)
+Not vulnerable to [https://en.wikipedia.org/wiki/RSA_(cryptosystem)#Adaptive_chosen_ciphertext_attacks Bleichenbacher] (ROBOT).

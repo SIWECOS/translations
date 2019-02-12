@@ -1,1 +1,1 @@
-Überprüfung auf die Ephemeral Invalid Curve Schwachstelle. <span class="promarker></span>
+Überprüfung auf die Ephemeral Invalid Curve Schwachstelle <span class="promarker"></span>

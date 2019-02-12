@@ -1,1 +1,1 @@
-CMS plugin detected
+[https://en.wikipedia.org/wiki/Content_management_system CMS plug-in] detected

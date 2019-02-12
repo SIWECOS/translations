@@ -3,9 +3,9 @@ nosniff; <br><br>
 '''--snip'''<pre>
 <IfModule mod_headers.c>
    # prevent mime based attacks like drive-by download attacks, IE and Chrome
-   '''Header set X-Content-Type-Options „nosniff“'''
+   '''Header set X-Content-Type-Options "nosniff"'''
 <pre></IfModule></pre>
 '''—snap'''
 
 Here is an example of an .htaccess file which will set the '''HTTP-Security-Header-Scanner''' to green.
-([[Htaccess|.htaccess-Beispiel]])
+([[Htaccess|.htaccess example (German only]])

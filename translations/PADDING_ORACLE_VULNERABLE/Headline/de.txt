@@ -1,1 +1,1 @@
-Überprüfung auf die Padding-Oracle Schwachstelle. <span class="promarker></span>
+Überprüfung auf die Padding-Oracle Schwachstelle <span class="promarker"></span>

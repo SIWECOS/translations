@@ -1,22 +1,6 @@
 
-== Siwecos Meta-Tag in den WordPress-Header einfügen ==
+== Siwecos Meta-Tag in den Jimdo-Header einfügen ==
 
-Es gibt die Möglichkeit als Admin von WordPress, über den Backendbereich diverse Systemrelevante Dateien manuell zu bearbeiten.
+Wie Sie den Jimdo-Header bearbeiten können, wird bei [https://www.homepage-ratgeber.de/magazin/jimdo-com-so-bearbeitest-du-den-header/ Homepage Ratgeber] genau erklärt. 
 
-
-[[File:Wp_header_php.png| 600px]]
-
-
-
-'''Anleitung:'''
-
-*Melden Sie sich in Ihrem Wordpress an ('''Adminrechte sind erforderlich''')
-*Wählen Sie im Menü (linke Seite) "'''Design'''" und dort den "'''Editor'''". 
-*Auf der rechten Seite erscheint die Auswahl "'''Themen-Dateien'''". 
-*Dort wählen Sie die Datei "'''header.php'''", der Inhalt der "'''header.php'''" erscheint im Bearbeitungsfenster in der Mitte.
-*Nun haben Sie sie Möglichkeit die "'''header.php'''" zu bearbeiten.
-*Kopieren Sie nun Ihre "'''[[Domain-Verifizierung | Meta Informationen von Siwecos]]'''" in den Bereich des '''<head> </head>''' (siehe Bild).
-*Wenn alles OK ist, muß die Änderung gespeichert werden. Das machen Sie im unteren Bereich von WordPress "'''Datei aktualisieren'''".
-*Nun ist Ihre Domain vorbereitet für die Verifizierung bei Siwecos.
-*Weiter zu [https://siwecos.de siwecos.de]
-
+Weiter zu [https://siwecos.de siwecos.de]

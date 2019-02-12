@@ -1,0 +1,1 @@
+Ihr Webserver/Ihre Webseite ist so konfiguriert, dass Sie die mittlerweile als unsicher geltende Verschlüsselungsfunktion DES ([[Client-Verschlüsselungsmethodik/DE|Cipher Suites]]) unterstützt. Dies ermöglicht [[Man-in-the-middle]]-Attacken.

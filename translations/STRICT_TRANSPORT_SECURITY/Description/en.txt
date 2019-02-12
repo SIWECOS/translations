@@ -1,1 +1,1 @@
-Strict Transport Security ensures that the website can only be accessed via a secure [[HTTPS]] connection for a specified time period. The website operator can define the length of the time period, and whether this rule should also apply to subdomains.
+[https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security HTTP Strict Transport Security (HSTS)] ensures that the website can only be accessed via a secure HTTPS connection for a specified time period. The website operator can define the length of the time period, and whether this rule should also apply to subdomains.

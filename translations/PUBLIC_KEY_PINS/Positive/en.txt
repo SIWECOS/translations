@@ -1,1 +1,1 @@
-Public Key Pinning is active
+[https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning Public Key Pinning] is active (HPKP is currently not under review).

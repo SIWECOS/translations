@@ -1,1 +1,1 @@
-TLS 1.3 nicht unterstützt
+[[Transport_Layer_Security|TLS 1.3 Protokoll]] wird nicht unterstützt.

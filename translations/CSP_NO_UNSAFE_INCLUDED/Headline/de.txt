@@ -1,1 +1,1 @@
-Die Content-Security-Policy-Schwachstelle (CSP) enthält keine unsafe- Direktiven, ist möglicherweise jedoch nicht sicher eingestellt.
+Die Content-Security-Policy-Schwachstelle (CSP) enthält keine unsicheren (unsafe) Direktiven, ist möglicherweise jedoch nicht sicher eingestellt.

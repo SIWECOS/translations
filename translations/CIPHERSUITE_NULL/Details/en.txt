@@ -1,0 +1,1 @@
+Your web server/website is configured to allow unencrypted data transmission although [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS] voice transmission is used. This makes you vulnerable to [https://en.wikipedia.org/wiki/Man-in-the-middle_attack man-in-the-middle-attacks].

@@ -1,1 +1,1 @@
-Not vulnerable to POODLE
+Not vulnerable to [https://en.wikipedia.org/wiki/POODLE POODLE]

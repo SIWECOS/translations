@@ -1,1 +1,1 @@
-Check of the X-Content-Type header.
+Check of the X-Content-Type header

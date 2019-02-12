@@ -1,5 +1,3 @@
-work in progress...
-
 {|
 |
 == What is an .htaccess file? ==

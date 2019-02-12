@@ -1,1 +1,1 @@
-Die [[Content-Type-Nicht-Korrekt/DE|Content Type Angabe]] ist korrekt konfiguriert.
+Die [[Content-Type-Nicht-Korrekt/DE/Background|Content Type Angabe]] ist korrekt konfiguriert.

@@ -1,1 +1,1 @@
-Überprüfung des Public Key Pinning (HPKP) - Ist aktuell deaktiviert.
+Überprüfung des Public Key Pinning (HPKP) - Ist aktuell deaktiviert

@@ -1,1 +1,1 @@
-Verwundbar durch [[PADDING-ORACLE-Schwachstelle/DE/Background|Padding Oracle Angriffe]]
+Verwundbar durch [[PADDING-ORACLE-Schwachstelle/DE/Background|Padding Oracle Angriffe]].

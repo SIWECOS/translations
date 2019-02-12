@@ -1,1 +1,1 @@
-Überprüfung auf die Heartbleed Schwachstelle. <span class="promarker></span>
+Überprüfung auf die Heartbleed Schwachstelle <span class="promarker"></span>

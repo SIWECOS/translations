@@ -1,0 +1,509 @@
+#!/usr/bin/perl
+=head1 NAME
+
+dir2wiki - Push SIWECOS translations to the WIKI
+
+=head1 SYNOPSIS
+
+B<dir2wiki> [B<-v>] [B<--dryrun>] [B<--refresh>]
+
+B<dir2wiki> B<--help>|B<--man>
+
+=head1 Description
+
+dir2wiki will take all SIWECOS translations found in a subdirectory
+"translations" and push them to the SIWECOS WIKI.
+
+=cut
+
+use strict;
+use warnings;
+use FindBin qw($Bin $Script);
+use File::Basename;
+use Getopt::Long qw(:config no_ignore_case);
+use Pod::Usage;
+use lib "$Bin/lib";
+use MediaWiki::API;
+use Config::Simplest;
+use SimpleProgressBar;
+use utf8;
+
+binmode(STDOUT, ':utf8');
+
+=head1 options
+
+=over 4
+
+=cut
+
+my $dryrun = 0;
+=item B<--dryrun>
+
+=item B<-d>
+
+Just test the changes.
+
+=cut
+
+my $refresh= 0;
+=item B<--refresh>
+
+=item B<-r>
+
+Refresh the pages, so purge the cache.
+
+If given twice, pages are not tested for changes. This will just purge the
+caches without updating any pages.
+
+=cut
+
+my $junk= 0;
+=item B<--junk>
+
+Junk pages.
+
+=cut
+
+my $verbose= 0;
+
+=item B<-v>
+
+Verbose output.
+
+Will show more output if given twice.
+
+=cut
+
+help() unless GetOptions(
+    'v+'         => \$verbose,
+    'dryrun'     => \$dryrun,
+    'junk'       => \$junk,
+    'refresh+'   => \$refresh,
+    'h|help'     => \&help,
+    'm|man'      => \&man,
+);
+
+=item B<--help>
+
+short help page
+
+=item B<--man>
+
+show man page
+
+=back
+
+=cut
+
+sub help { pod2usage(-verbose=>1); }
+sub man  { pod2usage(-verbose=>2); }
+
+my $settings= get_config("$Bin/wiki.conf", qw(API USER PASS));
+
+my $TRANSLATIONS= "$Bin/translations";
+my $WIKITEXT= "$Bin/wiki";
+my $SCANNER_TEMPLATE= 'WIKI_SCANNER/Template';
+my @PURPOSES= (
+   'Link',          # (Part of) the pagename of the article
+   'Headline',      # Headline of the article
+   'Negative',      # Content of "Check"
+   'Description',
+   'Background',
+   'Consequence',
+   'Solution_Tips',
+   'Category',
+);
+
+my %SCANNER_TEMPLATES;
+# check for which languages we do have a template
+foreach (glob qq("$WIKITEXT/$SCANNER_TEMPLATE/*.txt")) {
+    # extract the language
+    my $lang= uc( basename($_, '.txt' ) );
+    my $text= '';
+    # Read the template
+    if (open my $file, '<', $_) {
+        binmode($file, ':utf8');
+        $text= do {
+            local $/;
+            <$file>;
+        };
+        chomp($text);
+        close $file;
+    } else {
+        die "Missing $_.\n";
+    }
+    $SCANNER_TEMPLATES{$lang}= $text;
+}
+
+die "No Scanner Templates in\n\t$TRANSLATIONS/$SCANNER_TEMPLATE.\n"
+    unless %SCANNER_TEMPLATES;
+
+# Now go through all the placeholders we have
+my %content;
+my @selection= ('*');
+# Maybe there are specific ones...
+@selection= splice @ARGV if @ARGV;
+foreach my $specific (@selection) {
+    foreach my $dir (glob qq("$TRANSLATIONS/$specific")) {
+        my $placeholder= basename $dir;
+        # skip everything which is not a WIKI entry
+        if (not -d "$dir/Link") {
+            # warn if it seems to be a WIKI entry
+            if ( -d "$dir/Background"
+              or -d "$dir/Solution_Tipps") {
+                warn "$placeholder seems to be a wiki entry, but has no Link\n";
+            }
+            next;
+        }
+        # Get the content for each required purpose
+        read_placeholder_content(\%content, $dir, $placeholder, @PURPOSES);
+    }
+    foreach my $dir (glob qq("$WIKITEXT/$specific")) {
+        my $placeholder= basename $dir;
+        # skip everything which is not a WIKI entry
+        if (not -d "$dir/link") {
+            # warn if it seems to be a WIKI entry
+            if ( -d "$dir/wikitext" ) {
+                warn "$placeholder seems to be a wiki page, but has no Link\n";
+            }
+            next;
+        }
+        read_placeholder_content(\%content, $dir, $placeholder, qw( link wikitext ));
+    }
+}
+
+# Check the pagenames
+my (
+    %pagenames,
+    %placeholders,
+    $fatal,
+);
+my $todo= 0;
+foreach my $lang (keys %content) {
+    foreach my $placeholder (keys %{$content{$lang}}) {
+        my $link= delete $content{$lang}->{$placeholder}->{"/Link"};
+        if ($link) {
+            $link.= "/$lang";
+            if (exists $placeholders{lc $link}) {
+                warn "Duplicate link $link\n\tfor $placeholder\n\tand ".$placeholders{lc $link}."\n";
+                ++$fatal;
+                next;
+            }
+            $placeholders{lc $link}= $placeholder;
+            $pagenames{$lang}->{$placeholder}= $link;
+            $todo += scalar keys %{$content{$lang}->{$placeholder}};
+        } else {
+            warn "No link text for $lang $placeholder\n";
+            ++$fatal;
+        }
+    }
+}
+
+die "Too many fatal errors.\n" if $fatal;
+
+#Prepare the SimpleProgressBar
+my $progress= SimpleProgressBar->new(
+    max => $todo,
+    rotator => ($todo > 100) ? "\x{2838}\x{28b0}\x{28e0}\x{28c4}\x{2846}\x{2807}\x{280b}\x{2819}" : undef,
+    cursor => 1,
+    fill => "\x{28ff}",
+    empty => "\x{2880}",
+);
+my $done= 0;
+
+my $mw = MediaWiki::API->new({
+    api_url => $settings->{API},
+});
+
+# log in to the wiki
+$mw->login( { lgname => $settings->{USER}, lgpassword => $settings->{PASS} } )
+  || die  $mw->{error}->{details}. ' ('. $mw->{error}->{code} . ')';
+
+
+# For some statistics
+my %count;
+
+if ($dryrun) {
+    print "Doing dryrun. Will show pages which would be updated\n";
+}
+# For each language
+foreach my $lang (keys %content) {
+    $count{$lang}= {
+        same => 0,
+        changed => 0,
+        created => 0,
+        pages => 0,
+        refreshs => 0,
+    };
+    # For each placeholder
+    foreach my $placeholder (keys %{ $content{$lang} }) {
+        my $changed= 0;
+        my $created= 0;
+        my $same= 0;
+        my $junked= 0;
+        # create each purpose's entry
+        # purpose starts with "/" except for the template page where purpose is empty
+        my $basename= $pagenames{$lang}->{$placeholder};
+        my $purposes= $content{$lang}->{$placeholder};
+        foreach my $purpose (sort { $b cmp $a } keys %{$content{$lang}->{$placeholder}}) {
+            $progress->update($done++);
+            next if 1 < $refresh; # refresh twice means to just purge the caches
+            my $pagename= $basename . $purpose;
+            my $text= $purposes->{$purpose};
+            $text=~ s/[\r\n]+$//s;
+            # get the current content
+            my $ref = eval {
+                $mw->get_page( { title => $pagename } );
+            };
+            if ($@) {
+                warn "\nError...: $@";
+                warn   "Pagename: $pagename\n";
+                die    "Check...: $placeholder$purpose/$lang.txt\nand.....: ${placeholder}/title/$lang.txt\n";
+            }
+            if (not $junk) {
+                # Check the text whether or not it changed.
+                if ( ( $ref->{'*'} || '' ) ne $text ) {
+                    # If it changed (or is new), count it
+                    $progress->clear();
+                    if (exists $ref->{missing}) {
+                        ++$created;
+                        verbose("C $pagename\n");
+                    } else {
+                        ++$changed;
+                        verbose("U $pagename\n");
+                    }
+                    next if $dryrun;
+                    # Update or create the entry
+                    my $timestamp = $ref->{timestamp};
+                    edit($mw, {
+                        action => 'edit',
+                        title => $pagename,
+                        basetimestamp => $timestamp, # to avoid edit conflicts
+                        text => $text,
+                    });
+                } else {
+                    # Count the unchanged entries.
+                    ++$same;
+                    verbose("= $pagename\n") if $verbose > 1;
+                }
+            } else {
+                if ( exists $ref->{missing} ) {
+                    $progress->clear();
+                    print "? $pagename\n";
+                    next;
+                }
+                ++$junked;
+                print "J $pagename\n";
+                next if $dryrun;
+                edit($mw, {
+                    action => 'delete',
+                    title => $pagename }
+                );
+            }
+        }
+        $count{$lang}->{same}    += $same;
+        $count{$lang}->{changed} += $changed;
+        $count{$lang}->{created} += $created;
+        $count{$lang}->{junk}    += $junked;
+        ++$count{$lang}->{pages};
+        if ($changed or $created or $refresh) {
+            ++$count{$lang}->{refreshs};
+            print "R $basename\n" if 1 < $refresh + $verbose;
+            if (not $dryrun) {
+                $mw->api({
+                    action => 'purge',
+                    titles => $basename,
+                });
+            }
+        }
+    }
+}
+
+$mw->logout();
+$progress->update($done);
+
+print "\nUpdate statistics\n";
+my $changed= 0;
+my $created= 0;
+my $same= 0;
+my $junked= 0;
+my $pages= 0;
+my $refreshs= 0;
+my $langcount= 0;
+foreach my $lang (sort keys %count) {
+    ++$langcount;
+    printf "$lang Pages created......: %4d\n", $count{$lang}->{created};
+    printf "$lang Pages updated......: %4d\n", $count{$lang}->{changed};
+    printf "$lang Pages kept.........: %4d\n", $count{$lang}->{same};
+    printf "$lang Pages deleted......: %4d\n", $count{$lang}->{junk};
+    printf "$lang Articles refreshed.: %4d\n", $count{$lang}->{refreshs};
+    printf "$lang Articles in total..: %4d\n", $count{$lang}->{pages};
+    $created+=  $count{$lang}->{created};
+    $changed+=  $count{$lang}->{changed};
+    $same+=     $count{$lang}->{same};
+    $junked+=   $count{$lang}->{junk};
+    $refreshs+= $count{$lang}->{refreshs};
+    $pages+=    $count{$lang}->{pages};
+}
+if ($langcount > 1) {
+    printf "   Pages created......: %4d\n", $created;
+    printf "   Pages updated......: %4d\n", $changed;
+    printf "   Pages kept.........: %4d\n", $same;
+    printf "   Pages deleted......: %4d\n", $junked;
+    printf "   Articles refreshed.: %4d\n", $refreshs;
+    printf "   Articles in total..: %4d\n", $pages;
+}
+
+sub edit {
+    my($mw, $action)= @_;
+    my $retries= 3;
+    while ($retries--) {
+        last if $mw->edit( $action );
+        if ( 3 != $mw->{error}->{code} && 5 != $mw->{error}->{code} ) {
+            warn "Don't know how to handle ''" . $mw->{error}->{details}. "' (". $mw->{error}->{code} . ')';
+            exit 1;
+        }
+        if (1 > $retries) {
+            warn "No more retries. Giving up on ''" . $mw->{error}->{details}. "' (". $mw->{error}->{code} . ')';
+            exit 2;
+        }
+        warn "Reconnecting...\n" if $verbose;
+        $mw->logout();
+        $mw->login( { lgname => $settings->{USER}, lgpassword => $settings->{PASS} } )
+          || die  $mw->{error}->{details}. ' ('. $mw->{error}->{code} . ')';
+    }
+}
+
+sub read_placeholder_content {
+    my($content, $dir, $placeholder, @purposes)= @_;
+    # Get the content for each required purpose
+    foreach my $purpose (@purposes) {
+        my %missing;
+        @missing{keys %SCANNER_TEMPLATES}= ();
+        foreach my $content_file (glob qq("$dir/$purpose/*.txt")) {
+            # Extract the language
+            my $lang= uc( basename($content_file, '.txt' ) );
+            # Ignore the language we do not have a template for
+            next unless exists $SCANNER_TEMPLATES{ $lang };
+            # Read the content
+            my $text="";
+            if (open my $file, '<:encoding(utf8)', $content_file) {
+                delete $missing{$lang};
+                $text= do {
+                    local $/;
+                    <$file>;
+                };
+                chomp($text);
+                for ($text) {
+                    s/[ \t]+$//gm;
+                    #s/\n\n+/\n/gs;
+                }
+                close $file;
+            } else {
+                warn "Cannot read $content_file.\n";
+            }
+            # Store the content
+            if( $purpose eq 'wikitext' ) {
+                $content{$lang}->{$placeholder}->{''}= $text;
+            } else {
+                $purpose= ucfirst $purpose;
+                $content{$lang}->{$placeholder}->{"/$purpose"}= $text;
+            }
+        }
+        foreach my $lang (sort keys %missing) {
+            warn "Missing $lang $purpose for $placeholder.\n";
+        }
+    }
+    # Store the template for this placeholder (just a reference to the standard template)
+    foreach my $lang (keys %SCANNER_TEMPLATES) {
+        $content{$lang}->{$placeholder}->{''}||= $SCANNER_TEMPLATES{$lang};
+    }
+}
+
+sub verbose {
+    return unless $dryrun or $verbose;
+    $progress->clear();
+    print @_;
+}
+
+=head1 DIRECTORY STRUCTURE
+
+The expected directory structure in the SIWECOS translations
+directory is:
+
+  |-- translations
+  :   |-- <placeholder>
+  :   :   |-- Link
+  :   :   |-- Headline
+  :   :   |-- Negative
+  :   :   |-- Description
+  :   :   |-- Background
+  :   :   |-- Consequence
+  :   :   |-- Solution_Tips
+  :   :   `-- Category
+  :
+  |--  wiki
+  :   |-- WIKI_SCANNER
+  :   |   `-- Template
+  :   |-- <pagename>
+  :   :   |-- link
+  :   :   `-- wikitext
+  :
+
+Each of the directories has to contain one file per language
+called <LANGUAGECODE>.txt (so: de.txt, en.txt ...).
+
+The entries under WIKI_SCANNER/Template are the language
+templates for the WIKI entries and will be copied for each
+and every B<placeholder>. The templates reference all the
+above listed directories under B<placeholder>
+
+The directories under "wiki" simply contain wiki pages, where the
+<pagename> can be any name, usually it is the german pagename.
+
+Every "link" ("Link") directory contains the real pagename for
+that specific language, excluding the languagecode.
+
+
+=over 4
+
+=item Link
+
+This is the pagename of the WIKI article.
+
+=item Headline
+
+This defines the headline of the article.
+
+=item Category
+
+This is one category for the article.
+
+=item Negative
+
+=item Description
+
+=item Background
+
+=item Consequence
+
+=item Solution_Tips
+
+These are all parts of the article. See the template to
+understand where they go.
+
+=item link
+
+This is the pagename of the WIKI article.
+
+=item wikitext
+
+This is the content of the WIKI article.
+
+=back
+
+=head1 AUTHOR
+
+Stephan.Hradek@eco.de
+
+=cut

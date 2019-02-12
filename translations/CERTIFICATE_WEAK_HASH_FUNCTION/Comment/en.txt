@@ -1,0 +1,1 @@
+Depending on the browser that is used, a warning message is displayed. Generally browsers newer than 2016. If a weak encryption (hash algorithm) is used, a [[Certificate/EN|certificate]] is forgeable!

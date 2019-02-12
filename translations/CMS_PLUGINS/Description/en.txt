@@ -1,1 +1,1 @@
-A plugin that is used by your CMS was detected. An attacker could use this information to search for specific security flaws for your website.
+A plug-in that is used by your [https://en.wikipedia.org/wiki/Content_management_system content management system (CMS)] was detected. An attacker could use this information to search for specific security flaws for your website.

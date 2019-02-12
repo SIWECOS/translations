@@ -24,7 +24,7 @@ In order to have your domains checked for security flaws with the Siwecos scanne
 
 {|
 |-
-| [[File:siwecos_email_bestaetigung.jpg|left|400px]]  When you have entered your registration data, confirmed the captcha, and submitted the form, you will receive a confirmation by email that your registration was successful. This email also contains a link that you must click to activate your account. Click on this link to finish the registration.
+| [[File:siwecos_email_bestaetigung.jpg|left|400px]] When you have entered your registration data, confirmed the captcha, and submitted the form, you will receive a confirmation by email that your registration was successful. This email also contains a link that you must click to activate your account. Click on this link to finish the registration.
 |-
 | [[File:aktivierung_bestaetigung.png|left|400px]] If your account was activated successfully, this image is shown. Now you can log in to your account via the button in the right-hand menu, under Account - '''"Login"''', by entering your registered email address and your chosen password.
 
@@ -59,7 +59,7 @@ All domains which are registered for verification at Siwecos must be verified an
 '''Verification by file or meta tag'''
 {|
 |-
-| [[File:domain_hinzufuegen2.jpg|left|400px]] First enter your domain in the domain overview by clicking the button "'''Add domain'''". For detailed instructions how to proceed during verification, please refer to [[Domain-Verifizierung|hier]].
+| [[File:domain_hinzufuegen2.jpg|left|400px]] First enter your domain in the domain overview by clicking the button "'''Add domain'''". For detailed instructions how to proceed during verification, please refer to [[Domain-Verifizierung|here (German only]].
 |}
 <br />
 <br />
@@ -75,7 +75,7 @@ All domains which are registered for verification at Siwecos must be verified an
 === Delete account ===
 {|
 |-
-| [[File:konto_loeschen.png|left]]  If you do not need this service any longer, you can log in and delete your account with the link "Delete account". All your data and all your listed domains will be deleted from our system completely, it is not possible to restore them. You can register again at any time on our start page at [https://siwecos.de Dienst von Siwecos].
+|If you do not need this service any longer, you can log in and delete your account with the link "Delete account". All your data and all your listed domains will be deleted from our system completely, it is not possible to restore them. You can register again at any time on our start page at [https://siwecos.de Siwecos].
 |}
 
 [[Category:FAQ]]

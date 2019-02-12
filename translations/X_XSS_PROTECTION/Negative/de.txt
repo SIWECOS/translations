@@ -1,1 +1,1 @@
-[[Cross-Site_Scripting|Cross-Site-Scripting]] Schutz nicht aktiviert oder unzureichend konfiguriert.
+Der [[Cross-Site Scripting|Cross-Site Scripting-Schutz]] ([[XSS-Schwachstelle/DE|XSS]]) ist nicht aktiviert oder unzureichend konfiguriert.

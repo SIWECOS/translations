@@ -1,1 +1,1 @@
-Überprüfen Sie Ihr Zertifikat bzw. spielen sie umgehend ein Update für ihre [[Transport Layer Security|TLS-Implementierung]] auf ihren [[Server]] ein.
+Überprüfen Sie Ihr [[Zertifikate/DE|Zertifikat]] bzw. spielen Sie umgehend ein Update für Ihre [[Transport Layer Security|TLS-Implementierung]] auf Ihrem [[Server]] ein.

@@ -1,1 +1,1 @@
-Kein Anonymer [[Schlüsselaustauschverfahren|Schlüsselaustausch]] unterstützt
+Anonymer [[Schlüsselaustauschverfahren|Schlüsselaustausch]] wird nicht unterstützt

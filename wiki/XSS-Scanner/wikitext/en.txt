@@ -1,7 +1,7 @@
 '''<span style="color:#c31622">XSS-Scanner<span>'''
 <br>
 
-The [[DOMXSS_Scanner|XSS-Scanner]] highlights potential dangers in the website source code. This includes the detection of [[Cross-Site Scripting|DOM based vulnerabilities]], which could enable an attacker to execute e.g. [[Malware|malicious code]] in the form of [[Javascript]] in the context of your [[Webanwendung|Webapplikation]]. <br>
+The XSS-Scanner highlights potential dangers in the website source code. This includes the detection of [https://en.wikipedia.org/wiki/Cross-site_scripting cross-site scripting (DOM based vulnerabilities)], which could enable an attacker to execute e.g. malware in the form of JavaScript in the context of your web application. <br>
 
 *[[DOMXSS vulnerability/EN|SINKS]]<br>
 *[[Malicious-Code-By-External-Sources/EN|SOURCES]]

@@ -1,6 +1,6 @@
 Im [[Header|HTTP-Header]] entsprechend den Bedürfnissen setzen. Die '''X-Frame-Options''' im [[HTTP]] Header kann verwendet werden, um zu bestimmen, ob ein aufrufender [[Browser]] die Zielseite in einem <frame>, <iframe> oder bspw. <object> rendern bzw. einbetten darf. Webseiten können diesen Header verwenden, um u. a. [[Clickjacking|Clickjacking-Angriffe]] abzuwehren, indem sie unterbinden, dass ihr Content in fremden Seiten eingebettet wird.
 
-Mit dem HTTP-Header Befehl X-Frame-Options können moderne Webbrowser angewiesen werden, eine Seite nicht in einem Frame auf einer andere Website zu laden. Dafür muss der folgende Befehl in der htaccess-Datei gesetzt werden:
+Mit dem HTTP-Header Befehl '''X-Frame-Options''' können moderne Webbrowser angewiesen werden, eine Seite nicht in einem Frame auf einer andere Website zu laden. Dafür muss der folgende Befehl in der htaccess-Datei gesetzt werden:
 
 Header always append X-Frame-Options DENY
 
@@ -27,5 +27,5 @@ Header always append X-Frame-Options ALLOW-FROM botfrei.de
 '''—snap'''
 
 
-Hier finden Sie ein Beispiel, wie eine .htaccess -Datei aussehen kann, um den '''HTTP-Security-Header-Scanner''' Grün zu stimmen.
-([[Htaccess|.htaccess-Beispiel]])
+Hier finden Sie ein Beispiel, wie eine .htaccess-Datei aussehen kann, um einen höheren Wert beim '''HTTP-Security-Header-Scanner''' zu erzielen.
+([[Htaccess/DE|.htaccess-Beispiel]])

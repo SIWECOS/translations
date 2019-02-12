@@ -1,1 +1,1 @@
-Vulnerable to Invalid Curve attacks
+Vulnerable to Invalid Curve attacks.

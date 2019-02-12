@@ -1,0 +1,1 @@
+Ihre Webseite ist wahrscheinlich nicht ausreichend gegen [[Cross-Site Scripting|XSS-Angriffe]] geschützt.

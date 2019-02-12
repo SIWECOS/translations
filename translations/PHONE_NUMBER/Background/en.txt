@@ -1,1 +1,1 @@
-Phone numbers are usually made public to allow customers to communicate directly with employees. However, if the customer is an attacker who uses [[Social engineering|sozialen Manipulationen]], this can lead to confidential information being revealed.
+Phone numbers are usually made public to allow customers to communicate directly with employees. However, if the customer is an attacker who uses [https://en.wikipedia.org/wiki/Social_engineering_(security) social manipulation], this can lead to confidential information being revealed.

@@ -1,1 +1,1 @@
-Überprüfung der Verschlüsselungsstärke des Zertifikats.
+Überprüfung der Verschlüsselungsstärke des Zertifikats

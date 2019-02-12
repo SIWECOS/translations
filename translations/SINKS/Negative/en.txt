@@ -1,1 +1,1 @@
-Unsafe JavaScript code used (sinks)
+Unsafe JavaScript code used (sinks).

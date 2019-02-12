@@ -1,0 +1,96 @@
+#!/usr/bin/perl
+# Script to convert an i18n file as used by siwecos
+# into a pot file
+use strict;
+use warnings;
+use FindBin qw($Bin $Script);
+use lib "$Bin/lib";
+use POEdit;
+use POSIX;
+use JSON;
+use Encode qw( encode_utf8 );
+use Text::Wrap;
+use Config::Simplest;
+use File::Basename;
+use utf8;
+
+binmode(STDOUT, ":utf8");
+binmode(STDERR, ":utf8");
+
+my $LEAD_LANGUAGE= "de";
+
+my $TS= strftime '%Y-%m-%d_%H-%M-%S', localtime time;
+foreach my $i18n (@ARGV) {
+    my $warned;
+    my $try= "$i18n/src/i18n/index.js";
+    if( not -r $try ) {
+        warn "Can't find $try\n";
+        continue;
+    }
+    my $i18n_name= basename $i18n;
+    $i18n= $try;
+    open my $in, '<:encoding(utf8)', $i18n or die "Cannot read $i18n: $!\n";
+    my $i18n_text= do { local $/; <$in> };
+    close $in;
+    my (
+        $head,
+        $foot,
+    );
+    for ($i18n_text) {
+        s/^(.*\nconst\s+messages\s*=\s*)//s;
+        $head= $1;
+        s#(;?\s*(?:\n\s*//.*?)\s*const.*)$##s;
+        $foot= $1;
+        s#^//.*\n##gm;
+    }
+    my $i18n_obj= decode_json encode_utf8 $i18n_text;
+    while (my $pofile = glob("${i18n_name}_*.po")) {
+        my $result= po_read($pofile);
+        my $info= $result->{''};
+        die "Missing info entry for $pofile\n" unless $info;
+        my $language= $info->{'Language'};
+        die "No language defined in $pofile\n" unless $language;
+        delete $result->{''};
+        foreach (keys %$result) {
+            my $lead= $i18n_obj->{$LEAD_LANGUAGE};
+            $i18n_obj->{$language} ||= {};
+            my $trans= $i18n_obj->{$language};
+            foreach my $part (split /::/) {
+                if( not exists $lead->{$part} ) {
+                    die "Unknown path $_. Failed at $part\n";
+                }
+                $lead= $lead->{$part};
+                if( ref $lead ) {
+                    $trans->{$part} ||= {};
+                    $trans= $trans->{$part};
+                } else {
+                    if( $lead ne $result->{$_}->{msgid} ) {
+                        warn "Lead language text changed for $_\n";
+                        warn "compare\n";
+                        warn "  »".$lead."«\n";
+                        warn " ^^^ current vs. received vvv\n";
+                        warn "  »".$result->{$_}->{msgid}."«\n\n";
+                        ++$warned;
+                    }
+                    $trans->{$part} = $result->{$_}->{msgstr};
+                }
+            }
+        }
+    }
+    if( not $warned ) {
+        my $json= new JSON();
+        rename $try, "$try.$TS" or die "Failed to rneame $try to $try.$TS: $!\n";
+        open my $translation, '>:encoding(utf8)', $try or die "Failed to create $try: $!\n";
+        my $pretty= $json
+            ->pretty(1)
+            ->indent(1)
+            ->indent_length(4)
+            ->space_before(0)
+            ->space_after(1)
+            ->canonical(1)
+            ->encode($i18n_obj);
+        chomp($pretty);
+        print $translation $head,$pretty,$foot;
+        close $translation;
+    }
+}

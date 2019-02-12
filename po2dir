@@ -1,0 +1,82 @@
+#!/usr/bin/perl
+# Script to convert a directory structur of translations
+# into a php file for the siwecos application
+use strict;
+use warnings;
+use FindBin qw($Bin $Script);
+use lib "$Bin/lib";
+use POSIX;
+use Text::Wrap;
+use POEdit;
+use utf8;
+
+binmode(STDOUT, ":utf8");
+binmode(STDERR, ":utf8");
+
+my $LEAD_LANGUAGE= "de";
+$Text::Wrap::columns= 75;
+
+# Location and names of some directories / files
+# $Bin = absolute path of this script
+# $Script = filename of this script
+my $TRANSLATIONS= "$Bin/translations";
+my $WIKITEXT= "$Bin/wiki";
+my $LANGUAGE_DIR= "$Bin/poedit";
+my $LANGUAGE_FILE="siwecos";
+
+# Expected purposes
+my $BACKGROUND   = 'Background';
+my $CATEGORY     = 'Category';
+my $COMMENT      = 'Comment';
+my $CONSEQUENCE  = 'Consequence';
+my $DESCRIPTION  = 'Description';
+my $DETAILS      = 'Details';
+my $HEADLINE     = 'Headline';
+my $IMPACT       = 'Impact';
+my $LINK         = 'Link';
+my $ERROR_TEXT   = 'Negative';
+my $SUCCESS_TEXT = 'Positive';
+my $TIPP         = 'Solution_Tips';
+my $TECHNICAL    = 'Technical';
+
+
+    die "Can't access directory $TRANSLATIONS\n"
+unless -d $TRANSLATIONS
+   and -r $TRANSLATIONS
+   and -x $TRANSLATIONS;
+# Directory structure is $TRANSLATIONS / placeholder / purpose / language ".txt"
+
+foreach my $pofile (@ARGV) {
+    my $result= po_read($pofile);
+    my $language= $result->{''}->{'Language'};
+    die "No language defined in $pofile.\n" unless defined $language;
+    warn "Warning! $pofile is for the lead language.\n" if $language eq $LEAD_LANGUAGE;
+    while (my($id, $entry)= each %$result) {
+        next if $id eq '';
+        my($ph, $purpose)= @{$entry->{Comment}}{qw{Placeholder Purpose}};
+        my $dir= $TRANSLATIONS;
+        if ( "$ph::$purpose" eq $entry->{msgctxt} ) {
+            $dir= $WIKITEXT;
+        }
+        my $file= "$dir/$ph/$purpose/$language.txt";
+        my $changed= 1;
+        warn "No text for $file\n" unless defined $entry->{msgstr};
+        # Check whether or not the last line originally endet with a \n
+        # Keep what was the status before when writing out the new text.
+        open my $old, '<:encoding(utf8)', $file;
+        if ($old) {
+            my $crlf_end= '';
+            my $content= do { local $/; <$old>; };
+            close $old;
+            $crlf_end= $/ if $content=~ /\n$/s;
+            chomp($entry->{msgstr});
+            $entry->{msgstr}.= $crlf_end;
+            $changed= $content ne $entry->{msgstr};
+        };
+        print $file,"\n" if $changed;
+        
+        open my $out, '>:encoding(utf8)', $file or die "Cannot create $file: $!\n";
+        print $out $entry->{msgstr};
+        close $out;
+    }
+}

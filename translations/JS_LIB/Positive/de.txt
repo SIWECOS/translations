@@ -1,1 +1,1 @@
-Die [[JavaScript|JavaScript-Bibliothek]] sind nach dem aktuellen Stand nicht durch bekannte [[Schwachstellen/DE|Schwachstellen]] angreifbar.
+Die [[JavaScript|JavaScript-Bibliotheken]] sind nach dem aktuellen Stand nicht durch bekannte [[Schwachstellen/DE|Schwachstellen]] angreifbar.

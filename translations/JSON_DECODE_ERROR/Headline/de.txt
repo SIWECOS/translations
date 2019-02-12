@@ -1,1 +1,1 @@
-Es gibt hier einen Jason Übersetzungsfehler.
+Es gibt hier einen [https://de.wikipedia.org/wiki/Json JSON] Übersetzungsfehler.

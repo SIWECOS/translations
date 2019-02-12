@@ -1,1 +1,1 @@
-Server antwortet
+[[Server]] antwortet.

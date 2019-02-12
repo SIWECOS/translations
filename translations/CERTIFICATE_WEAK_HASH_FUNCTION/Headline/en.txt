@@ -1,1 +1,1 @@
-Check of the certificate's encryption strength.
+Check of the certificate's encryption strength

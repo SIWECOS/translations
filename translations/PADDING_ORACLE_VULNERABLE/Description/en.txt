@@ -1,1 +1,1 @@
-The server is vulnerable to a [https://www.heise.de/security/artikel/Poodle-So-funktioniert-der-Angriff- auf-die-Verschluesselung-2425250.html Padding-Oracle Angriff] which allows an attacker to decrypt the communication.
+The server is vulnerable to a [https://en.wikipedia.org/wiki/Padding_oracle_attack Padding Oracle attack], which allows an attacker to decrypt the communication.

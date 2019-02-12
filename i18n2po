@@ -1,0 +1,108 @@
+#!/usr/bin/perl
+# Script to convert an i18n file as used by siwecos
+# into a pot file
+use strict;
+use warnings;
+use FindBin qw($Bin $Script);
+use lib "$Bin/lib";
+use POSIX;
+use JSON;
+use Encode qw( encode_utf8 );
+use Text::Wrap;
+use Config::Simplest;
+use File::Basename;
+use utf8;
+
+binmode(STDOUT, ":utf8");
+
+my $LEAD_LANGUAGE= "de";
+my $TEMPLATEFILE= "$Bin/$Script.txt";
+$Text::Wrap::columns= 75;
+
+# First prepare the template
+open my $template, '<', $TEMPLATEFILE
+    or die "Cannot read template $TEMPLATEFILE: $!\n";
+my @template= <$template>;
+close $template;
+
+foreach my $i18n (@ARGV) {
+    my $try= "$i18n/src/i18n/index.js";
+    if( not -r $try ) {
+        warn "Can't find neither$try\n";
+        continue;
+    }
+    my $i18n_name= basename $i18n;
+    $i18n= $try;
+    open my $in, '<:encoding(utf8)', $i18n or die "Cannot read $i18n: $!\n";
+    my $i18n_text= do { local $/; <$in> };
+    close $in;
+    for ($i18n_text) {
+        s#^//.*\n##gm;
+        s/^.*\nconst\s+messages\s*=\s*//s;
+        s/\s+const.*$//s;
+    }
+    my $i18n_obj= decode_json encode_utf8 $i18n_text;
+    my @langs= sort keys %$i18n_obj;
+    foreach my $lang (@langs) {
+        my $langcode= ( $lang eq $LEAD_LANGUAGE )
+            ? '.pot'
+            : "-$lang.po"
+            ;
+        my $fname= $i18n_name . $langcode;
+        open my $out, '>:encoding(utf8)', $fname or die "Cannot create $fname: $!\n";
+        # Work through the text-template lines
+        foreach (@template) {
+            # Until the placeholder /* DATA HERE */ is found
+            if( m#^\s*/\*\s*DATA\s*HERE\s*\*/\s*#)  {
+                print $out to_po($lang eq $LEAD_LANGUAGE, $i18n_obj->{$LEAD_LANGUAGE}, $i18n_obj->{$lang});
+            } else {
+                my $line= $_;
+                for ($line) {
+                    s#/\*\s*LANGUAGE\s*\*/#$lang#g;
+                    s#/\*\s*now\s+(.*?)\s*?\*/#strftime $1, localtime time#ge;
+                }
+                # Print an unmodified template line
+        		print $out $line;
+    		}
+        }
+        close $out;
+    }
+}
+
+sub to_po {
+    my($is_lead, $obj, $trans, @path)= @_;
+    my $result= '';
+    if( not ref $obj ) {
+        $result.= 'msgctxt ' . quoted_form_of( join('::', @path) ) . "\n"
+               .  'msgid ' . quoted_form_of( $obj ) . "\n"
+               ;
+        if( $is_lead ) {
+            $result.= 'msgstr ' . quoted_form_of('') . "\n";
+        }
+        else {
+            $result.= 'msgstr ' . quoted_form_of( $trans || '' ) . "\n";
+        }
+        return $result . "\n";
+    }
+    foreach (sort keys %$obj) {
+        $result.= to_po($is_lead, $obj->{$_}, (defined $trans ? $trans->{$_} : undef), @path, $_) . "\n";
+    }
+    return $result;
+}
+
+sub quoted_form_of {
+    local($_)= @_;
+    # replace \ and " with \\ or \"
+    s/(["\\])/\\$1/sg;
+    # do some splitting and joining. Read from inside to outside
+    $_= join qq'\\n"\n"', map {
+        s/\s+$//g; # trim each line
+        if( length $_ > $Text::Wrap::columns ) { # If it's too long
+            $_= wrap('','',$_);# then wrap it
+            s/\n/ "\n"/gs; # Put quotes in where the line was wrapped
+        }
+        $_; # return the result
+    } split /\n/; # Split the line at linefeeds
+    my $splitted= /\n/ ? qq'""\n' : '';
+    return qq'$splitted"$_"';
+}

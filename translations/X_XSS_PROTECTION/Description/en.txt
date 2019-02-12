@@ -1,1 +1,1 @@
-The [[Header|HTTP-Header]] X-XSS-Protection defines how built-in XSS filters in the [[Browser]] are configured. A default installation can indicate an incorrect configuration.
+The HTTP header X-XSS-Protection defines how built-in XSS filters in the browser are configured. A default installation can indicate an incorrect configuration.

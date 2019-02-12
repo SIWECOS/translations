@@ -1,1 +1,1 @@
-[[Public-Key-Pins-Deaktiviert/DE/Background|Public-Key-Pinning]] ist aktiviert (HPKP wird derzeit nicht überprüft)
+[[Public-Key-Pins-Deaktiviert/DE/Background|Public-Key-Pinning]] ist aktiviert (HPKP wird derzeit nicht überprüft).

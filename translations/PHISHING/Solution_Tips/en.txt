@@ -4,12 +4,12 @@ There is a risk that your website contains phishing content and that criminals a
 
 '''- Find out how and when it was possible for third parties to access your domain. '''<br>
 
-Check your logfiles for unauthorized access from unknown [[IP-Adresse|Quell-IP-Adressen]]. As a starting point for your investigation, the time stamp of the manipulated or uploaded file can give you a hint when the attack happened and by which gateway the attackers gained access.
+Check your logfiles for unauthorized access from unknown IP addresses. As a starting point for your investigation, the time stamp of the manipulated or uploaded file can give you a hint when the attack happened and by which gateway the attackers gained access.
 
 '''- Change your login data!'''<br>
-'''- Web frontend (hosting contract, [[Content-Management-Systeme|Content-Management-System]] )'''<br>
-'''- [[FTP]] or [[SSH]] access'''<br>
-'''- [[Datenbank]] [[starke Passwörter|Passwörter]]'''<br>
+'''- Web frontend (hosting contract, [https://en.wikipedia.org/wiki/Content_management_system content management system (CMS)])'''<br>
+'''- FTP or SSH access'''<br>
+'''- Database - use strong passwords'''<br>
 
 Restore a malware-free backup!
 To do this, delete all the files on your webspace. In this way, you will make sure that you do not overlook malicious files from the compromised system which were used as a backdoor by the attackers.

@@ -1,1 +1,1 @@
-[[Transport Layer Security|TLS-Verschlüsselung]] gilt heute als Standard. Sie sollten deshalb auf den Einsatz von [[SSL|SSL3]] verzichten. Weitere Informationen finden Sie hier: [[SSL|SSL]]
+[[Transport Layer Security|TLS-Verschlüsselung]] gilt heute als Standard. Sie sollten deshalb auf den Einsatz von [[SSL|SSL3]] verzichten. Weitere Informationen finden Sie hier: [[SSL|SSL]].

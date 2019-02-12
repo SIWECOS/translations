@@ -1,1 +1,1 @@
-The [[Server]] is vulnerable through [https://www.golem.de/news/sweet32-kurze-verschluesselungsbloecke-sorgen-f uer-kollisionen-1608-122887.html SWEET32], which allows an attacker to decrypt the communication.
+The server is vulnerable through [https://en.wikipedia.org/wiki/Sweet32 Sweet32], which allows an attacker to decrypt the communication.

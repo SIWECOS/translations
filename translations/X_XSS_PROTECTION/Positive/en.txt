@@ -1,1 +1,1 @@
-Cross Site Scripting (XSS) protection of the web browser is active on your website.
+[https://en.wikipedia.org/wiki/Cross-site_scripting Cross-site scripting] (XSS) protection of the web browser is active on your website.

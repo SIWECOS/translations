@@ -1,1 +1,1 @@
-This message means that your [[Zertifikate|Server-Zertifikat]] is not yet valid. Visitors will be warned that your website may be insecure or not trustworthy.  If a visitor uses [[HTTPS]] to open your website, he or she may receive an error message.
+This message means that your [[Certificate/EN|server certificate]] is not yet valid. Visitors will be warned that your website may be insecure or not trustworthy. If a visitor uses HTTPS to open your website, he or she may receive an error message.

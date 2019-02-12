@@ -1,1 +1,1 @@
-Ihre Domain ‘%site%’ wurde in folgenden Phising-Listen gefunden: %where%
+Ihre [[Domain]] ‘%site%’ wurde in folgenden [[Listen/DE|Phishing-Listen]] gefunden: %where%

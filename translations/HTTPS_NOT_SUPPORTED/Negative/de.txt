@@ -1,1 +1,1 @@
-Server scheint kein TLS zu sprechen
+Server scheint kein [[Transport_Layer_Security|TLS]] zu unterstützen.

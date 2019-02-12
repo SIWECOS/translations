@@ -1,1 +1,1 @@
-Check of the CMS version.
+Check of the CMS version

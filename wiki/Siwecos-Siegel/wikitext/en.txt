@@ -131,16 +131,16 @@ For this option you store the seal statically on your website. No data ('''e.g. 
 <br /><br />
 As a user of the SIWECOS website scanner, you have the possibility to incorporate the SIWECOS Seal on your website. TheSIWECOS Seal highlights, for visitors to your website, that the site they are surfing on is a secure website that is subject to regular security checks through the use of the SIWECOS website scanner. When the Seal is accessed, the webserver automatically saves a so-called server-logfile of the website visitor. This server-logfile contains the following user data:
 
-'''-	IP address of the accessing computer<br />'''
-'''-	Date and time of access<br />'''
-'''-	Data volume transferred and the querying provider.<br />'''
+'''-tIP address of the accessing computer<br />'''
+'''-tDate and time of access<br />'''
+'''-tData volume transferred and the querying provider.<br />'''
 
 The legal foundation for the processing of the IP address is Art. 6 (1) f) GDPR. Our legitimate interestarises out of the following list of purposes for data collection.
 The IP address of your device and the further data listed above are used by us for the following purposes:
 
-'''-	Presentation of the SIWECOS Seal on the website being surfed<br />'''
+'''-tPresentation of the SIWECOS Seal on the website being surfed<br />'''
 
 SIWECOS generates no user profile data collected and no inferences are made regarding the identity of the website visitor. These data are alanyzed exclusively to ensure the disruption-free operation and are automatically overwritten at the latest seven days after the visit to the website.
 
 <br />
-'''For further information, please refer to our [[Frequently Asked Questions | FAQ]]'''
+'''For further information, please refer to our [[Frequently Asked Questions | FAQ]]'''.

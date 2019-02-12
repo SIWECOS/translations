@@ -1,1 +1,1 @@
-[[Transport Layer Security|TLS-Verschlüsselung]] is considered to be the standard today. Therefore you should not use [[SSL|SSL3]]. Further information can be found here: [[SSL|SSL]]
+[https://en.wikipedia.org/wiki/Transport_Layer_Security TLS] encoding is considered to be the standard today. Therefore you should not use SSL3.

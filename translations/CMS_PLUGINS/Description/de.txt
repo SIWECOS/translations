@@ -1,1 +1,1 @@
-Es wurde ein von ihrem [[Content-Management-Systeme|CMS-System]] genutztes [[Plugin-Gefunden/DE/Background|Plugin]] entdeckt. Ein Angreifer könnte diese Information nutzen, um gezielt nach [[Schwachstellen/DE|Schwachstellen]] für ihre Website zu suchen.
+Es wurde ein von Ihrem [[Content-Management-Systeme|CMS-System]] genutztes [[Plugin-Gefunden/DE/Background|Plugin]] entdeckt. Ein Angreifer könnte diese Information nutzen, um gezielt nach [[Schwachstellen/DE|Schwachstellen]] für Ihre Website zu suchen.

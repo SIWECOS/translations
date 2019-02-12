@@ -1,1 +1,1 @@
-Vulnerable to padding oracle attacks
+Vulnerable to [https://en.wikipedia.org/wiki/Padding_oracle_attack Padding Oracle attacks].

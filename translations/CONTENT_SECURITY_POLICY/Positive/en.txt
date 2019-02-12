@@ -1,1 +1,1 @@
-A secure configuration of the Content Security Policy (CSP) was found.
+A secure configuration of the [https://en.wikipedia.org/wiki/Content_Security_Policy Content Security Policy (CSP)] was found.

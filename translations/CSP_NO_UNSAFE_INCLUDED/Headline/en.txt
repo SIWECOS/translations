@@ -1,1 +1,1 @@
-The [[Content-Security-Policy-Schwachstelle/DE | CSP]] does not contain any unsafe directives, but it may not be configured securely.
+The [https://en.wikipedia.org/wiki/Content_Security_Policy Content Security Policy (CSP)] does not contain any unsafe directives, but it may not be configured securely.

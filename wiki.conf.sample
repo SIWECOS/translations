@@ -1,23 +1,16 @@
 # simple config file
 # - # starts a comment
 # - empty lines are ignored
-# - settings are lines which
-#   - start with a word
+# - settings are lines
+#   - starting with a word
 #   - followed by
 #     - whitespace or
 #     - an = surrounded by optional whitespace
-#   - followed by the setting's value
-#     - optionally enclosed in " or '
+#   - followed by the settings' value
+#     - optionally enclosed with " or '
 #     - backslashes will escape the next character
 #
-# This is the link to our wiki's api
-API  https://.../wiki/api.php
-#
-# This is the official URL of our wiki
-WIKI https://.../wiki
-#
-# This is the name of the Bot which is allowed to update entries
-USER OurBot
-#
-# This is the password of the Bot
-PASS "Look it up in keepass"
+API  https://www.siwecos.de/wiki/api.php
+WIKI https://www.siwecos.de/wiki
+USER siwebot
+# PASS "Look it up in keepass"

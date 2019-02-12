@@ -1,1 +1,1 @@
-Not vulnerable to Sweet32
+Not vulnerable to [https://en.wikipedia.org/wiki/Sweet32 Sweet32].

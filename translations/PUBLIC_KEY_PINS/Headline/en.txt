@@ -1,1 +1,1 @@
-Check of Public Key Pinning (HPKP) - currently disabled.
+Check of Public Key Pinning (HPKP) - currently disabled

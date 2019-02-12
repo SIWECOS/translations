@@ -1,7 +1,7 @@
-== Das Verifizierungsverfahren bei Siwecos==
+== Das Verifizierungsverfahren bei Siwecos ==
 
 
-Alle Domains die bei Siwecos zur Überprüfung eingetragen werden, müssen verifiziert bzw. gegengeprüft werden. Dazu bietet Siwecos zwei verschiedene Verfahren (Datei, Meta-Tag) an. '''Welches Verfahren Sie dabei integrieren, bleibt Ihnen überlassen. Doch eines der beiden Verfahren muss es sein.'''
+Alle Domains, die bei Siwecos zur Überprüfung eingetragen werden, müssen verifiziert bzw. gegengeprüft werden. Dazu bietet Siwecos zwei verschiedene Verfahren (Datei, Meta-Tag) an. '''Welches Verfahren Sie dabei integrieren, bleibt Ihnen überlassen. Doch eines der beiden Verfahren muss es sein.'''
 
 Wozu wird eine Verifizierung gemacht? Bei einer Verifizierung wird aus datenschutzrechtlichen Gründen nachgewiesen, dass Sie der wirkliche Inhaber der Domain sind.
 
@@ -13,7 +13,7 @@ Wozu wird eine Verifizierung gemacht? Bei einer Verifizierung wird aus datenschu
 Sie können die Inhaberschaft einer Website bestätigen, indem Sie dem '''HTML-Code der Startseite Ihrer Domain''' einen individuellen von uns vorgegebenen <meta>-Tag hinzufügen. Unser Scanner überprüft, ob sich das Meta-Tag an der richtigen Stelle befindet. Wird das Tag nicht gefunden, erhalten Sie Informationen zu den aufgetretenen Fehlern. Dieses Tag ist einem bestimmten Nutzer zugeordnet.
 
 <br>
-1. Laden Sie die Startseite (z.B. index.html) auf den Rechner herunter und öffnen Sie die Datei mit dem Editor.<br> 
+1. Laden Sie die Startseite (z. B. index.html) auf den Rechner herunter und öffnen Sie die Datei mit dem Editor.<br>
 2. Kopieren Sie '''Ihren individuelle Meta-Tag''' in die Datei. Im Folgenden sehen Sie ein Beispiel für die korrekte Platzierung.
 <pre>
 ---Header Beispiel---
@@ -27,7 +27,7 @@ Sie können die Inhaberschaft einer Website bestätigen, indem Sie dem '''HTML-C
 
 </pre>
 <br>
-3. Haben Sie Ihren Meta-Tag in die Startdatei integriert, speichern Sie die Datei und laden diese wieder in Ihr Verzeichnis auf den Webspace hoch.<br> 
+3. Haben Sie Ihren Meta-Tag in die Startdatei integriert, speichern Sie die Datei und laden diese wieder in Ihr Verzeichnis auf den Webspace hoch.<br>
 4. Fragen zu auftretenden Fehlern und Problemen finden Sie in der Anleitung von [https://support.google.com/webmasters/answer/35179?hl=de google.de]
 
 
@@ -35,14 +35,14 @@ Sie können die Inhaberschaft einer Website bestätigen, indem Sie dem '''HTML-C
 
 == Verifizierung über Datei per FTP Upload ==
 
-Sie können die Inhaberschaft einer Website bestätigen, indem Sie '''eine spezielle .html-Datei in das Root-Verzeichnis auf Ihren Webspace''' z.B. per FTP hochladen. Diese individuelle Datei ist einer Domain zugeordnet.
+Sie können die Inhaberschaft einer Website bestätigen, indem Sie '''eine spezielle .html-Datei in das Root-Verzeichnis auf Ihren Webspace''' z. B. per FTP hochladen. Diese individuelle Datei ist einer Domain zugeordnet.
 
 '''Der hier genannte Code "siw6tbi9HS5KV" ist nur ein Beispiel!'''
 <br><br>
 1. Legen Sie eine neue HTML-Datei an (dazu auf dem Desktop - rechte Maus "Neu" -> "Textdokument" anlegen).<br>
 2. Öffnen Sie die Textdokument-Datei und kopieren Sie in die erste Zeile Ihren Code: '''siw6tbi9HS5KV''' ohne die Datei-Erweiterung.
 [[File:Gedit-datei.png|none|Beispiel: Datei]]
-3. Dann im Menü der Textdatei "Datei" -> "Speichern unter" die Datei mit dem von uns vergebenen individuellen Namen z.B. '''siw6tbi9HS5KV.html''' auf den Desktop speichern.<br>
+3. Dann im Menü der Textdatei "Datei" -> "Speichern unter" die Datei mit dem von uns vergebenen individuellen Namen z. B. '''siw6tbi9HS5KV.html''' auf den Desktop speichern.<br>
 4. Laden Sie die erstellte HTML-Datei über das [https://de.wikipedia.org/wiki/FileZilla FTP-Programm] in das Hauptverzeichnis Ihrer Domain hoch (Webspace).<br>
 5. Prüfen Sie anschließend, ob die Datei erreichbar ist.<pre>http://IhreDomain/siw6tbi9HS5KV.html</pre>
 6. Diese Informationen sollten bei Aufruf im Browser zu sehen sein.
@@ -55,7 +55,7 @@ Sie können die Inhaberschaft einer Website bestätigen, indem Sie '''eine spezi
 
 [[File:Loeschen.png]]
 
-Sie können jederzeit die registriert Domain über die '''Domainübersicht aus dem Monitoringdienst von Siwecos''' entfernen. Dabei wird die Domain komplett mit allen Scanergebnissen auf unserem System gelöscht. Eine Wiederherstellung der alten Daten ist nach dem Löschvorgang nicht möglich. Dennoch können Sie die Domain jederzeit über den Verifizierungsvorgang erneut anlegen.
+Sie können jederzeit die registriert Domain über die '''Domainübersicht aus dem Monitoringdienst von Siwecos''' entfernen. Dabei wird die Domain komplett mit allen Scan-Ergebnissen auf unserem System gelöscht. Eine Wiederherstellung der alten Daten ist nach dem Löschvorgang nicht möglich. Dennoch können Sie die Domain jederzeit über den Verifizierungsvorgang erneut anlegen.
 
 '''Bitte beachten Sie:''' Wenn die Domain auf unserem System gelöscht ist, entfernen Sie bitte hinterlegte '''Meta-Tag bzw. Html-Datei''' auf Ihrem System.
 
@@ -66,4 +66,3 @@ Sie können jederzeit die registriert Domain über die '''Domainübersicht aus d
 
 <br />
 <br />
-

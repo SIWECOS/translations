@@ -1,1 +1,1 @@
-This problem can be solved by renewing the [[Zertifikate|Zertifikat]]. For information on how to renew a certificate, please refer to: [[Zertifikate#Was_tun.2C_wenn_ein_SSL-Zertifikat_abgelaufen_ist.3F|Zertifi kat abgelaufen]]
+This problem can be solved by renewing the [Certificate/EN|certificate]]. For information on how to renew a certificate, please refer to: [[Zertifikate/DE#Was_tun.2C_wenn_ein_SSL-Zertifikat_abgelaufen_ist.3F|certificate expired (German only)]].

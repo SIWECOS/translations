@@ -1,1 +1,1 @@
-Urgently update your [[Transport_Layer_Security|TLS-Implementierung]]. Current software no longer allows this type of configuration.
+Urgently update your [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS implementation]. Current software no longer allows this type of configuration.

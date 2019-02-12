@@ -1,1 +1,1 @@
-Modern TLS 1.3 supported
+Modern [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS 1.3 protocol] supported.

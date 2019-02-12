@@ -1,1 +1,1 @@
-Not vulnerable to Ephemeral Invalid Curve attacks
+Not vulnerable to Ephemeral Invalid Curve attacks.

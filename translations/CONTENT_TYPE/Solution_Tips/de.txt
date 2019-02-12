@@ -1,4 +1,4 @@
-Fügen sie den entsprechenden HTTP-Header oder alternativ ein <meta> Tag hinzu. Bitte beachten Sie, dass <meta> im Gegensatz zu einem HTTP-Header leichter angegriffen werden kann.
+Fügen Sie den entsprechenden HTTP-Header oder alternativ ein <meta> Tag hinzu. Bitte beachten Sie, dass <meta> im Gegensatz zu einem HTTP-Header leichter umgangen werden kann.
 
 '''text/html; charset=utf-8''';
 
@@ -9,12 +9,12 @@ Fügen sie den entsprechenden HTTP-Header oder alternativ ein <meta> Tag hinzu. 
 '''—snap'''
 
 
-Weiterhin muß der Server selber konfiguriert werden, damit die '''richtige charset-Information''' gesendet wird. Dazu benötigt werden entsprechende Berechtigungen benötigt um die Änderungen am Server durchführen zu können. Weiter Informationen zu den verschiedenen Serverkonfigurationen finden Sie auf den Seiten von [https://www.w3.org/International/articles/http-charset/index.de W3.org].
+Weiterhin muss der Server selber konfiguriert werden, damit die '''richtige charset-Information''' gesendet wird. Dazu werden entsprechende Berechtigungen benötigt, um die Änderungen am Server durchführen zu können. Weitere Informationen zu den verschiedenen Serverkonfigurationen finden Sie auf den Seiten von [https://www.w3.org/International/articles/http-charset/index.de W3.org].
 
 Darüber hinaus gibt es auch die Möglichkeit die '''richtige charset-Information''' der [http://httpd.apache.org/docs/2.0/howto/htaccess.html '''.htaccess'''] zu übergeben, welche die Angaben im HTTP-Header überschreiben. [https://www.w3.org/International/questions/qa-htaccess-charset charset in .htaccess]
 
 '''In die .htaccess eintragen:'''
 <pre>AddType 'text/html; charset=UTF-8' html</pre>
 
-Hier finden Sie ein Beispiel, wie eine .htaccess -Datei aussehen kann, um den '''HTTP-Security-Header-Scanner''' Grün zu stimmen.
-([[Htaccess|.htaccess-Beispiel]])
+Hier finden Sie ein Beispiel, wie eine .htaccess-Datei aussehen kann, um einen höheren Wert beim '''HTTP-Security-Header-Scanner''' zu erzielen.
+([[Htaccess/DE|.htaccess-Beispiel]])

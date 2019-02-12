@@ -1,1 +1,1 @@
-Veraltete Protokollversion [[SSL|SSL3]] nicht unterstützt
+Veraltete Protokollversion [[SSL|SSL3]] wird nicht unterstützt.

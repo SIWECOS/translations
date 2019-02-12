@@ -1,9 +1,10 @@
+
 <br>
 
 '''<span style="color:#c31622">TLS-Scanner<span>'''
 <br>
 
-The [[TLS Scanner|TLS-Scanner]] allows you to check the encryption protocol ([[Transport Layer Security|TLS]]) of your [[Server|servers]] for [[Schwachstellen/DE|vulnerability]]. If you are using an out-dated [[Verschlüsselung|encoding]] version or are relying on out-dated processes ([https://de.wikipedia.org/wiki/Kryptographisches_Primitiv kryptographische Primitive]), this will be detected by our scanner. The TLS scanner is also capable of detecting problems with the [[Zertifikate|certificate]] in use and inform you about weak key-lengths and [[Zertifikate#Was_tun.2C_wenn_ein_SSL-Zertifikat_abgelaufen_ist.3F|expired certificates]] that could enable an attacker to decrypt the communication between you and your customers. In addition, the TLS Scanner can test your [[Transport Layer Security|TLS-Implementierung]] for common attacks like [[Man-in-the-middle|Man-in-the-middle Angriff]] ([[Man-in-the-middle|Insecure Renegotiation]]), [[Poodle]] and [[Heartbleed-Vulnerability/EN/Background|Heartbleed]].
+The [[TLS Scanner/EN|TLS-Scanner]] allows you to check the encryption protocol ([https://en.wikipedia.org/wiki/Transport_Layer_Security TLS]) of your servers for vulnerability. If you are using an out-dated encoding version or are relying on out-dated processes ([https://en.wikipedia.org/wiki/Cryptographic_primitive Cryptographic Primitive]), this will be detected by our scanner. The TLS scanner is also capable of detecting problems with the [[Certificate/EN|certificate]] in use and inform you about weak key-lengths and [[Zertifikate/DE#Was_tun.2C_wenn_ein_SSL-Zertifikat_abgelaufen_ist.3F|expired certificates (German only)]] that could enable an attacker to decrypt the communication between you and your customers. In addition, the TLS Scanner can test your TLS implementation for common attacks like [https://en.wikipedia.org/wiki/Man-in-the-middle_attack man-in-the-middle-attack] (Insecure Renegotiation), Poodle and [[Heartbleed-Vulnerability/EN/Background|Heartbleed]].
 
 '''''General:'''''
 *[[Response-Time-Exceeded/EN | HTTPS-NO-RESPONSE]]<br>
@@ -17,18 +18,18 @@ The [[TLS Scanner|TLS-Scanner]] allows you to check the encryption protocol ([[T
 *[[Key-Exchange-Method/EN|CIPHERSUITE-ANON]]<br>
 *[[Weakened-Encryption-Protocol/EN|CIPHERSUITE-EXPORT]]<br>
 *[[Unencrypted-Communication/EN|CIPHERSUITE-NULL]]<br>
-*[[Unsichere-Verschluesselungsfunktion-RC4/EN|CIPHERSUITE-RC4]]<br>
+*[https://en.wikipedia.org/wiki/RC4 CIPHERSUITE-RC4]<br>
 *[[Weak-DES-Encryption-Protocol/EN|CIPHERSUITE-DES]]<br>
 *[[Encryption-Method-Client/EN|CIPHERSUITEORDER-ENFORCED]]
 '''''Protokolle'':'''
 *[[Outdated-Protocol-Version-SSL2/EN|PROTOCOLVERSION-SSL2]]<br>
 *[[Outdated-Protocol-Version-SSL3/EN|PROTOCOLVERSION-SSL3]]<br>
-*[[PROTOCOLVERSION_TLS13|PROTOCOLVERSION-TLS13]]<br>
+*[https://en.wikipedia.org/wiki/Transport_Layer_Security PROTOCOLVERSION-TLS13]<br>
 '''''Attacks'':'''
 *[[Bleichenbacher-Vulnerability/EN|BLEICHENBACHER-VULNERABLE]]<br>
 *[[CRIME-Vulnerability/EN|CRIME-VULNERABLE]]<br>
 *[[Heartbleed-Vulnerability/EN|HEARTBLEED-VULNERABLE]]<br>
-*[[Invalid-Curve-Ephemeral-Vulnerability/ENDE|INVALID-CURVE-EPHEMERAL-VULNERABLE]]<br>
+*[[Invalid-Curve-Ephemeral-Vulnerability/EN|INVALID-CURVE-EPHEMERAL-VULNERABLE]]<br>
 *[[Invalid-Curve-Vulnerability/EN|INVALID-CURVE-VULNERABLE]]<br>
 *[[Padding-Oracle-Vulnerability/EN|PADDING-ORACLE-VULNERABLE]]<br>
 *[[POODLE-Vulnerability/EN|POODLE-VULNERABLE]]<br>

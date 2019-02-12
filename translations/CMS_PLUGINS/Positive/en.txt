@@ -1,1 +1,1 @@
-No CMS plugins could be detected. Attacks using security flaws in plugins are thus less likely.
+No [https://en.wikipedia.org/wiki/Content_management_system CMS plug-ins] could be detected. Attacks using security flaws in plug-ins are thus less likely.

@@ -13,7 +13,7 @@ Further information about the individual scanners, and the security flaws they d
 
 '''How do we calculate the SIWECOS score?'''
 
-The SIWECOS score for your website is calculated from over 100 different factors, weighted according to the severity of the detected security flaws and the checked segments of your website.  In addition, the five SIWECOS scanners show detailed results for their respective scan segments.
+The SIWECOS score for your website is calculated from over 100 different factors, weighted according to the severity of the detected security flaws and the checked segments of your website. In addition, the five SIWECOS scanners show detailed results for their respective scan segments.
 These subdivided results will help you analyze and fix the detected security flaws.
 
 

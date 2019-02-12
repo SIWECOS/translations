@@ -1,1 +1,1 @@
-Check for CMS plugins
+Check for CMS plug-ins

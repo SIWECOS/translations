@@ -1,10 +1,8 @@
-in Arbeit...
-
-{| 
+{|
 |
 == Was ist eine .htaccess -Datei? ==
 
-Eine .htaccess-Datei ist eine reine Textdatei, die dazu dient, die Konfiguration eines Apache Webservers zu beeinflussen, auch wenn man keinen direkten Zugriff auf die Hauptkonfigurationsdatei (httpd.conf) des Webservers hat oder eben diese nicht ändern möchte, da dazu der Apache neu gestartet werden muss. Keinen direkten Zugriff auf die ''httpd.conf'' haben Sie beispielsweise, wenn Sie Ihre Webseite bei einem Hoster wie 1&1 oder Strato abgelegt haben.
+Eine .htaccess-Datei ist eine reine Textdatei, die dazu dient, die Konfiguration eines Apache Webservers zu beeinflussen, auch wenn man keinen direkten Zugriff auf die Hauptkonfigurationsdatei (httpd.conf) des [[Server|Webservers]] hat oder eben diese nicht ändern möchte, da dazu der Apache neu gestartet werden muss. Keinen direkten Zugriff auf die ''httpd.conf'' haben Sie beispielsweise, wenn Sie Ihre Webseite bei einem Hoster wie 1&1 oder Strato abgelegt haben.
 
 In der Regel wird die erstellte '''.htaccess'''-Datei im Hauptverzeichnis der Website hochgeladen, da sich die darin eingetragene Konfiguration immer auf alle Dateien im Hauptverzeichnis inklusive allen Unterordnern bezieht. Mit der .htaccess-Datei können Sie also verzeichnisbezogene Regeln aufstellen, denn die Datei ist ein Bestandteil der Konfiguration des Webservers.
 
@@ -15,8 +13,8 @@ In der Regel wird die erstellte '''.htaccess'''-Datei im Hauptverzeichnis der We
 |}
 
 
-{| 
-| 
+{|
+|
 == Welche Konfigurations-Möglichkeiten bietet eine .htaccess-Datei? ==
 
 Es gibt unendlich viele Möglichkeiten, über die .htaccess-Datei den Webserver mit zusätzlichen Konfigurationen zu ändern und/oder abzusichern.
@@ -79,4 +77,3 @@ SEO Anwendungsbeispiele: https://www.seo-trainee.de/htaccess-datei-basics-und-an
 [[Category:Was_ist_Was]]
 [[Category:Glossar]]
 [[Category:FAQ]]
-

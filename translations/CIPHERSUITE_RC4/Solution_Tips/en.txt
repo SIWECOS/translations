@@ -1,1 +1,1 @@
-Deactivate support for the RC4 encryption method.
+Deactivate support for the [https://en.wikipedia.org/wiki/RC4 RC4] encryption method.

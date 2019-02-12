@@ -1,1 +1,1 @@
-Your web server / your website is configured to support the outdated DES encryption method (Ciphersuites), which is regarded as insecure. This makes you vulnerable to man-in-the-middle attacks.
+Your web server/website is configured to support the outdated DES encryption method ([https://en.wikipedia.org/wiki/Cipher_suite cipher suite]), which is regarded as insecure. This makes you vulnerable to [https://en.wikipedia.org/wiki/Man-in-the-middle_attack man-in-the-middle-attacks].

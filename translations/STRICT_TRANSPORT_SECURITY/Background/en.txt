@@ -1,1 +1,1 @@
-HSTS protection is inactive, the communication between your website and its visitors can be intercepted and manipulated.
+[https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security HTTP Strict Transport Security (HSTS)] protection is inactive, the communication between your website and its visitors can be intercepted and manipulated.

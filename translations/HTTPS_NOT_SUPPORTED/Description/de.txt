@@ -1,1 +1,1 @@
-Der [[Server]] scheint kein TLS ([[Transport_Layer_Security|Transportschichtsicherheit]]) zu unterstützen. Dies bedeutet, dass Sie keinerlei Verschlüsselung einsetzen um Ihre Daten und die Ihrer Kunden zu schützen.
+Der [[Server]] scheint kein TLS ([[Transport_Layer_Security|Transportschichtsicherheit]]) zu unterstützen. Dies bedeutet, dass Sie keinerlei Verschlüsselung einsetzen, um Ihre Daten und die Ihrer Kunden zu schützen.

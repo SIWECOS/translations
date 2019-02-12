@@ -1,1 +1,1 @@
-Überprüfung auf Bleichenbacher Schwachstelle. <span class="promarker></span>
+Überprüfung auf Bleichenbacher Schwachstelle <span class="promarker"></span>

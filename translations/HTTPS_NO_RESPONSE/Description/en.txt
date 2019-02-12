@@ -1,1 +1,1 @@
-The [[Server]] does not seem to respond. Have you entered the [[Domain]] correctly?
+The server does not seem to respond. Have you entered the [[Domain]] correctly?

@@ -1,1 +1,1 @@
-X-Content-Type header is missing
+X-Content-Type header is missing.

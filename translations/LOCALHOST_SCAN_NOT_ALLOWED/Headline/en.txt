@@ -1,1 +1,1 @@
-The local scan is not allowed.
+The local scan is not allowed

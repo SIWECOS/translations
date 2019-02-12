@@ -1,1 +1,1 @@
-Server does not seem to speak TLS
+Server does not seem to speak [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS].

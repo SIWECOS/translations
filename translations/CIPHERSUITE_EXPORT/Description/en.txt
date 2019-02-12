@@ -1,1 +1,1 @@
-Your web server / your website is configured to support intentionally insecure encryption methods ([[Cipher Suite|Cipher Suites]]). This makes you vulnerable to [[Man-in-the-middle|Man-in-the-middle Attacken]].
+Your web server/website is configured to support intentionally insecure encryption methods ([https://en.wikipedia.org/wiki/Cipher_suite cipher suite]). This makes you vulnerable to [https://en.wikipedia.org/wiki/Man-in-the-middle_attack man-in-the-middle-attacks].

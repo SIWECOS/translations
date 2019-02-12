@@ -1,1 +1,1 @@
-Spielen sie umgehend ein Update für ihre [[Transport Layer Security|TLS-Implementierung]] auf ihren Server ein. In der Apache-Konfiguration etwa kann man etwa die Zeile "SSLProtocol All -SSLv2 -SSLv3 " angeben.
+Spielen Sie umgehend ein Update für Ihre [[Transport Layer Security|TLS-Implementierung]] auf Ihrem [[Server]] ein. In der Apache-Konfiguration kann man etwa die Zeile "SSLProtocol All -SSLv2 -SSLv3" angeben.

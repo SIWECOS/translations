@@ -1,0 +1,1 @@
+Public key pins are disabled. It is advisable not to activate them, or to do so only after consultation with an expert.

@@ -1,1 +1,1 @@
-Ihr Zertifikat ist am %DATE% abgelaufen. Ihre Webseite wird Besuchern als unsicher bzw. nicht vertrauenswürdig angezeigt.
+Ihr [[Zertifikate/DE|Zertifikat]] ist am %DATE% abgelaufen. Ihre Webseite wird Besuchern als unsicher bzw. nicht vertrauenswürdig angezeigt.

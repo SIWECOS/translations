@@ -1,1 +1,1 @@
-Check for [https://en.wikipedia.org/wiki/RSA_(cryptosystem)#Adaptive_chosen_ciphertext_attacks Bleichenbacher] vulnerability. <span class="promarker></span>
+Check for Bleichenbacher vulnerability <span class="promarker"></span>

@@ -5,9 +5,9 @@ dir2lang - Convert SIWECOS translations to be used by the application
 
 =head1 SYNOPSIS
 
-B<dir2lang> [B<-v>] [B<--dryrun>] [B<--test> DIRNAME] [more options]
+B<dir2lang> [B<-v>] [B<--dryrun>]
 
-B<dir2lang> B<--help>|B<--man>
+B<dir2wiki> B<--help>|B<--man>
 
 =head1 Description
 
@@ -30,6 +30,8 @@ use SimpleProgressBar;
 use utf8;
 
 binmode(STDOUT, ":utf8");
+my $settings= get_config("$Bin/wiki.conf", qw(WIKI API));
+my $config= get_config("$Bin/siwecos.conf");
 
 =head1 options
 
@@ -37,9 +39,7 @@ binmode(STDOUT, ":utf8");
 
 =cut
 
-###########################################################
 my $dryrun = 0;
-###########################################################
 =item B<--dryrun>
 
 =item B<-d>
@@ -47,9 +47,8 @@ my $dryrun = 0;
 Just test the translations.
 
 =cut
-###########################################################
+
 my $test = '';
-###########################################################
 =item B<--test> DIRNAME
 
 =item B<-t> DIRNAME
@@ -57,50 +56,23 @@ my $test = '';
 Like B<--dryrun> but keep the files in DIRNAME.
 
 =cut
-###########################################################
-my $configfile= '';
-###########################################################
-=item B<--config> CONFIGFILE
 
-=item B<-c> CONFIGFILE
-
-Path to the config file.
-
-Default is "siwecos.conf" in the executable's directory.
-
-=cut
-###########################################################
-my $wikiconf= '';
-###########################################################
-=item B<--wikiconf> WIKI.CONF
-
-=item B<-w> WIKI.CONF
-
-Path to the wiki.conf configuration file.
-
-Default is "wiki.conf" in the executable's directory.
-
-=cut
-###########################################################
 my $verbose= 0;
-###########################################################
+
 =item B<-v>
 
 Verbose output.
 
 =cut
-###########################################################
+
 help() unless GetOptions(
     'v+'         => \$verbose,
     'dryrun'     => \$dryrun,
     'test=s'     => \$test,
-    'wikiconf=s' => \$wikiconf,
-    'config=s'   => \$configfile,
     'h|help'     => \&help,
     'm|man'      => \&man,
 );
 
-###########################################################
 =item B<--help>
 
 short help page
@@ -112,7 +84,6 @@ show man page
 =back
 
 =cut
-###########################################################
 
 sub help { pod2usage(-verbose=>1); }
 sub man  { pod2usage(-verbose=>2); }
@@ -121,124 +92,16 @@ my $CLEARLINE= "\r\x1b[2K";
 my $CURSORUP= "\r\x1b[1A";
 $|=1;
 
-# Configuration files
+
 # Location and names of some directories / files
 # $Bin = absolute path of this script
 # $Script = filename of this script
-###########################################################
-=head1 files
-
-=over 4
-
-=cut
-
-###########################################################
-my $settings= get_config($wikiconf || "$Bin/wiki.conf", qw(WIKI API));
-###########################################################
-=item B<wiki.conf>
-
-The B<wiki.conf> file has to be in the same directory as the executable.
-
-Alternatively it can be defined with the B<--wikiconf> option.
-
-Required definitions in here are
-
-=over 4
-
-=item B<API>
-
-The UrL of the MediaWiki API.
-
-=item B<WIKI>
-
-The URL of the Wiki.
-
-=back
-
-=cut
-###########################################################
-my $config= get_config($configfile || "$Bin/siwecos.conf");
-###########################################################
-=item B<siwecos.conf>
-
-The B<siwecos.conf> file has to be in the same directory as the executable.
-
-Alternatively it can be defined with the B<--config> option.
-
-Required definitions in here are
-
-=over 4
-
-=cut
-###########################################################
-my $LANGUAGE_DIR= $config->{LANGUAGE_DIR} || "$Bin/lang";
-###########################################################
-=item B<LANGUAGE_DIR>
-
-This needs to be the path to the siwecos-business-layer's lang directory in resources.
-Here the language file will be stored.
-
-Default is the directory "lang" in the executables directory.
-
-=cut
-###########################################################
-my $LANGUAGE_FILE= $config->{LANGUAGE_FILE} || "siwecos.php";
-###########################################################
-=item B<LANGUAGE_FILE>
-
-This is just the name of the language file.
-Do not put a path here,
-
-Default is "siwecos.php".
-
-=cut
-###########################################################
-my $WIKI_LINK= $config->{TARGET_WIKI_LINK} || "siwecos_wiki";
-###########################################################
-=item B<TARGET_WIKI_LINK>
-
-This name will be used for the target attribute in generated HTML for all links which point to the wiki.
-
-Default is "siwecos_wiki".
-
-=cut
-###########################################################
-my $WIKI_EXTERN= $config->{TARGET_EXTERN_LINK} || "siwecos_extern";
-###########################################################
-=item B<TARGET_EXTERN_LINK>
-
-This name will be used for the target attribute in generated HTML for all links which point to external sites.
-
-Default is "siwecos_extern".
-
-=cut
-###########################################################
-my $TRANSLATIONS= $config->{TRANSLATIONS_DIR} || "$Bin/translations";
-###########################################################
-=item B<TRANSLATIONS_DIR>
-
-This is the path to the directory where all translations can be found.
-
-Default is the directory "translations" in the executable's directory.
-
-=cut
-###########################################################
-my $TEMPLATEFILE= $config->{LANG_TEMPLATE} || "$Bin/$Script.txt";
-###########################################################
-=item B<LANG_TEMPLATE>
-
-This is the path to the language template file.
-
-Default is a file called "dir2lang.txt" in the executable's directory.
-
-=cut
-
-=back
-
-=back
-
-=cut
-###########################################################
+my $TRANSLATIONS= "$Bin/translations";
+my $LANGUAGE_DIR=  $config->{LANGUAGE_DIR}       || "$Bin/lang";
+my $LANGUAGE_FILE= $config->{LANGUAGE_FILE}      || "siwecos.php";
+my $WIKI_LINK=     $config->{TARGET_WIKI_LINK}   || "siwecos_wiki";
+my $WIKI_EXTERN=   $config->{TARGET_EXTERN_LINK} || "siwecos_extern";
+my $TEMPLATEFILE= "$Bin/$Script.txt";
 
 # Expected purposes
 my $CATEGORY     = 'Category';

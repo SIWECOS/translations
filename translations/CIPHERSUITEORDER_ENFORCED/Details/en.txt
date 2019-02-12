@@ -1,0 +1,1 @@
+Your web server/website is configured to give priority to the encryption method selected by the client (website visitor) rather than by your web server. Servers should not allow their clients to select the encryption method, but should actively select strong connections.

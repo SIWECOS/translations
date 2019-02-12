@@ -1,0 +1,1 @@
+Der [[Server]] unterstützt die neueste [[Transport_Layer_Security|TLS 1.3 Protokollversion]]. Diese befindet sich noch im Standardisierungsprozess. Sollten Sie nicht wissen, was dies bedeutet, können Sie die Version ausschalten, da die meisten Browser diese Version noch nicht unterstützen und TLS 1.3 sich noch in der Entwicklung befindet.
