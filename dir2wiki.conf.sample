@@ -1,0 +1,17 @@
+# simple config file
+# - # starts a comment
+# - empty lines are ignored
+# - settings are lines
+#   - starting with a word
+#   - followed by
+#     - whitespace or
+#     - an = surrounded by optional whitespace
+#   - followed by the settings' value
+#     - optionally enclosed with " or '
+#     - backslashes will escape the next character
+#
+WIKI https://siwecos.de/wiki
+API  https://siwecos.de/wiki/api.php
+USER user_for_updating_entries
+PASS "users password"
+
