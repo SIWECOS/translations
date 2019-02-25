@@ -206,23 +206,24 @@ foreach my $language (keys %$categories) {
         if( m#^\s*/\*\s*DATA\s*HERE\s*\*/\s*#)  {
             # Go through each placeholder in alphabetical order
             my $placeholders= $language_data->{$language};
-            foreach my $placeholder (sort keys %$placeholders) {
+            foreach my $placeholder (sort keys %$lead) {
                 my $p= $placeholders->{$placeholder};
-                my $category= $p->{$CATEGORY};
+                my $category= ($p && $p->{$CATEGORY}) || '*missing*';
                 # Go through each of the purposes we want to print
                 # They are defined at the top under "# Prepare some output stuff"
                 foreach my $purpose (@SEQUENCE) {
-                    my $text= $p->{$purpose};
+                    my $text= ($p && $p->{$purpose}) || '';
                     my $suffix= $SUFFIX{$purpose};
                     my $ph= "$placeholder$suffix";
-                    if( $text ) {
+                    my $lead_text= $lead->{$placeholder}->{$purpose};
+                    if( $lead_text ) {
                         # Print the placeholder as a comment
                         # Print the category as comment
                         print $out "\n# Category: $category\n";
                         print $out "# Placeholder: $placeholder\n";
                         print $out "# Purpose: $purpose\n";
                         print $out qq'msgctxt "$ph"\n';
-                        print $out msg(msgid => $lead->{$placeholder}->{$purpose});
+                        print $out msg(msgid => $lead_text);
                         if( $ist_template ) {
                             print $out msg(msgstr => "");
                         } else {
