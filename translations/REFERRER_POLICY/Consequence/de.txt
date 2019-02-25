@@ -1,0 +1,1 @@
+Eine fehlende oder falsch gesetzte Referrer Policy ermöglicht unerwünschten benutzeridentifizierenden Informationensabfluss.
