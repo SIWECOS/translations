@@ -1,4 +1,4 @@
-Verwenden Sie den CSP mit default-src 'none' und ohne 'unsafe-eval' oder 'unsafe-inline' Richtlinien. Mehr zu '''Content Security Policy''' (zu deutsch etwa "Richtlinie für die Sicherheit der Inhalte") finden Sie bei '''[https://wiki.selfhtml.org/wiki/Sicherheit/Content_Security_Policy SELFHTML >>]'''
+Verwenden Sie den CSP mit default-src 'none' oder 'self' und ohne 'unsafe-eval' oder 'unsafe-inline' Richtlinien. Mehr zu '''Content Security Policy''' (zu deutsch etwa "Richtlinie für die Sicherheit der Inhalte") finden Sie bei '''[https://wiki.selfhtml.org/wiki/Sicherheit/Content_Security_Policy SELFHTML >>]'''
 
 
 --snip<br>
