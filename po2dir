@@ -63,8 +63,7 @@ foreach my $pofile (@ARGV) {
         warn "No text for $file\n" unless defined $entry->{msgstr};
         # Check whether or not the last line originally endet with a \n
         # Keep what was the status before when writing out the new text.
-        open my $old, '<:encoding(utf8)', $file;
-        if ($old) {
+        if (open my $old, '<:encoding(utf8)', $file) {
             my $crlf_end= '';
             my $content= do { local $/; <$old>; };
             close $old;
