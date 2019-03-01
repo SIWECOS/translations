@@ -1,0 +1,1 @@
+A well-defined Referrer Policy '''protects the privacy''' of your website visitors, but has no ''direct'' influence on the security of your website.
