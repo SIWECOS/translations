@@ -17,23 +17,35 @@ sub new {
         fill    => $config{fill} || '#',
         empty   => $config{empty} || '.',
         rotator => $config{rotator} || '',
-        rotlen  => length($config{rotator}||' '),
-        cursor => $config{cursor},
+        rotcnt  => 0,
+        cursor  => $config{cursor},
+        dumb    => $config{dumb},
+        format  => $config{format} || "%5.1f%%",
     }, $type;
 }
 
 sub update {
     my($self, $done) = @_;
-    my $new = int(($done * $self->{width} / $self->{max})*$self->{rotlen});
+    if ($self->{dumb}) {
+        my $new= sprintf $self->{format}, $done * 100 / $self->{max};
+        if (not $self->{current} or $self->{current} ne $new) {
+            print "\r",$new;
+            $self->{current}= $new; 
+        }
+        return;
+    }
+    my $new = $done * $self->{width} / $self->{max};
     if (not $self->{current} or $self->{current} != $new) {
         $self->{current}= $new;
         if ($self->{rotator}) {
-            my $offset= $new % $self->{rotlen};
-            $new = int($new / $self->{rotlen});
+            $new = int($new);
             print "\r[",$self->{fill} x $new;
             my $rest= $self->{width}-$new;
             if ($rest > 0) {
-                print substr($self->{rotator}, $offset, 1),$self->{empty} x ($rest-1),"]\r";
+                my $r= $self->{rotcnt};
+                print substr($self->{rotator}, $r++, 1),$self->{empty} x ($rest-1),"]\r";
+                $r=0 if $r >= length($self->{rotator});
+                $self->{rotcnt}= $r;
             } else {
                 print $self->{empty} x $rest,"]\r";
             }
@@ -48,6 +60,14 @@ sub update {
 }
 
 sub clear {
+    my($self) = @_;
+    if ($self->{dumb}) {
+        my $current= $self->{current};
+        if (defined $current) {
+            print "\r"," " x length($current),"\r";
+        }
+        return;
+    }
     print "\r\x1b[2K";
 }
 1;
