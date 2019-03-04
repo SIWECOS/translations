@@ -202,13 +202,23 @@ foreach my $lang (keys %content) {
 die "Too many fatal errors.\n" if $fatal;
 
 #Prepare the SimpleProgressBar
-my $progress= SimpleProgressBar->new(
-    max => $todo,
-    rotator => ($todo > 100) ? "\x{2838}\x{28b0}\x{28e0}\x{28c4}\x{2846}\x{2807}\x{280b}\x{2819}" : undef,
-    cursor => 1,
-    fill => "\x{28ff}",
-    empty => "\x{2880}",
-);
+
+my $progress= do {
+    if ($ENV{OS} and $ENV{OS}=~ /windows/i) {
+        SimpleProgressBar->new(
+            max => $todo,
+            dumb => 1,
+        );
+    } else {
+        SimpleProgressBar->new(
+            max => $todo,
+            rotator => ($todo > 100) ? "\x{2838}\x{28b0}\x{28e0}\x{28c4}\x{2846}\x{2807}\x{280b}\x{2819}" : undef,
+            cursor => 1,
+            fill => "\x{28ff}",
+            empty => "\x{2880}",
+        );
+    }
+};
 my $done= 0;
 
 my $mw = MediaWiki::API->new({
