@@ -464,6 +464,7 @@ sub read_placeholder_content {
                     for ($text) {
                         s/\s*,\s*/\n/;                      # Split at commas
                         s/\n\n+/\n/g,                       # delete empty lines
+                        tr/_/ /;
                         my $wiki= '';
                         foreach my $cat (split /\n/) {
                             $cat=~ s/^\s+|\s+$//g;
