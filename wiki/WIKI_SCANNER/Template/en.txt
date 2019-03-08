@@ -14,5 +14,5 @@
 
 
 [[Category:Siwecos-Scanner]]
-[[Category:{{:{{PAGENAME}}/Category}}]]
+{{:{{PAGENAME}}/Category}}
 [[Category:Glossar]]

@@ -12,7 +12,7 @@ B<dir2wiki> B<--help>|B<--man>
 =head1 Description
 
 dir2wiki will take all SIWECOS translations found in a subdirectory
-"translations" and push them to the SIWECOS WIKI.
+"translations" and "wiki" and push them to the SIWECOS WIKI.
 
 =cut
 
@@ -141,7 +141,7 @@ die "No Scanner Templates in\n\t$TRANSLATIONS/$SCANNER_TEMPLATE.\n"
 # Now go through all the placeholders we have
 my %content;
 my @selection= ('*');
-# Maybe there are specific ones...
+# Maybe there are specific ones given on commandline...
 @selection= splice @ARGV if @ARGV;
 foreach my $specific (@selection) {
     foreach my $dir (glob qq("$TRANSLATIONS/$specific")) {
@@ -416,6 +416,13 @@ sub read_placeholder_content {
             if( $purpose eq 'wikitext' ) {
                 $content{$lang}->{$placeholder}->{''}= $text;
             } else {
+                if ($purpose eq 'Category') {
+                    for ($text) {
+                        s/\s*,\s*/\n/;                      # Split at commas
+                        s/\n\n+/\n/g,                       # delete empty lines
+                        s/^\s*(.*?)\s*$/[[Category:$1]]/mg; # make each line a category entry
+                    }
+                }
                 $purpose= ucfirst $purpose;
                 $content{$lang}->{$placeholder}->{"/$purpose"}= $text;
             }
