@@ -138,6 +138,7 @@ foreach (glob qq("$WIKITEXT/$SCANNER_TEMPLATE/*.txt")) {
 die "No Scanner Templates in\n\t$TRANSLATIONS/$SCANNER_TEMPLATE.\n"
     unless %SCANNER_TEMPLATES;
 
+my %found_categories;
 # Now go through all the placeholders we have
 my %content;
 my @selection= ('*');
@@ -156,7 +157,7 @@ foreach my $specific (@selection) {
             next;
         }
         # Get the content for each required purpose
-        read_placeholder_content(\%content, $dir, $placeholder, @PURPOSES);
+        read_placeholder_content(\%content, \%found_categories, $dir, $placeholder, @PURPOSES);
     }
     foreach my $dir (glob qq("$WIKITEXT/$specific")) {
         my $placeholder= basename $dir;
@@ -168,10 +169,9 @@ foreach my $specific (@selection) {
             }
             next;
         }
-        read_placeholder_content(\%content, $dir, $placeholder, qw( link wikitext ));
+        read_placeholder_content(\%content, \%found_categories, $dir, $placeholder, qw( link wikitext ));
     }
 }
-
 # Check the pagenames
 my (
     %pagenames,
@@ -232,6 +232,18 @@ $mw->login( { lgname => $settings->{USER}, lgpassword => $settings->{PASS} } )
 
 # For some statistics
 my %count;
+my %known_categories;
+if ( not $refresh > 1 and not $junk ) {
+    print "Fetching categories.";
+    @known_categories{
+        map $_->{'*'}, @{$mw->list({
+            action => 'query',
+            list => 'allcategories',
+            format => 'JSON',
+        })}
+    } = ();
+    print "\r                    \r";
+}
 
 if ($dryrun) {
     print "Doing dryrun. Will show pages which would be updated\n";
@@ -329,8 +341,38 @@ foreach my $lang (keys %content) {
     }
 }
 
-$mw->logout();
 $progress->update($done);
+
+$mw->logout();
+
+my %new_categories= ( '*' => {} );
+my $found_new= 0;
+my $catlen= 0;
+foreach my $lang (sort keys %found_categories) {
+    $new_categories{$lang}= {};
+    foreach my $cat (sort keys %{$found_categories{$lang}}) {
+        next if exists $known_categories{$cat};
+        ++$new_categories{$lang}->{$cat};
+        ++$new_categories{'*'}->{$cat};
+        ++$found_new;
+        $catlen= length($cat) if length($cat) > $catlen;
+    }
+}
+if ($found_new and ($verbose or $dryrun)) {
+    my $catfill= '.' x (2+$catlen);
+    print "\nNew categories found:\n";
+    foreach my $lang (sort keys %new_categories) {
+        next if $lang eq '*';
+        foreach my $cat (sort keys %{$new_categories{$lang}}) {
+            printf "%-2s %s%s: %4d\n",
+                $lang,
+                $cat,
+                substr($catfill, length($cat)),
+                $new_categories{$lang}->{$cat}
+            ;
+        }
+    }
+}
 
 print "\nUpdate statistics\n";
 my $changed= 0;
@@ -342,12 +384,13 @@ my $refreshs= 0;
 my $langcount= 0;
 foreach my $lang (sort keys %count) {
     ++$langcount;
-    printf "$lang Pages created......: %4d\n", $count{$lang}->{created};
-    printf "$lang Pages updated......: %4d\n", $count{$lang}->{changed};
-    printf "$lang Pages kept.........: %4d\n", $count{$lang}->{same};
-    printf "$lang Pages deleted......: %4d\n", $count{$lang}->{junk};
-    printf "$lang Articles refreshed.: %4d\n", $count{$lang}->{refreshs};
-    printf "$lang Articles in total..: %4d\n", $count{$lang}->{pages};
+    printf "%-2s New categories.....: %4d\n", $lang, scalar keys %{$new_categories{$lang}};
+    printf "%-2s Pages created......: %4d\n", $lang, $count{$lang}->{created};
+    printf "%-2s Pages updated......: %4d\n", $lang, $count{$lang}->{changed};
+    printf "%-2s Pages kept.........: %4d\n", $lang, $count{$lang}->{same};
+    printf "%-2s Pages deleted......: %4d\n", $lang, $count{$lang}->{junk};
+    printf "%-2s Articles refreshed.: %4d\n", $lang, $count{$lang}->{refreshs};
+    printf "%-2s Articles in total..: %4d\n", $lang, $count{$lang}->{pages};
     $created+=  $count{$lang}->{created};
     $changed+=  $count{$lang}->{changed};
     $same+=     $count{$lang}->{same};
@@ -356,6 +399,7 @@ foreach my $lang (sort keys %count) {
     $pages+=    $count{$lang}->{pages};
 }
 if ($langcount > 1) {
+    printf "   New categories.....: %4d\n", scalar keys %{$new_categories{'*'}};
     printf "   Pages created......: %4d\n", $created;
     printf "   Pages updated......: %4d\n", $changed;
     printf "   Pages kept.........: %4d\n", $same;
@@ -385,7 +429,7 @@ sub edit {
 }
 
 sub read_placeholder_content {
-    my($content, $dir, $placeholder, @purposes)= @_;
+    my($content, $found_categories, $dir, $placeholder, @purposes)= @_;
     # Get the content for each required purpose
     foreach my $purpose (@purposes) {
         my %missing;
@@ -420,7 +464,13 @@ sub read_placeholder_content {
                     for ($text) {
                         s/\s*,\s*/\n/;                      # Split at commas
                         s/\n\n+/\n/g,                       # delete empty lines
-                        s/^\s*(.*?)\s*$/[[Category:$1]]/mg; # make each line a category entry
+                        my $wiki= '';
+                        foreach my $cat (split /\n/) {
+                            $cat=~ s/^\s+|\s+$//g;
+                            $wiki.= "[[Category:$cat]]\n";
+                            ++$found_categories->{$lang}->{$_};
+                        }
+                        $_= $wiki;
                     }
                 }
                 $purpose= ucfirst $purpose;
