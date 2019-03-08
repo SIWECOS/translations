@@ -11,7 +11,7 @@ sub new {
     my $width = ($config{width} || $terminalsize[0] || 50) - 2;
     $| = 1;
     return bless {
-        max     => $config{max} || 100,
+        max     => defined($config{max}) ? $config{max} : 100,
         width   => $width,
         current => undef,
         fill    => $config{fill} || '#',
@@ -26,6 +26,7 @@ sub new {
 
 sub update {
     my($self, $done) = @_;
+    return unless $self->{max};
     if ($self->{dumb}) {
         my $new= sprintf $self->{format}, $done * 100 / $self->{max};
         if (not $self->{current} or $self->{current} ne $new) {
