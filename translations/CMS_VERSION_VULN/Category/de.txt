@@ -1,1 +1,1 @@
-Infoleak
+Information-Leakage-Scanner

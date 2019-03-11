@@ -1,1 +1,1 @@
-Referrer Policy Scanner
+Referrer-Policy

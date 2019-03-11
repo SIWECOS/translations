@@ -1,1 +1,2 @@
-HSHS_DOMXSS
+HTTP-Security-Header-Scanner
+Generell

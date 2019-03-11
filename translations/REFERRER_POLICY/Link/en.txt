@@ -1,1 +1,1 @@
-Referrer Policy
+Referrer-Policy

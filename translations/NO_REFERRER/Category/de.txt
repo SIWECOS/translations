@@ -1,2 +1,2 @@
 HTTP-Security-Header-Scanner
-Content-Security-Policy
+Referrer-Policy

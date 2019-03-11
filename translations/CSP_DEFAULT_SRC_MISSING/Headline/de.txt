@@ -1,0 +1,1 @@
+Die Anweisung default-src fehlt.
