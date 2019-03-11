@@ -16,6 +16,6 @@ pin-sha256="<HASH>"; pin-sha256="<HASH>"; max-age=2592000; includeSubDomains;
 
 '''--snap'''
 
-Here is an example of an .htaccess file which will set the '''HTTP-Security-Header-Scanner''' to green.
+Here is an example of an .htaccess file which will set the '''Header Scanner''' to green.
 ([[Htaccess|.htaccess example (German only]])
 -->

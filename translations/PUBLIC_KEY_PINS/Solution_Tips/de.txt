@@ -16,5 +16,5 @@ Weiterführende Informationen finden Sie im [https://www.zdnet.com/article/googl
 
 '''--snap'''
 
-Hier finden Sie ein Beispiel, wie eine .htaccess-Datei aussehen kann, um einen höheren Wert beim '''HTTP-Security-Header-Scanner''' zu erzielen.
+Hier finden Sie ein Beispiel, wie eine .htaccess-Datei aussehen kann, um einen höheren Wert beim '''Header Scanner''' zu erzielen.
 ([[Htaccess/DE|.htaccess-Beispiel]])

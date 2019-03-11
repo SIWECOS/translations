@@ -1,1 +1,1 @@
-Es wurden „[[DOMXSS-Sources|Sources]]“ gefunden.
+Es wurden „[[DOMXSS-Sources]]“ gefunden.

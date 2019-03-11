@@ -1,1 +1,1 @@
-Es wurden keine „[[DOMXSS-Sinks|Sinks]]“ gefunden.
+Es wurden keine „[[DOMXSS-Sinks]]“ gefunden.
