@@ -13,6 +13,6 @@
 |}
 
 
-[[Category:Siwecos-Scanner]]
+[[Category:Siwecos-Scanner/EN]]
 {{:{{PAGENAME}}/Category}}
 [[Category:Glossar]]
