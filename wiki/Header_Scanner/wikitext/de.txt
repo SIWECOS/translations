@@ -1,0 +1,13 @@
+'''<span style="color:#c31622">Header Scanner<span>'''
+<br>
+
+Der Kopfteil ([[Header|HTTP-Header Protokoll]]) einer Internetseite wird bei jedem Aufruf und jeder Antwort unsichtbar für den Benutzer zwischen dem [[Client]] und dem [[Server]] ausgetauscht. Dabei beeinflusst der [[Header]] das Verhalten des [[Browser|Browsers]] auf der Benutzerseite. Größtenteils wird das unabhängig von der aufgerufenen [[Webanwendung|Webapplikation]] gehandhabt und wird über die Webserver-Konfiguration definiert. Der [[Header Scanner]] erlaubt Ihnen nun den Kopfbereich ([[HTTP]]-Header) Ihrer Webapplikation auf unsichere Konfigurationen zu untersuchen. Der Scanner ([[Crawler]]) überprüft die Informationen des [[HTTP]]-Headers Ihrer Internetseite und erstellt einen Bericht über gefundene Schwachstellen, welche es einem Angreifer erlauben könnten, über gefälschter Absender-IP-Adresse ([[IP-Spoofing|Spoofing]]) Angriffe durchzuführen. <!--[https://www.siwecos.de/wiki/Kategorie:HTTP_Secure_Header-Scanner Checks des HTTP_Secure_Header-Scanner]--> <br>
+
+*[[Content-Security-Policy-Schwachstelle/DE|CONTENT-SECURITY-POLICY]]<br>
+*[[Content-Type-Nicht-Korrekt/DE|CONTENT-TYPE]]<br>
+* PUBLIC-KEY-PINS (HPKP wird derzeit nicht überprüft))<br>
+<!--[[Public-Key-Pins-Deaktiviert/DE|PUBLIC-KEY-PINS]] (<span style="color:#c31622"><b>Achtung:</b></span> HPKP wird derzeit nicht überprüft)<br>-->
+*[[Keine-Verschluesselung-Gefunden/DE|STRIKT-TRANSPORT-SECURITY]]<br>
+*[[X-Content-Type-Options-Schwachstelle/DE|X-CONTENT-TYPE-OPTIONS]]<br>
+*[[X-Frame-Options-Schwachstelle/DE|X-FRAME-OPTIONS]]<br>
+*[[XSS-Schwachstelle/DE|X-XSS-PROTECTION]]

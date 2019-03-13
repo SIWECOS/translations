@@ -23,5 +23,5 @@ Header set Content-Security-Policy "default-src 'none'; frame-src 'self'; font-s
 
 --snap
 
-Here is an example of an .htaccess file which will set the '''HTTP-Security-Header-Scanner''' to green.
+Here is an example of an .htaccess file which will set the '''Header Scanner''' to green.
 ([[Htaccess|.htaccess example (German only)]])

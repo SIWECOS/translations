@@ -1,1 +1,1 @@
-HSHS_DOMXSS
+Header Scanner

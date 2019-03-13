@@ -1,1 +1,2 @@
-HSHS_DOMXSS
+Header Scanner
+Strict-Transport-Security

@@ -16,5 +16,5 @@ Darüber hinaus gibt es auch die Möglichkeit die '''richtige charset-Informatio
 '''In die .htaccess eintragen:'''
 <pre>AddType 'text/html; charset=UTF-8' html</pre>
 
-Hier finden Sie ein Beispiel, wie eine .htaccess-Datei aussehen kann, um einen höheren Wert beim '''HTTP-Security-Header-Scanner''' zu erzielen.
+Hier finden Sie ein Beispiel, wie eine .htaccess-Datei aussehen kann, um einen höheren Wert beim '''Header Scanner''' zu erzielen.
 ([[Htaccess/DE|.htaccess-Beispiel]])

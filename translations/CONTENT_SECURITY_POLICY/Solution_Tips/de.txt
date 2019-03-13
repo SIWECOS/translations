@@ -22,6 +22,6 @@ Header set Content-Security-Policy "default-src 'none'; frame-src 'self'; font-s
 </pre>
 
 --snap
-
-Hier finden Sie ein Beispiel, wie eine .htaccess-Datei aussehen kann, um einen höheren Wert beim '''HTTP-Security-Header-Scanner''' zu erzielen.
+Header Scanner
+Hier finden Sie ein Beispiel, wie eine .htaccess-Datei aussehen kann, um einen höheren Wert beim '''Header Scanner''' zu erzielen.
 ([[Htaccess/DE|.htaccess-Beispiel]])
