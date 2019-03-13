@@ -1,0 +1,82 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+my $TRANSLATIONS= 'translations';
+
+my $placeholder= '';
+LINE: while (<>) {
+  last unless defined $_;
+  next if /^\s*$/;
+  if (not s/^(.*?)\s*:\s*//) {
+    die "Fehler in Zeile $. von $ARGV: $_";
+  }
+  tr/\015\012//d;
+  my $line= $.;
+  my $purpose= $1;
+  my @content= ( $_ );
+  while (<>) {
+    last if /^(.*?)\s*:\s*/;
+    tr/\015\012//d;
+    push (@content, $_);
+  }
+  SWITCH: for ($purpose) {
+    /^Technischer Testname$/i && do {
+      chomp($placeholder= uc $content[0]);
+      my $dir= "$TRANSLATIONS/$placeholder";
+      mkdir $dir;
+      redo LINE;
+    };
+    die "Fehler in Zeile $line von $ARGV: Es wurde noch kein »Technischer Testname« gefunden.\n" unless $placeholder;
+    /^Headline$/i && do {
+      create_entry("$TRANSLATIONS/$placeholder/Headline", \@content);
+      redo LINE;
+    };
+    /^Negative?$/i && do {
+      create_entry("$TRANSLATIONS/$placeholder/Negative", \@content);
+      redo LINE;
+    };
+    /^Positive$/i && do {
+      create_entry("$TRANSLATIONS/$placeholder/Positive", \@content);
+      redo LINE;
+    };
+    /^Description$/i && do {
+      create_entry("$TRANSLATIONS/$placeholder/Description", \@content);
+      redo LINE;
+    };
+    /^Background$/i && do {
+      create_entry("$TRANSLATIONS/$placeholder/Background", \@content);
+      redo LINE;
+    };
+    /^Consequence$/i && do {
+      create_entry("$TRANSLATIONS/$placeholder/Consequence", \@content);
+      redo LINE;
+    };
+    /^Solution_Tips$/i && do {
+      create_entry("$TRANSLATIONS/$placeholder/Solution_Tips", \@content);
+      redo LINE;
+    };
+    /^Category$/i && do {
+      create_entry("$TRANSLATIONS/$placeholder/Category", \@content);
+      redo LINE;
+    };
+    /^Link$/i && do {
+      if ($content[0]=~/^tbd$/i) {
+        @content= ( $placeholder );
+      } else {
+        $#content= 0;
+      }
+      create_entry("$TRANSLATIONS/$placeholder/Link", \@content);
+      redo LINE;
+    };
+    die "Fehler in Zeile $line von $ARGV: Unbekannter Verwendungszweck $purpose\n";
+  }
+}
+
+sub create_entry {
+  my($dir, $content)= @_;
+  mkdir $dir or warn "Kann $dir nicht anlegen: $!\n";
+  open my $c, '>:encoding(utf8)', "$dir/de.txt" or die "Kann $dir/de.txt nicht erstellen: $!\n";
+  print $c join("\n", @$content);
+  close $c;
+  undef $content;
+}
