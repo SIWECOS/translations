@@ -191,7 +191,8 @@ foreach( glob("$TRANSLATIONS/*/*/*.txt") ) {
         # If a category is set, setup the category data structure
         if( $purpose eq "Category" ) {
             $language_data->{$lang}->{$placeholder} ||= {};
-            $categories->{$lang}->{$text}->{$placeholder} = $language_data->{$lang}->{$placeholder};
+            $text=~ /(\w+[\w -]*)\b/; # Just first category
+            $categories->{$lang}->{$1}->{$placeholder} = $language_data->{$lang}->{$placeholder};
             ++$category_found{$lang}->{$placeholder};
         } else {
             $language_data->{$lang}->{$placeholder}->{$purpose}= $text;
@@ -228,13 +229,22 @@ my $mw = MediaWiki::API->new({
     api_url => $settings->{API},
 });
 
-my $progress= SimpleProgressBar->new(
-    max => $todo,
-    rotator => ($todo > 100) ? "\x{2838}\x{28b0}\x{28e0}\x{28c4}\x{2846}\x{2807}\x{280b}\x{2819}" : undef,
-    cursor => 1,
-    fill => "\x{28ff}",
-    empty => "\x{2880}",
-);
+my $progress=  do {
+    if ($ENV{OS} and $ENV{OS}=~ /windows/i) {
+        SimpleProgressBar->new(
+            max => $todo,
+            dumb => 1,
+        );
+    } else {
+        SimpleProgressBar->new(
+            max => $todo,
+            rotator => ($todo > 100) ? "\x{2838}\x{28b0}\x{28e0}\x{28c4}\x{2846}\x{2807}\x{280b}\x{2819}" : undef,
+            cursor => 1,
+            fill => "\x{28ff}",
+            empty => "\x{2880}",
+        );
+    }
+};
 my $done;
 # Go through each language
 foreach my $language (keys %$categories) {
