@@ -1,0 +1,1 @@
+Auf Ihrem Server ist ein Port offen, welcher üblicherweise für das Protokoll „RDP“ verwendet wird. Mit RDP ist es möglich, Rechner über das Netzwerk fernzusteuern.  

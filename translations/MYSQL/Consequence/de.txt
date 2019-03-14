@@ -1,0 +1,1 @@
+Offene Ports stellen erstmal keine _direkte_ Schwachstelle dar. Durch die Konfiguration Ihres Servers wird die Angriffsfläche für Angreifer jedoch erhöht. Sie sollten keine Dienste anbieten, die Sie nicht nutzen und unsichere Dienste am besten ganz abschalten.

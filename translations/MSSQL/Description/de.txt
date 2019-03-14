@@ -1,0 +1,1 @@
+Auf Ihrem Server ist ein Port offen, welcher üblicherweise für das Betreiben der Datenbank MS-SQL verwendet wird. Damit ist es potenziell möglich, auf die Datenbank aus der Ferne zuzugreifen.

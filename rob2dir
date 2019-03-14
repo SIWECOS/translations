@@ -80,4 +80,7 @@ sub create_entry {
   print $c join("\n", @$content);
   close $c;
   undef $content;
+   open my $c, '>', "$dir/en.txt" or die "Kann $dir/en.txt nicht erstellen: $!\n";
+  print $c "text will follow";
+  close $c;
 }

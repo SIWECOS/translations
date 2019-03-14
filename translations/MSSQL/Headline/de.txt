@@ -1,0 +1,1 @@
+Überprüfung auf offenen MS-SQL-Server Port

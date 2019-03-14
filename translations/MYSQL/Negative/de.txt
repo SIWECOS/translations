@@ -1,0 +1,1 @@
+Der MySQL Port auf Ihrem Server ist offen.

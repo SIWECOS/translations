@@ -1,0 +1,1 @@
+In den meisten Fällen ist es nicht erwünscht, dass man aus der Ferne eine direkte Verbindung zur Datenbank aufbauen kann. Falls dies nicht von ihnen beabsichtigt ist, sollten sie den Remote-Zugang abschalten.
