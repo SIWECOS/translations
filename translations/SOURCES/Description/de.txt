@@ -1,1 +1,1 @@
-Bei der Überprüfung wurde mindestens eine [[Schwachstellen/DE|Schwachstelle]] auf der Webseite gefunden, die von einer externen, möglicherweise nicht vertrauenswürdigen Quelle gesteuert werden könnte.
+Bei der Überprüfung wurde mindestens eine [[Schwachstellen|Schwachstelle]] auf der Webseite gefunden, die von einer externen, möglicherweise nicht vertrauenswürdigen Quelle gesteuert werden könnte.

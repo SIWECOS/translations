@@ -33,5 +33,5 @@ The [[TLS Scanner/EN|TLS-Scanner]] allows you to check the encryption protocol (
 *[[Invalid-Curve-Vulnerability/EN|INVALID-CURVE-VULNERABLE]]<br>
 *[[Padding-Oracle-Vulnerability/EN|PADDING-ORACLE-VULNERABLE]]<br>
 *[[POODLE-Vulnerability/EN|POODLE-VULNERABLE]]<br>
-*[[Tls-Poodle-Vulnerability/EN|TLS-POODLE VULNERABLE]]<br>
+*[[TLS-POODLE-Vulnerability/EN|TLS-POODLE VULNERABLE]]<br>
 *[[Sweet32-Vulnerability/EN|SWEET32-VULNERABLE]]<br>

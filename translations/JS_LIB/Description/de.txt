@@ -1,1 +1,1 @@
-Es wurde eine von Ihnen verwendete [[JavaScript|JavaScript-Bibliothek]] gefunden. Ein Angreifer könnte diese Information nutzen, um gezielt nach [[Schwachstellen/DE|Schwachstellen]] für Ihre Website zu suchen.
+Es wurde eine von Ihnen verwendete [[JavaScript|JavaScript-Bibliothek]] gefunden. Ein Angreifer könnte diese Information nutzen, um gezielt nach [[Schwachstellen|Schwachstellen]] für Ihre Website zu suchen.

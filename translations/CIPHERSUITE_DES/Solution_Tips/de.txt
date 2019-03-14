@@ -1,1 +1,1 @@
-Deaktivieren Sie die Unterstützung der DES [[Verschlüsselungsmethodik/DE|Verschlüsselungsmethodik]] in Ihrer Webserver-Software.
+Deaktivieren Sie die Unterstützung der DES [[Verschlüsselungsmethodik|Verschlüsselungsmethodik]] in Ihrer Webserver-Software.

@@ -1,1 +1,1 @@
-Je nach verwendetem Browser wird eine Warnung angezeigt. In der Regel Browser neuer als 2016. Wenn eine schwache Verschlüsselung ([[Hashing|Hash-Algorithmus]]) verwendet wird, ist ein [[Zertifikate/DE|Zertifikat]] fälschbar!
+Je nach verwendetem Browser wird eine Warnung angezeigt. In der Regel Browser neuer als 2016. Wenn eine schwache Verschlüsselung ([[Hashing|Hash-Algorithmus]]) verwendet wird, ist ein [[Zertifikate|Zertifikat]] fälschbar!

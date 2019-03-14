@@ -1,1 +1,1 @@
-Tls-Poodle-Schwachstelle
+TLS-POODLE-Schwachstelle

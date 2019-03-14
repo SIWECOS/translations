@@ -1,1 +1,1 @@
-Your [[Certificate/EN|certificate]] is not valid before %DATE%. Until then, visitors to your website will be warned that your website may be insecure or not trustworthy.
+Your [[Certifcate|certificate]] is not valid before %DATE%. Until then, visitors to your website will be warned that your website may be insecure or not trustworthy.

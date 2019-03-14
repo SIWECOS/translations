@@ -1,1 +1,1 @@
-Es konnten keine [[Plugin|CMS-Plugins]] erkannt werden. Angriffe mithilfe von [[Schwachstellen/DE|Schwachstellen]], die in [[Plugin-Gefunden/DE/Background|Plugins]] existieren, sind somit unwahrscheinlicher.
+Es konnten keine [[Plugin|CMS-Plugins]] erkannt werden. Angriffe mithilfe von [[Schwachstellen|Schwachstellen]], die in [[Plugin-Gefunden/DE/Background|Plugins]] existieren, sind somit unwahrscheinlicher.

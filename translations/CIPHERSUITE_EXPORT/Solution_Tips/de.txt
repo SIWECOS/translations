@@ -1,1 +1,1 @@
-Deaktivieren Sie die Unterstützung von EXPORT [[Verschlüsselungsmethodik/DE|Verschlüsselungsmethoden]] im Webserver.
+Deaktivieren Sie die Unterstützung von EXPORT [[Verschlüsselungsmethodik|Verschlüsselungsmethoden]] im Webserver.

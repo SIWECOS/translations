@@ -1,1 +1,1 @@
-Keine unsicheren [[NULL-Algorithmus/DE|Null Chiffren]] unterstützt
+Keine unsicheren [[NULL-Algorithmus|Null Chiffren]] unterstützt

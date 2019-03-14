@@ -1,1 +1,1 @@
-Your [[Certificate/EN|server certificate]] uses the weak hash algorithm %HASH%. This allows the certificate to be forged very easily. However, a weak hash algorithm will not cause a warning message to be displayed when your website is accessed.
+Your [[Certifcate|server certificate]] uses the weak hash algorithm %HASH%. This allows the certificate to be forged very easily. However, a weak hash algorithm will not cause a warning message to be displayed when your website is accessed.

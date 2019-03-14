@@ -1,1 +1,1 @@
-Keine schwache [[EXPORT-Verschlüsselung/DE|EXPORT Verschlüsselung]] unterstützt
+Keine schwache [[EXPORT-Verschlüsselung|EXPORT Verschlüsselung]] unterstützt

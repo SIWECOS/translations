@@ -1,1 +1,1 @@
-Verwundbar durch [[Bleichenbacher/DE|Bleichenbacher]].
+Verwundbar durch [[Bleichenbacher-Schwachstelle/DE|Bleichenbacher]].

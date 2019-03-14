@@ -1,1 +1,1 @@
-Das verwendete [[Content-Management-Systeme|Content Management System]] kann identifiziert werden. Diese Information könnte von einem Angreifer genutzt werden, um gezielt nach [[Schwachstellen/DE|Schwachstellen]] für dieses spezielle CMS zu suchen.
+Das verwendete [[Content-Management-Systeme|Content Management System]] kann identifiziert werden. Diese Information könnte von einem Angreifer genutzt werden, um gezielt nach [[Schwachstellen|Schwachstellen]] für dieses spezielle CMS zu suchen.
