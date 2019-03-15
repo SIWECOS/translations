@@ -221,8 +221,19 @@ foreach( glob("$TRANSLATIONS/*/*/*.txt") ) {
 # debug }
 # debug die $count,"\t",$todo;
 
-my $lang_dir = tempdir( DIR => $Bin, CLEANUP => 1 )
-    or die "Failed to create a temorary directory in $Bin: $!\n";
+my $IS_WINDOS= $ENV{OS} and $ENV{OS}=~ /windows/i;
+
+my $lang_dir = $LANGUAGE_DIR;
+if ($dryrun or not $IS_WINDOS) {
+    $lang_dir= tempdir( DIR => $Bin, CLEANUP => 1 )
+        or die "Failed to create a temporary directory in $Bin: $!\n";
+} elsif ($test and $IS_WINDOS) {
+    $lang_dir= $test;
+    if ( ! -d $test ) {
+        mkdir $test
+            or die "Failed to create test-directory $test: $!\n";
+    }
+}
 
 # We need to use the wiki
 my $mw = MediaWiki::API->new({
@@ -230,7 +241,7 @@ my $mw = MediaWiki::API->new({
 });
 
 my $progress=  do {
-    if ($ENV{OS} and $ENV{OS}=~ /windows/i) {
+    if ($IS_WINDOS) {
         SimpleProgressBar->new(
             max => $todo,
             dumb => 1,
@@ -259,8 +270,10 @@ foreach my $language (keys %$categories) {
     }
     my $cats= $categories->{$language};
     # Create a directory for the language
-    mkdir "$lang_dir/$language"
-        or die $CLEARLINE."Failed to create directory $lang_dir/$language: $!\n";
+    if (! -d "$lang_dir/$language" ) {
+        mkdir "$lang_dir/$language"
+            or die $CLEARLINE."Failed to create directory $lang_dir/$language: $!\n";
+    }
     # Create the language file for the current language
     open my $out, '>', "$lang_dir/$language/$LANGUAGE_FILE"
         or die $CLEARLINE."Failed to create $lang_dir/$language/$LANGUAGE_FILE: $!\n";
@@ -305,10 +318,12 @@ foreach my $language (keys %$categories) {
 	}
 }
 $progress->update($done);
+print $/;
+
 if ($dryrun) {
     # remove newly created language files
     rmtree($lang_dir);
-} else {
+} elsif (not $IS_WINDOS) {
     # remove existing language files
     $LANGUAGE_DIR = $test if $test;
     if ( -e $LANGUAGE_DIR ) {
