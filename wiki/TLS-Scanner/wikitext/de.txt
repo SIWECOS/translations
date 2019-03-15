@@ -18,7 +18,7 @@ Der [[TLS Scanner/DE|TLS-Scanner]] erlaubt es Ihnen, das Verschlüsselungsprotok
 *[[Schluesselaustauschverfahren/DE|CIPHERSUITE-ANON]]<br>
 *[[Geschwaechtes-Verschluesselungsprotokoll/DE|CIPHERSUITE-EXPORT]]<br>
 *[[Unverschluesselte-Kommunikation/DE|CIPHERSUITE-NULL]]<br>
-*[[Unsichere-Verschluesselungsfunktion-RC4/DE|CIPHERSUITE-RC4]]<br>
+*[[Unsichere-RC4-Verschluesselungsmethodik/DE|CIPHERSUITE-RC4]]<br>
 *[[Schwaches-DES-Verschluesselungsprotokoll/DE|CIPHERSUITE-DES]]<br>
 *[[Verschluesselungsmethode-Client/DE|CIPHERSUITEORDER-ENFORCED]]
 '''''Protokolle'':'''
