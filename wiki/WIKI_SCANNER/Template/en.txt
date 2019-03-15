@@ -3,16 +3,16 @@
 {| class="wikitable"
 |'''Check'''|| {{:{{PAGENAME}}/Negative}}
 |-
-|'''Beschreibung'''||  {{:{{PAGENAME}}/Description}}
+|'''Description'''||  {{:{{PAGENAME}}/Description}}
 |-
-|'''Hintergrund'''||  {{:{{PAGENAME}}/Background}}
+|'''Background'''||  {{:{{PAGENAME}}/Background}}
 |-
-|'''Auswirkung'''||  {{:{{PAGENAME}}/Consequence}}
+|'''Consequence'''||  {{:{{PAGENAME}}/Consequence}}
 |-
-|'''Lösung / Tipps'''||  {{:{{PAGENAME}}/Solution_Tips}}
+|'''Solution/Tips'''||  {{:{{PAGENAME}}/Solution_Tips}}
 |}
 
 
 [[Category:Siwecos-Scanner/EN]]
 {{:{{PAGENAME}}/Category}}
-[[Category:Glossar]]
+

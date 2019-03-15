@@ -9,10 +9,10 @@
 |-
 |'''Auswirkung'''||  {{:{{PAGENAME}}/Consequence}}
 |-
-|'''Lösung / Tipps'''||  {{:{{PAGENAME}}/Solution_Tips}}
+|'''Lösung/Tipps'''||  {{:{{PAGENAME}}/Solution_Tips}}
 |}
 
 
 [[Category:Siwecos-Scanner/DE]]
 {{:{{PAGENAME}}/Category}}
-[[Category:Glossar]]
+
