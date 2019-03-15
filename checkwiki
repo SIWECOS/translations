@@ -91,6 +91,7 @@ foreach my $page (@{$mw->list( {
       ++$found{$pagename}{$lang}{$subpage};
     }
 }
+$mw->logout();
 
 print "Articles in wiki......: $foundcount\n";
 
