@@ -85,7 +85,7 @@ foreach my $page (@{$mw->list( {
     next if not defined $lang;
     if (not defined $subpage) {
       ++$foundcount;
-      $found{$pagename}{$lang}||= {};
+      ++$found{$pagename}{$lang}{'*'};
     } else {
       $subpage=~s/ /_/g;
       ++$found{$pagename}{$lang}{$subpage};
@@ -98,6 +98,8 @@ my $err="\nArticles missing in repository:\n";
 my %missing_in_repo;
 foreach my $article (sort keys %found) {
   foreach my $lang (sort keys %{$found{$article}}) {
+    # Skip if the main page does not exist.
+    next unless exists $found{$article}{$lang}{'*'};
     next if exists $existing{$article}{$lang};
     ++$missing_in_repo{$article}{$lang};
     print $err, "  $article/$lang\n";
@@ -110,11 +112,24 @@ foreach my $article (sort keys %found) {
   foreach my $lang (sort keys %{$found{$article}}) {
     next if exists $missing_in_repo{$article}{$lang};
     my $fname= lc($lang).".txt";
-    my $dir= "$TRANSLATIONS/" . $existing{$article}{$lang};
+    my $dir;
+    $dir= "$TRANSLATIONS/" . $existing{$article}{$lang} if defined $existing{$article}{$lang};
     foreach my $subpage (sort keys %{$found{$article}{$lang}}) {
-      next if -r join('/', $dir, $subpage, $fname);
+      next if $subpage eq '*';
+      next if $dir and -r join('/', $dir, $subpage, $fname);
       print $err, "  $article/$lang/$subpage\n";
       $err='';
     }
+  }
+}
+
+$err="\nArticles missing in Wiki:\n";
+my %missing_in_wiki;
+foreach my $article (sort keys %existing) {
+  foreach my $lang (sort keys %{$existing{$article}}) {
+    next if exists $found{$article}{$lang};
+    ++$missing_in_wiki{$article}{$lang};
+    print $err, "  $article/$lang ",$existing{$article}{$lang},"\n";
+    $err='';
   }
 }
