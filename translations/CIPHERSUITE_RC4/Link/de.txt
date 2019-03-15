@@ -1,1 +1,1 @@
-Unsicher Rc4 Verschlüsselungsmethodik
+Unsichere RC4 Verschlüsselungsmethodik
