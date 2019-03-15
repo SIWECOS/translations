@@ -145,6 +145,10 @@ my @selection= ('*');
 # Maybe there are specific ones given on commandline...
 @selection= splice @ARGV if @ARGV;
 foreach my $specific (@selection) {
+    # No subdirecories!
+    if ($specific=~ m#/#) {
+        die "Please check your parameters: $specific\n  Directories are not allowed.\n";
+    }
     foreach my $dir (glob qq("$TRANSLATIONS/$specific")) {
         my $placeholder= basename $dir;
         # skip everything which is not a WIKI entry
