@@ -483,7 +483,7 @@ sub read_placeholder_content {
                         foreach my $cat (split /[\012\015]+/) {
                             $cat=~ s/^\s+|\s+$//g;
                             $wiki.= "[[Category:$cat]]\n";
-                            ++$found_categories->{$lang}->{$_};
+                            ++$found_categories->{$lang}->{$cat};
                         }
                         $_= $wiki;
                     }
