@@ -10,4 +10,4 @@ Unseen by the user, the header ([[Header|HTTP-Header Protokoll]]) of a website i
 *[[No-Encryption-Found/EN|STRIKT-TRANSPORT-SECURITY]]<br>
 *[[X-Content-Type-Options-Vulnerability/EN|X-CONTENT-TYPE-OPTIONS]]<br>
 *[[X-Frame-Options-Vulnerability/EN|X-FRAME-OPTIONS]]<br>
-*[[XSS-Schwachstelle/EN|X-XSS-PROTECTION]]
+*[[XSS-Vulnerability/EN|X-XSS-PROTECTION]]

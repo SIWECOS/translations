@@ -60,7 +60,7 @@ Alle Domains, die bei Siwecos zur Überprüfung eingetragen werden, müssen veri
 '''Verifizierung per Datei oder Meta-Tag'''
 {|
 |-
-| [[File:domain_hinzufuegen2.jpg|left|400px]] Tragen Sie zunächst unter Domainübersicht über den Button "'''Domain hinzufügen'''" Ihre Domain ein. Eine ausführliche Anleitung, wie Sie bei der Verifizierung vorgehen sollten, finden Sie [[Domain-Verifizierung|hier]].
+| [[File:domain_hinzufuegen2.jpg|left|400px]] Tragen Sie zunächst unter Domainübersicht über den Button "'''Domain hinzufügen'''" Ihre Domain ein. Eine ausführliche Anleitung, wie Sie bei der Verifizierung vorgehen sollten, finden Sie [[Domain-Verifizierung/DE|hier]].
 |}
 <br />
 <br />

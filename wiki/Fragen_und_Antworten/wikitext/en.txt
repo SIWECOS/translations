@@ -8,7 +8,7 @@ Back to [[Hauptseite]]<br />
 *[[Registrieren bei Siwecos]]<br />
 *[[Siwecos-Siegel | Wie binde ich das Siwecos-Siegel auf meiner Seite ein?]]<br />
 *[[Wordpress-Header | Siwecos-Metatag in den Wordpress-Header einfügen ]]<br />
-*[[Jimdo-Header | Siwecos-Metatag in den Jimdo-Header einfügen ]]<br />
+*[[Jimdo-Header/EN | Insert Siwecos Meta tag in the WordPress header ]]<br />
 *[[Wordpress_siegel_einbinden | Siwecos-Siegel in Wordpress integrieren]] <br />
 *[[das Siwecos-Siegel wird nicht angezeigt | Warum wird das Siwecos-Siegel nicht richtig angezeigt?]]
 </div>

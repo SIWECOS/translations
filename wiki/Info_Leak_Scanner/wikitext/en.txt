@@ -1,7 +1,7 @@
 '''<span style="color:#c31622">Info Leak Scanner<span>'''
 <br>
 
-The [[Info Leak Scanner]] searches through your [[Webanwendung|webapplikation]] and generates a report on possibly unintentionally detailed information – e.g. on the structure of the application or software version in use – which should not be made public. Findings should be rectified as quickly as possible.<br>
+The Info Leak Scanner searches through your [[Webanwendung|webapplikation]] and generates a report on possibly unintentionally detailed information – e.g. on the structure of the application or software version in use – which should not be made public. Findings should be rectified as quickly as possible.<br>
 
 *[[Content-Management-System-Found/EN|CMS]]<br>
 *[[Email-Address-Found/EN|EMAIL]]<br>
