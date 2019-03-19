@@ -216,3 +216,4 @@ __END__
   }
   use Data::Dumper;
   print Dumper \%links,\%pages;
+  print "$_\n" foreach (sort keys %all_pages);

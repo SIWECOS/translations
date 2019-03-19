@@ -4,7 +4,7 @@ Zurück zur [[Hauptseite]]<br />
 <br>
 <div style="margin: 0; margin-right:10px; border: 1px solid #dfdfdf; padding: 0 1em 1em 1em; background-color:#F8F8FF; align:right;">
 *[[Siwecos:Über_Siwecos|Fragen zu Siwecos]]<br />
-*[[Fragen_und_Antworten/DE|Allgemeine Fragen zum Dienst]]<br />
+*Allgemeine Fragen zum Dienst (diese Seite)<br />
 *[[Registrieren bei Siwecos/DE|Registrieren bei Siwecos]]<br />
 *[[Siwecos-Siegel/DE|Wie binde ich das Siwecos-Siegel auf meiner Seite ein?]]<br />
 *[[Wordpress-Header/DE|Siwecos-Metatag in den Wordpress-Header einfügen]]<br />
