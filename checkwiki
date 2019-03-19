@@ -5,7 +5,7 @@ checkwiki
 
 =head1 SYNOPSIS
 
-B<checkwiki>
+B<checkwiki> [B<--links>]
 
 B<wiki2lang> B<--help>|B<--man>
 
@@ -25,12 +25,47 @@ use Config::Simplest;
 
 binmode(STDOUT, ':utf8');
 
+my $links;
+help() unless GetOptions(
+    'links'      => \$links,
+    'h|help'     => \&help,
+    'm|man'      => \&man,
+);
+
+
+=item B<--links>
+
+Check all links
+
+=item B<--help>
+
+short help page
+
+=item B<--man>
+
+show man page
+
+=back
+
+=cut
+
+sub help { pod2usage(-verbose=>1); }
+sub man  { pod2usage(-verbose=>2); }
+
 # Location and names of some directories / files
 # $Bin = absolute path of this script
 # $Script = filename of this script
 my $TRANSLATIONS= "$Bin/translations";
 my $WIKITEXTS= "$Bin/wiki";
 my $settings= get_config("$Bin/wiki.conf", qw(API WIKI USER PASS));
+
+# log in to the wiki
+my $mw = MediaWiki::API->new({
+    api_url => $settings->{API},
+});
+$mw->login( { lgname => $settings->{USER}, lgpassword => $settings->{PASS} } )
+  || die  $mw->{error}->{details}. ' ('. $mw->{error}->{code} . ')';
+
 
 # Get all existing translations
 my %existing;
@@ -69,18 +104,14 @@ print "Articles in repository: $existcount\n";
 
 my %found;
 my $foundcount= 0;
-# log in to the wiki
-my $mw = MediaWiki::API->new({
-    api_url => $settings->{API},
-});
-$mw->login( { lgname => $settings->{USER}, lgpassword => $settings->{PASS} } )
-  || die  $mw->{error}->{details}. ' ('. $mw->{error}->{code} . ')';
+my %all_pages;
 
 foreach my $page (@{$mw->list( {
     action => 'query',
     list => 'allpages',
     format => 'JSON',
   } )}) {
+    $all_pages{ $page->{title} }= {};
     my($pagename, $lang, $subpage)= ($page->{title}=~ m#^(.*?)/(DE|EN)\b(?:/(.+))?$#);
     next if not defined $lang;
     if (not defined $subpage) {
@@ -91,7 +122,6 @@ foreach my $page (@{$mw->list( {
       ++$found{$pagename}{$lang}{$subpage};
     }
 }
-$mw->logout();
 
 print "Articles in wiki......: $foundcount\n";
 
@@ -134,3 +164,55 @@ foreach my $article (sort keys %existing) {
     $err='';
   }
 }
+
+if ($links) {
+  my $error_title="Missing links in Wiki\n";
+  foreach my $title (keys %all_pages) {
+    my $query={
+      action=>'query',
+      generator=>'links',
+      titles=>$title,
+      format=>'json',
+    };
+    my %missing_links;
+    while (1) {
+      my $result= $mw->api( $query );
+
+      foreach my $page (values %{$result->{query}{pages}}) {
+        if (exists $page->{missing}) {
+          ++$missing_links{ $page->{title} };
+        }
+      }
+      last if exists $result->{batchcomplete};
+      while (my ($k,$v)= each %{$result->{continue}}) {
+        $query->{$k}= $v;
+      }
+    }
+    next unless %missing_links;
+    print $error_title;
+    print "  in ",$settings->{WIKI},"/$title\n";
+    print "    $_\n" foreach (sort keys %missing_links);
+    $error_title= '';
+  }
+}
+$mw->logout();
+__END__
+  while (1) {
+    my $result= $mw->api( $query );
+
+    foreach my $page (values %{$result->{query}{pages}}) {
+      my $this_page= $pages{ $page->{title} }= {};
+      next unless exists $page->{links};
+      foreach my $link (@{$page->{links}}) {
+        $this_page->{$link}= 0;
+        $links{$link}= 0;
+      }
+    }
+
+    last if exists $result->{batchcomplete};
+    while (my ($k,$v)= each %{$result->{continue}}) {
+      $query->{$k}= $v;
+    }
+  }
+  use Data::Dumper;
+  print Dumper \%links,\%pages;
