@@ -13,6 +13,7 @@ There are three ways to embed the Siwecos seal on your website
 <p>
 '''Note''': Currently you cannot use the seal on Domains with IDN names.
 </p>
+<br />
 =='''<span style="color:#c31622">Option 1:<span>''' (seal is stored locally in your own webspace)==
 
 For this option, you store a small JavaScript file locally on your webserver. The advantage is that the seal will be shown on your website even if the Siwecos server is not available. In this case, only the date of the last scan will be replaced by '''Standby'''.
@@ -57,12 +58,8 @@ Explanation for the source code:
 
 The date's format ideally consist of 5 characters. The recommended Formats are:
 
-*'''d.m.y''' or '''d-m-y''' for british english format.
+*'''d.m.y''' for british english format.
 *'''y-m-d''' for ISO-8601 format.
-
-
-
-
 
 =='''<span style="color:#c31622">Option 2:<span>'''  (seal is loaded from the Siwecos server)==
 
@@ -74,31 +71,24 @@ This option is intended for users who are not familiar with website editing. All
 --snip
 
 <code>
-<a href="https&#58;//siwecos.de/scanned-by-siwecos?data-siwecos={{#urlget:userdomain|my_Website}}"><img width="150" src="https://siwecos.de/wp-content/plugins/seal-of-trust/seal.php/My Website/d-m-y"></a>
+<a href="https&#58;//siwecos.de/scanned-by-siwecos?data-siwecos={{#urlget:userdomain|my_Website}}"><img width="150" src="http://siegel.siwecos.de/{{#urlget:userdomain|my-website}}/y-m-d.svg"></a>
 </code>
 
 --snap
 
 {{#if: {{#urlget:userdomain}} | |
-* Replace '''"my_Website"''' in the code with your '''domain name''' (without http/https)
+* Replace '''"my_website"''' in the code with your '''domain name''' (without http/https)
 * '''<span style="color:#c31622">Attention:'''<span> This is the part that causes the most problems for users. Please make sure that you enter the domain name exactly as you have registered it with Siwecos (Example: If www.botfrei.de was registered, then www.botfrei.de must be entered for the seal!)
-<br />
-'''Complete example:'''
-[[File:Siegel_botfrei.png|left|800px]]
-<br />
-<br />
-<br />
-<br />
-<br />
 <br />
 }}
 
-The date's format ideally consist of 5 characters. The recommended Formats are:
+The date's format ideally consist of 5 characters. The allowed Formats are:
 
-*'''d.m.y''' or '''d-m-y''' for british english format.
+*'''d.m.y'''' for british english format.
 *'''y-m-d''' for ISO-8601 format.
 <br />
 '''Recommendation:''' Embedding the seal for the [[Content-Security-Policy-Vulnerability/EN | Content Security Policy]] ("img-src 'self' siwecos.de;")
+
 
 
 

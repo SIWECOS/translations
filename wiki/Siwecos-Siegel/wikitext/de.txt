@@ -71,7 +71,7 @@ Bei dieser Variante ist nur wenig technisches KnowHow nötig. Hierbei brauchen S
 --snip
 
 <code>
-<a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|eigene_Webseite}}"><img width="150" src="https&#58;//siwecos.de/plugins/content/seal-of-trust/seal.php/{{#urlget:userdomain|eigene_Webseite}}/d.m.y"></a>
+<a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|eigene_Webseite}}"><img width="150" src="http&#58;//siegel.siwecos.de/{{#urlget:userdomain|eigene_Webseite}}/d.m.y.svg"></a>
 </code>
 
 --snap
@@ -80,16 +80,9 @@ Bei dieser Variante ist nur wenig technisches KnowHow nötig. Hierbei brauchen S
 * Ändern Sie '''"eigene_Webseite"''' im Code durch den '''Namen Ihrer Domain''' (ohne http/https)
 * '''<span style="color:#c31622">Achtung:'''<span> Hier werden die meisten Fehler gemacht, tragen Sie die Domain bitte so ein, wie Sie diese bei Siwecos registriert haben (Beispiel: Registriert wurde www.botfrei.de, so muss auch www.botfrei.de ins Siegel integriert werden!)
 <br />
-'''Komplettes Beispiel:'''
-[[File:Siegel_botfrei.png|left|800px]]
-<br />
-<br />
-<br />
-<br />
-<br />
 }}
 
-Das Format für das Datum setzt sich idealerweise aus 5 Zeichen zusammen. Die empfohlenen Formate sind:
+Das Format für das Datum setzt sich idealerweise aus 5 Zeichen zusammen. Die zulässigen Formate sind:
 
 *'''d.m.y''' für das gewohnte deutsche Format.
 *'''y-m-d''' für das ISO-8601 Format.
@@ -109,4 +102,36 @@ Bei dieser Variante wird das Siegel statisch auf Ihrer Webseite hinterlegt. Es w
 [[File:seal_siwecos_static_final.png]]
 
 * Laden Sie das Siegel herunter (rechte Maus auf das Siegel, '''Bild speichern unter''')
-* Kopieren Sie den unten stehenden Code in Ihren Quelltext z. B. der Startseite des Webauftritts und ergänzen Sie {{#if: {{#urlget:userdomain}} | | den Namen der eigenen Webseite '''("eigene_Webseite")''' und }} den '''("Speicherort des Bildes")'''.
+* Kopieren Sie den unten stehenden Code in Ihren Quelltext z. B. der Startseite des Webauftritts und ergänzen Sie {{#if: {{#urlget:userdomain}} | | den Namen der eigenen Webseite '''("eigene_Webseite")''' und }} den '''"Speicherort des Bildes"'''.
+
+
+--snip
+
+<code>
+<a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|eigene_Webseite}}"><img width="150" src="Speicherort des Bildes/seal_siwecos_static_final.png"></a>
+</code>
+
+--snap
+
+<br />
+
+=='''<span style="color:#c31622">Siegel aus Sicht des Datenschutzes <span>''' ==
+<br />
+'''SiWECOS - Siegel'''
+<br /><br />
+Als Nutzer des SIWECOS Webseitenscanners haben Sie die Möglichkeit auf Ihrer Website das SIWECOS-Siegel einzubinden. Das SIWECOS Siegel verdeutlicht dem Besucher Ihrer Webseite, dass es sich bei der angesurften Seite um eine sichere Webseite handelt, die regelmäßig einer Sicherheitsüberprüfung durch Nutzung des SIWECOS Webseitenscanners unterliegt. Beim Aufruf des Siegels speichert der Webserver automatisch ein sogenanntes Server-Logfile des Webseitenbesuchers. Dieses Server-Logfile enthält folgende Nutzungsdaten:
+
+'''-	IP-Adresse des zugreifenden Rechners<br />'''
+'''-	Datum und Uhrzeit des Abrufs<br />'''
+'''-	übertragene Datenmenge und den anfragenden Provider.<br />'''
+
+Die Rechtsgrundlage für die Verarbeitung der IP-Adresse ist Art. 6 Abs. 1 lit. f DS-GVO. Unser berechtigtes Interesse folgt aus den nachfolgend aufgelisteten Zwecken der Datenerhebung.
+Die IP-Adresse Ihres Endgerätes sowie die weiteren oben aufgelisteten Daten werden durch uns für folgende Zwecke genutzt:
+
+'''-	Darstellung des SIWECOS Siegels auf der angesurften Webseite<br />'''
+
+Aus diesen Nutzungsdaten werden durch SIWECOS keine Nutzungsprofile erstellt und keine Rückschlüsse auf die Person des Webseitenbesuchers gezogen. Diese Daten werden ausschließlich zur Sicherstellung eines störungsfreien Betriebs ausgewertet und spätestens sieben Tage nach Ende des Seitenbesuchs automatisch überschrieben.
+
+<br />
+'''Weitere Informationen finden Sie in unserem [[Fragen_und_Antworten | FAQ]]'''
+
