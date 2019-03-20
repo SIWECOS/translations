@@ -28,6 +28,8 @@ use Config::Simplest;
 use SimpleProgressBar;
 use utf8;
 
+my $EXT='.wiki';
+
 binmode(STDOUT, ':utf8');
 
 =head1 options
@@ -116,9 +118,9 @@ my @PURPOSES= (
 
 my %SCANNER_TEMPLATES;
 # check for which languages we do have a template
-foreach (glob qq("$WIKITEXT/$SCANNER_TEMPLATE/*.txt")) {
+foreach (glob qq("$WIKITEXT/$SCANNER_TEMPLATE/*$EXT")) {
     # extract the language
-    my $lang= uc( basename($_, '.txt' ) );
+    my $lang= uc( basename($_, $EXT ) );
     my $text= '';
     # Read the template
     if (open my $file, '<', $_) {
@@ -293,7 +295,7 @@ foreach my $lang (keys %content) {
             if ($@) {
                 warn "\nError...: $@";
                 warn   "Pagename: $pagename\n";
-                die    "Check...: $placeholder$purpose/$lang.txt\nand.....: ${placeholder}/title/$lang.txt\n";
+                die    "Check...: $placeholder$purpose/$lang$EXT\nand.....: ${placeholder}/title/$lang$EXT\n";
             }
             if (not $junk) {
                 # Check the text whether or not it changed.
@@ -447,9 +449,9 @@ sub read_placeholder_content {
     foreach my $purpose (@purposes) {
         my %missing;
         @missing{keys %SCANNER_TEMPLATES}= ();
-        foreach my $content_file (glob qq("$dir/$purpose/*.txt")) {
+        foreach my $content_file (glob qq("$dir/$purpose/*$EXT")) {
             # Extract the language
-            my $lang= uc( basename($content_file, '.txt' ) );
+            my $lang= uc( basename($content_file, $EXT ) );
             # Ignore the language we do not have a template for
             next unless exists $SCANNER_TEMPLATES{ $lang };
             # Read the content
@@ -559,7 +561,7 @@ directory is:
   :
 
 Each of the directories has to contain one file per language
-called <LANGUAGECODE>.txt (so: de.txt, en.txt ...).
+called <LANGUAGECODE>.wiki (so: de.wiki, en.wiki ...).
 
 The entries under WIKI_SCANNER/Template are the language
 templates for the WIKI entries and will be copied for each

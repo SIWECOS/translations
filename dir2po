@@ -94,7 +94,7 @@ unless -d $TRANSLATIONS
    and -r $TRANSLATIONS
    and -x $TRANSLATIONS;
 # get all translation filenames
-# Directory structure is $TRANSLATIONS / placeholder / purpose / language ".txt"
+# Directory structure is $TRANSLATIONS / placeholder / purpose / language $EXT
 # Also collect categories
 my $language_data= {};
 my $categories= {};
@@ -103,7 +103,7 @@ my %category_found;
 my %translations_found;
 my %translations_language;
 my %all_placeholders;
-while( glob("$TRANSLATIONS/*/*/*.txt") ) {
+while( glob("$TRANSLATIONS/*/*/*$EXT") ) {
     # Split pathname into parts
     my ($placeholder, $purpose, $lang)= (split(m#/#, $_))[-3..-1];
     # remove filename extension
@@ -138,7 +138,7 @@ while( glob("$TRANSLATIONS/*/*/*.txt") ) {
     }
 }
 # All application related translations are in memory now
-while( glob("$WIKITEXT/*/*/*.txt") ) {
+while( glob("$WIKITEXT/*/*/*$EXT") ) {
     # Split pathname into parts
     my ($placeholder, $purpose, $lang)= (split(m#/#, $_))[-3..-1];
     # remove filename extension

@@ -13,6 +13,7 @@ use utf8;
 binmode(STDOUT, ":utf8");
 binmode(STDERR, ":utf8");
 
+my $EXT='.wiki';
 my $LEAD_LANGUAGE= "de";
 $Text::Wrap::columns= 75;
 
@@ -44,7 +45,7 @@ my $TECHNICAL    = 'Technical';
 unless -d $TRANSLATIONS
    and -r $TRANSLATIONS
    and -x $TRANSLATIONS;
-# Directory structure is $TRANSLATIONS / placeholder / purpose / language ".txt"
+# Directory structure is $TRANSLATIONS / placeholder / purpose / language $EXT
 
 foreach my $pofile (@ARGV) {
     my $result= po_read($pofile);
@@ -58,7 +59,7 @@ foreach my $pofile (@ARGV) {
         if ( "$ph::$purpose" eq $entry->{msgctxt} ) {
             $dir= $WIKITEXT;
         }
-        my $file= "$dir/$ph/$purpose/$language.txt";
+        my $file= "$dir/$ph/$purpose/$language$EXT";
         my $changed= 1;
         warn "No text for $file\n" unless defined $entry->{msgstr};
         # Check whether or not the last line originally endet with a \n

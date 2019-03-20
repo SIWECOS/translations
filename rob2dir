@@ -76,11 +76,11 @@ LINE: while (<>) {
 sub create_entry {
   my($dir, $content)= @_;
   mkdir $dir or warn "Kann $dir nicht anlegen: $!\n";
-  open my $c, '>', "$dir/de.txt" or die "Kann $dir/de.txt nicht erstellen: $!\n";
+  open my $c, '>', "$dir/de$EXT" or die "Kann $dir/de$EXT nicht erstellen: $!\n";
   print $c join("\n", @$content);
   close $c;
   undef $content;
-   open my $c, '>', "$dir/en.txt" or die "Kann $dir/en.txt nicht erstellen: $!\n";
+   open my $c, '>', "$dir/en$EXT" or die "Kann $dir/en$EXT nicht erstellen: $!\n";
   print $c "text will follow";
   close $c;
 }
