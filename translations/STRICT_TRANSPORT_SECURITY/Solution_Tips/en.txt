@@ -9,4 +9,4 @@ HTTP Strict Transport Security (HSTS) is a web security policy mechanism that is
 '''--snap'''
 
 Here is an example of an .htaccess file which will set the '''Header Scanner''' to green.
-([[Htaccess|.htaccess example (German only]])
+([[Htaccess/EN|.htaccess example]])

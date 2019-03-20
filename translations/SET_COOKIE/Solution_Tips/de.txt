@@ -1,0 +1,2 @@
+`httpOnly`-Flag setzen, damit das Cookie nicht über [[Javascript|JavaScript]] ausgelesen werden kann. Damit schützen Sie die Session-Informationen vor Auslesen und Diebstahl, denn wer das Cookie hat gilt als [[Authentifizierung|authentifiziert]]. 
+`secure`-Flag setzen, damit das Cookie nicht über unverschlüsselte Verbindungen [[HTTP]] gesendet wird, sondern ausschließlich über [[HTTPS]].

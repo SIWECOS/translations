@@ -1,0 +1,2 @@
+`httpOnly`-flag: set this so that cookies cannot be accessed by Javascript. You protect session information from being stolen and misused. Whoever owns a session cookie is authenticated.
+`secure`-Flag: set this to ensure that cookies are only transmitted across encrypted (https) channels.
