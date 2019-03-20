@@ -23,6 +23,7 @@ use Pod::Usage;
 use POSIX;
 use Config::Simplest;
 
+my $EXT='.wiki';
 binmode(STDOUT, ':utf8');
 
 my $links;
@@ -142,7 +143,7 @@ $err="\nPages missing in repository:\n";
 foreach my $article (sort keys %found) {
   foreach my $lang (sort keys %{$found{$article}}) {
     next if exists $missing_in_repo{$article}{$lang};
-    my $fname= lc($lang).".txt";
+    my $fname= lc($lang).$EXT;
     my $dir;
     $dir= "$TRANSLATIONS/" . $existing{$article}{$lang} if defined $existing{$article}{$lang};
     foreach my $subpage (sort keys %{$found{$article}{$lang}}) {

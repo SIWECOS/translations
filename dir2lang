@@ -29,6 +29,8 @@ use Config::Simplest;
 use SimpleProgressBar;
 use utf8;
 
+my $EXT='.wiki';
+
 binmode(STDOUT, ":utf8");
 my $settings= get_config("$Bin/wiki.conf", qw(WIKI API));
 my $config= get_config("$Bin/siwecos.conf");
@@ -159,7 +161,7 @@ close $template;
 die "Cannot access directory $TRANSLATIONS\n"
     unless -x $TRANSLATIONS and -r $TRANSLATIONS;
 # get all translation filenames
-# Directory structure is $TRANSLATIONS / placeholder / purpose / language ".txt"
+# Directory structure is $TRANSLATIONS / placeholder / purpose / language $EXT
 # Also collect categories
 my $language_data= {};
 my $categories= {};
@@ -168,7 +170,7 @@ my %category_found;
 my %translations_found;
 my %translations_language;
 my $todo;
-foreach( glob("$TRANSLATIONS/*/*/*.txt") ) {
+foreach( glob("$TRANSLATIONS/*/*/*$EXT") ) {
     # Split pathname into parts
     my ($placeholder, $purpose, $lang)= (split m#/#, $_)[-3..-1];
     # remove filename extension
