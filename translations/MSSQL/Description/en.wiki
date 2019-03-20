@@ -1,1 +1,1 @@
-text will follow
+A Port is open on Your Server, which is usually used to Operate the MS-SQL Database. This potentially makes it possible to access the Database remotely.

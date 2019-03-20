@@ -1,1 +1,1 @@
-text will follow
+There port which is commonly used for the "IRC" program is active on your server. This program is usually used for a chat server. Criminal often use IRC to control their botnets.

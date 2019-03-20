@@ -1,1 +1,1 @@
-text will follow
+A Port is open on Your Server, which is usually used to Operate the MySQL Database. This potentially makes it possible to access the Database remotely.

@@ -1,1 +1,1 @@
-text will follow
+In most Cases, it is not wanted to be able to remotely establish a direct Connection to the Database. If this is not intended, you should switch off remote access.

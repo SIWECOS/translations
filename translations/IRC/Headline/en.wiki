@@ -1,1 +1,1 @@
-text will follow
+Check for open IRC-Server Port

@@ -1,1 +1,1 @@
-text will follow
+Check on open Telnet server Port

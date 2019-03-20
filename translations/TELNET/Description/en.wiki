@@ -1,1 +1,1 @@
-text will follow
+A Port is open on Your Server, which is usually used for the Telnet Program. Telnet is a Service that gives Users direct Access to other Computers. With this Program, you can potentially remotely control Your Server (after entering a Username and password). The Program does not encrypt transmitted Data, so an Attacker can simply spy on the Credentials.

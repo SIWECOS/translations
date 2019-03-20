@@ -1,1 +1,1 @@
-text will follow
+Open ports do not represent a _direct_ vulnerability for now. The configuration of your server, however, increases the attack surface for attackers. You should not offer services that you do not use and it is best to disable insecure services altogether.

@@ -1,1 +1,1 @@
-text will follow
+The MS-SQL-port on your server is not active.

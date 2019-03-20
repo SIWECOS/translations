@@ -1,1 +1,1 @@
-text will follow
+On Your Server, a Port is open, which is usually used for the Protocol "RDP." With RDP, it is possible to remotely control Computers over the Network.

@@ -1,1 +1,1 @@
-text will follow
+The IRC-port on your server is active.

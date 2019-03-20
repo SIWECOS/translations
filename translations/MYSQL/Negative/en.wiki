@@ -1,1 +1,1 @@
-text will follow
+The MySQL-port on your server is active.

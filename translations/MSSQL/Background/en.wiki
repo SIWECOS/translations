@@ -1,1 +1,1 @@
-text will follow
+Programs running on your server can open so-called ports. A port can be imagined as a door. With some ports (doors), you want them to be open so that, for example, customers can visit your website. With other ports (doors), you don't want them to be open. You should close ports that you don't use. This will allow attackers to attack your server from fewer sites.

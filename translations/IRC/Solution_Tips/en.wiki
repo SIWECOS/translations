@@ -1,1 +1,1 @@
-text will follow
+You should switch this service off if you do not require it. If you use IRC, you need not do anything.

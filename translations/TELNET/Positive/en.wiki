@@ -1,1 +1,1 @@
-text will follow
+The Telnet Port on Your Server is not open.

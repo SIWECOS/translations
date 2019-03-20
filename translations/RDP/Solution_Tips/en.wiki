@@ -1,1 +1,1 @@
-text will follow
+If You don't need this Service, You should simply turn it off as it poses a Security Risk. If they really use RDP, there is nothing to be done.
