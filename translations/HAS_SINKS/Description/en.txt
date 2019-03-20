@@ -1,1 +1,0 @@
-At least one code segment was found by scanning your website that may, under certain circumstances, indicate a DOM-based [[Cross-Site Scripting|Cross-Site Scripting Anfälligkeit]]. This segment can be a security flaw on your website.

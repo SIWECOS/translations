@@ -1,1 +1,0 @@
-A potential vulnerability for your website is caused by loading files and code from unsafe or external sources. An attacker who controls the external source could upload malicious code which could then be executed on your web page.
