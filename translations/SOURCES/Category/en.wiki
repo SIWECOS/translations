@@ -1,1 +1,1 @@
-XSS scanner
+DOMXSS Scanner

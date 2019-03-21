@@ -1,1 +1,2 @@
+DOMXSS Scanner
 NO_SCRIPT_TAGS

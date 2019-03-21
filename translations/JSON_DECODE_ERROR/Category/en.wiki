@@ -1,1 +1,2 @@
+Info Leak Scanner
 Error message
