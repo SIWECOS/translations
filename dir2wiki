@@ -189,6 +189,11 @@ foreach my $lang (keys %content) {
     foreach my $placeholder (keys %{$content{$lang}}) {
         my $link= delete $content{$lang}->{$placeholder}->{"/Link"};
         if ($link) {
+            if ($link=~ /[\x00-\x1f]/) {
+                warn "Illegal characters in $placeholder/Link/$lang$EXT\n";
+                ++$fatal;
+                next;
+            } 
             $link.= "/$lang";
             if (exists $placeholders{lc $link}) {
                 warn "Duplicate link $link\n\tfor $placeholder\n\tand ".$placeholders{lc $link}."\n";

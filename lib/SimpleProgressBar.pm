@@ -7,7 +7,7 @@ use Term::ReadKey;
 sub new {
     my ($self, %config) = @_;
     my $type = ref($self) || $self;
-    my @terminalsize= GetTerminalSize;
+    my @terminalsize= GetTerminalSize(*STDOUT);
     my $width = ($config{width} || $terminalsize[0] || 50) - 2;
     $| = 1;
     return bless {
