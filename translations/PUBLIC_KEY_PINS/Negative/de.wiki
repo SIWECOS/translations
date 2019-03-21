@@ -1,1 +1,1 @@
-[[Public-Key-Pins-Deaktiviert/DE/Background|Public-Key-Pinning]] nicht vorhanden (HPKP wird derzeit nicht überprüft).
+[[Public-Key-Pins-Deaktiviert/DE/Background|Public-Key-Pinning]] nicht vorhanden (Das Ergebnis fließt nicht in die Bewertung ein).

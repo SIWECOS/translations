@@ -5,7 +5,7 @@ Unseen by the user, the header ([[Header|HTTP-Header Protokoll]]) of a website i
 
 *[[Content-Security-Policy-Vulnerability/EN|CONTENT-SECURITY-POLICY]]<br>
 *[[Content-Type-Not-Correct/EN|CONTENT-TYPE]]<br>
-* PUBLIC-KEY-PINS (HPKP is not currently under review)<br>
+* PUBLIC-KEY-PINS (The result does not influence the score)<br>
 <!--[[Public-Key-Pins-Disabled/EN|PUBLIC-KEY-PINS]] (<span style="color:#c31622"><b>Achtung:</b></span> HPKP wird derzeit nicht überprüft)<br>-->
 *[[No-Encryption-Found/EN|STRIKT-TRANSPORT-SECURITY]]<br>
 *[[X-Content-Type-Options-Vulnerability/EN|X-CONTENT-TYPE-OPTIONS]]<br>

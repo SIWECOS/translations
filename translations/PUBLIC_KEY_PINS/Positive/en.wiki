@@ -1,1 +1,1 @@
-[https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning Public Key Pinning] is active (HPKP is currently not under review).
+[https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning Public Key Pinning] is active (The result does not influence the score).
