@@ -487,7 +487,11 @@ sub read_placeholder_content {
                             $wiki.= "[[Category:$cat]]\n";
                             ++$found_categories->{$lang}->{$cat};
                         }
-                        $_= $wiki;
+                        if ($wiki) {
+                            $_="<includeonly>\n$wiki</includeonly>";
+                        } else {
+                            $_= $wiki;
+                        }
                     }
                 }
                 $purpose= ucfirst $purpose;
