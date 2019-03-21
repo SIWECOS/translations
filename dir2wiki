@@ -189,6 +189,11 @@ foreach my $lang (keys %content) {
     foreach my $placeholder (keys %{$content{$lang}}) {
         my $link= delete $content{$lang}->{$placeholder}->{"/Link"};
         if ($link) {
+            if ($link=~ /[\012\015]/) {
+                warn "Must be a single line: $placeholder/Link/$lang$EXT\n";
+                ++$fatal;
+                next;
+            } 
             if ($link=~ /[\x00-\x1f]/) {
                 warn "Illegal characters in $placeholder/Link/$lang$EXT\n";
                 ++$fatal;
