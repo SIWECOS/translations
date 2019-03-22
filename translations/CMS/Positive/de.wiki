@@ -1,0 +1,1 @@
+Es können keine Aussagen über die Version des verwendeten [[Content-Management-Systeme|CMS]] gemacht werden. Entsprechend kann nicht ermittelt werden, ob Sie eine verwundbare Version benutzen.
