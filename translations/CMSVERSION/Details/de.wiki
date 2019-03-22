@@ -1,1 +1,1 @@
-Die [[Content-Security-Policy|Content Security Policy]] ist nicht sicher konfiguriert. Ihre [[Webanwendung]] lädt eventuell Inhalte aus unsicheren Quellen nach.
+Das verwendete CMS ist veraltet. Bitte aktualisieren Sie Ihre CMS Version.
