@@ -1,0 +1,1 @@
+Regular updates, applied in a timely manner, are one of the most effective ways to protect a website. Critical security issues in CMS are often used for automated attacks in just a couple of hours after an update has been released, so staying up-to-date is extremly important.

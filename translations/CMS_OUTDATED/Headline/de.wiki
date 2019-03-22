@@ -1,0 +1,1 @@
+Das von Ihnen verwendete Content Management System (%cms%) ist veraltet! Installiert ist (%version%), bitte aktualisieren Sie auf die aktuelle Vesion (%latest%).

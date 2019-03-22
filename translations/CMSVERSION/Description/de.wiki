@@ -1,0 +1,1 @@
+Regelmäßige und zeitnahe CMS-Updates sind eine der effektivsten Möglichkeiten, die eigene Website abzusichern. Kritische Lücken in den Systemen werden oft schon wenige Stunden nach dem Update massenhaft für Angriffe ausgenutzt, umso wichtiger ist hier die kontinuerliche Pflege des Systems.
