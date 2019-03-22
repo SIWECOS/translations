@@ -1,1 +1,0 @@
-Your current CMS version cannot be identified. Thus it cannot be determined whether you are using a vulnerable version.

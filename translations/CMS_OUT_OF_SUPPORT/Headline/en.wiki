@@ -1,0 +1,1 @@
+The content management system (%cms%) is massively outdated. The used version will not receive any further updates from the vendor. Please update to a supported version branch.
