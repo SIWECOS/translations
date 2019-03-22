@@ -1,1 +1,1 @@
-The Content Security Policy is not configured securely. Your web application may load content from insecure sources.
+The used CMS version is outdated, please update.
