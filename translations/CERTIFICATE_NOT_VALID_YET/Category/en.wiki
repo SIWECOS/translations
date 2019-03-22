@@ -1,2 +1,2 @@
-TLS-Scanner
+TLS Scanner
 Certificates
