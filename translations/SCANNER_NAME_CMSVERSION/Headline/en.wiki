@@ -1,1 +1,1 @@
-CMS Version Scanner
+CMS Versions Scanner

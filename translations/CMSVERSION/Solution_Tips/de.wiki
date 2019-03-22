@@ -1,3 +1,3 @@
-Aktualisieren Sie Ihre CMS-Installation. In der Regel sind kleinere Updates innerhalb des selben Versionzweigs (z.B. von 1.5 auf 1.6) per Mausklick aus der Administration des CMS heraus möglich. Größere Versionssprünge (z.B. von 1.5 auf 2.0) erfordern oftmals Anpassungen an der Seite und müssen vom Website-Entwickler durchgeführt werden. Vor jedem Update ist ein Backup der Seite zu erstellen.
+Aktualisieren Sie Ihre CMS-Installation. In der Regel sind kleinere Updates innerhalb des selben Versionzweigs (z. B. von 1.5 auf 1.6) per Mausklick aus der Administration des CMS heraus möglich. Größere Versionssprünge (z. B. von 1.5 auf 2.0) erfordern oftmals Anpassungen an der Seite und müssen vom Website-Entwickler durchgeführt werden. Vor jedem Update ist ein Backup der Seite zu erstellen.
 
 Prüfen Sie Ihr CMS im Optimalfall mindestens 1 mal pro Tag auf etwaige Updates. Alternativ empfiehlt sich die Beauftragung eines Dienstleisters im Rahmen einer Wartungsvereinbarung.

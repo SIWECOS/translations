@@ -1,1 +1,1 @@
-Content Management Systeme (CMS) erhalten regelmäßig sicherheitsrelevante Updates und müssen daher stets auf dem aktuellen Versionsstand gehalten werden.
+[[Content-Management-Systeme|Content Management Systeme (CMS)]] erhalten regelmäßig sicherheitsrelevante Updates und müssen daher stets auf dem aktuellen Versionsstand gehalten werden.
