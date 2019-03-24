@@ -15,7 +15,7 @@
 {{:Initiative-S_Scanner/EN}}
 
 <br>
-[[Category:Siwecos-Scanner/EN]]
+[[Category:Siwecos-Scanner]]
 
 
 __NOTOC__

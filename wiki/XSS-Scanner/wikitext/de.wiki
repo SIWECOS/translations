@@ -1,7 +1,7 @@
 '''<span style="color:#c31622">XSS-Scanner<span>'''
 <br>
 
-Der [[DOMXSS_Scanner|XSS-Scanner]] macht auf potentielle Gefahrenstellen im Seitenquelltext aufmerksam. Darunter fällt die Erkennung von [[Cross-Site Scripting|DOM basierten Schwachstellen]], welche es einem Angreifer erlauben könnten, z. B. [[Malware|Schadcode]] in Form von [[Javascript]] im Kontext Ihrer [[Webanwendung|Webapplikation]] auszuführen.<br>
+Der XSS-Scanner macht auf potentielle Gefahrenstellen im Seitenquelltext aufmerksam. Darunter fällt die Erkennung von [[Cross-Site Scripting|DOM basierten Schwachstellen]], welche es einem Angreifer erlauben könnten, z. B. [[Malware|Schadcode]] in Form von [[Javascript]] im Kontext Ihrer [[Webanwendung|Webapplikation]] auszuführen.<br>
 
 *[[DOMXSS-Schwachstelle/DE|SINKS]]<br>
 *[[Schadcode-Ueber-Fremde-Quellen/DE|SOURCES]]
