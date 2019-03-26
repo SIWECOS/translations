@@ -1,4 +1,4 @@
-'''<span style="color:#c31622"> Take down the website!<span>'''
+'''Take down the website!'''
 
 There is a risk that your website contains phishing content and that criminals are using it to collect personal data. Taking down the website will also prevent Google from removing your website from its index, which would delete a positive ranking. You also avoid being blocked by your hosting provider.
 

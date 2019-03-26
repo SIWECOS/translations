@@ -1,4 +1,4 @@
-=== <span style="color:#c31622">{{:{{PAGENAME}}/Headline}}<span>===
+=== {{:{{PAGENAME}}/Headline}} ===
 
 {| class="wikitable"
 |'''Check'''|| {{:{{PAGENAME}}/Negative}}

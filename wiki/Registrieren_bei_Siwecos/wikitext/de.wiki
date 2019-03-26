@@ -73,7 +73,7 @@ Alle Domains, die bei Siwecos zur Überprüfung eingetragen werden, müssen veri
 <br />
 <br />
 
-=== Konto löschen ===
+== Konto löschen ==
 {|
 |-
 | Sollten Sie diesen Dienst nicht mehr benötigen, können Sie diesen nach dem Einloggen über den Link "Konto löschen" unter "Mein Konto" (ganz unten) beenden. Alle Ihre Daten, sowie alle eingetragenen Domains werden komplett aus unserem System gelöscht, eine Wiederherstellung ist nicht möglich. Sie können sich jederzeit über unsere Startseite beim [https://siwecos.de Dienst von Siwecos] neu registrieren.

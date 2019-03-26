@@ -1,4 +1,4 @@
-'''<span style="color:#c31622">Initiative-S Scanner<span>'''
+== Initiative-S Scanner ==
 <br>
 
 This Initiative-S scanner matches the domain with known blacklists for phishing, malware and spam.<br>

@@ -14,7 +14,7 @@ There are three ways to embed the Siwecos seal on your website
 '''Note''': Currently you cannot use the seal on Domains with IDN names.
 </p>
 <br />
-=='''<span style="color:#c31622">Option 1:<span>''' (seal is stored locally in your own webspace)==
+== Option 1: (seal is stored locally in your own webspace)==
 
 For this option, you store a small JavaScript file locally on your webserver. The advantage is that the seal will be shown on your website even if the Siwecos server is not available. In this case, only the date of the last scan will be replaced by '''Standby'''.
 
@@ -61,7 +61,7 @@ The date's format ideally consist of 5 characters. The recommended Formats are:
 *'''d.m.y''' for british english format.
 *'''y-m-d''' for ISO-8601 format.
 
-=='''<span style="color:#c31622">Option 2:<span>'''  (seal is loaded from the Siwecos server)==
+== Option 2: (seal is loaded from the Siwecos server) ==
 
 This option is intended for users who are not familiar with website editing. All you need to do is to copy the provided code into the source code of your website and to enter the name of your website '''("my_Website")'''. '''The drawback of this option''' is that the image for the seal is loaded directly from the Siwecos server. If the Siwecos server is not available, the seal will not be displayed on your website.
 
@@ -78,7 +78,7 @@ This option is intended for users who are not familiar with website editing. All
 
 {{#if: {{#urlget:userdomain}} | |
 * Replace '''"my_website"''' in the code with your '''domain name''' (without http/https)
-* '''<span style="color:#c31622">Attention:'''<span> This is the part that causes the most problems for users. Please make sure that you enter the domain name exactly as you have registered it with Siwecos (Example: If www.botfrei.de was registered, then www.botfrei.de must be entered for the seal!)
+* '''<span style="color:#c31622">Attention:</span>''' This is the part that causes the most problems for users. Please make sure that you enter the domain name exactly as you have registered it with Siwecos (Example: If www.botfrei.de was registered, then www.botfrei.de must be entered for the seal!)
 <br />
 }}
 
@@ -93,7 +93,7 @@ The date's format ideally consist of 5 characters. The allowed Formats are:
 
 
 
-=='''<span style="color:#c31622">Option 3:<span>''' (Seal as a static image)==
+== Option 3: (Seal as a static image) ==
 
 For this option you store the seal statically on your website. No data ('''e.g. the date of the daily scan''') will be loaded from Siwecos.
 
@@ -115,7 +115,7 @@ For this option you store the seal statically on your website. No data ('''e.g. 
 
 <br />
 
-=='''<span style="color:#c31622">Seal from the perspective of data protection <span>''' ==
+== Seal from the perspective of data protection ==
 <br />
 '''SiWECOS - Seal'''
 <br /><br />

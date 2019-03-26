@@ -1,4 +1,4 @@
-== '''Siwecos Webseiten Scanner''' ==
+== Siwecos Webseiten Scanner ==
 
 {{:TLS_Scanner/DE}}
 <br>

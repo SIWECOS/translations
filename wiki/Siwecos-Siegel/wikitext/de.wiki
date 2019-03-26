@@ -14,7 +14,7 @@ Es gibt drei Möglichkeiten, das Siegel von Siwecos auf Ihre Webseite zu integri
 '''Hinweis''': Momentan kann das Siegel nicht, auf "Umlautdomains" eingebunden werden.
 </p>
 <br />
-=='''<span style="color:#c31622">Möglichkeit 1:</span>''' (Siegel wird lokal auf dem eigenen Webspace abgelegt)==
+== Möglichkeit 1: (Siegel wird lokal auf dem eigenen Webspace abgelegt)==
 
 Hier legen Sie ein kleines JavaScript lokal auf Ihrem Server ab. Der Vorteil ist, dass auf Ihrer Webseite auch dann das Siegel erscheint, wenn der Siwecos-Server nicht erreichbar ist. Es fehlt dann lediglich das Datum des letzten Scans, welches durch '''Standby''' ersetzt wird.
 
@@ -61,7 +61,7 @@ Das Format setzt sich idealerweise aus 5 Zeichen zusammen. Die empfohlenen Forma
 *'''d.m.y''' für das gewohnte deutsche Format.
 *'''y-m-d''' für das ISO-8601 Format.
 
-=='''<span style="color:#c31622">Möglichkeit 2:</span>''' (Siegel wird vom Siwecos-Server geladen) ==
+== Möglichkeit 2: (Siegel wird vom Siwecos-Server geladen) ==
 
 Bei dieser Variante ist nur wenig technisches KnowHow nötig. Hierbei brauchen Sie nur den angegebenen Code in den Quelltext der Webseite zu platzieren und den Namen der eigenen Webseite '''("eigene_Webseite")''' zu ergänzen. '''Der Nachteil dieser Variante ist''', dass das Bild für das Siegel direkt vom Siwecos-Server geladen wird. Ist der Siwecos-Server nicht erreichbar, wird das Siegel auf Ihrer Webseite nicht angezeigt.
 
@@ -78,7 +78,7 @@ Bei dieser Variante ist nur wenig technisches KnowHow nötig. Hierbei brauchen S
 
 {{#if: {{#urlget:userdomain}} | |
 * Ändern Sie '''"eigene_Webseite"''' im Code durch den '''Namen Ihrer Domain''' (ohne http/https)
-* '''<span style="color:#c31622">Achtung:'''<span> Hier werden die meisten Fehler gemacht, tragen Sie die Domain bitte so ein, wie Sie diese bei Siwecos registriert haben (Beispiel: Registriert wurde www.botfrei.de, so muss auch www.botfrei.de ins Siegel integriert werden!)
+* '''<span style="color:#c31622">Achtung:</span>''' Hier werden die meisten Fehler gemacht, tragen Sie die Domain bitte so ein, wie Sie diese bei Siwecos registriert haben (Beispiel: Registriert wurde www.botfrei.de, so muss auch www.botfrei.de ins Siegel integriert werden!)
 <br />
 }}
 
@@ -93,7 +93,7 @@ Das Format für das Datum setzt sich idealerweise aus 5 Zeichen zusammen. Die zu
 
 
 
-=='''<span style="color:#c31622">Möglichkeit 3:</span>''' (Siegel als statisches Bild)==
+== Möglichkeit 3: (Siegel als statisches Bild) ==
 
 Bei dieser Variante wird das Siegel statisch auf Ihrer Webseite hinterlegt. Es werden keine Daten ('''z. B. das Datum der täglichen Überprüfung''') von Siwecos in das Siegel nachgeladen.
 
@@ -115,7 +115,7 @@ Bei dieser Variante wird das Siegel statisch auf Ihrer Webseite hinterlegt. Es w
 
 <br />
 
-=='''<span style="color:#c31622">Siegel aus Sicht des Datenschutzes <span>''' ==
+== Siegel aus Sicht des Datenschutzes ==
 <br />
 '''SiWECOS - Siegel'''
 <br /><br />

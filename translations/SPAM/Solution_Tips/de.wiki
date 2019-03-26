@@ -1,4 +1,4 @@
-'''<span style="color:#c31622">Nehmen Sie die Webseite offline!<span>'''
+'''Nehmen Sie die Webseite offline!'''
 
 Um Besucher vor Ihrer infizierten Webseite zu schützen und damit Google Ihre Webseite nicht aus dem Index nimmt, was ein eventuelles positives Ranking annullieren würde, '''schalten Sie die Webseite offline'''. So kommen Sie auch einer eventuellen Sperre Ihrer Webseite seitens Ihres Providers/Hosters zuvor.
 

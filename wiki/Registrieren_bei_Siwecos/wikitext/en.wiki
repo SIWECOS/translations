@@ -72,7 +72,7 @@ All domains which are registered for verification at Siwecos must be verified an
 <br />
 <br />
 
-=== Delete account ===
+== Delete account ==
 {|
 |-
 |If you do not need this service any longer, you can log in and delete your account with the link "Delete account". All your data and all your listed domains will be deleted from our system completely, it is not possible to restore them. You can register again at any time on our start page at [https://siwecos.de Siwecos].

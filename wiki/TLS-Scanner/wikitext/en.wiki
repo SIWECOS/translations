@@ -1,7 +1,7 @@
 
 <br>
 
-'''<span style="color:#c31622">TLS-Scanner<span>'''
+== TLS-Scanner ==
 <br>
 
 The TLS-Scanner allows you to check the encryption protocol ([https://en.wikipedia.org/wiki/Transport_Layer_Security TLS]) of your servers for vulnerability. If you are using an out-dated encoding version or are relying on out-dated processes ([https://en.wikipedia.org/wiki/Cryptographic_primitive Cryptographic Primitive]), this will be detected by our scanner. The TLS scanner is also capable of detecting problems with the [[Certificate|certificate]] in use and inform you about weak key-lengths and [[Zertifikate#Was_tun.2C_wenn_ein_SSL-Zertifikat_abgelaufen_ist.3F|expired certificates (German only)]] that could enable an attacker to decrypt the communication between you and your customers. In addition, the TLS Scanner can test your TLS implementation for common attacks like [https://en.wikipedia.org/wiki/Man-in-the-middle_attack man-in-the-middle-attack] (Insecure Renegotiation), Poodle and [[Heartbleed-Vulnerability/EN/Background|Heartbleed]].
