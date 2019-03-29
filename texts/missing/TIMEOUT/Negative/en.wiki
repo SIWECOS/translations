@@ -1,1 +1,0 @@
-The scan did not return a result and was therefore cancelled.
