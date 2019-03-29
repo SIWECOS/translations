@@ -1,1 +1,1 @@
-Info Leak Scanner
+Information
