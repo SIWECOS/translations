@@ -11,22 +11,18 @@ B<dir2wiki> B<--help>|B<--man>
 
 =head1 Description
 
-dir2lang will take all SIWECOS translations found in a subdirectory
-"translations" and copy them into a PHP file.
+dir2lang will take all SIWECOS translations found and copy them into PHP files.
 
 =cut
 use strict;
 use warnings;
-use POSIX;
-use File::Path;
-use File::Temp qw/ tempdir /;
 use FindBin qw($Bin $Script);
 use Getopt::Long qw(:config no_ignore_case);
 use Pod::Usage;
 use lib "$Bin/lib";
 use MediaWiki::API;
 use Config::Simplest;
-use SimpleProgressBar;
+use File::Basename;
 use utf8;
 
 my $EXT='.wiki';
@@ -55,7 +51,7 @@ my $test = '';
 
 =item B<-t> DIRNAME
 
-Like B<--dryrun> but keep the files in DIRNAME.
+Like B<--dryrun> but create the files in DIRNAME.
 
 =cut
 
@@ -90,17 +86,11 @@ show man page
 sub help { pod2usage(-verbose=>1); }
 sub man  { pod2usage(-verbose=>2); }
 
-my $CLEARLINE= "\r\x1b[2K";
-my $CURSORUP= "\r\x1b[1A";
-$|=1;
-
-
 # Location and names of some directories / files
 # $Bin = absolute path of this script
 # $Script = filename of this script
-my $TRANSLATIONS= "$Bin/translations";
+my $TRANSLATIONS= "$Bin/texts";
 my $LANGUAGE_DIR=  $config->{LANGUAGE_DIR}       || "$Bin/lang";
-my $LANGUAGE_FILE= $config->{LANGUAGE_FILE}      || "siwecos.php";
 my $WIKI_LINK=     $config->{TARGET_WIKI_LINK}   || "siwecos_wiki";
 my $WIKI_EXTERN=   $config->{TARGET_EXTERN_LINK} || "siwecos_extern";
 my $TEMPLATEFILE= "$Bin/$Script.txt";
@@ -123,34 +113,18 @@ my %PREPARE = (
     $SUCCESS_TEXT => \&oneline_wiki,
     $TIPP         => \&parse_wiki,
 );
-
+my @PURPOSES= sort keys %PREPARE;
 # Prepare some output stuff
-my @SEQUENCE; # Sequence of placeholders in output
-my %SUFFIX;   # Suffix for the placholder
-my $fill= 0;  # number of spaces to use to align values vertically
-my $v=0;
-foreach (
-    # This defines the sequence in the output file
-    # As well as the SUFFIX appended to the placholder
-    $HEADLINE     => '',
-    $SUCCESS_TEXT => 'SUCCESS',
-    $ERROR_TEXT   => 'ERROR',
-    $DESCRIPTION  => 'ERROR_DESC',
-    $TIPP         => 'TIPS',
-    $LINK         => 'LINK',
-) {
-    # This will set up the required data structures
-    if ($v) {
-        my $suffix= $_;
-        $suffix= "_$_" if $_;
-        $SUFFIX{$SEQUENCE[$#SEQUENCE]}= $suffix;
-        my $l= length $suffix;
-        $fill= $l if $l > $fill;
-    } else {
-        push @SEQUENCE, $_;
-    }
-    $v= 1-$v;
-}
+# Sequence of textnames in output
+my @SEQUENCE = (
+    $HEADLINE,
+    $SUCCESS_TEXT,
+    $ERROR_TEXT,
+    $DESCRIPTION,
+    $TIPP,
+    $LINK,
+);
+my $fill= maxlen( @SEQUENCE);   # number of spaces to use to align values vertically
 
 # First prepare the template
 open my $template, '<', $TEMPLATEFILE
@@ -160,6 +134,269 @@ close $template;
 
 die "Cannot access directory $TRANSLATIONS\n"
     unless -x $TRANSLATIONS and -r $TRANSLATIONS;
+
+my $lang_dir= $test || $LANGUAGE_DIR;
+if ( not -d $lang_dir ) {
+    mkdir $lang_dir
+        or die "Can't create $lang_dir: $!\n";
+}
+die "Can't write to $lang_dir.\n"
+    unless -w $lang_dir;
+
+my %LANGUAGES;
+my %test_translations;
+my %translations;
+my $warning;
+foreach my $dir (glob("$TRANSLATIONS/*")) {
+    my $scanner= basename $dir;
+    print "$scanner\n" if $verbose;
+    foreach my $dir (glob("$dir/*")) {
+        my $test= basename $dir;
+        print "  $test\n" if $verbose;
+        # Special cases _RESULTS an _SCANNER_NAME
+        if ($test=~ /^_/) {
+            #
+            # _SCANNER_NAME
+            #
+            if ($test eq '_SCANNER_NAME') {
+                my $text= read_text($dir);
+                if (ref $text) {
+                    $translations{$scanner}{SCANNER_NAME}= $text;
+                } else {
+                    ++$warning;
+                    warn "$text\n";
+                }
+            #
+            # _RESULTS
+            #
+            } else {
+                foreach my $dir (glob("$dir/*")) {
+                    my $textname= basename $dir;
+                    my $text= read_text($dir);
+                    if (ref $text) {
+                        $translations{$scanner}{$textname}= $text;
+                    } else {
+                        ++$warning;
+                        warn "$text\n";
+                    }
+                }
+            }
+        } else {
+            #
+            # TESTS
+            #
+            while (my($purpose, $prepare)= each %PREPARE) {
+                my $text= read_text("$dir/$purpose");
+                if (ref $text) {
+                    $test_translations{$scanner}{$test}{$purpose}= $text;
+                } else {
+                    ++$warning;
+                    warn "$text\n";
+                }
+            }
+        }
+    }
+}
+my @LANGUAGES= sort keys %LANGUAGES;
+
+die "Too many errors.\n" if $warning;
+
+# Check missing translations
+my @scanners= sort keys %test_translations;
+foreach my $scanner (@scanners) {
+    # Data structure is
+    # test_translations {scanner} -> {test} -> {purpose} -> {language}
+    foreach my $test (sort keys %{$test_translations{$scanner}}) {
+        foreach my $purpose (@PURPOSES) {
+            foreach my $lang (@LANGUAGES) {
+                next if exists $test_translations{$scanner}{$test}{$purpose}{$lang};
+                ++$warning;
+                warn "No $lang translation for $scanner/$test/$purpose\n";
+            }
+        }
+    }
+    # Data structure is
+    # translations {scanner} -> {textname} -> {language}
+    foreach my $textname (sort keys %{$translations{$scanner}}) {
+        foreach my $lang (@LANGUAGES) {
+            next if exists $translations{$scanner}{$textname}{$lang};
+            ++$warning;
+            if ($textname eq "SCANNER_NAME") {
+                warn "No $lang translation for $scanner/_$textname\n";
+            } else {
+                warn "No $lang translation for $scanner/_RESULTS/$textname\n";
+            }
+        }
+    }
+}
+
+die "Too many errors.\n" if $warning;
+
+# We need to use the wiki now
+my $mw = MediaWiki::API->new({
+    api_url => $settings->{API},
+});
+
+my $standard_prepare= $PREPARE{$HEADLINE};
+foreach my $scanner (@scanners) {
+    foreach my $lang (@LANGUAGES) {
+        my $output= '';
+        # go through the template, line by line
+        foreach (@template) {
+            # Until the placeholder /* DATA HERE */ is found
+            if( m#^(\s*)/\*\s*DATA\s*HERE\s*\*/\s*#)  {
+                # Remember the indent
+                my $indent= $1;
+                # SCANNER_NAME COMES FIRST!
+                $output.= "$indent// These are the $lang texts for\n";
+                my $textname= 'SCANNER_NAME';
+                my $text= $translations{$scanner}{$textname}{$lang};
+                if( $standard_prepare ){
+                    $text= $standard_prepare->($mw, $text, $textname, './.', $lang);
+                }
+                $output.= qq:$indent'$textname' => "$text",\n\n:;
+                # Data structure is
+                # test_translations {scanner} -> {test} -> {purpose} -> {language}
+                foreach my $test (sort keys %{$test_translations{$scanner}}) {
+                    $output.= "$indent// Test: $test\n";
+                    foreach my $purpose (@SEQUENCE) {
+                        my $text= $test_translations{$scanner}{$test}{$purpose}{$lang};
+                        my $prepare= $PREPARE{$purpose};
+                        if( $prepare ){
+                            $text= $prepare->($mw, $text, $test, $purpose, $lang);
+                        }
+                        my $suffix= uc $purpose;
+                        my $fillstring= ' ' x ($fill - length $suffix);
+                        $output.= qq:$indent'${test}_$suffix'$fillstring => "$text",\n:;
+                    }
+                    $output.= "\n";
+                }
+                $output.= "$indent// Result texts follow\n";
+                # Data structure is
+                # translations {scanner} -> {textname} -> {language}
+                my $maxlen= maxlen (keys %{$translations{$scanner}});
+                foreach my $textname (sort keys %{$translations{$scanner}}) {
+                    next if $textname eq 'SCANNER_NAME';
+                    my $text= $translations{$scanner}{$textname}{$lang};
+                    if( $standard_prepare ){
+                        $text= $standard_prepare->($mw, $text, $textname, undef, $lang);
+                    }
+                    my $fillstring= ' ' x ($maxlen - length $textname);
+                    $output.= qq:$indent'$textname'$fillstring => "$text",\n:;
+                }
+            } else {
+                # Print an unmodified template line
+                $output.= $_;
+            }
+        }
+        if (not $dryrun) {
+            open my $out, '>:utf8', "$lang_dir/$lang/$scanner.php"
+                or die "Failed to create $lang_dir/$lang/$scanner.php: $!\n";
+            print $out $output;
+            close $out unless $dryrun;
+        }
+    }
+}
+
+sub maxlen {
+    my $fill= 0;
+    foreach ( @_ ) {
+        my $l= length $_;
+        $fill= $l if $l > $fill;
+    }
+    return $fill;
+}
+
+sub read_text {
+    my($path)= @_;
+    return "Missing $path" unless -d $path;
+    return "Can't read $path" unless -r $path;
+    my $result;
+    foreach my $file (glob("$path/??$EXT")) {
+        my $lang= lc basename $file, $EXT;
+        ++$LANGUAGES{$lang};
+        $result||= {};
+        open my $in, '<:utf8', $file
+            or return "Can't read $file";
+        $result->{$lang}= do { local $/; <$in>; };
+        close $in;
+        for ($result->{$lang}) {
+            s/[\012\015]+$//s;
+            s/[ \t]+$//gm;
+        }
+    }
+    return $result || "No translations in $path";
+}
+
+sub parse_wiki {
+    my($mw, $text, $textname, $purpose, $lang)= @_;
+    if ($verbose) {
+        if ($purpose) {
+            print "Parsing $textname, $purpose, $lang\n";
+        } else {
+            print "Parsing $textname, $lang\n";
+        }
+    }
+    my $result= $mw->api({
+        action => 'parse',
+        format => 'json',
+        title => 'none',
+        text => $text,
+        prop => 'text|links|externallinks',
+        disablelimitreport => 'true',
+    });
+    if( not $result ) {
+        die $mw->{error}->{details}. ' ('. $mw->{error}->{code} . ')';
+    }
+    local($_)= $result->{parse}->{text}->{'*'};
+    foreach my $link (@{$result->{parse}->{links}}) {
+        my $linktext= quotemeta $link->{'*'};
+        if (not exists $link->{exists}) {
+            warn "Missing link: $linktext in $textname, $purpose, $lang.\n";
+        }
+        s#(<a\b[^>]+\b)(href=")/wiki(/[^>"]+"[^>]+\btitle="$linktext")#"$1target=\x22$WIKI_LINK\x22 $2".$settings->{WIKI}.$3#ge;
+    }
+    foreach my $link (@{$result->{parse}->{externallinks}}) {
+        my $linktext= quotemeta $link;
+        s#(<a\b[^>]*href="$linktext"[^>]*>)#replace_target($1, $WIKI_EXTERN)#ge;
+    }
+    s/\\/\\\\/sg;
+    s/\n/ /sg;
+    s/\r//sg;
+    s/"/\\"/sg;
+    s/\s+$//s;
+    return $_;
+}
+
+sub oneline_wiki {
+    local($_)= parse_wiki(@_);
+    s#</?p>##sg;
+    s/&#160;/ /sg;
+    s/\s+$//s;
+    return $_;
+}
+
+sub oneline {
+    my($mw, $text, $textname, $purpose)= @_;
+    local($_)= $text;
+    s/[\r\n]+/ /sg;
+    s/&#160;/ /sg;
+    s/\s+$//s;
+    return $_;
+}
+
+sub wikilink {
+    my($mw, $text, $textname, $purpose, $lang)= @_;
+    return $settings->{WIKI}."/$text/".uc($lang);
+}
+
+sub replace_target {
+    my($a, $target)= @_;
+    $a=~ s/(?<=\btarget=)(["'']).*?\1/$1$target$1/g;
+    return $a;
+}
+
+__END__
 # get all translation filenames
 # Directory structure is $TRANSLATIONS / placeholder / purpose / language $EXT
 # Also collect categories
@@ -336,64 +573,3 @@ if ($dryrun) {
         or die "Failed to create directory $LANGUAGE_DIR: $!\n";
 }
 
-sub parse_wiki {
-    my($mw, $text, $placeholder, $purpose, $lang)= @_;
-    print "\n",$CLEARLINE,"Parsing $placeholder, $purpose, $lang" if $verbose;
-    my $result= $mw->api({
-        action => 'parse',
-        format => 'json',
-        title => 'none',
-        text => $text,
-        prop => 'text|links|externallinks',
-        disablelimitreport => 'true',
-    });
-    if( not $result ) {
-        die $mw->{error}->{details}. ' ('. $mw->{error}->{code} . ')';
-    }
-    local($_)= $result->{parse}->{text}->{'*'};
-    foreach my $link (@{$result->{parse}->{links}}) {
-        my $linktext= quotemeta $link->{'*'};
-        if (not exists $link->{exists}) {
-            print $CURSORUP if $verbose;
-            warn $CLEARLINE."Missing link: $linktext in $placeholder, $purpose, $lang.\n";
-            print "\n" if $verbose;
-        }
-        s#(<a\b[^>]+\b)(href=")/wiki(/[^>"]+"[^>]+\btitle="$linktext")#"$1target=\x22$WIKI_LINK\x22 $2".$settings->{WIKI}.$3#ge;
-    }
-    foreach my $link (@{$result->{parse}->{externallinks}}) {
-        my $linktext= quotemeta $link;
-        s#(<a\b[^>]*href="$linktext"[^>]*>)#replace_target($1, $WIKI_EXTERN)#ge;
-    }
-    s/\\/\\\\/sg;
-    s/\n/\\n/sg;
-    s/\r/\\r/sg;
-    s/"/\\"/sg;
-    print $CLEARLINE,$CURSORUP if $verbose;
-    return $_;
-}
-
-sub oneline_wiki {
-    local($_)= parse_wiki(@_);
-    s#</?p>##sg;
-    s/&#160;/ /sg;
-    return $_;
-}
-
-sub oneline {
-    my($mw, $text, $placeholder, $purpose)= @_;
-    local($_)= $text;
-    s/[\r\n]+/ /sg;
-    s/&#160;/ /sg;
-    return $_;
-}
-
-sub wikilink {
-    my($mw, $text, $placeholder, $purpose, $lang)= @_;
-    return $settings->{WIKI}."/$text/".uc($lang);
-}
-
-sub replace_target {
-    my($a, $target)= @_;
-    $a=~ s/(?<=\btarget=)(["'']).*?\1/$1$target$1/g;
-    return $a;
-}
