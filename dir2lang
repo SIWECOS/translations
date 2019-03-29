@@ -202,7 +202,7 @@ my @LANGUAGES= sort keys %LANGUAGES;
 die "Too many errors.\n" if $warning;
 
 # Check missing translations
-my @scanners= sort keys %test_translations;
+my @scanners= sort keys %test_translations, keys %translations;
 foreach my $scanner (@scanners) {
     # Data structure is
     # test_translations {scanner} -> {test} -> {purpose} -> {language}
@@ -248,30 +248,32 @@ foreach my $scanner (@scanners) {
                 # Remember the indent
                 my $indent= $1;
                 # SCANNER_NAME COMES FIRST!
-                $output.= "$indent// These are the $lang texts for\n";
                 my $textname= 'SCANNER_NAME';
                 my $text= $translations{$scanner}{$textname}{$lang};
-                if( $standard_prepare ){
-                    $text= $standard_prepare->($mw, $text, $textname, './.', $lang);
-                }
-                $output.= qq:$indent'$textname' => "$text",\n\n:;
-                # Data structure is
-                # test_translations {scanner} -> {test} -> {purpose} -> {language}
-                foreach my $test (sort keys %{$test_translations{$scanner}}) {
-                    $output.= "$indent// Test: $test\n";
-                    foreach my $purpose (@SEQUENCE) {
-                        my $text= $test_translations{$scanner}{$test}{$purpose}{$lang};
-                        my $prepare= $PREPARE{$purpose};
-                        if( $prepare ){
-                            $text= $prepare->($mw, $text, $test, $purpose, $lang);
-                        }
-                        my $suffix= uc $purpose;
-                        my $fillstring= ' ' x ($fill - length $suffix);
-                        $output.= qq:$indent'${test}_$suffix'$fillstring => "$text",\n:;
+                if (defined $text) {
+                    $output.= "$indent// These are the $lang texts for\n";
+                    if( $standard_prepare ){
+                        $text= $standard_prepare->($mw, $text, $textname, './.', $lang);
                     }
-                    $output.= "\n";
+                    $output.= qq:$indent'$textname' => "$text",\n\n:;
+                    # Data structure is
+                    # test_translations {scanner} -> {test} -> {purpose} -> {language}
+                    foreach my $test (sort keys %{$test_translations{$scanner}}) {
+                        $output.= "$indent// Test: $test\n";
+                        foreach my $purpose (@SEQUENCE) {
+                            my $text= $test_translations{$scanner}{$test}{$purpose}{$lang};
+                            my $prepare= $PREPARE{$purpose};
+                            if( $prepare ){
+                                $text= $prepare->($mw, $text, $test, $purpose, $lang);
+                            }
+                            my $suffix= uc $purpose;
+                            my $fillstring= ' ' x ($fill - length $suffix);
+                            $output.= qq:$indent'${test}_$suffix'$fillstring => "$text",\n:;
+                        }
+                        $output.= "\n";
+                    }
+                    $output.= "$indent// Result texts follow\n";
                 }
-                $output.= "$indent// Result texts follow\n";
                 # Data structure is
                 # translations {scanner} -> {textname} -> {language}
                 my $maxlen= maxlen (keys %{$translations{$scanner}});
