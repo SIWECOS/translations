@@ -1,2 +1,0 @@
-DOMXSS Scanner
-NO_CONTENT
