@@ -152,8 +152,7 @@ my %translations;
 my $warning;
 my $specific= '*';
 if (@ARGV) {
-    $specific= '{' . join(",", @ARGV) . '}';
-    undef @ARGV;
+    $specific= '{' . join(",", splice(@ARGV)) . '}';
 }
 foreach my $dir (glob("$TRANSLATIONS/$specific")) {
     my $scanner= basename $dir;
