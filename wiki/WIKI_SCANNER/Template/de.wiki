@@ -1,7 +1,11 @@
 === {{:{{PAGENAME}}/Headline}} ===
 
+Bei positivem Ergebnis besteht kein weiterer Handlungsbedarf, bei negativen Ergebnis lesen Sie bitte die folgenden Hinweise.
+
 {| class="wikitable"
-|'''Check'''|| {{:{{PAGENAME}}/Negative}}
+|'''Ergebnis positiv''' || {{:{{PAGENAME}}/Positive}}
+|-
+|'''Ergebnis negativ'''|| {{:{{PAGENAME}}/Negative}}
 |-
 |'''Beschreibung'''||  {{:{{PAGENAME}}/Description}}
 |-
