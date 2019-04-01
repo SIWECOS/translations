@@ -29,6 +29,7 @@ Alle Texte für
 |           `- sprachdateien
 `- "wiki"
    |- "_WIKI_SCANNER"
+   |  |- "_use"
    |  `- sprachdateien
    `- seitenname
       |- "link"
@@ -49,7 +50,7 @@ Alle Texte für
   \
   In diesem Verzeichnis finden sich alle Texte, die der Business Layer und die Scanner benötigen.
 
-  Die Beschreibung der Scanner wird, über ein Template zusammengefaßt, ebenfalls ins Wiki eingetragen.
+  Die Beschreibung der Scanner wird, über ein Template zusammengefasst, ebenfalls ins Wiki eingetragen.
 
   * *scannerbezeichner*
     \
@@ -60,7 +61,7 @@ Alle Texte für
       \
       Jeder Scanner hat verschiedene Tests.
       Für jeden Test gibt es ein Verzeichnis, das erklärenden Text zu dem Test enthält.
-      Für jeden Test gibt es vorgegebene Bereiche, zu denen es je einen Text geben muß.
+      Für jeden Test gibt es vorgegebene Bereiche, zu denen es je einen Text geben muss.
       Jeder der Bereiche (jedes Verzeichnis) hat einen definierten Namen
 
       * **Headline**
@@ -103,7 +104,7 @@ Alle Texte für
         Für jede Sprache gibt es eine Datei die den Namen in der jeweiligen Landessprache definiert.
         An diesen Namen werden jeweils ein Schrägstrich ("/") und das Sprachenkürzel in Großbuchstaben automatisch angehängt.
         Dies stellt sicher, dass auch identische Bezeichner in verschiedenen Sprachen verwendet werden können.
-        Wenn hier also "Test 1" in jeder Sprache gespeichert ist, lautet der Seitenname "Test_1/DE" für die Deutsch und "Test 2/EN" für Englisch.
+        Wenn hier also "Test 1" in jeder Sprache gespeichert ist, lautet der Seitenname "Test_1/DE" für die Deutsch und "Test_1/EN" für Englisch.
 
       * **Details**
         \
@@ -114,7 +115,7 @@ Alle Texte für
       In diesem Verzeichnis finden sich alle Texte, die der Scanner benötigt.
       Für jeden Text gibt es ein Verzeichnis dessen Name der Textname ist.
 
-      * *textname*
+      * *ergebnisname*
         \
         In jedem Verzeichnis gibt es je eine Sprachdatei ("de.wiki", "en.wiki"…) für den Text in der jeweiligen Landessprache.
 
@@ -130,29 +131,22 @@ Alle Texte für
   \
   In diesem Verzeichnis sind alle Texte zu finden, die ins Wiki geladen werden.
 
-  * **_WIKI_TEMPLATE**
+  * **_WIKI_SCANNER**
     \
     Das Wiki Template wird für die Testbeschreibungen verwendet.
-    Es referenziert bisher die folgende Bereieche als Unterseiten:
 
-    * Headline
-    * Negative
-    * Description
-    * Background
-    * Consequence
-    * Solution_Tips
-    * Category
+    Der Template Text ist ein Wiki-Text und wird für jede Sprache in einer eigenen Sprachdatei ("de.wiki", "en.wiki"…) gespeichert
 
-    Weitere Bereiche lassen sich (momentan) nur verwenden, wenn das Script `dir2wiki` angepaßt wird.
+    Alle referenzierten Unterbereiche müssen in der Datei **_use** aufgelistet werden.
 
-  * *seitennam*
+  * *seitenname*
     \
     Hier sind die Seiten unseres Wikis zu finden, die wir übersetzen lassen.
     Dementsprechend finden sich in den Unterverzeichnissen hier wieder Sprachdateien.
 
     * **link**
       \
-      Dieses Verzeichnis entspricht dem Verzeichnis **Link**, das oben bei den Businiess Layer Texten beschrieben ist.
+      Dieses Verzeichnis entspricht dem Verzeichnis **Link**, das oben bei den Business Layer Texten beschrieben ist.
 
     * **wikitext**
       \
@@ -166,7 +160,7 @@ Außerdem gibt es Scripte um die Texte ins PO-Format und wieder zurück in die V
 
 ### `dir2lang`
 
-Mit diesem Script werden alle Text in je eine Sprachdatei pro Sprache und Scanner zusammengefaßt.
+Mit diesem Script werden alle Text in je eine Sprachdatei pro Sprache und Scanner zusammengefasst.
 Sie sollten im Verzeichnis `build/siwecos-business-layer` gespeichert werden.
 Der Pfad zu diesem Verzeichnis wird in `siwecos.conf` unter `LANGUAGE_DIR` festgelegt. Ansonsten werden die Dateien im Verzeichnis `lang`, das sich im selben Verzeichnis wie `dir2lang` befindet, abgelegt.
 
@@ -183,7 +177,7 @@ In `wiki.conf` müssen die Zugangsdaten fürs Wiki hinterlegt sein.
 
 ### `dir2po` **in Arbeit**
 
-Mit diesem Script werden die Texte in je eine Sprachdatei pro Sprache und Scanner zusammengefaßt.
+Mit diesem Script werden die Texte in je eine Sprachdatei pro Sprache und Scanner zusammengefasst.
 Sie werden im Verzeichnis `poedit`, das sich im selben Verzeichnis wie `dir2po` befindet, abgelegt.
 
 Diese Dateien lassen sich an Übersetzer geben, um die Texte in andere Sprachen zu übersetzen.
