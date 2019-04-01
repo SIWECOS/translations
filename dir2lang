@@ -5,13 +5,15 @@ dir2lang - Convert SIWECOS translations to be used by the application
 
 =head1 SYNOPSIS
 
-B<dir2lang> [B<-v>] [B<--dryrun>]
+B<dir2lang> [B<-v>] [B<--dryrun>] [SCANNER…]
 
 B<dir2wiki> B<--help>|B<--man>
 
 =head1 Description
 
 dir2lang will take all SIWECOS translations found and copy them into PHP files.
+
+If scanner names are given on the commandline, just the texts from those are taken.
 
 =cut
 use strict;
@@ -148,7 +150,11 @@ my %LANGUAGES;
 my %test_translations;
 my %translations;
 my $warning;
-foreach my $dir (glob("$TRANSLATIONS/*")) {
+my $specific= '*';
+if (@ARGV) {
+    $specific= '{' . join(",", splice(@ARGV)) . '}';
+}
+foreach my $dir (glob("$TRANSLATIONS/$specific")) {
     my $scanner= basename $dir;
     print "\r$scanner\n" if $verbose;
     foreach my $dir (glob("$dir/*")) {

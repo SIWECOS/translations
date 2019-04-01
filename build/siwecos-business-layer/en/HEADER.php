@@ -94,7 +94,7 @@ return [
   'CSP_LEGACY_HEADER_SET'     => "The outdated header 'X-Content-Security-Policy' is used. The new standardized header is 'Content-Security-Policy'.",
   'CSP_NO_UNSAFE_INCLUDED'    => "The <a target=\"siwecos_extern\" rel=\"nofollow\" class=\"external text\" href=\"https://en.wikipedia.org/wiki/Content_Security_Policy\">Content Security Policy (CSP)</a> does not contain any unsafe directives, but it may not be configured securely.",
   'CSP_UNSAFE_INCLUDED'       => "The header is set insecurely because it contains 'unsafe-inline' or 'unsafe-eval' directives.",
-  'CT_CORRECT'                => "The header \"%HEADER%\" is set correctly and corresponds to the recommendations.",
+  'CT_CORRECT'                => "The header is set correctly and corresponds to the recommendations.",
   'CT_HEADER_WITHOUT_CHARSET' => "The header is used without a character set and thus not safe.",
   'CT_HEADER_WITH_CHARSET'    => "The header is set correctly and contains a character set specification.",
   'CT_META_TAG_SET'           => "The header is set correctly, but it does not contain a character set specification or does not correspond to the recommendations. \"%META%\" was found.",
