@@ -99,7 +99,6 @@ my $WIKI_EXTERN=   $config->{TARGET_EXTERN_LINK} || "siwecos_extern";
 my $TEMPLATEFILE= "$Bin/$Script.txt";
 
 # Expected purposes
-my $CATEGORY     = 'Category';
 my $DESCRIPTION  = 'Description';
 my $HEADLINE     = 'Headline';
 my $LINK         = 'Link';
@@ -108,7 +107,6 @@ my $SUCCESS_TEXT = 'Positive';
 my $TIPP         = 'Solution_Tips';
 
 my %PREPARE = (
-    $CATEGORY     => \&oneline,
     $DESCRIPTION  => \&parse_wiki,
     $HEADLINE     => \&oneline_wiki,
     $LINK         => \&wikilink,
@@ -150,7 +148,6 @@ my %LANGUAGES;
 my %test_translations;
 my %translations;
 my $warning;
-my $count= 0;
 foreach my $dir (glob("$TRANSLATIONS/*")) {
     my $scanner= basename $dir;
     print "\r$scanner\n" if $verbose;
@@ -166,7 +163,6 @@ foreach my $dir (glob("$TRANSLATIONS/*")) {
                 my $text= read_text($dir);
                 if (ref $text) {
                     $translations{$scanner}{$SCANNER_NAME}= $text;
-                    ++$count;
                 } else {
                     ++$warning;
                     warn "$text\n";
@@ -180,7 +176,6 @@ foreach my $dir (glob("$TRANSLATIONS/*")) {
                     my $text= read_text($dir);
                     if (ref $text) {
                         $translations{$scanner}{$textname}= $text;
-                        ++$count;
                     } else {
                         ++$warning;
                         warn "$text\n";
@@ -195,7 +190,6 @@ foreach my $dir (glob("$TRANSLATIONS/*")) {
                 my $text= read_text("$dir/$purpose");
                 if (ref $text) {
                     $test_translations{$scanner}{$test}{$purpose}= $text;
-                    ++$count;
                 } else {
                     ++$warning;
                     warn "$text\n";
@@ -210,12 +204,14 @@ die "Too many errors.\n" if $warning;
 
 # Check missing translations
 my @scanners= sort keys %test_translations, keys %translations;
+my $count= 0;
 foreach my $scanner (@scanners) {
     # Data structure is
     # test_translations {scanner} -> {test} -> {purpose} -> {language}
     foreach my $test (sort keys %{$test_translations{$scanner}}) {
         foreach my $purpose (@PURPOSES) {
             foreach my $lang (@LANGUAGES) {
+                ++$count;
                 next if exists $test_translations{$scanner}{$test}{$purpose}{$lang};
                 ++$warning;
                 warn "No $lang translation for $scanner/$test/$purpose\n";
@@ -226,6 +222,7 @@ foreach my $scanner (@scanners) {
     # translations {scanner} -> {textname} -> {language}
     foreach my $textname (sort keys %{$translations{$scanner}}) {
         foreach my $lang (@LANGUAGES) {
+            ++$count;
             next if exists $translations{$scanner}{$textname}{$lang};
             ++$warning;
             if ($textname eq $SCANNER_NAME) {
@@ -315,6 +312,8 @@ foreach my $scanner (@scanners) {
 }
 
 $mw->logout();
+print $/ unless $verbose;
+# done
 
 sub update_percent {
     my($done, $max)= @_;
@@ -354,13 +353,8 @@ sub read_text {
 
 sub parse_wiki {
     my($mw, $text, $textname, $purpose, $lang)= @_;
-    if ($verbose) {
-        if ($purpose) {
-            print "Parsing $textname, $purpose, $lang\n";
-        } else {
-            print "Parsing $textname, $lang\n";
-        }
-    }
+    my $parsing= $purpose ? "$textname, $purpose, $lang" : "$textname, $lang";
+    print "Parsing $parsing\n" if $verbose;
     my $result= $mw->api({
         action => 'parse',
         format => 'json',
@@ -376,7 +370,7 @@ sub parse_wiki {
     foreach my $link (@{$result->{parse}->{links}}) {
         my $linktext= quotemeta $link->{'*'};
         if (not exists $link->{exists}) {
-            warn "Missing link: $linktext in $textname, $purpose, $lang.\n";
+            warn "Missing link: $linktext in $parsing.\n";
         }
         s#(<a\b[^>]+\b)(href=")/wiki(/[^>"]+"[^>]+\btitle="$linktext")#"$1target=\x22$WIKI_LINK\x22 $2".$settings->{WIKI}.$3#ge;
     }
@@ -420,7 +414,9 @@ sub wikilink {
         warn "Error   $@\n";
         warn "Page    $pagename\n";
         warn "Check   $textname, $purpose, $lang\n" unless $verbose;
-    }    
+    } elsif (exists $page->{missing}) {
+        warn "New     $pagename\n";
+    }
     return $settings->{WIKI}."/".$pagename;
 }
 
