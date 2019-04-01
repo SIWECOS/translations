@@ -37,13 +37,13 @@ Alle Texte für
          `- sprachdateien
 ```
 
-### Erläuterungen
-
-#### *sprachdateien*
+### *sprachdateien*
 
   In der Beschreibung oben sind einige Verzeichnisse als ''sprachdateien'' bezeichnet.
   In diesen befindet sich für jede Sprache eine Datei, die den Text in der jeweiligen Landessprache enthält.
   Also z.B. "de.wiki" und "en.wiki".
+
+### Verzeichnisse
 
 * **texts**
   \
@@ -87,6 +87,8 @@ Alle Texte für
         \
         Dient der Einordnung des Tests. Testet er einen *Angriff*, eine *Software Version*, den *Webserver*…
 
+        Es ist möglich, mehr als eine Kategorie anzugeben. In dem Fall sollten die Kategorien Zeile für Zeile aufgeführt werden.
+
       * **Negative**
         \
         Eine Meldung, die im Falle eines negativen Testergebisses verwendet wird.
@@ -106,7 +108,7 @@ Alle Texte für
       * **Details**
         \
         Scheint momentan nicht verwendet zu werden.
-      
+
     * **_RESULTS**
       \
       In diesem Verzeichnis finden sich alle Texte, die der Scanner benötigt.
@@ -126,7 +128,66 @@ Alle Texte für
 
 * **wiki**
   \
-  In diesem 
+  In diesem Verzeichnis sind alle Texte zu finden, die ins Wiki geladen werden.
 
+  * **_WIKI_TEMPLATE**
+    \
+    Das Wiki Template wird für die Testbeschreibungen verwendet.
+    Es referenziert bisher die folgende Bereieche als Unterseiten:
 
-`SCANNER`
+    * Headline
+    * Negative
+    * Description
+    * Background
+    * Consequence
+    * Solution_Tips
+    * Category
+
+    Weitere Bereiche lassen sich (momentan) nur verwenden, wenn das Script `dir2wiki` angepaßt wird.
+
+  * *seitennam*
+    \
+    Hier sind die Seiten unseres Wikis zu finden, die wir übersetzen lassen.
+    Dementsprechend finden sich in den Unterverzeichnissen hier wieder Sprachdateien.
+
+    * **link**
+      \
+      Dieses Verzeichnis entspricht dem Verzeichnis **Link**, das oben bei den Businiess Layer Texten beschrieben ist.
+
+    * **wikitext**
+      \
+      Hier finden sich die Sprachdateien fürs Wiki.
+
+## Scripte
+
+Um die Texte in SIWECOS und im Wiki verfügbar zu machen, werden verschiedene Scripte verwendet.
+
+Außerdem gibt es Scripte um die Texte ins PO-Format und wieder zurück in die Verzeichnisstruktur zu überführen.
+
+### `dir2lang`
+
+Mit diesem Script werden alle Text in je eine Sprachdatei pro Sprache und Scanner zusammengefaßt.
+Sie sollten im Verzeichnis `build/siwecos-business-layer` gespeichert werden.
+Der Pfad zu diesem Verzeichnis wird in `siwecos.conf` unter `LANGUAGE_DIR` festgelegt. Ansonsten werden die Dateien im Verzeichnis `lang`, das sich im selben Verzeichnis wie `dir2lang` befindet, abgelegt.
+
+Fürs Zusammenfassen werden alle verwendeten Texte mithilfe des SIWECOS Wikis in HTML ungeformt.
+Eventuelle Fehler wie z.B. fehlende Links werden dabei gemeldet.
+
+Es ist also notwendig, für das Wiki einen passwortgeschützen API Zugriff einzurichten und die Daten in der Datei `wiki.conf` zu hinterlegen.
+
+### `dir2wiki` **IN ARBEIT**
+
+Mit diesem Script werden Texte in unserem Wiki aktualisiert.
+
+In `wiki.conf` müssen die Zugangsdaten fürs Wiki hinterlegt sein.
+
+### `dir2po` **in Arbeit**
+
+Mit diesem Script werden die Texte in je eine Sprachdatei pro Sprache und Scanner zusammengefaßt.
+Sie werden im Verzeichnis `poedit`, das sich im selben Verzeichnis wie `dir2po` befindet, abgelegt.
+
+Diese Dateien lassen sich an Übersetzer geben, um die Texte in andere Sprachen zu übersetzen.
+
+### `po2dir` **in Arbeit**
+
+Dieses Script nimmt die bearbeiteten Sprachdateien und fügt die Texte wieder in die Verzeichnisstruktur ein.
