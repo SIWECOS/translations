@@ -149,13 +149,15 @@ die "Can't write to $lang_dir.\n"
 my %LANGUAGES;
 my %test_translations;
 my %translations;
-my $warning;
+my %scanners;
+my $warning= 0;
 my $specific= '*';
 if (@ARGV) {
     $specific= '{' . join(",", splice(@ARGV)) . '}';
 }
 foreach my $dir (glob("$TRANSLATIONS/$specific")) {
     my $scanner= basename $dir;
+    ++$scanners{$scanner};
     print "$scanner\n" if $verbose;
     foreach my $dir (glob("$dir/*")) {
         my $test= basename $dir;
@@ -209,7 +211,7 @@ my @LANGUAGES= sort keys %LANGUAGES;
 die "Too many errors.\n" if $warning;
 
 # Check missing translations
-my @scanners= sort keys %test_translations, keys %translations;
+my @scanners= sort keys %scanners;
 my $count= 0;
 foreach my $scanner (@scanners) {
     # Data structure is
@@ -257,6 +259,7 @@ foreach my $scanner (@scanners) {
         foreach (@template) {
             # Until the placeholder /* DATA HERE */ is found
             if( m#^(\s*)/\*\s*DATA\s*HERE\s*\*/\s*#)  {
+                my $err= 0;
                 # Remember the indent
                 my $indent= $1;
                 # SCANNER_NAME COMES FIRST!
@@ -266,9 +269,10 @@ foreach my $scanner (@scanners) {
                     update_percent(\$done,$count);
                     $output.= "$indent// These are the $lang texts for\n";
                     if( $standard_prepare ){
-                        $text= $standard_prepare->($mw, $text, $textname, undef, $lang);
+                        ($text, $err)= $standard_prepare->($mw, $text, $textname, undef, $lang);
                     }
                     $output.= qq:$indent'$textname' => '$text',\n\n:;
+                    $warning+= $err;
                     # Data structure is
                     # test_translations {scanner} -> {test} -> {purpose} -> {language}
                     foreach my $test (sort keys %{$test_translations{$scanner}}) {
@@ -278,11 +282,12 @@ foreach my $scanner (@scanners) {
                             my $prepare= $PREPARE{$purpose};
                             update_percent(\$done,$count);
                             if( $prepare ){
-                                $text= $prepare->($mw, $text, $test, $purpose, $lang);
+                                ($text, $err)= $prepare->($mw, $text, $test, $purpose, $lang);
                             }
                             my $suffix= uc $purpose;
                             my $fillstring= ' ' x ($fill - length $suffix);
                             $output.= qq:$indent'${test}_$suffix'$fillstring => '$text',\n:;
+                            $warning+= $err;
                         }
                         $output.= "\n";
                     }
@@ -296,10 +301,11 @@ foreach my $scanner (@scanners) {
                     my $text= $translations{$scanner}{$textname}{$lang};
                     update_percent(\$done,$count);
                     if( $standard_prepare ){
-                        $text= $standard_prepare->($mw, $text, $textname, undef, $lang);
+                        ($text, $err)= $standard_prepare->($mw, $text, $textname, undef, $lang);
                     }
                     my $fillstring= ' ' x ($maxlen - length $textname);
                     $output.= qq:$indent'$textname'$fillstring => '$text',\n:;
+                    $warning+= $err;
                 }
             } else {
                 # Print an unmodified template line
@@ -319,7 +325,9 @@ foreach my $scanner (@scanners) {
 
 $mw->logout();
 print $/ unless $verbose;
+
 # done
+exit $warning;
 
 sub update_percent {
     my($done, $max)= @_;
@@ -359,6 +367,7 @@ sub read_text {
 
 sub parse_wiki {
     my($mw, $text, $textname, $purpose, $lang)= @_;
+    my $warning= 0;
     my $parsing= $purpose ? "$textname, $purpose, $lang" : "$textname, $lang";
     print "Parsing $parsing\n" if $verbose;
     my $result= $mw->api({
@@ -377,6 +386,7 @@ sub parse_wiki {
         my $linktext= quotemeta $link->{'*'};
         if (not exists $link->{exists}) {
             warn "Missing link: $linktext in $parsing.\n";
+            ++$warning;
         }
         s#(<a\b[^>]+\b)(href=")/wiki(/[^>"]+"[^>]+\btitle="$linktext")#"$1target=\x22$WIKI_LINK\x22 $2".$settings->{WIKI}.$3#ge;
     }
@@ -389,15 +399,17 @@ sub parse_wiki {
     s/\r//sg;
     s/'/\\'/sg;
     s/\s+$//s;
-    return $_;
+    return ($_, $warning);
 }
 
 sub oneline_wiki {
-    local($_)= parse_wiki(@_);
+    local($_);
+    my($warning);
+    ($_, $warning)= parse_wiki(@_);
     s#</?p>##sg;
     s/&#160;/ /sg;
     s/\s+$//s;
-    return $_;
+    return ($_, $warning);
 }
 
 sub oneline {
@@ -406,11 +418,12 @@ sub oneline {
     s/[\r\n]+/ /sg;
     s/&#160;/ /sg;
     s/\s+$//s;
-    return $_;
+    return ($_, 0);
 }
 
 sub wikilink {
     my($mw, $text, $textname, $purpose, $lang)= @_;
+    my $warning= 0;
     print "Lookup  $textname, $purpose, $lang\n" if $verbose;
     my $pagename= $text."/".uc($lang);
     my $page= my $ref = eval {
@@ -420,10 +433,12 @@ sub wikilink {
         warn "Error   $@\n";
         warn "Page    $pagename\n";
         warn "Check   $textname, $purpose, $lang\n" unless $verbose;
+        ++$warning;
     } elsif (exists $page->{missing}) {
         warn "New     $pagename\n";
+        ++$warning;
     }
-    return $settings->{WIKI}."/".$pagename;
+    return ($settings->{WIKI}."/".$pagename, $warning);
 }
 
 sub replace_target {
