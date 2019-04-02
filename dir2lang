@@ -156,10 +156,10 @@ if (@ARGV) {
 }
 foreach my $dir (glob("$TRANSLATIONS/$specific")) {
     my $scanner= basename $dir;
-    print "\r$scanner\n" if $verbose;
+    print "$scanner\n" if $verbose;
     foreach my $dir (glob("$dir/*")) {
         my $test= basename $dir;
-        print "\r  $test\n" if $verbose;
+        print "  $test\n" if $verbose;
         # Special cases _$RESULTS an _$SCANNER_NAME
         if ($test=~ /^_/) {
             #
@@ -192,7 +192,7 @@ foreach my $dir (glob("$TRANSLATIONS/$specific")) {
             #
             # TESTS
             #
-            while (my($purpose, $prepare)= each %PREPARE) {
+            foreach my $purpose (@PURPOSES) {
                 my $text= read_text("$dir/$purpose");
                 if (ref $text) {
                     $test_translations{$scanner}{$test}{$purpose}= $text;
@@ -268,7 +268,7 @@ foreach my $scanner (@scanners) {
                     if( $standard_prepare ){
                         $text= $standard_prepare->($mw, $text, $textname, undef, $lang);
                     }
-                    $output.= qq:$indent'$textname' => "$text",\n\n:;
+                    $output.= qq:$indent'$textname' => '$text',\n\n:;
                     # Data structure is
                     # test_translations {scanner} -> {test} -> {purpose} -> {language}
                     foreach my $test (sort keys %{$test_translations{$scanner}}) {
@@ -282,7 +282,7 @@ foreach my $scanner (@scanners) {
                             }
                             my $suffix= uc $purpose;
                             my $fillstring= ' ' x ($fill - length $suffix);
-                            $output.= qq:$indent'${test}_$suffix'$fillstring => "$text",\n:;
+                            $output.= qq:$indent'${test}_$suffix'$fillstring => '$text',\n:;
                         }
                         $output.= "\n";
                     }
@@ -299,7 +299,7 @@ foreach my $scanner (@scanners) {
                         $text= $standard_prepare->($mw, $text, $textname, undef, $lang);
                     }
                     my $fillstring= ' ' x ($maxlen - length $textname);
-                    $output.= qq:$indent'$textname'$fillstring => "$text",\n:;
+                    $output.= qq:$indent'$textname'$fillstring => '$text',\n:;
                 }
             } else {
                 # Print an unmodified template line
@@ -387,7 +387,7 @@ sub parse_wiki {
     s/\\/\\\\/sg;
     s/\n/ /sg;
     s/\r//sg;
-    s/"/\\"/sg;
+    s/'/\\'/sg;
     s/\s+$//s;
     return $_;
 }
