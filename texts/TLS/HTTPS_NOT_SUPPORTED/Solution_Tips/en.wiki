@@ -1,1 +1,1 @@
-Activate [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS] (Transport Layer Security)
+If ''Server does not seem to speak TLS'' was reported, activate [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS] (Transport Layer Security).

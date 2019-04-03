@@ -1,1 +1,1 @@
-Vulnerable to [https://en.wikipedia.org/wiki/CRIME]
+Vulnerable to [[CRIME-Vulnerability/EN|Crime]]

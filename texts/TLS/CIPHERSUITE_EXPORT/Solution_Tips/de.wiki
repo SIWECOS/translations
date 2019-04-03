@@ -1,1 +1,1 @@
-Deaktivieren Sie die Unterstützung von EXPORT [[Verschlüsselungsmethodik|Verschlüsselungsmethoden]] im Webserver.
+Wenn ''Schwache Export Verschlüsselung unterstützt'' gemeldet wird, deaktivieren Sie die Unterstützung von EXPORT [[Verschlüsselungsmethodik|Verschlüsselungsmethoden]] im Webserver.

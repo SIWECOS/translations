@@ -1,1 +1,1 @@
-The server is vulnerable to an Invalid Curve attack. This allows an attacker to steal the private key of your [[Certificate|certificate]].
+The server is vulnerable to an [[Invalid-Curve-Vulnerability/EN|Invalid Curve attack]]. This allows an attacker to steal the private key of your [[Certificate|certificate]].

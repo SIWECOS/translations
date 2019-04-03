@@ -1,3 +1,5 @@
+Wenn gemeldet wurde, dass Ihre Webseite wahrscheinlich nicht ausreichend gegen [[Cross-Site Scripting|XSS-Angriffe]] geschützt ist:
+
 1; mode=block
 
 '''Beispielcode einer .htaccess auf einem Apache Webserver'''

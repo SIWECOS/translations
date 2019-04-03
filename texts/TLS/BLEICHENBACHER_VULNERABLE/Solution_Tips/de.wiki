@@ -1,1 +1,1 @@
-Überprüfen Sie Ihr [[Zertifikate|Zertifikat]] bzw. spielen Sie umgehend ein Update für Ihre [[Transport Layer Security|TLS-Implementierung]] auf Ihrem [[Server]] ein.
+Wenn ''Verwundbarkeit'' gemeldet wurde, überprüfen Sie Ihr [[Zertifikate|Zertifikat]] bzw. spielen Sie umgehend ein Update für Ihre [[Transport Layer Security|TLS-Implementierung]] auf Ihrem [[Server]] ein.

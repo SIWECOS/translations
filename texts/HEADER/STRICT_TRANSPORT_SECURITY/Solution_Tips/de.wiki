@@ -1,3 +1,5 @@
+Wenn die Verbindung zu Ihrer Seite ist nicht verschlüsselt ist, kann sämtliche Kommunikation zwischen Ihrer Seite und den Benutzern abgehört und manipuliert werden.
+
 max-age=63072000; includeSubdomains;
 HTTP Strict Transport Security (HSTS) ist ein einfach zu integrierender Web-Security-Policy-Mechanismus.
 

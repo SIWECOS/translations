@@ -1,1 +1,1 @@
-The server is vulnerable to a [https://en.wikipedia.org/wiki/POODLE POODLE attack], which allows an attacker to decrypt the communication.
+The server is vulnerable to a [[POODLE-Vulnerability/EN|POODLE attack]], which allows an attacker to decrypt the communication.

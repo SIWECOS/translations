@@ -1,1 +1,3 @@
-Update your JavaScript libraries or framework.
+If unsafe JavaScript libraries have been reported, update your JavaScript libraries or framework.
+
+<b>Note:</b> The vulnerability of version 1.12.4 is known to the developers and should be fixed with the next update. A manual change to version 3 is not recommended by Wordpress for compatibility reasons. As soon as the new update is available, you should install it as soon as possible.

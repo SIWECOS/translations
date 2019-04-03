@@ -1,3 +1,5 @@
+Wenn Ihre [[Domain]] in einer [[Listen|Phishing-Liste]] gefunden wurde:
+
 '''Nehmen Sie die Webseite offline!'''
 
 Es ist weiterhin möglich, dass Sie mit der Webseite [[Phishing|Phishing-Inhalte]] zu Verfügung stellen und Kriminelle persönliche Daten darüber sammeln. Auch vermeiden Sie damit, dass Google Ihre Webseite aus dem Index nimmt, was ein eventuelles positives Ranking annullieren würde. So kommen Sie auch einer eventuellen Sperre Ihrer Webseite seitens Ihres Providers/Hosters zuvor.

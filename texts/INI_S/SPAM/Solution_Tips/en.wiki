@@ -1,3 +1,5 @@
+If your domain was found in spam lists:
+
 ''' Take down the website!'''
 
 Take down your website to prevent users from accessing it, and to prevent Google from removing the website from its index, which would delete a positive ranking. You also avoid being blocked by your hosting provider.

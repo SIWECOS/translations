@@ -1,3 +1,5 @@
+If the connection to your page is not encrypted, all communication between your site and its users can be intercepted and manipulated.
+
 max-age=63072000; includeSubdomains;
 HTTP Strict Transport Security (HSTS) is a web security policy mechanism that is easy to integrate.
 

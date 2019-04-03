@@ -1,1 +1,1 @@
-Bitte überprüfen Sie Ihre Eingabe auf Eingabefehler.
+Wenn der Server nicht antwortet, überprüfen Sie bitte Ihre Eingabe auf Eingabefehler.

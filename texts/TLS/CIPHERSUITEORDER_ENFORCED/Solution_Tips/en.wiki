@@ -1,1 +1,1 @@
-Configure your web server so that the web server selects the encryption method that is used for communication between your website and the visitor's web browser.
+If ''Irresponsible selection of encryption methods'' was reported, configure your web server so that the web server selects the encryption method that is used for communication between your website and the visitor's web browser.

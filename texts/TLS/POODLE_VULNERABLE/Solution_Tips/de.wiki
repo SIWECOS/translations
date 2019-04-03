@@ -1,1 +1,1 @@
-Deaktivieren Sie umgehend das veraltete Verschlüsselungsprotokoll [[SSL|SSL3]] auf Ihrem Server!
+Wenn Verwundbarkeit gemeldet wurde, deaktivieren Sie umgehend das veraltete Verschlüsselungsprotokoll [[SSL|SSL3]] auf Ihrem Server!

@@ -1,1 +1,1 @@
-Der Server ist verwundbar durch [[Heartbleed-Schwachstelle/DE/Background|Heartbleed]]. Dadurch kann ein Angreifer sensible Daten aus dem Arbeitsspeicher des Servers auslesen, wie z. B. geheime Schlüssel und Kundendaten.
+Der Server ist verwundbar durch [[Heartbleed-Schwachstelle/DE|Heartbleed]]. Dadurch kann ein Angreifer sensible Daten aus dem Arbeitsspeicher des Servers auslesen, wie z. B. geheime Schlüssel und Kundendaten.

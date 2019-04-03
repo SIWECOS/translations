@@ -1,1 +1,1 @@
-Please check your input for typing errors.
+If the server does not respond, please check your input for typing errors.

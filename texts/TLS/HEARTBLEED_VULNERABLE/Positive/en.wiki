@@ -1,1 +1,1 @@
-Not vulnerable to Heartbleed
+Not vulnerable to [[Heartbleed-Vulnerability/EN|Heartbleed]]

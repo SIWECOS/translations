@@ -1,1 +1,1 @@
-Nicht verwundbar durch [[Heartbleed-Schwachstelle/DE/Background|Heartbleed]]
+Nicht verwundbar durch [[Heartbleed-Schwachstelle/DE|Heartbleed]]

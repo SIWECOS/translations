@@ -1,1 +1,1 @@
-Deaktivieren Sie die Unterstützung der [[RC4_Verschlüsselungsmethodik|RC4 Verschlüsselungsmethodik]].
+Wenn ''Veraltete RC4 Verschlüsselungsmethodik unterstützt'' gemeldet wird, deaktivieren Sie die Unterstützung der [[RC4_Verschlüsselungsmethodik|RC4 Verschlüsselungsmethodik]].

@@ -1,1 +1,1 @@
-This message means that your [[Certificate|server certificate]] has a weak hash algorithm (encryption). It may be an easy target for hacker attacks.
+This message means that your [[Certificate|server certificate]] has a weak hash algorithm (encryption). It may be an easy target for hacker attacks. However, a weak hash algorithm will not cause a warning message to be displayed when your website is accessed.

@@ -1,1 +1,1 @@
-Not vulnerable to [https://en.wikipedia.org/wiki/Padding_oracle_attack Padding Oracle attacks].
+Not vulnerable to [[Padding-Oracle-Vulnerability/EN|Padding Oracle attacks]].

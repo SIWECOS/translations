@@ -1,3 +1,5 @@
+Wenn die [[Content-Type-Nicht-Korrekt/DE/Background|Content-Type-Angabe]] nicht korrekt konfiguriert ist, sind Angriffe auf Ihre Webseite wahrscheinlich möglich.
+
 Fügen Sie den entsprechenden HTTP-Header oder alternativ ein <meta> Tag hinzu. Bitte beachten Sie, dass <meta> im Gegensatz zu einem HTTP-Header leichter umgangen werden kann.
 
 '''text/html; charset=utf-8''';

@@ -1,1 +1,2 @@
+If unsafe JavaScript code was reported, the web application may be vulnerable to so-called DOMXSS attacks.
 The check result can only be taken as an indication of security flaws. Further tests are necessary to confirm that there are vulnerabilities on the website.

@@ -1,3 +1,5 @@
+If the content type declaration is not configured correctly, your website is probably vulnerable to attacks.
+
 Add the appropriate HTTP header or, alternatively, add a <meta> tag. Please note that, unlike a HTTP header, the <meta> tag can be attacked more easily.
 
 '''text/html; charset=utf-8''';

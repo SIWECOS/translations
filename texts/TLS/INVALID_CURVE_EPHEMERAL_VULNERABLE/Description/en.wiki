@@ -1,1 +1,1 @@
-The server is vulnerable to an [https://www.golem.de/news/verschluesselung-punkte-auf-der-falschen-ellipt ischen-kurve-1511-117643.html Ephemeral Invalid Curve Angriff]. This allows an attacker to attack connections.
+The server is vulnerable to an [[Invalid-Curve-Ephemeral-Vulnerability/EN|Ephemeral Invalid Curve Angriff]]. This allows an attacker to attack connections.

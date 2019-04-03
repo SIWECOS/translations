@@ -1,3 +1,5 @@
+If it was reported, that your website is probably not sufficiently protected from [https://en.wikipedia.org/wiki/Cross-site_scripting XSS attacks]:
+
 1; mode=block
 
 '''Code example of an .htaccess file on an Apache webserver.'''
