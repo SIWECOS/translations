@@ -3,7 +3,7 @@ If the Content Security Policy is not configured securely, your web application 
 Use the CSP with default-src 'none' or 'self' and without unsafe-eval or unsafe-inline directives. For more information about '''Content Security Policy''', please refer to '''[https://wiki.selfhtml.org/wiki/Sicherheit/Content_Security_Policy SELFHTML>>]'''
 
 
---snip<br>
+--snip<br />
 
 '''Example for the header on the start page:'''
 

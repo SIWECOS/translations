@@ -1,6 +1,6 @@
 [[File:siwecos_was.jpg|right|400px]]
 
-<br>
+<br />
 == Registration with Siwecos ==
 
 The project '''Siwecos''' was founded by [https://www.eco.de/ Eco] (Verband der Internetwirtschaft) and [http://www.ruhr-uni-bochum.de/ RUB] (Ruhruniversität Bochum) to help small and medium-sized companies to have their websites checked for security flaws and potentially malicious code. To do this, a number of scanners have been developed that will alert you to configuration errors and malware.

@@ -4,7 +4,7 @@ Wenn gemeldet wurde, dass Ihre Webseite wahrscheinlich nicht ausreichend gegen [
 
 '''Beispielcode einer .htaccess auf einem Apache Webserver'''
 
-'''--snip'''<br><pre>
+'''--snip'''<br /><pre>
    # Turn on XSS prevention tools, activated by default in IE and Chrome
    '''Header set X-XSS-Protection "1; mode=block"'''
 </pre>

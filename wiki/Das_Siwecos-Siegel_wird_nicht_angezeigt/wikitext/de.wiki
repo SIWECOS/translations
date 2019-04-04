@@ -1,10 +1,10 @@
 
 == Das Siegel wird nicht richtig angezeigt ==
-<br>
+<br />
 
 [[File:Siw_error.png]] [[File:Zertifikat_siw.png| 500px]]
 
-<br>
+<br />
 
 *Wenn das Siegel nicht angezeigt wird, überprüfen Sie den intergierten Code für das ([[Siwecos-Siegel/DE|Siwecos-Siegel]]).
 *Wenn kein Datum bzw. beim Klick auf das Siegel die Zertifikats-Seite zwar angezeigt, aber evtl. ohne Inhalt oder fehlerhaft angezeigt wird, dann rufen Sie Ihr Profil in [https://siwecos.de Siwecos.de] auf, klicken auf '''Domainübersicht''' und drücken bei der Domain den Button '''neuen Scan starten'''. Warten Sie das Ergebnis ab (bis Button grün), anschließend sollte das Datum und die richtigen Informationen auf der Siwecos-Zertifikatsseite eingetragen sein.

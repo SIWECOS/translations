@@ -1,7 +1,7 @@
 Zurück zur [[Hauptseite]]<br />
 
 == FAQ Sammlung ==
-<br>
+<br />
 <div style="margin: 0; margin-right:10px; border: 1px solid #dfdfdf; padding: 0 1em 1em 1em; background-color:#F8F8FF; align:right;">
 *[[Siwecos:Über_Siwecos|Fragen zu Siwecos]]<br />
 *Allgemeine Fragen zum Dienst (diese Seite)<br />

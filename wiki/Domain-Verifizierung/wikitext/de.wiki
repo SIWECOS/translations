@@ -7,50 +7,50 @@ Wozu wird eine Verifizierung gemacht? Bei einer Verifizierung wird aus datenschu
 
 [[File:Verifizierung_st1.png]]
 
-<br>
+<br />
 == Verifizierung per META-TAG! ==
 
 Sie können die Inhaberschaft einer Website bestätigen, indem Sie dem '''HTML-Code der Startseite Ihrer Domain''' einen individuellen von uns vorgegebenen <meta>-Tag hinzufügen. Unser Scanner überprüft, ob sich das Meta-Tag an der richtigen Stelle befindet. Wird das Tag nicht gefunden, erhalten Sie Informationen zu den aufgetretenen Fehlern. Dieses Tag ist einem bestimmten Nutzer zugeordnet.
 
-<br>
-1. Laden Sie die Startseite (z. B. index.html) auf den Rechner herunter und öffnen Sie die Datei mit dem Editor.<br>
+<br />
+1. Laden Sie die Startseite (z. B. index.html) auf den Rechner herunter und öffnen Sie die Datei mit dem Editor.<br />
 2. Kopieren Sie '''Ihren individuelle Meta-Tag''' in die Datei. Im Folgenden sehen Sie ein Beispiel für die korrekte Platzierung.
 <pre>
 ---Header Beispiel---
 
 <HTML>
 <HEAD>
-<TITLE>Mein Titel</TITLE><br>
+<TITLE>Mein Titel</TITLE><br />
 <!--Nur diese Zeile:--> <meta name="siwecostoken" content="Ihr eigener Code/ Token" />
 </HEAD>
 <BODY>
 
 </pre>
-<br>
-3. Haben Sie Ihren Meta-Tag in die Startdatei integriert, speichern Sie die Datei und laden diese wieder in Ihr Verzeichnis auf den Webspace hoch.<br>
+<br />
+3. Haben Sie Ihren Meta-Tag in die Startdatei integriert, speichern Sie die Datei und laden diese wieder in Ihr Verzeichnis auf den Webspace hoch.<br />
 4. Fragen zu auftretenden Fehlern und Problemen finden Sie in der Anleitung von [https://support.google.com/webmasters/answer/35179?hl=de google.de]
 
 
-<br>
+<br />
 
 == Verifizierung über Datei per FTP Upload ==
 
 Sie können die Inhaberschaft einer Website bestätigen, indem Sie '''eine spezielle .html-Datei in das Root-Verzeichnis auf Ihren Webspace''' z. B. per FTP hochladen. Diese individuelle Datei ist einer Domain zugeordnet.
 
 '''Der hier genannte Code "siw6tbi9HS5KV" ist nur ein Beispiel!'''
-<br><br>
-1. Legen Sie eine neue HTML-Datei an (dazu auf dem Desktop - rechte Maus "Neu" -> "Textdokument" anlegen).<br>
+<br /><br />
+1. Legen Sie eine neue HTML-Datei an (dazu auf dem Desktop - rechte Maus "Neu" -> "Textdokument" anlegen).<br />
 2. Öffnen Sie die Textdokument-Datei und kopieren Sie in die erste Zeile Ihren Code: '''siw6tbi9HS5KV''' ohne die Datei-Erweiterung.
 [[File:Gedit-datei.png|none|Beispiel: Datei]]
-3. Dann im Menü der Textdatei "Datei" -> "Speichern unter" die Datei mit dem von uns vergebenen individuellen Namen z. B. '''siw6tbi9HS5KV.html''' auf den Desktop speichern.<br>
-4. Laden Sie die erstellte HTML-Datei über das [https://de.wikipedia.org/wiki/FileZilla FTP-Programm] in das Hauptverzeichnis Ihrer Domain hoch (Webspace).<br>
+3. Dann im Menü der Textdatei "Datei" -> "Speichern unter" die Datei mit dem von uns vergebenen individuellen Namen z. B. '''siw6tbi9HS5KV.html''' auf den Desktop speichern.<br />
+4. Laden Sie die erstellte HTML-Datei über das [https://de.wikipedia.org/wiki/FileZilla FTP-Programm] in das Hauptverzeichnis Ihrer Domain hoch (Webspace).<br />
 5. Prüfen Sie anschließend, ob die Datei erreichbar ist.<pre>http://IhreDomain/siw6tbi9HS5KV.html</pre>
 6. Diese Informationen sollten bei Aufruf im Browser zu sehen sein.
 [[File:Html_file.png|none|Beispiel: Aufruf der Seite ]]
 7. Im Anschluss können Sie Ihre Domain in Siwecos verifizieren.
 
 
-<br>
+<br />
 == Domain löschen und weiteres Vorgehen==
 
 [[File:Loeschen.png]]

@@ -1,10 +1,10 @@
 == Info Leak Scanner ==
-<br>
+<br />
 
-Der Info Leak Scanner durchsucht Ihre [[Webanwendung|Webapplikation]] und erstellt dabei einen Bericht über evtl. unbeabsichtigt detaillierte Informationen zum Aufbau der Anwendung, oder eingesetzten Softwareversion, welche nicht in die Öffentlichkeit gehören. Diese sollten schnellstmöglich behoben werden. <br>
+Der Info Leak Scanner durchsucht Ihre [[Webanwendung|Webapplikation]] und erstellt dabei einen Bericht über evtl. unbeabsichtigt detaillierte Informationen zum Aufbau der Anwendung, oder eingesetzten Softwareversion, welche nicht in die Öffentlichkeit gehören. Diese sollten schnellstmöglich behoben werden. <br />
 
-*[[Content-Management-System-Gefunden/DE|CMS]]<br>
-*[[Email-Adresse-Gefunden/DE|E-MAIL]]<br>
-*[[Javascript-Schwachstelle/DE|JAVASCRIPT]]<br>
-*[[Plugin-Gefunden/DE|PLUGIN]]<br>
+*[[Content-Management-System-Gefunden/DE|CMS]]<br />
+*[[Email-Adresse-Gefunden/DE|E-MAIL]]<br />
+*[[Javascript-Schwachstelle/DE|JAVASCRIPT]]<br />
+*[[Plugin-Gefunden/DE|PLUGIN]]<br />
 *[[Telefonnummer-Gefunden/DE|TELEFONNUMMER]]

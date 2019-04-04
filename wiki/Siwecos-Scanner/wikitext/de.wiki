@@ -1,20 +1,20 @@
 == Siwecos Webseiten Scanner ==
 
 {{:TLS_Scanner/DE}}
-<br>
+<br />
 
 {{:DOMXSS_Scanner/DE}}
-<br>
+<br />
 
 {{:Header_Scanner/DE}}
-<br>
+<br />
 
 {{:Info_Leak_Scanner/DE}}
-<br>
+<br />
 
 {{:Initiative-S_Scanner/DE}}
 
-<br>
+<br />
 [[Category:Siwecos-Scanner]]
 
 

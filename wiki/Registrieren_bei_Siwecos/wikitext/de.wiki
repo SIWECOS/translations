@@ -1,6 +1,6 @@
 [[File:siwecos_was.jpg|right|400px]]
 
-<br>
+<br />
 == Registrieren bei Siwecos ==
 
 Das Projekt '''Siwecos''' wurde von [https://www.eco.de/ Eco] (Verband der Internetwirtschaft) und der [http://www.ruhr-uni-bochum.de/ RUB] (Ruhruniversität Bochum) ins Leben gerufen, um kleineren und mittleren Unternehmen (KMUs) die Möglichkeit zu geben, die eigenen Webauftritte auf Sicherheitslücken und evtl. vorhandene Schadware prüfen zu lassen. Dazu wurden eine Reihe von Scannern entwickelt, die Sie auf Konfigurationsfehler und Malware aufmerksam machen werden.

@@ -1,5 +1,5 @@
-nosniff; <br><br>
-'''Code example of an .htaccess file on an Apache webserver.'''<br>
+nosniff; <br /><br />
+'''Code example of an .htaccess file on an Apache webserver.'''<br />
 '''--snip'''<pre>
 <IfModule mod_headers.c>
    # prevent mime based attacks like drive-by download attacks, IE and Chrome
