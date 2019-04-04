@@ -215,23 +215,23 @@ my @scanners= sort keys %scanners;
 my $count= 0;
 foreach my $scanner (@scanners) {
     # Data structure is
-    # test_translations {scanner} -> {test} -> {purpose} -> {language}
+    # test_translations {scanner} -> {test} -> {purpose} -> {language} -> text|location
     foreach my $test (sort keys %{$test_translations{$scanner}}) {
         foreach my $purpose (@PURPOSES) {
             foreach my $lang (@LANGUAGES) {
                 ++$count;
-                next if exists $test_translations{$scanner}{$test}{$purpose}{$lang};
+                next if exists $test_translations{$scanner}{$test}{$purpose}{$lang}{text};
                 ++$warning;
                 warn "No $lang translation for $scanner/$test/$purpose\n";
             }
         }
     }
     # Data structure is
-    # translations {scanner} -> {textname} -> {language}
+    # translations {scanner} -> {textname} -> {language} -> text|location
     foreach my $textname (sort keys %{$translations{$scanner}}) {
         foreach my $lang (@LANGUAGES) {
             ++$count;
-            next if exists $translations{$scanner}{$textname}{$lang};
+            next if exists $translations{$scanner}{$textname}{$lang}{text};
             ++$warning;
             if ($textname eq $SCANNER_NAME) {
                 warn "No $lang translation for $scanner/_$SCANNER_NAME\n";
@@ -264,25 +264,28 @@ foreach my $scanner (@scanners) {
                 my $indent= $1;
                 # SCANNER_NAME COMES FIRST!
                 my $textname= $SCANNER_NAME;
-                my $text= $translations{$scanner}{$textname}{$lang};
+                my $text= $translations{$scanner}{$textname}{$lang}{text};
+                my $location= $translations{$scanner}{$textname}{$lang}{location};
                 if (defined $text) {
                     update_percent(\$done,$count);
                     $output.= "$indent// These are the $lang texts for\n";
                     if( $standard_prepare ){
-                        ($text, $err)= $standard_prepare->($mw, $text, $textname, undef, $lang);
+                        ($text, $err)= $standard_prepare->($mw, $text, $location, $lang);
                     }
                     $output.= qq:$indent'$textname' => '$text',\n\n:;
                     $warning+= $err;
                     # Data structure is
                     # test_translations {scanner} -> {test} -> {purpose} -> {language}
                     foreach my $test (sort keys %{$test_translations{$scanner}}) {
+                        next if $test eq $SCANNER_NAME;
                         $output.= "$indent// Test: $test\n";
                         foreach my $purpose (@SEQUENCE) {
-                            my $text= $test_translations{$scanner}{$test}{$purpose}{$lang};
+                            my $text= $test_translations{$scanner}{$test}{$purpose}{$lang}{text};
+                            my $location= $test_translations{$scanner}{$test}{$purpose}{$lang}{location};
                             my $prepare= $PREPARE{$purpose};
                             update_percent(\$done,$count);
                             if( $prepare ){
-                                ($text, $err)= $prepare->($mw, $text, $test, $purpose, $lang);
+                                ($text, $err)= $prepare->($mw, $text, $location, $lang);
                             }
                             my $suffix= uc $purpose;
                             my $fillstring= ' ' x ($fill - length $suffix);
@@ -298,10 +301,11 @@ foreach my $scanner (@scanners) {
                 my $maxlen= maxlen (keys %{$translations{$scanner}});
                 foreach my $textname (sort keys %{$translations{$scanner}}) {
                     next if $textname eq $SCANNER_NAME;
-                    my $text= $translations{$scanner}{$textname}{$lang};
+                    my $text= $translations{$scanner}{$textname}{$lang}{text};
+                    my $location= $translations{$scanner}{$textname}{$lang}{location};
                     update_percent(\$done,$count);
                     if( $standard_prepare ){
-                        ($text, $err)= $standard_prepare->($mw, $text, $textname, undef, $lang);
+                        ($text, $err)= $standard_prepare->($mw, $text, $location, $lang);
                     }
                     my $fillstring= ' ' x ($maxlen - length $textname);
                     $output.= qq:$indent'$textname'$fillstring => '$text',\n:;
@@ -353,9 +357,10 @@ sub read_text {
         my $lang= lc basename $file, $EXT;
         ++$LANGUAGES{$lang};
         $result||= {};
+        $result->{$lang}{location}= $file;
         open my $in, '<:utf8', $file
             or return "Can't read $file";
-        $result->{$lang}= do { local $/; <$in>; };
+        $result->{$lang}{text}= do { local $/; <$in>; };
         close $in;
         for ($result->{$lang}) {
             s/[\012\015]+$//s;
@@ -366,10 +371,9 @@ sub read_text {
 }
 
 sub parse_wiki {
-    my($mw, $text, $textname, $purpose, $lang)= @_;
+    my($mw, $text, $location, $lang)= @_;
     my $warning= 0;
-    my $parsing= $purpose ? "$textname, $purpose, $lang" : "$textname, $lang";
-    print "Parsing $parsing\n" if $verbose;
+    print "Parsing $location\n" if $verbose;
     my $result= $mw->api({
         action => 'parse',
         format => 'json',
@@ -383,9 +387,10 @@ sub parse_wiki {
     }
     local($_)= $result->{parse}->{text}->{'*'};
     foreach my $link (@{$result->{parse}->{links}}) {
-        my $linktext= quotemeta $link->{'*'};
+        my $printable_link= $link->{'*'};
+        my $linktext= quotemeta($printable_link);
         if (not exists $link->{exists}) {
-            warn "Missing link: $linktext in $parsing.\n";
+            warn "Missing link: $printable_link in $location.\n";
             ++$warning;
         }
         s#(<a\b[^>]+\b)(href=")/wiki(/[^>"]+"[^>]+\btitle="$linktext")#"$1target=\x22$WIKI_LINK\x22 $2".$settings->{WIKI}.$3#ge;
@@ -413,7 +418,7 @@ sub oneline_wiki {
 }
 
 sub oneline {
-    my($mw, $text, $textname, $purpose)= @_;
+    my($mw, $text, $location, $lang)= @_;
     local($_)= $text;
     s/[\r\n]+/ /sg;
     s/&#160;/ /sg;
@@ -422,17 +427,28 @@ sub oneline {
 }
 
 sub wikilink {
-    my($mw, $text, $textname, $purpose, $lang)= @_;
+    my($mw, $text, $location, $lang)= @_;
     my $warning= 0;
-    print "Lookup  $textname, $purpose, $lang\n" if $verbose;
+    for ($text) {
+        s/^[\s\012\015]+|[\s\012\015]+$//sg;
+        if (/[\015\012]/) {
+            die "Links must be single lines.\n"
+               . "   Check $location\n";
+        }
+        if (/[\x00-\x1f]/) {
+            die "Illegal characters in link.\n"
+            . "   Check $location\n";
+        }
+    }
     my $pagename= $text."/".uc($lang);
+    print "Lookup  $pagename\n" if $verbose;
     my $page= my $ref = eval {
         $mw->get_page( { title => $pagename } );
     };
     if ($@) {
         warn "Error   $@\n";
-        warn "Page    $pagename\n";
-        warn "Check   $textname, $purpose, $lang\n" unless $verbose;
+        warn "Page    $pagename\n" unless $verbose;
+        warn "Check   $location\n";
         ++$warning;
     } elsif (exists $page->{missing}) {
         warn "New     $pagename\n";
