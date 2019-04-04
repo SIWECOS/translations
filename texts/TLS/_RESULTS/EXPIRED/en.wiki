@@ -1,1 +1,1 @@
-Your [[Certificate|certificate]] expired on %DATE%. Visitors will be warned that your website may be insecure or not trustworthy.
+Your [[Certificate|certificate]] expired on :DATE. Visitors will be warned that your website may be insecure or not trustworthy.

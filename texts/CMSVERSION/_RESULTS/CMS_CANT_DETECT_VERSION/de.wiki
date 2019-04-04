@@ -1,1 +1,1 @@
-Die exakte Version des von Ihnen verwendete Content Management System (%cms%) konnte nicht erkannt werden. Bitte beachten Sie dass dies nicht bedeutet, dass eine aktuelle Version installiert sein muss. Bitte prüfen Sie die Version manuell.
+Die exakte Version des von Ihnen verwendete Content Management System (:cms) konnte nicht erkannt werden. Bitte beachten Sie dass dies nicht bedeutet, dass eine aktuelle Version installiert sein muss. Bitte prüfen Sie die Version manuell.
