@@ -6,7 +6,7 @@ Der Kopfteil ([[Header|HTTP-Header Protokoll]]) einer Internetseite wird bei jed
 *[[Content-Security-Policy-Schwachstelle/DE|CONTENT-SECURITY-POLICY]]<br>
 *[[Content-Type-Nicht-Korrekt/DE|CONTENT-TYPE]]<br>
 * PUBLIC-KEY-PINS (Das Ergebnis fließt nicht in die Bewertung ein)<br>
-<!--[[Public-Key-Pins-Deaktiviert/DE|PUBLIC-KEY-PINS]] (<span style="color:#c31622"><b>Achtung:</b></span> HPKP wird derzeit nicht überprüft)<br>-->
+<!--[[Public-Key-Pins-Deaktiviert/DE|PUBLIC-KEY-PINS]] (<span style="color:#c31622">'''Achtung:'''</span> HPKP wird derzeit nicht überprüft)<br>-->
 *[[Keine-Verschluesselung-Gefunden/DE|STRIKT-TRANSPORT-SECURITY]]<br>
 *[[X-Content-Type-Options-Schwachstelle/DE|X-CONTENT-TYPE-OPTIONS]]<br>
 *[[X-Frame-Options-Schwachstelle/DE|X-FRAME-OPTIONS]]<br>
