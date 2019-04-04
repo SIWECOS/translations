@@ -1,1 +1,1 @@
-Der veraltete Header <i>:HEADER_NAME</i> ist gesetzt. Der neue standardisierte Header ist <i>Content-Security-Policy</i>.
+Der veraltete Header '':HEADER_NAME'' ist gesetzt. Der neue standardisierte Header ist ''Content-Security-Policy''.
