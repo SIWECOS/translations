@@ -3,18 +3,18 @@ With the entry '''Referrer Policy''' in the [[Header]] which referrer informatio
 
 We recommend that the Referrer Policy Header be set to be as restrictive as possible, i.e. to be set to ”no-referrer," for example.
 
-= = Examples = =
+== Examples ==
 '''Referrer Policy Definition by Server Header:'''
-<pre> # Referrer Policy
-Header set referrer-Policy "no-referrer" </pre>
+ # Referrer Policy
+ Header set referrer-Policy "no-referrer"
 
 '''Referrer Policy Definition by HTML code:'''
-<pre> <meta name="referrer" content="no-referrer" "/> </pre>
+ <meta name="referrer" content="no-referrer" />
 '''Statement:''' The value `'''no-referrer'''` instructs the browser to send '''Never''' ''Referer Header'', which is provided by your site. This includes links to pages on your own website.
 
 <br />
 {| class="wikitable" style="margin:auto;”
-| style="border: 4px solid #C31622; color:#000000; background-color:#f6f6f6;"
+|- style="border: 4px solid #C31622; color:#000000; background-color:#f6f6f6;"
 | Other useful instructions can be `'''same-origin'''`, `'''strict-origin'''` or `'''origin-when-cross-origin`'''.
 |}
 <br />

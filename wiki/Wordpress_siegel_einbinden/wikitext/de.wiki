@@ -29,12 +29,9 @@
 * Beachten Sie, dass Sie im Code die Zeile '''"Ihre bei Siwecos eingetragene Domain"''' durch Ihre bei Siwecos registrierte Domain z. B. '''www.botfrei.de''' ersetzen.
 * Entsprechend muss der Pfad für das Bild geändert werden (z. B. '''/wp-content/uploads/2018/05/seal.js''')
 <br />
---snip
-<pre>
-<a href="https://siwecos.de/scanned-by-siwecos?data-siwecos=Ihre bei Siwecos eingetragene Domain&format=d.m.y">
-  <svg width="150" height="58" id="siwecos-seal"/>
-  <script src="/wp-content/uploads/2018/05/seal.js"></script>
-</a>
-</pre>
---snap
+
+ <a href="https://siwecos.de/scanned-by-siwecos?data-siwecos=Ihre bei Siwecos eingetragene Domain&format=d.m.y">
+   <svg width="150" height="58" id="siwecos-seal"/>
+   <script src="/wp-content/uploads/2018/05/seal.js"></script>
+ </a>
 |}

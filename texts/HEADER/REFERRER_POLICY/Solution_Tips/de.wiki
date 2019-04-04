@@ -6,11 +6,11 @@ Wir empfehlen die Einstellung des Referrer Policy Headers so restriktiv wie mög
 == Beispiele ==
 
 '''Referrer Policy Definition durch Server Header:'''
-<pre># Referrer Policy
-Header set Referrer-Policy "no-referrer"</pre>
+ # Referrer Policy
+ Header set Referrer-Policy "no-referrer"
 
 '''Referrer Policy Definition durch HTML-Code:'''
-<pre><meta name="referrer" content="no-referrer" /></pre>
+ <meta name="referrer" content="no-referrer" />
 
 '''Anweisung:''' Der Wert `'''no-referrer'''` weist den Browser an, '''niemals''' ''Referer Header'' zu senden, die von Ihrer Site gestellt werden. Dazu gehören auch Links zu Seiten Ihrer eigenen Webseite.
 

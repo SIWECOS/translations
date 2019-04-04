@@ -6,28 +6,15 @@ With the HTTP-Header command X-Frame-Options, modern web browsers can be instruc
 
 Header always append X-Frame-Options DENY
 
-'''--snip'''
-<pre>
-Header always append X-Frame-Options DENY
-</pre>
-'''—snap'''
+ Header always append X-Frame-Options DENY
 
 Alternatively, you can permit the page to be embedded only in other pages within the same domain:
 
-'''--snip'''
-<pre>
-Header always append X-Frame-Options SAMEORIGIN
-</pre>
-'''—snap'''
+ Header always append X-Frame-Options SAMEORIGIN
 
 If a website must be embedded in an external page, a domain can be specified:
 
-'''--snip'''
-<pre>
-Header always append X-Frame-Options ALLOW-FROM botfrei.de
-</pre>
-'''—snap'''
-
+ Header always append X-Frame-Options ALLOW-FROM botfrei.de
 
 Here is an example of an .htaccess file which will set the '''Header Scanner''' to green.
 ([[Htaccess/EN|.htaccess example]])

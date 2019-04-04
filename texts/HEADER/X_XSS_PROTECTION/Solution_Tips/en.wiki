@@ -4,11 +4,8 @@ If it was reported, that your website is probably not sufficiently protected fro
 
 '''Code example of an .htaccess file on an Apache webserver.'''
 
-'''--snip'''<br /><pre>
    # Turn on XSS prevention tools, activated by default in IE and Chrome
    '''Header set X-XSS-Protection "1; mode=block"'''
-</pre>
-'''—snap'''
 
 Here is an example of an .htaccess file which will set the '''Header Scanner''' to green.
 ([[Htaccess/EN|.htaccess example]])

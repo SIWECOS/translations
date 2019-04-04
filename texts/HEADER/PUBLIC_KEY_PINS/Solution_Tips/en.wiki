@@ -6,16 +6,11 @@ Further information can be found at [https://www.zdnet.com/article/google-chrome
 
 
 
-<!--
-pin-sha256="<HASH>"; pin-sha256="<HASH>"; max-age=2592000; includeSubDomains;
+
 '''Activate HPKP''' - This feature can be activated easily by returning a public-key-pins HTTP header when the website is called up via HTTPS. ([https://developer.mozilla.org/en-US/docs/Web/HTTP/Public_Key_Pinning more informations]).
 
-'''--snip'''
-
-<pre>Public-Key-Pins: pin-sha256="base64=="; max-age=expireTime [; includeSubdomains][; report-uri="reportURI"]</pre>
-
-'''--snap'''
+ Public-Key-Pins: pin-sha256="base64=="; max-age=expireTime [; includeSubdomains][; report-uri="reportURI"]
 
 Here is an example of an .htaccess file which will set the '''Header Scanner''' to green.
 ([[Htaccess/EN|.htaccess example]])
--->
+<!--pin-sha256="<HASH>"; pin-sha256="<HASH>"; max-age=2592000; includeSubDomains;-->

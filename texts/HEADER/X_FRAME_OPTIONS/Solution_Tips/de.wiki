@@ -6,28 +6,15 @@ Mit dem HTTP-Header Befehl '''X-Frame-Options''' können moderne Webbrowser ange
 
 Header always append X-Frame-Options DENY
 
-'''--snip'''
-<pre>
-Header always append X-Frame-Options DENY
-</pre>
-'''—snap'''
+ Header always append X-Frame-Options DENY
 
 Alternativ kann erlaubt werden, dass die Seite nur auf anderen Seiten der gleichen Domain eingebunden werden dürfen:
 
-'''--snip'''
-<pre>
-Header always append X-Frame-Options SAMEORIGIN
-</pre>
-'''—snap'''
+ Header always append X-Frame-Options SAMEORIGIN
 
 Falls eine Website doch extern eingebunden werden muss, kann eine Domain angegeben werden:
 
-'''--snip'''
-<pre>
-Header always append X-Frame-Options ALLOW-FROM botfrei.de
-</pre>
-'''—snap'''
-
+ Header always append X-Frame-Options ALLOW-FROM botfrei.de
 
 Hier finden Sie ein Beispiel, wie eine .htaccess-Datei aussehen kann, um einen höheren Wert beim '''Header Scanner''' zu erzielen.
 ([[Htaccess/DE|.htaccess-Beispiel]])

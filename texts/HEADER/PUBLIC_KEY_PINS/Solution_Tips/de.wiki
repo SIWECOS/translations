@@ -4,17 +4,10 @@ Die [[Browser]] Mozilla, Firefox und Google Chrome richten sich nach dem [https:
 
 Weiterführende Informationen finden Sie im [https://www.zdnet.com/article/google-chrome-is-backing-away-from-public-key-pinning-and-heres-why/ Artikel von ZDNET]
 
-
-
-
-<!--pin-sha256="<HASH>"; pin-sha256="<HASH>"; max-age=2592000; includeSubDomains;
 '''HPKP aktivieren''' - Dieses Feature kann einfach aktiviert werden, indem ein Public-Key-Pins HTTP-Header beim Aufruf der Seite über [[HTTPS]] zurückgegeben wird. ([https://developer.mozilla.org/de/docs/Web/Security/Public_Key_Pinning Weitere Infos]).
 
-'''--snip'''
-
-<pre>Public-Key-Pins: pin-sha256="base64=="; max-age=expireTime [; includeSubdomains][; report-uri="reportURI"]</pre>
-
-'''--snap'''
+ Public-Key-Pins: pin-sha256="base64=="; max-age=expireTime [; includeSubdomains][; report-uri="reportURI"]
 
 Hier finden Sie ein Beispiel, wie eine .htaccess-Datei aussehen kann, um einen höheren Wert beim '''Header Scanner''' zu erzielen.
 ([[Htaccess/DE|.htaccess-Beispiel]])
+<!--pin-sha256="<HASH>"; pin-sha256="<HASH>"; max-age=2592000; includeSubDomains;-->
