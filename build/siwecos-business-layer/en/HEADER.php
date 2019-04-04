@@ -91,7 +91,7 @@ return [
   // Result texts follow
   'CSP_CORRECT'               => 'The header is set correctly and corresponds to the recommendations.',
   'CSP_DEFAULT_SRC_MISSING'   => 'The default-src directive is missing.',
-  'CSP_LEGACY_HEADER_SET'     => 'The outdated header \'X-Content-Security-Policy\' is used. The new standardized header is \'Content-Security-Policy\'.',
+  'CSP_LEGACY_HEADER_SET'     => 'The outdated header <i>:HEADER_NAME</i> is used. The new standardized header is <i>Content-Security-Policy</i>.',
   'CSP_NO_UNSAFE_INCLUDED'    => 'The <a target="siwecos_extern" rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Content_Security_Policy">Content Security Policy (CSP)</a> does not contain any unsafe directives, but it may not be configured securely.',
   'CSP_UNSAFE_INCLUDED'       => 'The header is set insecurely because it contains \'unsafe-inline\' or \'unsafe-eval\' directives.',
   'CT_CORRECT'                => 'The header is set correctly and corresponds to the recommendations.',

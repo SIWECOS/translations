@@ -1,1 +1,1 @@
-Der Header '''%HEADER_NAME%''' enthält [[Ersetzungszeichen|nicht-verarbeitbare]] Zeichen.
+Der Header ''':HEADER_NAME''' enthält [[Ersetzungszeichen|nicht-verarbeitbare]] Zeichen.

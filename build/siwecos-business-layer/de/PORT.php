@@ -44,7 +44,7 @@ return [
   'RDP_HEADLINE'      => 'Überprüfung auf offenen RDP-Server Port',
   'RDP_POSITIVE'      => 'Der RDP Port auf Ihrem Server ist nicht offen.',
   'RDP_NEGATIVE'      => 'Der RDP Port auf Ihrem Server ist offen.',
-  'RDP_DESCRIPTION'   => '<p>Auf Ihrem Server ist ein Port offen, welcher üblicherweise für das Protokoll „RDP“ verwendet wird. Mit RDP ist es möglich, Rechner über das Netzwerk fernzusteuern. </p>',
+  'RDP_DESCRIPTION'   => '<p>Auf Ihrem Server ist ein Port offen, welcher üblicherweise für das Protokoll „RDP“ verwendet wird. Mit RDP ist es möglich, Rechner über das Netzwerk fernzusteuern.   </p>',
   'RDP_SOLUTION_TIPS' => '<p>Wenn Sie diesen Dienst nicht benötigen, sollten Sie ihn einfach abschalten, da er ein Sicherheitsrisiko darstellt. Falls sie RDP wirklich benutzen, ist nichts zu tun. </p>',
   'RDP_LINK'          => 'https://siwecos.de/wiki/RDP-Port/DE',
 
