@@ -1,6 +1,6 @@
 == Embedding the Siwecos seal on your website ==
 <br />
-[[File:siwecos_siegel.png|left|200px]] To show when the Siwecos scanners last checked your website, you can embed our Siwecos seal on your website.
+[[File:siwecos_siegel.png|left|150px]] To show when the Siwecos scanners last checked your website, you can embed our Siwecos seal on your website.
 <br />
 <br />
 <br />
@@ -99,7 +99,7 @@ For this option you store the seal statically on your website. No data ('''e.g. 
 
 
 * Static Seal
-[[File:seal_siwecos_static_final.png]]
+[[File:seal_siwecos_static_final.png|150px]]
 
 * Download the seal (right mouse click on the seal, '''Save Image as…''')
 * Copy the code below into your source code, for example into the start page of your website. Adjust {{#if: {{#urlget:userdomain}} | | the name of your website '''("my_Website")''' and }} the '''("path to the image")'''.

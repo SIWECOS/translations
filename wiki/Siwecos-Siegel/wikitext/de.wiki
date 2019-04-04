@@ -1,6 +1,6 @@
 == Siwecos-Siegel auf Ihrer Webseite einbinden ==
 <br />
-[[File:siwecos_siegel.png|left|200px]] Um zu sehen, wann die Scanner von Siwecos Ihre Webseite das letzte Mal überprüft haben, können Sie unser Siwecos-Siegel auf Ihrer Webseite einbinden.
+[[File:siwecos_siegel.png|left|150px]] Um zu sehen, wann die Scanner von Siwecos Ihre Webseite das letzte Mal überprüft haben, können Sie unser Siwecos-Siegel auf Ihrer Webseite einbinden.
 <br />
 <br />
 <br />
@@ -99,7 +99,7 @@ Bei dieser Variante wird das Siegel statisch auf Ihrer Webseite hinterlegt. Es w
 
 
 * Statisches Siegel
-[[File:seal_siwecos_static_final.png]]
+[[File:seal_siwecos_static_final.png|150px]]
 
 * Laden Sie das Siegel herunter (rechte Maus auf das Siegel, '''Bild speichern unter''')
 * Kopieren Sie den unten stehenden Code in Ihren Quelltext z. B. der Startseite des Webauftritts und ergänzen Sie {{#if: {{#urlget:userdomain}} | | den Namen der eigenen Webseite '''("eigene_Webseite")''' und }} den '''"Speicherort des Bildes"'''.

@@ -2,7 +2,7 @@
 == The seal is not shown correctly ==
 <br />
 
-[[File:Siw_error.png]] [[File:Zertifikat_siw.png| 500px]]
+[[File:Siw_error.png|150px]] [[File:Zertifikat_siw.png| 500px]]
 
 <br />
 
