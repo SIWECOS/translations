@@ -1,1 +1,1 @@
-The outdated header <i>:HEADER_NAME</i> is used. The new standardized header is <i>Content-Security-Policy</i>.
+The outdated header '':HEADER_NAME'' is used. The new standardized header is ''Content-Security-Policy''.
