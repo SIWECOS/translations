@@ -1,1 +1,1 @@
-E-Mail-Adresse: %email_adress%.
+E-Mail-Adresse: :email_adress.

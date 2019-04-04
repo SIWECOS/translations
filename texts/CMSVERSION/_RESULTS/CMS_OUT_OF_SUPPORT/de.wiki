@@ -1,1 +1,1 @@
-Das von Ihnen verwendete Content Management System (%cms%) ist massiv veraltet und erhält keine weiteren Updates vom Herstellter. Bitte wechseln Sie auf einen neueren Versionszweig!
+Das von Ihnen verwendete Content Management System (:cms) ist massiv veraltet und erhält keine weiteren Updates vom Herstellter. Bitte wechseln Sie auf einen neueren Versionszweig!

@@ -1,1 +1,1 @@
-%domain% does not reply.
+:domain does not reply.

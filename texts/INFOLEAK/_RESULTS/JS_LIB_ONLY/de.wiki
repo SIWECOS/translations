@@ -1,1 +1,1 @@
-Die verwendete [[JavaScript|JavaScript-Bibliothek]] %js_lib_name% in DOM-Node %node% mit dem Inhalt %node_content% wurde erkannt. Dies stellt jedoch nicht direkt eine Schwachstelle dar und bedarf einer genaueren Prüfung.
+Die verwendete [[JavaScript|JavaScript-Bibliothek]] :js_lib_name in DOM-Node :node mit dem Inhalt :node_content wurde erkannt. Dies stellt jedoch nicht direkt eine Schwachstelle dar und bedarf einer genaueren Prüfung.

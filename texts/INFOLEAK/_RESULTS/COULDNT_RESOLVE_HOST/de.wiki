@@ -1,1 +1,1 @@
-%domain% ist unbekannt.
+:domain ist unbekannt.
