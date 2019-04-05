@@ -40,9 +40,9 @@ Alle Texte für
 
 ### *sprachdateien*
 
-  In der Beschreibung oben sind einige Verzeichnisse als ''sprachdateien'' bezeichnet.
-  In diesen befindet sich für jede Sprache eine Datei, die den Text in der jeweiligen Landessprache enthält.
-  Also z.B. "de.wiki" und "en.wiki".
+In der Beschreibung oben sind einige Verzeichnisse als ''sprachdateien'' bezeichnet.
+In diesen befindet sich für jede Sprache eine Datei, die den Text in der jeweiligen Landessprache enthält.
+Also z.B. "de.wiki" und "en.wiki".
 
 ### Verzeichnisse
 
@@ -169,7 +169,7 @@ Eventuelle Fehler wie z.B. fehlende Links werden dabei gemeldet.
 
 Es ist also notwendig, für das Wiki einen passwortgeschützen API Zugriff einzurichten und die Daten in der Datei `wiki.conf` zu hinterlegen.
 
-### `dir2wiki` **IN ARBEIT**
+### `dir2wiki`
 
 Mit diesem Script werden Texte in unserem Wiki aktualisiert.
 
