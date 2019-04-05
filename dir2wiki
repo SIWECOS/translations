@@ -364,13 +364,15 @@ foreach my $scanner (@scanners) {
                 my $subname= join("/", $pagename, $purpose);
                 $subpages{$lang}{$subname}= $test_translations{$scanner}{$test}{$purpose}{$lang};
                 ++$subpagecount;
-                my $warningtext= parse_wiki($mw, $subpages{$subname}, $location);
-                if ($warningtext) {
-                    info($/);
-                    warn $warningtext;
-                    info($/);
+                if ($refresh < 2) {
+                    my $warningtext= parse_wiki($mw, $subpages{$subname}, $location);
+                    if ($warningtext) {
+                        info($/);
+                        warn $warningtext;
+                        info($/);
+                    }
+                    # Don't count non-existing links. No ++$warning for these
                 }
-                # Don't count non-existing links. No ++$warning for these
             }
         }
     }
@@ -386,13 +388,15 @@ foreach my $textname (sort keys %wikitext) {
             uc $lang);
         if (check_link( \%dupcheck, $pagename, $location, $lang )) {
             $pages{$lang}{$pagename}= $wikitext{$textname}{wikitext}{$lang};
-            my $warningtext= parse_wiki($mw, $subpages{$pagename}, $location);
-            if ($warningtext) {
-                info($/);
-                warn $warningtext;
-                info($/);
+            if ($refresh < 2) {
+                my $warningtext= parse_wiki($mw, $subpages{$pagename}, $location);
+                if ($warningtext) {
+                    info($/);
+                    warn $warningtext;
+                    info($/);
+                }
+                # Don't count non-existing links. No ++$warning for these
             }
-            # Don't count non-existing links. No ++$warning for these
         } else {
             ++$warning;
         }
@@ -423,7 +427,7 @@ verbose("Fetching categories.\n");
 
 if ($dryrun) {
     print "Doing dryrun.";
-    print " Will show pages which would be updated" unless $silent;
+    print " Will show pages which would be updated or refreshed." unless $silent;
     print "\n";
 }
 
@@ -527,48 +531,50 @@ sub update {
         my $changed= 0;
         my $created= 0;
         my $same= 0;
-        # Parse the text / Check for missing links
-        my $ref = eval {
-            $mw->get_page( { title => $pagename } );
-        };
-        if ($@) {
-            warn "\nError...: $@";
-            warn   "Pagename: $pagename\n";
-        }
-        my $content= $pages->{$pagename};
-        ++$statistics->{pages};
-        # Check the text whether or not it changed.
-        if ( ( $ref->{'*'} || '' ) ne $content ) {
-            # If it changed (or is new), count it
-            if (exists $ref->{missing}) {
-                ++$created;
-                verbose("C $pagename\n");
+        if ($refresh < 2) {
+            # Parse the text / Check for missing links
+            my $ref = eval {
+                $mw->get_page( { title => $pagename } );
+            };
+            if ($@) {
+                warn "\nError...: $@";
+                warn   "Pagename: $pagename\n";
+            }
+            my $content= $pages->{$pagename};
+            ++$statistics->{pages};
+            # Check the text whether or not it changed.
+            if ( ( $ref->{'*'} || '' ) ne $content ) {
+                # If it changed (or is new), count it
+                if (exists $ref->{missing}) {
+                    ++$created;
+                    verbose("C $pagename\n");
+                } else {
+                    ++$changed;
+                    verbose("U $pagename\n");
+                }
+                if (not $dryrun and not $refresh) {
+                    # Update or create the entry
+                    my $timestamp = $ref->{timestamp};
+                    edit($mw, {
+                        action => 'edit',
+                        title => $pagename,
+                        basetimestamp => $timestamp, # to avoid edit conflicts
+                        text => $content,
+                    });
+                }
             } else {
-                ++$changed;
-                verbose("U $pagename\n");
+                # Count the unchanged entries.
+                ++$same;
+                verbose("= $pagename\n") if $verbose > 1;
             }
-            if (not $dryrun) {
-                # Update or create the entry
-                my $timestamp = $ref->{timestamp};
-                edit($mw, {
-                    action => 'edit',
-                    title => $pagename,
-                    basetimestamp => $timestamp, # to avoid edit conflicts
-                    text => $content,
-                });
-            }
-        } else {
-            # Count the unchanged entries.
-            ++$same;
-            verbose("= $pagename\n") if $verbose > 1;
         }
         $statistics->{changed}+= $changed;
         $statistics->{created}+= $created;
         $statistics->{same}+=    $same;
-        if ($changed or $created or $refresh) {
+        if ($changed or $created or $refresh == 1) {
             my $basename= basename $pagename;
             ++$statistics->{refresh}->{$basename};
-        } elsif ($statistics->{refresh}->{$pagename}) {
+        } elsif ($refresh > 1 or $statistics->{refresh}->{$pagename}) {
             print "R $pagename\n" if 1 < $refresh + $verbose;
             ++$statistics->{refreshs};
             if (not $dryrun) {
@@ -663,9 +669,9 @@ sub parse_wiki {
     }
     local($_)= $result->{parse}->{text}->{'*'};
     foreach my $link (@{$result->{parse}->{links}}) {
-        my $linktext= quotemeta $link->{'*'};
+        my $printable_link= $link->{'*'};
         if (not exists $link->{exists}) {
-            $warnings.= "Missing link: $linktext in $location.\n";
+            $warnings.= "Missing link: $printable_link in $location.\n";
         }
     }
     return $warnings;
