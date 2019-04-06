@@ -58,10 +58,4 @@ Sie können jederzeit die registriert Domain über die '''Domainübersicht aus d
 
 '''Bitte beachten Sie:''' Wenn die Domain auf unserem System gelöscht ist, entfernen Sie bitte hinterlegte '''Meta-Tag bzw. Html-Datei''' auf Ihrem System.
 
-
-
-
-
-
-<br />
-<br />
+[[Category:FAQ]]

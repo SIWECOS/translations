@@ -58,10 +58,4 @@ You can remove the registered domain at any time from the '''Domain overview fro
 
 '''Please note:''' When the domain has been deleted from our system, please remove any stored '''Meta tags or HTML files''' from your system.
 
-
-
-
-
-
-<br />
-<br />
+[[Category:FAQ]]

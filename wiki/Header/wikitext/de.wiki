@@ -1,0 +1,88 @@
+<!--
+#########################################################
+-
+-
+-->== Header ==<!--
+-
+-
+#########################################################
+-->
+Header ist der englische Begriff für ''Kopfdaten''. Im HTML-Quelltext einer Website werden im ''Header'' unter dem Tag <head> die für Suchmaschinen '''wichtigen Informationen wie Meta-Tags usw.''' eingebunden. Mit den [https://siwecos.de/ SIWECOS-Scannern] untersuchen wir sowohl die Header im HTML-Quelltext als auch die HTTP-Header, die zwischen Browser und Server ausgetauscht werden.
+<!--
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-
+-
+-->=== Beispiel eines HTML-Headers ===<!--
+-
+-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+ <!DOCTYPE html>
+ <html lang="de-DE" prefix="og: <nowiki>http://ogp.me/ns#</nowiki>">
+  <head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=10" />
+   <link rel="profile" href="<nowiki>http://gmpg.org/xfn/11</nowiki>" />
+   <link rel="pingback" href="<nowiki>https://siwecos.de/xmlrpc.php</nowiki>" />
+   <title>Startseite - SIWECOS</title>
+   <!-- This site is optimized with the Yoast SEO plugin v6.2 - <nowiki>https://yoa.st/1yg?utm_content=6.2</nowiki> -->
+   <link rel="canonical" href="<nowiki>https://siwecos.de/</nowiki>" />
+   <meta property="og:locale" content="de_DE" />
+   <meta property="og:type" content="website" />
+   <meta property="og:title" content="Startseite - SIWECOS" />
+   <meta property="og:description" content="Siwecos Auf der sicheren Seite SIWECOS steht für 
+   „Sichere Webseiten und Content Management Systeme“ und hilft kleinen und mittelständischen 
+   Unternehmen (KMU) Sicherheitslücken auf ihren Webseiten zu erkennen und zu beheben. Schützen 
+   Sie Ihren Webauftritt und Ihre Besucher vor unbemerkten Manipulationen und registrieren Sie 
+   sich kostenlos. Kostenlos anmelden" />
+   <meta property="og:url" content="<nowiki>https://siwecos.de/</nowiki>" />
+   <meta property="og:site_name" content="SIWECOS" />
+<br clear="all" />
+---------------------------------------------------------
+<!--
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-
+-
+-->=== Ungültiger Header-Eintrag eines HTTP-Headers ===<!--
+-
+-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+Nehmen wir als Beispiel ''Set-Cookie''. Die Syntax lautet wie folgt:
+
+ Set-Cookie: <cookie-name>=<cookie-value> 
+ Set-Cookie: <cookie-name>=<cookie-value>; Expires=<date>
+ Set-Cookie: <cookie-name>=<cookie-value>; Max-Age=<non-zero-digit>
+ Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>
+ Set-Cookie: <cookie-name>=<cookie-value>; Path=<path-value>
+ Set-Cookie: <cookie-name>=<cookie-value>; Secure
+ Set-Cookie: <cookie-name>=<cookie-value>; HttpOnly
+ Set-Cookie: <cookie-name>=<cookie-value>; SameSite=Strict
+ Set-Cookie: <cookie-name>=<cookie-value>; SameSite=Lax
+
+Es können einzelne oder mehrere Parameter angegeben werden:
+
+ Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Secure; HttpOnly
+
+Ein ungültiger Header-Eintrag könnte so aussehen:
+
+ Set-Cookie: Secure; HttpOnly
+
+Ohne angegebenen '''Cookienamen''' oder '''Cookiewert''' wird der HTTP-Header-Eintrag <span class="attention">'''ungültig''' (nicht valide).</span>
+<br clear="all" />
+---------------------------------------------------------
+<!--
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-
+-
+-->== Weiterführende Links zum Thema ==<!--
+-
+-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+* Siwecos Wiki: [[Set-Cookie/DE|Set-Cookie]]
+* MDN web docs: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie
+* Wikipedia: https://de.wikipedia.org/wiki/Header
+* selfhtml: https://wiki.selfhtml.org/wiki/HTTP/Header
+<br clear="all" />
+
+
+[[Category:Header Scanner]]
+[[Category:Glossar]]

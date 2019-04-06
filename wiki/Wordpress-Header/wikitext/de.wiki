@@ -19,3 +19,5 @@ Als Admin von WordPress gibt es die Möglichkeit über den Backendbereich divers
 *Wenn alles ok ist, muss die Änderung gespeichert werden. Das machen Sie im unteren Bereich von WordPress über '''Datei aktualisieren'''.
 *Nun ist Ihre Domain vorbereitet für die Verifizierung bei Siwecos.
 *Weiter zu [https://siwecos.de siwecos.de]
+
+[[Category:FAQ]]

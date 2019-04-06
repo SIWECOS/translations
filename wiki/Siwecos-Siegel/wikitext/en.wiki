@@ -126,3 +126,5 @@ SIWECOS generates no user profile data collected and no inferences are made rega
 
 
 For further information, please refer to our [[Questions_and_Answers/EN | FAQ]].
+
+[[Category:FAQ]]

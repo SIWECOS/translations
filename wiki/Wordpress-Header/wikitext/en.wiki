@@ -19,3 +19,5 @@ As administrator in WordPress, you can edit several system files manually via th
 *If everything is OK, you must save the changes. You can do this in the lower section of WordPress "'''Update file'''".
 *Now your domain is ready for verification by Siwecos.
 *Move on to [https://siwecos.de siwecos.de]
+
+[[Category:FAQ]]

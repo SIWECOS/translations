@@ -125,3 +125,5 @@ Die IP-Adresse Ihres Endgerätes sowie die weiteren oben aufgelisteten Daten wer
 Aus diesen Nutzungsdaten werden durch SIWECOS keine Nutzungsprofile erstellt und keine Rückschlüsse auf die Person des Webseitenbesuchers gezogen. Diese Daten werden ausschließlich zur Sicherstellung eines störungsfreien Betriebs ausgewertet und spätestens sieben Tage nach Ende des Seitenbesuchs automatisch überschrieben.
 
 Weitere Informationen finden Sie in unserem [[Fragen_und_Antworten/DE | FAQ]]
+
+[[Category:FAQ]]
