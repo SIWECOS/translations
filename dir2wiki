@@ -12,7 +12,7 @@ B<dir2wiki> B<--help>|B<--man>
 =head1 Description
 
 dir2wiki will take all SIWECOS translations found in a subdirectory
-"translations" and "wiki" and push them to the SIWECOS WIKI.
+"texts" and "wiki" and push them to the SIWECOS WIKI.
 
 =cut
 
