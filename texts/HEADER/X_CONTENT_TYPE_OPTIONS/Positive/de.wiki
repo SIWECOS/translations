@@ -1,1 +1,1 @@
-Der [[Header|HTTP-Header]] ist korrekt gesetzt.
+Der [[Header/DE|HTTP-Header]] ist korrekt gesetzt.
