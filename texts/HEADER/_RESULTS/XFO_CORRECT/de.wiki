@@ -1,1 +1,1 @@
-Der [[Header]] ist korrekt gesetzt und entspricht den Empfehlungen.
+Der [[Header/DE|Header]] ist korrekt gesetzt und entspricht den Empfehlungen.

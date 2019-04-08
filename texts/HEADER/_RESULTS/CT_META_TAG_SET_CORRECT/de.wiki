@@ -1,1 +1,1 @@
-Die Angabe ":META" im HTML-Header ist korrekt gesetzt.
+Die Angabe ":META" im HTML-[[Header/DE|Header]] ist korrekt gesetzt.

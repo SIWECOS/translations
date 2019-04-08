@@ -1,1 +1,1 @@
-X-Content-Type Header fehlt.
+X-Content-Type [[Header/DE|Header]] fehlt.

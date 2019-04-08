@@ -2,7 +2,7 @@ Wenn die Content Security Policy nicht sicher konfiguriert ist, lädt Ihre [[Web
 
 Verwenden Sie den CSP mit default-src 'none' oder 'self' und ohne 'unsafe-eval' oder 'unsafe-inline' Richtlinien. Mehr zu '''Content Security Policy''' (zu deutsch etwa "Richtlinie für die Sicherheit der Inhalte") finden Sie bei '''[https://wiki.selfhtml.org/wiki/Sicherheit/Content_Security_Policy SELFHTML >>]'''
 
-'''Beispiele für den Header der Startseite:'''
+'''Beispiele für den [[Header/DE|Header]] der Startseite:'''
 
  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">

@@ -1,6 +1,6 @@
-Wenn gemeldet wurde, dass im HTTP-Header die X-Frame Optionen nicht gesetzt sind, ist Ihre Webseite nicht ausreichend gegen [[Clickjacking|Clickjacking-Angriffe]] geschützt.
+Wenn gemeldet wurde, dass im [[Header/DE|HTTP-Header]] die X-Frame Optionen nicht gesetzt sind, ist Ihre Webseite nicht ausreichend gegen [[Clickjacking|Clickjacking-Angriffe]] geschützt.
 
-Im [[Header|HTTP-Header]] X-Frame Optionen entsprechend den Bedürfnissen setzen. Die '''X-Frame-Options''' im [[HTTP]] Header kann verwendet werden, um zu bestimmen, ob ein aufrufender [[Browser]] die Zielseite in einem <frame>, <iframe> oder bspw. <object> rendern bzw. einbetten darf. Webseiten können diesen Header verwenden, um u. a. [[Clickjacking|Clickjacking-Angriffe]] abzuwehren, indem sie unterbinden, dass ihr Content in fremden Seiten eingebettet wird.
+Im [[Header/DE|HTTP-Header]] X-Frame Optionen entsprechend den Bedürfnissen setzen. Die '''X-Frame-Options''' im [[HTTP]] Header kann verwendet werden, um zu bestimmen, ob ein aufrufender [[Browser]] die Zielseite in einem <frame>, <iframe> oder bspw. <object> rendern bzw. einbetten darf. Webseiten können diesen Header verwenden, um u. a. [[Clickjacking|Clickjacking-Angriffe]] abzuwehren, indem sie unterbinden, dass ihr Content in fremden Seiten eingebettet wird.
 
 Mit dem HTTP-Header Befehl '''X-Frame-Options''' können moderne Webbrowser angewiesen werden, eine Seite nicht in einem Frame auf einer andere Website zu laden. Dafür muss der folgende Befehl in der htaccess-Datei gesetzt werden:
 

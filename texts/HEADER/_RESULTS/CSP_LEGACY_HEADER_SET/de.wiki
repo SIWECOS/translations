@@ -1,1 +1,1 @@
-Der veraltete Header '':HEADER_NAME'' ist gesetzt. Der neue standardisierte Header ist ''Content-Security-Policy''.
+Der veraltete [[Header/DE|Header]] '':HEADER_NAME'' ist gesetzt. Der neue standardisierte [[Header/DE|Header]] ist ''Content-Security-Policy''.

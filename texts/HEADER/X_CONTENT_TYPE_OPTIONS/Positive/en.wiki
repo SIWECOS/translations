@@ -1,1 +1,1 @@
-The HTTP header is set correctly.
+The HTTP [[Header/EN|header]] is set correctly.

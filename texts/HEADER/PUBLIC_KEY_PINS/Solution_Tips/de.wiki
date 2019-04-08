@@ -1,10 +1,10 @@
 Das Setzen des [[Public-Key-Pins-Deaktiviert/DE|Public Key Pinning]] (HPKP) ist kein absolutes Muss und wird aktuell im Siwecos-Scanner nicht gewertet. Es ist ratsam, diese nicht oder nur nach Absprache mit einem Experten zu aktivieren.
 
-Die [[Browser]] Mozilla, Firefox und Google Chrome richten sich nach dem [https://de.wikipedia.org/wiki/HTTP_Public_Key_Pinning RFC-7469-Standard] und ignorieren daher HPKP-Header. Wenn nur ein einziger Pin gesetzt ist, wird eine Fehlermeldung angezeigt. Damit die Pin-Validierung funktioniert, ist es also immer notwendig mindestens zwei gültige Public Keys bzw. einen Backup-Pin anzugeben. Interessierte sollten sich dazu an einen IT-Sicherheitsexperten oder Webentwickler wenden.
+Die [[Browser]] Mozilla, Firefox und Google Chrome richten sich nach dem [https://de.wikipedia.org/wiki/HTTP_Public_Key_Pinning RFC-7469-Standard] und ignorieren daher HPKP-[[Header/DE|Header]]. Wenn nur ein einziger Pin gesetzt ist, wird eine Fehlermeldung angezeigt. Damit die Pin-Validierung funktioniert, ist es also immer notwendig mindestens zwei gültige Public Keys bzw. einen Backup-Pin anzugeben. Interessierte sollten sich dazu an einen IT-Sicherheitsexperten oder Webentwickler wenden.
 
 Weiterführende Informationen finden Sie im [https://www.zdnet.com/article/google-chrome-is-backing-away-from-public-key-pinning-and-heres-why/ Artikel von ZDNET]
 
-'''HPKP aktivieren''' - Dieses Feature kann einfach aktiviert werden, indem ein Public-Key-Pins HTTP-Header beim Aufruf der Seite über [[HTTPS]] zurückgegeben wird. ([https://developer.mozilla.org/de/docs/Web/Security/Public_Key_Pinning Weitere Infos]).
+'''HPKP aktivieren''' - Dieses Feature kann einfach aktiviert werden, indem ein Public-Key-Pins HTTP-[[Header/DE|Header]] beim Aufruf der Seite über [[HTTPS]] zurückgegeben wird. ([https://developer.mozilla.org/de/docs/Web/Security/Public_Key_Pinning Weitere Infos]).
 
  Public-Key-Pins: pin-sha256="base64=="; max-age=expireTime [; includeSubdomains][; report-uri="reportURI"]
 

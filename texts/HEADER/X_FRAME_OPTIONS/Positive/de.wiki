@@ -1,1 +1,1 @@
-Der [[Header]] ist korrekt gesetzt und verbessert den Schutz Ihrer Webseite gegen [[Clickjacking|Clickjacking-Attacken]].
+Der [[Header/DE|Header]] ist korrekt gesetzt und verbessert den Schutz Ihrer Webseite gegen [[Clickjacking|Clickjacking-Attacken]].

@@ -1,1 +1,1 @@
-The header is set correctly, but it does not contain a character set specification or does not correspond to the recommendations. ":META" was found.
+The [[Header/EN|header]] is set correctly, but it does not contain a character set specification or does not correspond to the recommendations. ":META" was found.
