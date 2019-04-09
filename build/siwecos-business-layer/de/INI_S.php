@@ -25,7 +25,7 @@ return [
   'MALWARE_LINK'          => 'https://siwecos.de/wiki/Malware-Inhalte/DE',
 
   // Test: PHISHING
-  'PHISHING_HEADLINE'      => 'Überprüfung auf mögliche <a target="siwecos_wiki" href="https://siwecos.de/wiki/Phishing" title="Phishing">Phishing-Inhalte</a>',
+  'PHISHING_HEADLINE'      => 'Überprüfung auf mögliche <a target="siwecos_wiki" href="https://siwecos.de/wiki/Phishing-Inhalte/DE" title="Phishing-Inhalte/DE">Phishing-Inhalte</a>',
   'PHISHING_POSITIVE'      => 'Ihre <a target="siwecos_wiki" href="https://siwecos.de/wiki/Domain" title="Domain">Domain</a> wurde in keiner uns bekannten <a target="siwecos_wiki" href="https://siwecos.de/wiki/Listen" title="Listen">Phishing-Liste</a> gefunden.',
   'PHISHING_NEGATIVE'      => 'Ihre <a target="siwecos_wiki" href="https://siwecos.de/wiki/Domain" title="Domain">Domain</a> wurde in einer <a target="siwecos_wiki" href="https://siwecos.de/wiki/Listen" title="Listen">Phishing-Liste</a> gefunden.',
   'PHISHING_DESCRIPTION'   => '<p>Beim <a target="siwecos_wiki" href="https://siwecos.de/wiki/Phishing" title="Phishing">Phishing</a> wird in der Regel trickreich versucht, sensible persönliche Daten wie Passwörter, Kreditkartennummern und persönliche Daten des Besuchers der Seite zu entwenden. Dabei versenden Kriminelle üblicherweise <a target="siwecos_wiki" href="https://siwecos.de/wiki/Spam" title="Spam">Spam-E-Mails</a>. Diese E-Mails enthalten u. a. Links zu einer <a target="siwecos_wiki" href="https://siwecos.de/wiki/Phishing" title="Phishing">Phishing</a>-Seite, die sich als legitime Webseite ausgibt. </p>',
@@ -33,7 +33,7 @@ return [
   'PHISHING_LINK'          => 'https://siwecos.de/wiki/Phishing-Inhalte/DE',
 
   // Test: SPAM
-  'SPAM_HEADLINE'      => 'Überprüfung auf mögliche <a target="siwecos_wiki" href="https://siwecos.de/wiki/Spam" title="Spam">Spam-Inhalte</a>',
+  'SPAM_HEADLINE'      => 'Überprüfung auf mögliche <a target="siwecos_wiki" href="https://siwecos.de/wiki/Spam-Inhalte/DE" title="Spam-Inhalte/DE">Spam-Inhalte</a>',
   'SPAM_POSITIVE'      => 'Ihre <a target="siwecos_wiki" href="https://siwecos.de/wiki/Domain" title="Domain">Domain</a> wurde in keiner uns bekannten <a target="siwecos_wiki" href="https://siwecos.de/wiki/Listen" title="Listen">Spam-Liste</a> gefunden.',
   'SPAM_NEGATIVE'      => 'Ihre <a target="siwecos_wiki" href="https://siwecos.de/wiki/Domain" title="Domain">Domain</a> wurde in <a target="siwecos_wiki" href="https://siwecos.de/wiki/Listen" title="Listen">Spam-Listen</a> gefunden.',
   'SPAM_DESCRIPTION'   => '<p>Als <a target="siwecos_wiki" href="https://siwecos.de/wiki/Spam" title="Spam">Spam</a> bezeichnet man ungewollte und zum Teil unseriöse Werbung im E-Mail-Postfach (z. B. Viagra-Werbung, Medikamente, Versicherung und Kreditvergleiche). Diese Werbungen werden massenhaft verschickt bzw. können auch zielgerichtet verschickt werden. In der Regel verschleiern die Absender ihre wahre Identität in der E-Mail und versuchen Sie zu täuschen. </p>',
