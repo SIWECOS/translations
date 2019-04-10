@@ -1,1 +1,0 @@
-The direcitve 'no-referrer-when-downgrade' is set.
