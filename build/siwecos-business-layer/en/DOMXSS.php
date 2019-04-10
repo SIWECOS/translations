@@ -37,7 +37,6 @@ return [
   'NO_SCRIPT_TAGS'   => 'The scanner found no script tags to rate.',
   'NO_SINKS_FOUND'   => 'No "sinks" were found.',
   'NO_SOURCES_FOUND' => 'No "sources" were found.',
-  'SECURE_FLAG_SET'  => 'The secure flag is set.',
   'SINKS_FOUND'      => '"Sinks" were found.',
   'SOURCES_FOUND'    => '"Sources" were found.',
 
