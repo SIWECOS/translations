@@ -22,7 +22,7 @@ deploy:
   api_key: $GITHUB_SIWECOSBOT_TOKEN
   file: translation-files.zip
   name: 'Translation-Update'
-  body: "$TAVIS_TAG: translation files update"
+  body: "$TRAVIS_TAG: translation files update"
   skip_cleanup: true
   on:
-    branch: travis-build
+    branch: v2
