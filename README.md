@@ -175,6 +175,10 @@ Mit diesem Script werden Texte in unserem Wiki aktualisiert.
 
 In `wiki.conf` müssen die Zugangsdaten fürs Wiki hinterlegt sein.
 
+### `checkwiki`
+
+Mit diesem Script können wir prüfen ob alle Seiten im Wiki vorhanden sind.
+
 ### `dir2po` **in Arbeit**
 
 Mit diesem Script werden die Texte in je eine Sprachdatei pro Sprache und Scanner zusammengefasst.
