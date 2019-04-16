@@ -25,6 +25,7 @@ use lib "$Bin/lib";
 use MediaWiki::API;
 use Config::Simplest;
 use File::Basename;
+use File::Path qw(make_path);
 use utf8;
 
 my $EXT='.wiki';
@@ -140,7 +141,7 @@ die "Cannot access directory $TRANSLATIONS\n"
 
 my $lang_dir= $test || $LANGUAGE_DIR;
 if ( not -d $lang_dir ) {
-    mkdir $lang_dir
+    make_path($lang_dir)
         or die "Can't create $lang_dir: $!\n";
 }
 die "Can't write to $lang_dir.\n"
@@ -317,6 +318,10 @@ foreach my $scanner (@scanners) {
             }
         }
         if (not $dryrun) {
+            if (not -d "$lang_dir/$lang") {
+                make_path("$lang_dir/$lang") or
+                    die "Cannot create $lang_dir/$lang: $!\n";
+            }
             my $outfilename= "$lang_dir/$lang/$scanner.php";
             print "Writing $outfilename\n" if $verbose;
             open my $out, '>:utf8', $outfilename
