@@ -14,15 +14,19 @@ before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "$GITHUB_SIWECOSBOT_USERNAME"
   - git config --local user.email "$GITHUB_SIWECOSBOT_EMAIL"
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y-%m-%d')-$(git log --format=%h -1)}
+  - git remote add gh https://${GITHUB_SIWECOSBOT_TOKEN}@github.com/siwecos/translations
+  # Needed for deploy section
+  - export TRAVIS_TAG=latest
   - git tag $TRAVIS_TAG
+  - git push -f gh $TRAVIS_TAG
 
 deploy:
   provider: releases
   api_key: $GITHUB_SIWECOSBOT_TOKEN
   file: translation-files.zip
   name: 'Translation-Update'
-  body: "$TRAVIS_TAG: translation files update"
+  body: "Translation files update"
+  overwrite: true
   skip_cleanup: true
   on:
     branch: v2
