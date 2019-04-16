@@ -1,1 +1,0 @@
- tThe directive no-referrer is set.

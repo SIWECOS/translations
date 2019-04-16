@@ -37,7 +37,6 @@ return [
   'NO_SCRIPT_TAGS'   => 'Der Scanner hat keine Skript-Inhalte zum Bewerten gefunden.',
   'NO_SINKS_FOUND'   => 'Es wurden keine „<a target="siwecos_wiki" href="https://siwecos.de/wiki/DOMXSS-Sinks" title="DOMXSS-Sinks">DOMXSS-Sinks</a>“ gefunden.',
   'NO_SOURCES_FOUND' => 'Es wurden keine „<a target="siwecos_wiki" href="https://siwecos.de/wiki/DOMXSS-Sources" title="DOMXSS-Sources">DOMXSS-Sources</a>“ gefunden.',
-  'SECURE_FLAG_SET'  => 'Das Secure Flag ist gesetzt.',
   'SINKS_FOUND'      => 'Es wurden „<a target="siwecos_wiki" href="https://siwecos.de/wiki/DOMXSS-Sinks" title="DOMXSS-Sinks">DOMXSS-Sinks</a>“ gefunden.',
   'SOURCES_FOUND'    => 'Es wurden „<a target="siwecos_wiki" href="https://siwecos.de/wiki/DOMXSS-Sources" title="DOMXSS-Sources">DOMXSS-Sources</a>“ gefunden.',
 
