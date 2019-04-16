@@ -3,7 +3,6 @@ language: perl
 before_script:
   - cp siwecos.conf.sample siwecos.conf
   - cp wiki.conf.sample wiki.conf
-  - cpanm --quiet -n JSON
 
 script:
   - perl ./dir2lang -t build
@@ -22,4 +21,4 @@ deploy:
   file: translation-files.zip
   skip_cleanup: true
   on:
-    tags: true
+    branch: travis-build
