@@ -2,3 +2,4 @@
 poedit/*
 work/*
 /.idea
+build/
