@@ -36,7 +36,7 @@ Header ist der englische Begriff für ''Kopfdaten''. Im HTML-Quelltext einer Web
    sich kostenlos. Kostenlos anmelden" />
    <meta property="og:url" content="<nowiki>https://siwecos.de/</nowiki>" />
    <meta property="og:site_name" content="SIWECOS" />
-<br clear="all" />
+
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -67,7 +67,7 @@ Ein ungültiger Header-Eintrag könnte so aussehen:
  Set-Cookie: Secure; HttpOnly
 
 Ohne angegebenen '''Cookienamen''' oder '''Cookiewert''' wird der HTTP-Header-Eintrag <span class="attention">'''ungültig''' (nicht valide).</span>
-<br clear="all" />
+
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -81,7 +81,6 @@ Ohne angegebenen '''Cookienamen''' oder '''Cookiewert''' wird der HTTP-Header-Ei
 * MDN web docs: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie
 * Wikipedia: https://de.wikipedia.org/wiki/Header
 * selfhtml: https://wiki.selfhtml.org/wiki/HTTP/Header
-<br clear="all" />
 
 
 [[Category:Header Scanner]]

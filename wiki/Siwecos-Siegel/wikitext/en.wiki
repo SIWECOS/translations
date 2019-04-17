@@ -27,10 +27,14 @@ For this option, you store a small JavaScript file locally on your webserver. Th
 
 ==== Instructions ====
 
-* "'''Right-click with the mouse'''" on '''[https://siwecos.de/plugins/content/sealoftrust/seal.js seal.js]''' and, depending on your operating system, select "'''Save link as'''" or "'''Save target as'''" (see images), and save the seal image file in a directory of your choice (for example on the desktop).<br />
+* "'''Right-click with the mouse'''" on '''[https://siwecos.de/plugins/content/sealoftrust/seal.js seal.js]''' and, depending on your operating system, select "'''Save link as'''" or "'''Save target as'''" (see images), and save the seal image file in a directory of your choice (for example on the desktop).
+
 -----
+
 [[File:kontextmenue_speichern.png|left|Link speichern unter]] [[File:kontext_menue_speichern2.png|Ziel speichern unter|200px]]
+
 -----
+
 * Then upload the file to your website directory on the server of your hosting provider. In this directory, there is usually a subdirectory for '''JavaScript (for example 'src')'''. Save the file '''"seal.js"''' in this subdirectory.
 * After this, the following code must be copied into the start page at the position where you want the seal to be shown
  <a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|your_website}}">
@@ -43,7 +47,7 @@ For this option, you store a small JavaScript file locally on your webserver. Th
 *'''width''' the width of the seal to be displayed.
 *'''height''' the heigth of the seal to be displayed.
 *'''data-siwecos''' your domain, without http / https{{#if:{{#urlget:userdomain}} | &nbsp;({{#urlget: userdomain}}) }}.
-*'''format''' (optional) the desired format.<br />Two formats are available
+*'''format''' (optional) the desired format. Two formats are available
 **'''d.m.y''' for british english format.
 **'''y-m-d''' for ISO-8601 format.
 *'''src''' the path where the JavaScript can be found, for example /src/seal.js.
@@ -66,7 +70,8 @@ This option is intended for users who are not familiar with website editing. All
  </a>
 
 {{#if: {{#urlget:userdomain}} | |
-* Replace '''your_website''' in the code with your '''domain name''' (without http/https)<br />'''Attention:''' This is the part that causes the most problems for users. Please make sure that you enter the domain name exactly as you have registered it with Siwecos (Example: If www.botfrei.de was registered, then www.botfrei.de must be entered for the seal!)
+* Replace '''your_website''' in the code with your '''domain name''' (without http/https)
+'''Attention:''' This is the part that causes the most problems for users. Please make sure that you enter the domain name exactly as you have registered it with Siwecos (Example: If www.botfrei.de was registered, then www.botfrei.de must be entered for the seal!)
 }}
 
 ==== Notes ====
@@ -74,7 +79,8 @@ This option is intended for users who are not familiar with website editing. All
 *'''width''' the width of the seal to be displayed.
 *'''height''' the heigth of the seal to be displayed.
 *'''data-siwecos''' your domain, without http / https{{#if:{{#urlget:userdomain}} | &nbsp;({{#urlget: userdomain}}) }}.
-*'''y-m-d''' The date is shown in ISO-8601 format<br />'''Alternativel<''' '''d.m.y''' can be used for british english format.
+*'''y-m-d''' The date is shown in ISO-8601 format
+**'''Alternativel<''' '''d.m.y''' can be used for british english format.
 
 '''Recommendation:''' Embedding the seal for the [[Content-Security-Policy-Vulnerability/EN | Content Security Policy]] ("img-src 'self' siegel.siwecos.de;")
 <!--
@@ -90,7 +96,8 @@ For this option you store the seal statically on your website. No data (e.g. the
 
 ==== Instructions ====
 
-* Static Seal<br />[[File:seal_siwecos_static_final.png|150px]]
+* Static Seal
+[[File:seal_siwecos_static_final.png|150px]]
 * Download the seal (right mouse click on the seal, '''Save Image as…''')
 * Copy the code below into your source code, for example into the start page of your website. Adjust {{#if: {{#urlget:userdomain}} | | the name of your website '''("your_website")''' and }} the '''("path to the image")'''.
  <a href="https&#58;//siwecos.de/scanned-by-siwecos?data-siwecos={{#urlget:userdomain|your_website}}">

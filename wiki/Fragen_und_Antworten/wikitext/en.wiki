@@ -1,16 +1,16 @@
-Back to [[Hauptseite]]<br />
-
 == FAQ collection ==
-<br />
+
+Back to [[Hauptseite]]
+
 <div style="margin: 0; margin-right:10px; border: 1px solid #dfdfdf; padding: 0 1em 1em 1em; background-color:#F8F8FF; align:right;">
-*[https://siwecos.de/ueber-das-projekt/ Questions about Siwecos (German only)]<br />
-*Generell questions about the service (this page)<br />
-*[[Registration-with-Siwecos/EN|Registration with Siwecos]]<br />
-*[[Siwecos-Seal/EN|Embedding the Siwecos seal on your website]]<br />
-*[[Wordpress-Header/EN|Insert Siwecos Meta tag in the WordPress header]]<br />
-*[[Jimdo-Header/EN|Insert Siwecos Meta tag in the WordPress header]]<br />
-*[[WordPress_Embed_Seal/EN|Embedding the Siwecos seal in Wordpress]] <br />
-*[[The_Siwecos_seal_is_not_shown/EN|The seal is not shown correctly]]
+* [https://siwecos.de/ueber-das-projekt/ Questions about Siwecos (German only)]
+* Generell questions about the service (this page)
+* [[Registration-with-Siwecos/EN|Registration with Siwecos]]
+* [[Siwecos-Seal/EN|Embedding the Siwecos seal on your website]]
+* [[Wordpress-Header/EN|Insert Siwecos Meta tag in the WordPress header]]
+* [[Jimdo-Header/EN|Insert Siwecos Meta tag in the WordPress header]]
+* [[WordPress_Embed_Seal/EN|Embedding the Siwecos seal in Wordpress]] 
+* [[The_Siwecos_seal_is_not_shown/EN|The seal is not shown correctly]]
 </div>
 
 
