@@ -9,6 +9,7 @@ my $scanner; # '# scanner name'
 my $test;    # '## test name' | '## _RESULTS'
 my $purpose; # '### purpose'  | '### translationStringId'
 my $text;
+my $scanner_name;
 
 my %PURPOSES= (
   Background    => 1,
@@ -55,14 +56,20 @@ while (<>) {
     $text= '';
     next;
   }
-  next if /^- - -(?: -)+$/;
+  # next if /^- - -(?: -)+$/;
+  if (not defined $scanner_name) {
+    $scanner_name= $_;
+    next;
+  }
   do_die ("Text ohne Zuordnung.\n") unless $purpose;
   $text.= $_."\n";
 } continue {
   if (eof) {
     write_text($language, $scanner, $test, $purpose, $text);
+    write_text($language, $scanner, '_SCANNER_NAME', '', $scanner_name);
     close ARGV; # Line Number reset
     undef $scanner;
+    undef $scanner_name;
     undef $test;
     undef $purpose;
     undef $text;
@@ -81,10 +88,12 @@ sub write_text {
   do_die("Kein Text für $filename") unless $text;
   for ($text) {
     s/^[ \t]*\n//s;
-    s/\n[ \t]*\n$/\n/s;
+    do {
+      s/\n[ \t]*\n$/\n/s;
+    } while (s/\n- -(?: -)+$//s or s/\n---+$//s)
   }
   die unless defined make_path($path);
-  open my $out, '>:utf8', $filename or die "Can't create $filename: $!\n";
+  open my $out, '>', $filename or die "Can't create $filename: $!\n";
   print $out $text;
   close $out;
 }
