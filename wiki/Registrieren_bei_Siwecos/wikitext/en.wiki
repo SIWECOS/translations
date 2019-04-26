@@ -1,3 +1,6 @@
+{|
+|-
+|
 [[File:siwecos_was.jpg|right|400px]]
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -10,7 +13,8 @@
 The project '''Siwecos''' was founded by [https://www.eco.de/ Eco] (Verband der Internetwirtschaft) and [http://www.ruhr-uni-bochum.de/ RUB] (Ruhruniversität Bochum) to help small and medium-sized companies to have their websites checked for security flaws and potentially malicious code. To do this, a number of scanners have been developed that will alert you to configuration errors and malware.
 
 In order to have your domains checked for security flaws with the Siwecos scanners, you must first register and then login with your personal data. Your data will '''in no case be passed on to third parties'''.
-<br clear="all" />
+|-
+|
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -21,7 +25,8 @@ In order to have your domains checked for security flaws with the Siwecos scanne
 -
 - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 [[File:siwecos_anmeldung.png|left]] [[File:Anmeldedaten.png|thumb|100px|registration form]] On the website [https://siwecos.de/ Siwecos.de], in the top right section, select "Account" and click the button '''"Register"'''. Fill out the form '''completely''', at least the '''required fields(*)''', confirm the captcha, and then click '''Register'''.
-<br clear="all" />
+|-
+|
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -33,10 +38,12 @@ In order to have your domains checked for security flaws with the Siwecos scanne
 - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 [[File:siwecos_email_bestaetigung.jpg|thumb|left|80px|Mail]]
 When you have entered your registration data, confirmed the captcha, and submitted the form, you will receive a confirmation by email that your registration was successful. This email also contains a link that you must click to activate your account. Click on this link to finish the registration.
-<br clear="all" />
+|-
+|
 [[File:aktivierung_bestaetigung.png|left|thumb|80px]]
 If your account was activated successfully, this image is shown. Now you can log in to your account via the button in the right-hand menu, under Account - '''"Login"''', by entering your registered email address and your chosen password.
-<br clear="all" />
+|-
+|
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -51,7 +58,8 @@ If you have lost your password, you can request a new password via email by clic
 File:passwort1.png|Passwort vergessen|alt=Passwort vergessen
 File:passwort3.png|E-Mail Adresse eintragen|alt=E-Mail Adresse eintragen
 </gallery>
-<br clear="all" />
+|-
+|
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -65,7 +73,8 @@ File:passwort3.png|E-Mail Adresse eintragen|alt=E-Mail Adresse eintragen
 When you have logged in, at the top right under "Account" the options '''My data''', '''Domain overview''', '''Logout''' are available. 
 
 Under '''Domain overview''' you can now enter your domains and have them checked. 
-<br clear="all" />
+|-
+|
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -84,7 +93,8 @@ To do this, two different methods are available (meta tag or file).
 
 [[File:domain_hinzufuegen2.jpg|thumb|left|40px]]
 First enter your domain in the domain overview by clicking the button "'''Add domain'''". For detailed instructions how to proceed during verification, please refer to [[Domain-Verification/EN|here]].
-<br clear="all" />
+|-
+|
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -97,7 +107,8 @@ First enter your domain in the domain overview by clicking the button "'''Add do
 You can remove the registered domain at any time from the '''Domain overview from the Siwecos monitoring service'''. The domain will be deleted from our system completely, including all scan results. It is not possible to restore the deleted data. However, you can register the domain again with the verification procedure. 
 
 '''Please note:''' When the domain has been deleted from our system, please remove any stored '''Meta tags or HTML files''' from your system.
-<br clear="all" />
+|-
+|
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -110,6 +121,6 @@ You can remove the registered domain at any time from the '''Domain overview fro
 If you do not need this service any longer, you can log in and delete your account with the link "Delete account". 
 
 All your data and all your listed domains will be deleted from our system completely, it is not possible to restore them. You can register again at any time on our start page at [https://siwecos.de Siwecos].
-
+|}
 
 [[Category:FAQ]]

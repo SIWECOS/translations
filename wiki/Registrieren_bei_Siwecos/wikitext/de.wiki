@@ -1,3 +1,6 @@
+{|
+|-
+|
 [[File:siwecos_was.jpg|right|400px]]
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -10,7 +13,8 @@
 Das Projekt [https://siwecos.de Siwecos] wurde von [https://www.eco.de/ Eco] (Verband der Internetwirtschaft) und der [http://www.ruhr-uni-bochum.de/ Ruhruniversität Bochum] (RUB) ins Leben gerufen, um kleinen und mittleren Unternehmen (KMUs) die Möglichkeit zu geben, die eigenen Webauftritte auf Sicherheitslücken und evtl. vorhandene Schadware prüfen zu lassen. Dazu wurden eine Reihe von Scannern entwickelt, die Ihre Webseite auf Konfigurationsfehler und Malware hin untersucht und Ihnen Hilfestellung zum Beheben dieser Probleme gibt.
 
 Damit Sie Ihre Domains mit den Siwecos-Scannern auf Sicherheitslücken überprüfen lassen können, ist zunächst eine Registrierung und anschließende personalisierte Anmeldung nötig. Ihre Daten werden '''keinesfalls an Dritte weitergegeben'''.
-<br clear="all" />
+|-
+|
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -22,7 +26,8 @@ Damit Sie Ihre Domains mit den Siwecos-Scannern auf Sicherheitslücken überprü
 - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 [[File:siwecos_anmeldung.png|left]] [[File:Anmeldedaten.png|thumb|100px|Anmeldeformular]]
 Über die [https://siwecos.de/ Startseite von Siwecos] gelangen Sie auf der rechten Seite oben unter "Konto" zum Button "'''Registrieren'''". Füllen Sie  die '''Muss-Felder(*)''' des Formulars aus und klicken nach der Bestätigung des Captchas auf '''Registrieren'''. 
-<br clear="all" />
+|-
+|
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -34,13 +39,14 @@ Damit Sie Ihre Domains mit den Siwecos-Scannern auf Sicherheitslücken überprü
 - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 [[File:siwecos_email_bestaetigung.jpg|thumb|left|80px|Mail]]
 Wenn Sie Ihre Registrierungsdaten eingetragen und das Formular nach Bestätigung des Captchas abgesendet haben, erhalten Sie eine Bestätigungs-E-Mail. Diese E-Mail enthält außerdem einen Link zur Aktivierung Ihres Kontos. Folgen Sie diesem Link, um die Aktivierung abzuschließen.
-<br clear="all" />
+|-
+|
 [[File:aktivierung_bestaetigung.png|left|thumb|80px]]
 Wenn die Aktivierung funktioniert hat, erscheint dieses Bild.
 
 Anschließend können Sie sich über den Button im rechten Menü unter Konto - "'''Anmelden'''" mit Ihrer hinterlegten E-Mail-Adresse und Ihrem Passwort bei Siwecos einloggen.
-
-<br clear="all" />
+|-
+|
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -55,7 +61,8 @@ Sollten Sie Ihr Passwort vergessen haben, können Sie über den Link "Passwort v
 File:passwort1.png|Passwort vergessen|alt=Passwort vergessen
 File:passwort3.png|E-Mail Adresse eintragen|alt=E-Mail Adresse eintragen
 </gallery>
-<br clear="all" />
+|-
+|
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -69,7 +76,8 @@ File:passwort3.png|E-Mail Adresse eintragen|alt=E-Mail Adresse eintragen
 Nachdem Sie sich eingeloggt haben, stehen rechts oben unter "Konto" die Punkte '''MeinKonto''', '''Domainübersicht''' und '''Abmelden''' zur Verfügung.
 
 '''Domainübersicht''' bietet Ihnen die Möglichkeit, Ihre Domains einzutragen und prüfen zu lassen.
-<br clear="all" />
+|-
+|
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -88,7 +96,8 @@ Es stehen zwei Verfahren zur Verifizierung zur Verfügung.
 
 [[File:domain_hinzufuegen2.jpg|thumb|left|40px]]
 Tragen Sie zunächst unter Domainübersicht über den Button "'''Domain hinzufügen'''" Ihre Domain ein. Eine ausführliche Anleitung, wie Sie bei der Verifizierung vorgehen sollten, finden Sie [[Domain-Verifizierung/DE|hier]].
-<br clear="all" />
+|-
+|
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -101,8 +110,8 @@ Tragen Sie zunächst unter Domainübersicht über den Button "'''Domain hinzufü
 Sie können jederzeit die registriert Domain über die '''Domainübersicht''' aus dem Monitoringdienst von Siwecos entfernen. Dabei wird die Domain komplett mit allen Scanergebnissen aus unserem System gelöscht. Eine Wiederherstellung der alten Daten ist nach dem Löschvorgang nicht möglich. Allerdings können Sie die Domain über den Verifizierungsvorgang erneut eintragen.
 
 '''Bitte beachten Sie:''' Wenn die Domain auf unserem System löschen, werden nicht das Meta-Tag oder die HTML-Datei, die sie für die Verifizierung anlegen mußten, von ihrem Server gelöscht. Dies müssen Sie selbst durchführen.
-
-<br clear="all" />
+|-
+|
 ---------------------------------------------------------
 <!--
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -115,5 +124,7 @@ Sie können jederzeit die registriert Domain über die '''Domainübersicht''' au
 Sollten Sie unseren Dienst nicht mehr benötigen, können Sie nach dem Einloggen unter "Mein Konto" ihr "Konto löschen".
 
 Alle Ihre Daten, sowie alle eingetragenen Domains werden komplett aus unserem System gelöscht, eine Wiederherstellung ist nicht möglich. Sie können sich aber jederzeit über unsere Startseite beim [https://siwecos.de Dienst von Siwecos] neu registrieren.
+|}
+
 
 [[Category:FAQ]]

@@ -1,16 +1,16 @@
-Zurück zur [[Hauptseite]]<br />
-
 == FAQ Sammlung ==
-<br />
+
+Zurück zur [[Hauptseite]]
+
 <div style="margin: 0; margin-right:10px; border: 1px solid #dfdfdf; padding: 0 1em 1em 1em; background-color:#F8F8FF; align:right;">
-*[[Siwecos:Über_Siwecos|Fragen zu Siwecos]]<br />
-*Allgemeine Fragen zum Dienst (diese Seite)<br />
-*[[Registrieren bei Siwecos/DE|Registrieren bei Siwecos]]<br />
-*[[Siwecos-Siegel/DE|Wie binde ich das Siwecos-Siegel auf meiner Seite ein?]]<br />
-*[[Wordpress-Header/DE|Siwecos-Metatag in den Wordpress-Header einfügen]]<br />
-*[[Jimdo-Header/DE|Siwecos-Metatag in den Jimdo-Header einfügen]]<br />
-*[[Wordpress_siegel_einbinden/DE|Siwecos-Siegel in Wordpress integrieren]] <br />
-*[[Das_Siwecos-Siegel_wird_nicht_angezeigt/DE| Warum wird das Siwecos-Siegel nicht richtig angezeigt?]]
+*[[Siwecos:Über_Siwecos|Fragen zu Siwecos]]
+* Allgemeine Fragen zum Dienst (diese Seite)
+* [[Registrieren bei Siwecos/DE|Registrieren bei Siwecos]]
+* [[Siwecos-Siegel/DE|Wie binde ich das Siwecos-Siegel auf meiner Seite ein?]]
+* [[Wordpress-Header/DE|Siwecos-Metatag in den Wordpress-Header einfügen]]
+* [[Jimdo-Header/DE|Siwecos-Metatag in den Jimdo-Header einfügen]]
+* [[Wordpress_siegel_einbinden/DE|Siwecos-Siegel in Wordpress integrieren]]
+* [[Das_Siwecos-Siegel_wird_nicht_angezeigt/DE| Warum wird das Siwecos-Siegel nicht richtig angezeigt?]]
 </div>
 
 

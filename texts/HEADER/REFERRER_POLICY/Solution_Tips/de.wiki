@@ -1,4 +1,5 @@
 Mit dem Eintrag '''Referrer Policy''' im [[Header/DE|Header]] wird geregelt, welche der Referrer-Informationen, die im ''Referer Header'' gesendet wurden, in Anfragen aufgenommen werden sollen und welche nicht. Es gibt sehr viele verschiedene Optionen, die gesetzt werden können. Neben Firefox unterstützen Chrome und Opera bereits einige Optionen dieses Header-Eintrages. Aktuell handelt es sich bei diesen Header-Einträgen um einen [https://www.w3.org/TR/referrer-policy/ Empfehlungskandidaten des W3C vom 26.01.2017]. In dem zuvor verlinkten Dokument werden die einzelnen Möglichkeiten genau beschrieben. 
+
 '''Anmerkung zur Schreibweise:''' Die korrekte englische Schreibweise lautet '''Referrer'''. Der ursprüngliche RFC ([https://tools.ietf.org/html/rfc2068#section-14.37 RFC 2068]) enthielt jedoch versehentlich die falsche Schreibweise ''Referer'' und erhebt diesen Wortlaut damit zum Standard innerhalb von HTTP. In anderen Standards wie im DOM wird die korrekte Schreibweise verwendet. Der Webbrowser setzt, wenn ein Referrer gesetzt ist, einen eigenen Header ein, der heißt dann z. B. `Referer: google.com`. Dort ist dann Referrer falsch geschrieben, aber laut Standard richtig.
 
 Wir empfehlen die Einstellung des Referrer Policy Headers so restriktiv wie möglich zu gestalten, also z. B. "no-referrer" zu setzen.
@@ -14,12 +15,11 @@ Wir empfehlen die Einstellung des Referrer Policy Headers so restriktiv wie mög
 
 '''Anweisung:''' Der Wert `'''no-referrer'''` weist den Browser an, '''niemals''' ''Referer Header'' zu senden, die von Ihrer Site gestellt werden. Dazu gehören auch Links zu Seiten Ihrer eigenen Webseite.
 
-<br />
 {| class="wikitable" style="margin:auto;"
 |- style="border: 4px solid #C31622; color:#000000; background-color:#f6f6f6;"
-| Weitere nützliche Anweisungen können `'''same-origin'''`, `'''strict-origin'''` oder `'''origin-when-cross-origin'''` sein.
+| 
+Weitere nützliche Anweisungen können `'''same-origin'''`, `'''strict-origin'''` oder `'''origin-when-cross-origin'''` sein.
 |}
-<br />
 
 Der Wert `'''same-origin'''` weist den Browser an, nur ''Referer Header'' zu senden, die von Ihrer Webseite gestellt werden. Wenn das Ziel eine andere [[Domain]] ist, werden keine Referrer-Informationen gesendet.
 

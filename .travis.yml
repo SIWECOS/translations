@@ -17,7 +17,7 @@ before_deploy:
   - git remote add gh https://${GITHUB_SIWECOSBOT_TOKEN}@github.com/siwecos/translations
   # Needed for deploy section
   - export TRAVIS_TAG=latest
-  - git tag $TRAVIS_TAG
+  - git tag -f $TRAVIS_TAG
   - git push -f gh $TRAVIS_TAG
 
 deploy:

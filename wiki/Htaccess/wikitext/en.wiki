@@ -57,9 +57,9 @@ Some widely used elements are:
 
 == Further links ==
 
-SelfHTML Wiki: https://wiki.selfhtml.org/wiki/Webserver/htaccess <br />
-Wikipedia: https://en.wikipedia.org/wiki/.htaccess <br />
-SEO application examples: https://www.seo-trainee.de/htaccess-datei-basics-und-anwendungsbeispiele/
+* SelfHTML Wiki: https://wiki.selfhtml.org/wiki/Webserver/htaccess
+* Wikipedia: https://en.wikipedia.org/wiki/.htaccess 
+* SEO application examples: https://www.seo-trainee.de/htaccess-datei-basics-und-anwendungsbeispiele/
 |}
 
 [[Category:Sicherheitstipps]]

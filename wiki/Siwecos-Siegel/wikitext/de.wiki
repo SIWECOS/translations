@@ -31,7 +31,7 @@ Hier legen Sie ein kleines JavaScript lokal auf Ihrem Server ab. Der Vorteil ist
 -----
 [[File:kontextmenue_speichern.png|left|Link speichern unter]] [[File:kontext_menue_speichern2.png|Ziel speichern unter|200px]]
 -----
-* Im Anschluss laden Sie die Datei auf den Webspace Ihrer Internetseite bei Ihrem Hoster. In der Regel gibt es im Verzeichnis einen Ordner für '''JavaScript (z. B. 'src')'''. Speichern Sie dort die Datei '''"seal.js"'''.<br />
+* Im Anschluss laden Sie die Datei auf den Webspace Ihrer Internetseite bei Ihrem Hoster. In der Regel gibt es im Verzeichnis einen Ordner für '''JavaScript (z. B. 'src')'''. Speichern Sie dort die Datei '''"seal.js"'''. 
 * Anschließend muss auf der Hauptseite bzw. dort, wo das Siegel dargestellt werden soll, folgendes eingetragen werden:
  <a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|eigene_Webseite}}">
     <svg width="150" height="58" id="siwecos-seal" data-format="d.m.y"/>
@@ -43,7 +43,7 @@ Hier legen Sie ein kleines JavaScript lokal auf Ihrem Server ab. Der Vorteil ist
 *'''width''' die Breite, in der das Siegel erscheinen soll.
 *'''height''' die Höhe, in der das Siegel erscheinen soll.
 *'''data-siwecos''' Ihre Domain ohne http / https{{#if:{{#urlget:userdomain}} | &nbsp;({{#urlget: userdomain}}) }}.
-*'''format''' (optional) das gewünschte Format.<br />Es stehen zwei Formate zur Verfügung:
+*'''format''' (optional) das gewünschte Format. Es stehen zwei Formate zur Verfügung:
 **'''d.m.y''' für das gewohnte deutsche Format.
 **'''y-m-d''' für das ISO-8601 Format.
 *'''src''' der Pfad über den das Scipt erreichbar ist z. B. /src/seal.js.
@@ -66,7 +66,8 @@ Bei dieser Variante ist nur wenig technisches KnowHow nötig. Hierbei brauchen S
  </a>
 
 {{#if: {{#urlget:userdomain}} | |
-* Ändern Sie '''"eigene_Webseite"''' im Code durch den '''Namen Ihrer Domain''' (ohne http/https)<br />'''Achtung:''' Hier werden die meisten Fehler gemacht, tragen Sie die Domain bitte so ein, wie Sie diese bei Siwecos registriert haben (Beispiel: Registriert wurde www.botfrei.de, so muss auch www.botfrei.de ins Siegel integriert werden!)
+* Ändern Sie '''"eigene_Webseite"''' im Code durch den '''Namen Ihrer Domain''' (ohne http/https) 
+** '''Achtung:''' Hier werden die meisten Fehler gemacht, tragen Sie die Domain bitte so ein, wie Sie diese bei Siwecos registriert haben (Beispiel: Registriert wurde www.botfrei.de, so muss auch www.botfrei.de ins Siegel integriert werden!)
 }}
 
 ==== Anmerkung ====
@@ -74,7 +75,8 @@ Bei dieser Variante ist nur wenig technisches KnowHow nötig. Hierbei brauchen S
 *'''width''' die Breite, in der das Siegel erscheinen soll.
 *'''height''' die Höhe, in der das Siegel erscheinen soll.
 *'''data-siwecos''' Ihre Domain ohne http / https{{#if:{{#urlget:userdomain}} | &nbsp;({{#urlget: userdomain}}) }}.
-*'''d.m.y''' Das Datum wird im gewohnten deutschen Format angezeigt.<br />'''Alternativ:''' '''y-m-d''' für das ISO-8601 Format.
+*'''d.m.y''' Das Datum wird im gewohnten deutschen Format angezeigt.
+**'''Alternativ:''' '''y-m-d''' für das ISO-8601 Format.
 
 '''Empfehlung:''' Einbinden des Siegels für die [[Content-Security-Policy-Schwachstelle/DE|Content Security Policy]] ("img-src 'self' siegel.siwecos.de;")
 <!--
@@ -90,7 +92,8 @@ Bei dieser Variante wird das Siegel statisch auf Ihrer Webseite hinterlegt. Es w
 
 ==== Anleitung ====
 
-* Statisches Siegel<br />[[File:seal_siwecos_static_final.png|150px]]
+* Statisches Siegel
+[[File:seal_siwecos_static_final.png|150px]]
 * Laden Sie das Siegel herunter (rechte Maus auf das Siegel, '''Bild speichern unter''')
 * Kopieren Sie den unten stehenden Code in Ihren Quelltext z. B. der Startseite des Webauftritts und ergänzen Sie {{#if: {{#urlget:userdomain}} | | den Namen der eigenen Webseite '''("eigene_Webseite")''' und }} den '''"Speicherort des Bildes"'''.
  <a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|eigene_Webseite}}">
