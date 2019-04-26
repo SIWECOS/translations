@@ -1,1 +1,0 @@
-The JavaScript library :js_lib_name in version:js_lib_version was detected.

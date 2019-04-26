@@ -1,1 +1,0 @@
-Your website is not sufficiently protected from [https://en.wikipedia.org/wiki/Clickjacking clickjacking attacks].

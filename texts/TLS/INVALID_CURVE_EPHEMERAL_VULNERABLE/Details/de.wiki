@@ -1,1 +1,0 @@
-Der [[Server]] ist verwundbar durch einen [[Invalid-Curve-Ephemeral-Schwachstelle/DE|Ephemeral Invalid Curve Angriff]]. Dadurch kann ein Angreifer Verbindungen angreifen.

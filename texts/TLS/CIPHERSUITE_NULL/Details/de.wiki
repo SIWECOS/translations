@@ -1,1 +1,0 @@
-Ihr Webserver/Ihre Webseite ist so konfiguriert, dass er zulässt, dass keine Verschlüsselung eingesetzt wird, obwohl [[Transport Layer Security|TLS]] eingesetzt wird. Dies ermöglicht [[Man-in-the-middle|Man-in-the-middle-Attacken]].

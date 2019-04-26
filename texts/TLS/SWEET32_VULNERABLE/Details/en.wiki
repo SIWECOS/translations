@@ -1,1 +1,0 @@
-The server is vulnerable to [https://en.wikipedia.org/wiki/Sweet32 Sweet32], which allows an attacker to decrypt parts of the communication if large amounts of data is transferred via a connection.

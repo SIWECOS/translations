@@ -1,1 +1,0 @@
-The web application may be vulnerable to so-called DOMXSS attacks.

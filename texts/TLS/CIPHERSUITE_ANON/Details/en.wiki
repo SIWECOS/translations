@@ -1,1 +1,0 @@
-Your web server/website is configured to make connections using an anonymous encryption method ([https://en.wikipedia.org/wiki/Cipher_suite cipher suite]) without authentication. This makes you vulnerable to [https://en.wikipedia.org/wiki/Man-in-the-middle_attack man-in-the-middle-attacks].

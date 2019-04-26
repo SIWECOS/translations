@@ -1,1 +1,0 @@
-The content type declaration is not configured correctly. Your website is probably vulnerable to attacks.
