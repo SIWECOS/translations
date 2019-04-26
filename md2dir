@@ -1,0 +1,96 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use File::Path qw(make_path);
+my $TRANSLATIONS= 'texts';
+
+binmode(STDIN, ':utf8');
+my $scanner; # '# scanner name'
+my $test;    # '## test name' | '## _RESULTS'
+my $purpose; # '### purpose'  | '### translationStringId'
+my $text;
+
+my %PURPOSES= (
+  Background    => 1,
+  Category      => 1,
+  Consequence   => 1,
+  Description   => 1,
+  Headline      => 1,
+  Link          => 1,
+  Negative      => 1,
+  Positive      => 1,
+  Solution_Tips => 1,
+);
+
+my $language;
+while (<>) {
+  last unless defined $_;
+  tr/\015\012//d;
+  next if /^\s*$/ and not defined $text;
+  if (/^#\s+(.*?)\s*$/) { # Neuer Scanner
+    my $s=$1;
+    write_text($language, $scanner, $test, $purpose, $text);
+    $language= get_language($ARGV);
+    $scanner= $s;
+    undef $test;
+    undef $purpose;
+    undef $text;
+    next;
+  }
+  if (/^##\s+(.*?)\s*$/) { # Neuer Test
+    do_die( "Test »$1« ohne Scanner.\n" ) unless $scanner;
+    my $t= $1;
+    write_text($language, $scanner, $test, $purpose, $text);
+    $test= $t;
+    undef $purpose;
+    undef $text;
+    next;
+  }
+  if (/^###\s+(.*?)\s*$/) { # Neuer Purpose
+    do_die( "Verwendungszweck »$1« ohne Test.\n" ) unless $test;
+    do_die( "Unbekannter Verwendungszweck »$1«.\n") if $test ne "_RESULTS" and not defined $PURPOSES{$1};
+    my $p= $1;
+    write_text($language, $scanner, $test, $purpose, $text);
+    $purpose= $p;
+    $text= '';
+    next;
+  }
+  next if /^- - -(?: -)+$/;
+  do_die ("Text ohne Zuordnung.\n") unless $purpose;
+  $text.= $_."\n";
+} continue {
+  if (eof) {
+    write_text($language, $scanner, $test, $purpose, $text);
+    close ARGV; # Line Number reset
+    undef $scanner;
+    undef $test;
+    undef $purpose;
+    undef $text;
+  }
+}
+
+sub do_die {
+  die "Fehler in Zeile $. von $ARGV: ".join("", @_);
+}
+
+sub write_text {
+  my($language, $scanner, $test, $purpose, $text)= @_;
+  return unless defined $text;
+  my $path= "$TRANSLATIONS/$scanner/$test/$purpose";
+  my $filename= "$path/$language.wiki";
+  do_die("Kein Text für $filename") unless $text;
+  for ($text) {
+    s/^[ \t]*\n//s;
+    s/\n[ \t]*\n$/\n/s;
+  }
+  die unless defined make_path($path);
+  open my $out, '>:utf8', $filename or die "Can't create $filename: $!\n";
+  print $out $text;
+  close $out;
+}
+
+sub get_language {
+  my($fname)= @_;
+  die("$fname: Keine Sprachkennzeichnung (XXX.de.md | XXX.en.md | …|)\n") unless $fname=~ /\.(..)\.md$/;
+  return $1;
+}
