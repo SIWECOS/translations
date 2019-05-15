@@ -106,10 +106,6 @@ Also z.B. "de.wiki" und "en.wiki".
         Dies stellt sicher, dass auch identische Bezeichner in verschiedenen Sprachen verwendet werden können.
         Wenn hier also "Test 1" in jeder Sprache gespeichert ist, lautet der Seitenname "Test_1/DE" für die Deutsch und "Test_1/EN" für Englisch.
 
-      * **Details**
-        \
-        Scheint momentan nicht verwendet zu werden.
-
     * **_RESULTS**
       \
       In diesem Verzeichnis finden sich alle Texte, die der Scanner benötigt.
@@ -178,6 +174,14 @@ In `wiki.conf` müssen die Zugangsdaten fürs Wiki hinterlegt sein.
 ### `checkwiki`
 
 Mit diesem Script können wir prüfen ob alle Seiten im Wiki vorhanden sind.
+
+### `dir2md`, `md2dir`
+
+Mit diesen Scripten lassen sich die Dateien in Markdown Dateien konvertieren.
+Die Markdown Dateien haben einen vereinfachten Aufbau und beinhalten sämtliche
+Texte für einen Scanner. Sie fassen also den Inhalt eines Scannerverzeichnisses
+in einer Datei pro Sprache zusammen. Die erzeugten Dateien haben den Namen
+*`scannerbezeichner`*-texts.*`sprachkürzel`*.md
 
 ### `dir2po` **in Arbeit**
 
