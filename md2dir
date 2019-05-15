@@ -4,7 +4,8 @@ use warnings;
 use File::Path qw(make_path);
 my $TRANSLATIONS= 'texts';
 
-binmode(STDIN, ':utf8');
+use open ":std", ":encoding(utf8)";
+
 my $scanner; # '# scanner name'
 my $test;    # '## test name' | '## _RESULTS'
 my $purpose; # '### purpose'  | '### translationStringId'
@@ -28,6 +29,7 @@ while (<>) {
   last unless defined $_;
   tr/\015\012//d;
   next if /^\s*$/ and not defined $text;
+
   if (/^#\s+(.*?)\s*$/) { # Neuer Scanner
     my $s=$1;
     write_text($language, $scanner, $test, $purpose, $text);
@@ -38,7 +40,8 @@ while (<>) {
     undef $text;
     next;
   }
-  if (/^##\s+(.*?)\s*$/) { # Neuer Test
+
+  if (/^##\s+(.*?)\s*$/) { ## Neuer Test
     do_die( "Test »$1« ohne Scanner.\n" ) unless $scanner;
     my $t= $1;
     write_text($language, $scanner, $test, $purpose, $text);
@@ -47,7 +50,8 @@ while (<>) {
     undef $text;
     next;
   }
-  if (/^###\s+(.*?)\s*$/) { # Neuer Purpose
+
+  if (/^###\s+(.*?)\s*$/) { ### Neuer Purpose
     do_die( "Verwendungszweck »$1« ohne Test.\n" ) unless $test;
     do_die( "Unbekannter Verwendungszweck »$1«.\n") if $test ne "_RESULTS" and not defined $PURPOSES{$1};
     my $p= $1;
@@ -56,12 +60,14 @@ while (<>) {
     $text= '';
     next;
   }
-  # next if /^- - -(?: -)+$/;
+
   if (not defined $scanner_name) {
     $scanner_name= $_;
     next;
   }
+
   do_die ("Text ohne Zuordnung.\n") unless $purpose;
+  
   $text.= $_."\n";
 } continue {
   if (eof) {
