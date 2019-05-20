@@ -10,7 +10,7 @@ What is the purpose of verification? Verification ensures that you are the real 
 <br />
 == Verification by META tag! ==
 
-You can confirm ownership of a website by adding an individual <meta> tag, specified by us, to the '''HTML code of the start page of your domain'''. Our scanner checks whether the meta tag is at the correct position. If the tag is not found, information about the detected errors is given. This tag is assigned to a specific user.
+You can confirm ownership of a website by adding an individual <meta> tag, specified by us, to the '''HTML code of the start page of your domain'''. Our scanner checks whether the meta tag is at the correct position. If the tag is not found, information about the detected errors is given. This tag is assigned to a specific domain.
 
 <br />
 1. Download the start page (for example index.html) to your computer and open the file in the editor.<br />

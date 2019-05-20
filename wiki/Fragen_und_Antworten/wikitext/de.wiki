@@ -11,6 +11,8 @@ Zurück zur [[Hauptseite]]
 * [[Jimdo-Header/DE|Siwecos-Metatag in den Jimdo-Header einfügen]]
 * [[Wordpress_siegel_einbinden/DE|Siwecos-Siegel in Wordpress integrieren]]
 * [[Das_Siwecos-Siegel_wird_nicht_angezeigt/DE| Warum wird das Siwecos-Siegel nicht richtig angezeigt?]]
+* [[Domain-Verifizierung-Wordpress/DE|Domain-Verifizierung in Wordpress]]
+* [[Wordpress-Security-Headers/DE|Security Headers in Wordpress eintragen]]
 </div>
 
 

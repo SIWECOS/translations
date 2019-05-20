@@ -1,0 +1,26 @@
+== Add Security Headers to Wordpress ==
+
+The easiest way to do this in Wordpress is with the plugin "HTTP Headers". Proceed as follows:
+
+{| class="wikitable"
+|-
+| 1. In your Wordpress-Admin go to the menu item "Plugins" and click on the right side on "Install". || [[File:1wp_plugins_installieren-en.png]]
+|-
+| 2. Enter "http headers" as keyword, select "HTTP Headers" and install the plugin. || [[File:2wp_http_headers_installieren-en.png|400px]]
+|-
+| 3. Activate the plugin "HTTP Headers". || [[File:3wp_http_headers_aktivieren-en.png|400px]]
+|-
+| 4. Click on "Settings". || [[File:5wp_http_headers_settings.png]]
+|-
+| 5. Click on "Security". || [[File:5awp_http_headers_security.png|400px]]
+|-
+| 6. Set the X-frame options to "On" and select "Deny". || [[File:6wp_x-frame_options.png|400px]]
+|-
+| 7. Proceed in the same way with the header options shown on the right. Note that the Content Security Policy in particular must be carefully checked and adjusted to your website. || [[File:7wp_gesetzte_header.png|400px]]
+
+|}
+
+To display the pictures in original size, please click on the desired picture.
+
+
+[[Category:FAQ]]

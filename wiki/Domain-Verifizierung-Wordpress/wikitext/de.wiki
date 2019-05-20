@@ -1,0 +1,22 @@
+== Verifizierung per META-TAG in Wordpress! ==
+
+Sie können die Inhaberschaft einer Website bestätigen, indem Sie dem '''HTML-Code der Startseite Ihrer Domain''' einen individuellen von uns vorgegebenen <meta>-Tag hinzufügen. Unser Scanner überprüft, ob sich das Meta-Tag an der richtigen Stelle befindet. Wird das Tag nicht gefunden, erhalten Sie Informationen zu den aufgetretenen Fehlern. Dieses Tag ist einer bestimmten Domain zugeordnet. Am einfachsten lässt sich das in Wordpress mit dem Plugin "All Meta Tags" durchführen. Gehen Sie dabei wie folgt vor:
+
+{| class="wikitable"
+|-
+| 1. In Ihrem Wordpress-Admin gehen Sie auf den Menüpunkt "Plugins" und rechts auf "Installieren". || [[File:1wp_plugins_installieren.png]]
+|-
+| 2. Geben Sie als Stichwort "meta tag" ein, wählen "All Meta Tags" aus und installieren das Plugin. || [[File:2wp_all_meta_tags.png|400px]]
+|-
+| 3. Rufen Sie die installierten Plugins auf. || [[File:3wp_installierte_plugins.png]]
+|-
+| 4. Aktivieren Sie "All Meta Tags" und klicken auf "Einstellungen". || [[File:4wp_all_meta_tags_aktivieren_und_einstellungen.png]]
+|-
+| 5. Geben Sie Ihren persönlichen Meta-Tag "siwecostoken" ein und speichern die Eingabe.  || [[File:5wp_token_eintragen_save.png]]
+|-
+| 6. Testen Sie die Eingabe über [https://search.google.com/structured-data/testing-tool Strukturierte Daten testen]. || [[File:6wp_testen.png|400px]]
+|-
+| 7. Das Ergebnis sollte dann so aussehen, natürlich mit Ihrem persönlichen Token. || [[File:7wp_testergebnis.png]]
+|}
+
+[[Category:FAQ]]

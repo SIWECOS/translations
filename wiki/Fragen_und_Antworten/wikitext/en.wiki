@@ -11,6 +11,8 @@ Back to [[Hauptseite]]
 * [[Jimdo-Header/EN|Insert Siwecos Meta tag in the WordPress header]]
 * [[WordPress_Embed_Seal/EN|Embedding the Siwecos seal in Wordpress]] 
 * [[The_Siwecos_seal_is_not_shown/EN|The seal is not shown correctly]]
+* [[Domain-Verification-Wordpress/EN|Domain-Verification in Wordpress]]
+* [[Wordpress-Security-Headers/EN|Add Security Headers in Wordpress]]
 </div>
 
 

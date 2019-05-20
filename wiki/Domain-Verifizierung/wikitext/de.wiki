@@ -9,7 +9,7 @@ Wozu wird eine Verifizierung gemacht? Bei einer Verifizierung wird aus datenschu
 
 == Verifizierung per META-TAG! ==
 
-Sie können die Inhaberschaft einer Website bestätigen, indem Sie dem '''HTML-Code der Startseite Ihrer Domain''' einen individuellen von uns vorgegebenen <meta>-Tag hinzufügen. Unser Scanner überprüft, ob sich das Meta-Tag an der richtigen Stelle befindet. Wird das Tag nicht gefunden, erhalten Sie Informationen zu den aufgetretenen Fehlern. Dieses Tag ist einem bestimmten Nutzer zugeordnet.
+Sie können die Inhaberschaft einer Website bestätigen, indem Sie dem '''HTML-Code der Startseite Ihrer Domain''' einen individuellen von uns vorgegebenen <meta>-Tag hinzufügen. Unser Scanner überprüft, ob sich das Meta-Tag an der richtigen Stelle befindet. Wird das Tag nicht gefunden, erhalten Sie Informationen zu den aufgetretenen Fehlern. Dieses Tag ist einer bestimmten Domain zugeordnet.
 
 1. Laden Sie die Startseite (z. B. index.html) auf den Rechner herunter und öffnen Sie die Datei mit dem Editor.
 
