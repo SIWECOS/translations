@@ -1,1 +1,1 @@
-Deactivate [https://www.itwissen.info/Blockchiffre-block-cipher.html Blockchiffren (German only)] with a length of 64 bit. 
+Deactivate [https://www.itwissen.info/Blockchiffre-block-cipher.html Blockchiffren (German only)] with a length of 64 bit.
