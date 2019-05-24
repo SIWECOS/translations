@@ -1,1 +1,1 @@
-Wherever possible, you should refrain from using Triple-DES and Blowfish. Deactivate [https://www.itwissen.info/Blockchiffre-block-cipher.html Blockchiffren (German only)] with a length of 64 bit. Make sure that protocols such as SSLv2 and SSLv3 are disabled.
+Deactivate [https://www.itwissen.info/Blockchiffre-block-cipher.html Blockchiffren (German only)] with a length of 64 bit. 
