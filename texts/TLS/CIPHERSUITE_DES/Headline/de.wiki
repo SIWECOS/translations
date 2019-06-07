@@ -1,1 +1,1 @@
-Überprüfung auf DES Verschlüsselungsmethodik
+Überprüfung auf DES Verschlüsselung

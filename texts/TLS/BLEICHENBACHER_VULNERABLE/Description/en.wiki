@@ -1,1 +1,1 @@
-The server is vulnerable to a [https://en.wikipedia.org/wiki/RSA_(cryptosystem)#Adaptive_chosen_ciphertext_attacks Bleichenbacher] attack (ROBOT). Through such an attack, the communication can be decoded and user input, such as passwords, can be read as clear text during transfer.
+The server is vulnerable to a [[Bleichenbacher-Vulnerability/EN|Bleichenbacher attack]]. Communication can be decrypted and user entries such as passwords can be read.

@@ -1,1 +1,1 @@
-Schwaches-DES-Verschluesselungsprotokoll
+Schwache-DES-Verschlüsselung

@@ -1,1 +1,1 @@
-Verschlüsselungsmethode
+Kryptographie

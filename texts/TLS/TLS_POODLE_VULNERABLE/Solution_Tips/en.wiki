@@ -1,1 +1,1 @@
-If vulnerability was reported, update the [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS] implementation on your server immediately. In the Apache configuration, you can specify the line "SSLProtocol All -SSLv2 -SSLv3 ".
+If vulnerability was reported, update the TLS implementation on your server immediately. 

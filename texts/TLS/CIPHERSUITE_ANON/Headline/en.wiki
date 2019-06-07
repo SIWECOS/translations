@@ -1,1 +1,1 @@
-Check for anonymous encryption method
+Check for anonymous key exchange

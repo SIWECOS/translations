@@ -1,1 +1,1 @@
-Check response time of the Headers
+Check for HTTPS support

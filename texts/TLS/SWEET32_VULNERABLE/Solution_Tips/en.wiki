@@ -1,1 +1,1 @@
-Deactivate [https://www.itwissen.info/Blockchiffre-block-cipher.html Blockchiffren (German only)] with a length of 64 bit.
+Wherever possible, it is best not to use triple DES. Deactivate block ciphers with a block length of 64 bits.

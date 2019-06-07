@@ -1,1 +1,1 @@
-Attackers can easily decode the communication between your web server and your visitor's browser, so-called [https://en.wikipedia.org/wiki/Man-in-the-middle_attack man-in-the-middle-attacks]. In this way, information such as passwords or credit card information can be intercepted and misused for criminal purposes.
+Your server is ready to establish very weak connections, which are vulnerable to Man-in-the-middle attacks. This can be used, for example, to read out passwords or credit card information and misuse them for criminal purposes.

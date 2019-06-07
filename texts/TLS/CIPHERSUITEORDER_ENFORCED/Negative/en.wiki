@@ -1,1 +1,1 @@
-Irresponsible selection of encryption methods
+Irresponsible selection of encryption algorithms

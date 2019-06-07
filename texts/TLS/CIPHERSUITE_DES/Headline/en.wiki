@@ -1,1 +1,1 @@
-Check for DES encryption method
+Check for DES encryption

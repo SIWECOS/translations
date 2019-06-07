@@ -1,1 +1,1 @@
-Responsible selection of encryption methods
+Responsible selection of encryption algorithms

@@ -1,1 +1,1 @@
-Encryption-Method-Client
+Encryption-algorithm

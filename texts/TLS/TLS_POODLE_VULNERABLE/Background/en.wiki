@@ -1,3 +1,1 @@
-Concerning the encrytion, all you really need to do is to deactivate the outdated protocol version SSLv3.
-
-The POODLE attack uses the protocol version negotiation function in [https://en.wikipedia.org/wiki/Transport_Layer_Security SSL/TLS] to force the use of SSLv 3.0, and then it exploits this vulnerability to decrypt selected content within the SSL session. Decryption is carried out byte by byte, and it generates a high number of connections between the client and the server.
+There is a variant of the POODLE attack which also attacks newer TLS versions. This is possible due to an implementation error in the TLS servers.

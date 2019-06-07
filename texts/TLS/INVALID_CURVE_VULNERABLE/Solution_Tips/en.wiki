@@ -1,1 +1,1 @@
-If vulnerability was reported, update your [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS] implementation on your server immediately.
+If vulnerabilities have been reported, immediately install an update to your TLS implementation on your server.  You should also replace your certificate, as it may already have been compromised.

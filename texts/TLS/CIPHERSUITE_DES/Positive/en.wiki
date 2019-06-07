@@ -1,1 +1,1 @@
-Outdated DES encryption method not supported
+Outdated DES encryption not supported

@@ -1,1 +1,1 @@
-If ''vulnerability'' was reported, check your [[Certificate|certificate]] or update your [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS implementation] on your server immediately.
+If ''vulnerability'' has been reported, immediately install an update for your TLS Implementation on your server.

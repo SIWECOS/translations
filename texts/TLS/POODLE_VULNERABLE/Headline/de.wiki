@@ -1,1 +1,1 @@
-Überprüfung auf die Poodle Schwachstelle
+Überprüfung auf die POODLE Schwachstelle

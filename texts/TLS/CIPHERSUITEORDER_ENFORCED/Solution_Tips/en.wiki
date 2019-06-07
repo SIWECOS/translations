@@ -1,1 +1,1 @@
-If ''Irresponsible selection of encryption methods'' was reported, configure your web server so that the web server selects the encryption method that is used for communication between your website and the visitor's web browser.
+If "irresponsible selection of encryption algorithms" has been reported, configure your web server so that your web server determines the encryption algorithms for communication between your web page and the visitor's web browser.

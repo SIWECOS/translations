@@ -1,1 +1,1 @@
-Veraltete [[RC4_Verschlüsselungsmethodik|RC4 Verschlüsselungsmethodik]] unterstützt
+Veraltete RC4 Verschlüsselung unterstützt

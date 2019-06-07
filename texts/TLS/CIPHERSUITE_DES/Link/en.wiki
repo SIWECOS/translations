@@ -1,1 +1,1 @@
-Weak-DES-Encryption-Protocol
+Weak-DES-Encryption

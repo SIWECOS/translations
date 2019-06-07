@@ -1,1 +1,1 @@
-Keine veraltete DES [[Verschlüsselungsmethodik|Verschlüsselungsmethodik]] unterstützt
+Keine veraltete DES [[Verschlüsselung]] unterstützt

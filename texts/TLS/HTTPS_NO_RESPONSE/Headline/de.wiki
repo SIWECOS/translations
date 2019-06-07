@@ -1,1 +1,1 @@
-Überprüfung der Reaktionszeit des Headers
+Überprüfung auf HTTPS-Unterstützung

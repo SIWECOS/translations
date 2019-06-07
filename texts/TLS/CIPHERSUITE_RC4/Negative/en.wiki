@@ -1,1 +1,1 @@
-Outdated [https://en.wikipedia.org/wiki/RC4 RC4] encryption method supported
+Outdated RC4 encryption supported

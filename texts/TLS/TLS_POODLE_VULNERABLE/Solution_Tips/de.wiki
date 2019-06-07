@@ -1,1 +1,1 @@
-Wenn Verwundbarkeit gemeldet wurde, spielen Sie umgehend ein Update für Ihre [[Transport Layer Security|TLS-Implementierung]] auf Ihrem [[Server]] ein. In der Apache-Konfiguration kann man etwa die Zeile "SSLProtocol All -SSLv2 -SSLv3" angeben.
+Wenn Verwundbarkeit gemeldet wurde, spielen Sie umgehend ein Update für Ihre [[Transport Layer Security|TLS-Implementierung]] auf Ihrem [[Server]] ein.

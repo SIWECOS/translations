@@ -1,1 +1,1 @@
-Überprüfung der Client-Verschlüsselungsmethodik
+Überprüfung auf verantwortungsvolle Auswahl von Verschlüsselungsalgorithmen

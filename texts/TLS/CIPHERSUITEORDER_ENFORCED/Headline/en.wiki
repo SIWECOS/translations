@@ -1,1 +1,1 @@
-Check of client encryption method
+Check for responsible selection of encryption algorithms

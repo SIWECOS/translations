@@ -1,1 +1,1 @@
-If ''Outdated RC4 encryption method supported'' was reported, deactivate support for the [https://en.wikipedia.org/wiki/RC4 RC4] encryption method.
+If ''Outdated RC4 encryption supported'' was reported, deactivate support for the RC4 encryption.

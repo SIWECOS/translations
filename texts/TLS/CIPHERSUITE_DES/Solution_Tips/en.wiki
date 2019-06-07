@@ -1,1 +1,1 @@
-If ''Outdated DES encryption method supported'' was reported, deactivate support for the DES encryption method in your web server software.
+If ''Outdated DES encryption supported'' was reported, deactivate support for the DES encryption method in your web server software.

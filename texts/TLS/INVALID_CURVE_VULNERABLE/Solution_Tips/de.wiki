@@ -1,1 +1,1 @@
-Wenn Verwundbarkeit gemeldet wurde, spielen Sie umgehend ein Update für Ihre [[Transport Layer Security|TLS-Implementierung]] auf Ihrem [[Server]] ein.
+Wenn Verwundbarkeite gemeldet wurde, spielen Sie umgehend ein Update für Ihre [[Transport Layer Security|TLS-Implementierung]] auf Ihrem [[Server]] ein.  Sie sollten ebenfalls ihr Zertifikat austauschen, da dieses möglicherweise schon kompromitiert wurde.

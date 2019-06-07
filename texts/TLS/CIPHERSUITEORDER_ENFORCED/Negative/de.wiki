@@ -1,1 +1,1 @@
-Verantwortungslose Auswahl der [[Client-Verschlüsselungsmethodik|Client-Verschlüsselungsmethoden]]
+Verantwortungslose Auswahl von Verschlüsselungsalgorithmen
