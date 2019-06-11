@@ -7,7 +7,7 @@
 Der TLS-Scanner erlaubt es Ihnen, das Verschlüsselungsprotokoll ([[Transport Layer Security|TLS]]) Ihres [[Server|Servers]] auf [[Schwachstellen]] zu überprüfen. Sollten Sie eine veraltete Version einer [[Verschlüsselung]] einsetzen oder sich auf veraltete Verfahren ([https://de.wikipedia.org/wiki/Kryptographisches_Primitiv kryptographische Primitive]) verlassen, wird dies von unserem Scanner erkannt. Des Weiteren ist der TLS-Scanner in der Lage, Probleme mit dem eingesetztem [[Zertifikate|Zertikat]] zu erkennen und über schwache Schlüssellängen und [[Zertifikate#Was_tun.2C_wenn_ein_SSL-Zertifikat_abgelaufen_ist.3F|abgelaufene Zertikate]] zu informieren, welche es einem Angreifer erlauben könnten, die Kommunikation zwischen Ihnen und Ihren Kunden zu entschlüsseln. Außerdem kann der TLS-Scanner Ihre eingesetzte [[Transport Layer Security|TLS-Implementierung]] auf bekannte Angriffe wie [[Man-in-the-middle|Man-in-the-middle Angriff]] ([[Man-in-the-middle|Insecure Renegotiation]]), [[Poodle]] oder [[Heartbleed-Schwachstelle/DE/Background|Heartbleed]] testen. <!--[https://www.siwecos.de/wiki/Kategorie:TLS-Scanner Checks des TLS-Scanners]--> <br />
 
 '''''Generell:'''''
-*[[Reaktionszeit-Ueberschritten/DE | HTTPS-NO-RESPONSE]]<br />
+*[[Antwortzeit-Ueberschritten/DE|HTTPS-NO-RESPONSE]]<br />
 *[[Keine-TLS-Unterstuetzung/DE|HTTPS-NOT-SUPPORTED]]
 '''''Zertifikate'':'''
 *[[Zertifikat-Abgelaufen/DE|CERTIFICATE-EXPIRED]]<br />
@@ -16,11 +16,11 @@ Der TLS-Scanner erlaubt es Ihnen, das Verschlüsselungsprotokoll ([[Transport La
 *[[Schwache-Verschluesselung/DE|CERTIFICATE-WEAK-HASH-FUNCTION]]
 '''''Verschlüsselung'':'''
 *[[Schluesselaustauschverfahren/DE|CIPHERSUITE-ANON]]<br />
-*[[Geschwaechtes-Verschluesselungsprotokoll/DE|CIPHERSUITE-EXPORT]]<br />
+*[[Geschwaechte-Verschluesselung/DE|CIPHERSUITE-EXPORT]]<br />
 *[[Unverschluesselte-Kommunikation/DE|CIPHERSUITE-NULL]]<br />
-*[[Unsichere-RC4-Verschluesselungsmethodik/DE|CIPHERSUITE-RC4]]<br />
-*[[Schwaches-DES-Verschluesselungsprotokoll/DE|CIPHERSUITE-DES]]<br />
-*[[Verschluesselungsmethode-Client/DE|CIPHERSUITEORDER-ENFORCED]]
+*[[Unsichere-RC4-Verschluesselung/DE|CIPHERSUITE-RC4]]<br />
+*[[Schwache-DES-Verschlüsselung/DE|CIPHERSUITE-DES]]<br />
+*[[Verschlüsselungsalgorithmen/DE|CIPHERSUITEORDER-ENFORCED]]
 '''''Protokolle'':'''
 *[[Veraltete-Protokollversion-SSL2/DE|PROTOCOLVERSION-SSL2]]<br />
 *[[Veraltete-Protokollversion-SSL3/DE|PROTOCOLVERSION-SSL3]]<br />
