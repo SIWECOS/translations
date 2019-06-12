@@ -1,1 +1,1 @@
-The server is vulnerable to a [[Heartbleed-Vulnerability/EN|Heartbleed attack]]. As a result, an attacker could read sensitive data from the server's working memory, such as private keys and customer data.
+The server is vulnerable to a Heartbleed attack. As a result, an attacker could read sensitive data from the server's working memory, such as private keys and customer data.
