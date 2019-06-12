@@ -17,6 +17,5 @@ Wenn man seinen eigenen Webserver konfigurieren kann, was bei günstigen Hosting
 
  Header set Content-Security-Policy "default-src 'none'; frame-src 'self'; font-src 'self';img-src 'self' siwecos.de; object-src   'self'; script-src 'self'; style-src 'self';"
 
-Header Scanner
 Hier finden Sie ein Beispiel, wie eine .htaccess-Datei aussehen kann, um einen höheren Wert beim '''Header Scanner''' zu erzielen.
 ([[Htaccess/DE|.htaccess-Beispiel]])

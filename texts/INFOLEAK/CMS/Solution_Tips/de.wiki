@@ -3,8 +3,6 @@ Halten Sie installierte Webserver und das [[Content-Management-System-Gefunden/D
 '''Weiteres Beispiel für WordPress:'''
 Damit Angreifer oder Hacker z. B. nicht direkt die WordPress-Version auslesen können, kann man folgende Codezeile in der Datei '''functions.php''' ganz am Ende einfügen:
 
-'''--snip'''
+<pre>remove_action('wp_head','wp_generator');</pre>
 
-remove_action('wp_head','wp_generator');
 
-'''--snap'''

@@ -1,1 +1,1 @@
-The [[Header/EN|header]] is set correctly and improves the protection of your website against clickjacking attacks.
+The [[Header/EN|Header]] is set correctly and improves protection against framing attacks such as UI redressing and clickjacking.
