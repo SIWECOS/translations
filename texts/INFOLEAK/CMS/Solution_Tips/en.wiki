@@ -3,4 +3,4 @@ Always make sure that installed web servers and the [https://en.wikipedia.org/wi
 '''Further example for WordPress:'''
 In order to prevent attackers or hackers from reading the WordPress version directly, you can add the following line of code at the very end of the file '''functions.php''':
 
-<pre>remove_action('wp_head','wp_generator');</pre>
+ remove_action('wp_head','wp_generator'); 
