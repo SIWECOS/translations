@@ -64,6 +64,7 @@ my $settings= get_config("$Bin/wiki.conf", qw(API WIKI));
 my $mw = MediaWiki::API->new({
     api_url => $settings->{API},
 });
+die "Can't connect to the wiki\n" unless defined $mw;
 #$mw->login( { lgname => $settings->{USER}, lgpassword => $settings->{PASS} } )
 #  || die  $mw->{error}->{details}. ' ('. $mw->{error}->{code} . ')';
 
