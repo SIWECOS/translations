@@ -24,10 +24,6 @@ Der TLS Scanner erlaubt es Ihnen, das Verschlüsselungsprotokoll ([[Transport La
 [[Unsichere-RC4-Verschluesselung/DE|CIPHERSUITE-RC4]]
 [[Schwache-DES-Verschlüsselung/DE|CIPHERSUITE-DES]]
 [[Verschlüsselungsalgorithmen/DE|CIPHERSUITEORDER-ENFORCED]]
-</poem>
-
-<poem>
-'''''Protokoll Versionen'':'''
 [[Veraltete-Protokollversion-SSL2/DE|PROTOCOLVERSION-SSL2]]
 [[Veraltete-Protokollversion-SSL3/DE|PROTOCOLVERSION-SSL3]]
 [[Protokollversion-TLS13-Gefunden/DE|PROTOCOLVERSION-TLS13]]

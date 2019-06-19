@@ -21,13 +21,9 @@ The TLS Scanner allows you to check the encryption protocol ([https://en.wikiped
 [[Key-Exchange-Method/EN|CIPHERSUITE-ANON]]
 [[Weakened-Encryption-Protocol/EN|CIPHERSUITE-EXPORT]]
 [[Unencrypted-Communication/EN|CIPHERSUITE-NULL]]
-[[Insecure-Encryption-Function_RC4/EN] CIPHERSUITE-RC4]
+[[Insecure-Encryption-Function_RC4/EN|CIPHERSUITE-RC4]]
 [[Weak-DES-Encryption/EN|CIPHERSUITE-DES]]
 [[Encryption-algorithm/EN|CIPHERSUITEORDER-ENFORCED]]
-</poem>
-
-<poem>
-'''''Protocol Versions'':'''
 [[Outdated-Protocol-Version-SSL2/EN|PROTOCOLVERSION-SSL2]]
 [[Outdated-Protocol-Version-SSL3/EN|PROTOCOLVERSION-SSL3]]
 [[Protocol-Version-TLS13-Found/EN PROTOCOLVERSION-TLS13]]
