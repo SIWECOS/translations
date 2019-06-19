@@ -26,7 +26,7 @@ The TLS Scanner allows you to check the encryption protocol ([https://en.wikiped
 [[Encryption-algorithm/EN|CIPHERSUITEORDER-ENFORCED]]
 [[Outdated-Protocol-Version-SSL2/EN|PROTOCOLVERSION-SSL2]]
 [[Outdated-Protocol-Version-SSL3/EN|PROTOCOLVERSION-SSL3]]
-[[Protocol-Version-TLS13-Found/EN PROTOCOLVERSION-TLS13]]
+[[Protocol-Version-TLS13-Found/EN|PROTOCOLVERSION-TLS13]]
 </poem>
 
 <poem>
