@@ -1,37 +1,47 @@
+== TLS Scanner ==
 
-<br />
+Der TLS Scanner erlaubt es Ihnen, das Verschlüsselungsprotokoll ([[Transport Layer Security|TLS]]) Ihres [[Server|Servers]] auf [[Schwachstellen]] zu überprüfen. Sollten Sie eine veraltete Version einer [[Verschlüsselung]] einsetzen oder sich auf veraltete Verfahren ([https://de.wikipedia.org/wiki/Kryptographisches_Primitiv kryptographische Primitive]) verlassen, wird dies von unserem Scanner erkannt. Des Weiteren ist der TLS Scanner in der Lage, Probleme mit dem eingesetztem [[Zertifikate|Zertikat]] zu erkennen und über schwache Schlüssellängen und [[Zertifikate#Was_tun.2C_wenn_ein_SSL-Zertifikat_abgelaufen_ist.3F|abgelaufene Zertikate]] zu informieren, welche es einem Angreifer erlauben könnten, die Kommunikation zwischen Ihnen und Ihren Kunden zu entschlüsseln. Außerdem kann der TLS Scanner Ihre eingesetzte [[Transport Layer Security|TLS-Implementierung]] auf bekannte Angriffe wie [[Man-in-the-middle|Man-in-the-middle Angriff]] ([[Man-in-the-middle|Insecure Renegotiation]]), [[Poodle|POODLE]] oder [[Heartbleed-Schwachstelle/DE|Heartbleed]] testen. 
 
-== TLS-Scanner ==
-<br />
+<poem>
+'''''Information:'''''
+[[Antwortzeit-Ueberschritten/DE|HTTPS-NO-RESPONSE]]
+[[Keine-TLS-Unterstuetzung/DE|HTTPS-NOT-SUPPORTED]]
+</poem>
 
-Der TLS-Scanner erlaubt es Ihnen, das Verschlüsselungsprotokoll ([[Transport Layer Security|TLS]]) Ihres [[Server|Servers]] auf [[Schwachstellen]] zu überprüfen. Sollten Sie eine veraltete Version einer [[Verschlüsselung]] einsetzen oder sich auf veraltete Verfahren ([https://de.wikipedia.org/wiki/Kryptographisches_Primitiv kryptographische Primitive]) verlassen, wird dies von unserem Scanner erkannt. Des Weiteren ist der TLS-Scanner in der Lage, Probleme mit dem eingesetztem [[Zertifikate|Zertikat]] zu erkennen und über schwache Schlüssellängen und [[Zertifikate#Was_tun.2C_wenn_ein_SSL-Zertifikat_abgelaufen_ist.3F|abgelaufene Zertikate]] zu informieren, welche es einem Angreifer erlauben könnten, die Kommunikation zwischen Ihnen und Ihren Kunden zu entschlüsseln. Außerdem kann der TLS-Scanner Ihre eingesetzte [[Transport Layer Security|TLS-Implementierung]] auf bekannte Angriffe wie [[Man-in-the-middle|Man-in-the-middle Angriff]] ([[Man-in-the-middle|Insecure Renegotiation]]), [[Poodle]] oder [[Heartbleed-Schwachstelle/DE/Background|Heartbleed]] testen. <!--[https://www.siwecos.de/wiki/Kategorie:TLS-Scanner Checks des TLS-Scanners]--> <br />
-
-'''''Generell:'''''
-*[[Antwortzeit-Ueberschritten/DE|HTTPS-NO-RESPONSE]]<br />
-*[[Keine-TLS-Unterstuetzung/DE|HTTPS-NOT-SUPPORTED]]
+<poem>
 '''''Zertifikate'':'''
-*[[Zertifikat-Abgelaufen/DE|CERTIFICATE-EXPIRED]]<br />
-*[[Zertifikat-Nicht-Gesendet/DE|CERTIFICATE-NOT-SENT-BY-SERVER]]<br />
-*[[Zertifikat-Nicht-Gueltig/DE|CERTIFICATE-NOT-VALID-YET]]<br />
-*[[Schwache-Verschluesselung/DE|CERTIFICATE-WEAK-HASH-FUNCTION]]
+[[Zertifikat-Abgelaufen/DE|CERTIFICATE-EXPIRED]]
+[[Zertifikat-Nicht-Gesendet/DE|CERTIFICATE-NOT-SENT-BY-SERVER]]
+[[Zertifikat-Nicht-Gueltig/DE|CERTIFICATE-NOT-VALID-YET]]
+[[Schwache-Verschluesselung/DE|CERTIFICATE-WEAK-HASH-FUNCTION]]
+</poem>
+
+<poem>
 '''''Verschlüsselung'':'''
-*[[Schluesselaustauschverfahren/DE|CIPHERSUITE-ANON]]<br />
-*[[Geschwaechte-Verschluesselung/DE|CIPHERSUITE-EXPORT]]<br />
-*[[Unverschluesselte-Kommunikation/DE|CIPHERSUITE-NULL]]<br />
-*[[Unsichere-RC4-Verschluesselung/DE|CIPHERSUITE-RC4]]<br />
-*[[Schwache-DES-Verschlüsselung/DE|CIPHERSUITE-DES]]<br />
-*[[Verschlüsselungsalgorithmen/DE|CIPHERSUITEORDER-ENFORCED]]
-'''''Protokolle'':'''
-*[[Veraltete-Protokollversion-SSL2/DE|PROTOCOLVERSION-SSL2]]<br />
-*[[Veraltete-Protokollversion-SSL3/DE|PROTOCOLVERSION-SSL3]]<br />
-*[[Protokollversion-TLS13-Gefunden/DE|PROTOCOLVERSION-TLS13]]<br />
+[[Schluesselaustauschverfahren/DE|CIPHERSUITE-ANON]]
+[[Geschwaechte-Verschluesselung/DE|CIPHERSUITE-EXPORT]]
+[[Unverschluesselte-Kommunikation/DE|CIPHERSUITE-NULL]]
+[[Unsichere-RC4-Verschluesselung/DE|CIPHERSUITE-RC4]]
+[[Schwache-DES-Verschlüsselung/DE|CIPHERSUITE-DES]]
+[[Verschlüsselungsalgorithmen/DE|CIPHERSUITEORDER-ENFORCED]]
+</poem>
+
+<poem>
+'''''Protokoll Versionen'':'''
+[[Veraltete-Protokollversion-SSL2/DE|PROTOCOLVERSION-SSL2]]
+[[Veraltete-Protokollversion-SSL3/DE|PROTOCOLVERSION-SSL3]]
+[[Protokollversion-TLS13-Gefunden/DE|PROTOCOLVERSION-TLS13]]
+</poem>
+
+<poem>
 '''''Angriffe'':'''
-*[[Bleichenbacher-Schwachstelle/DE|BLEICHENBACHER-VULNERABLE]]<br />
-*[[Crime-Schwachstelle/DE|CRIME-VULNERABLE]]<br />
-*[[Heartbleed-Schwachstelle/DE|HEARTBLEED-VULNERABLE]]<br />
-*[[Invalid-Curve-Ephemeral-Schwachstelle/DE|INVALID-CURVE-EPHEMERAL-VULNERABLE]]<br />
-*[[Invalid-Curve-Schwachstelle/DE|INVALID-CURVE-VULNERABLE]]<br />
-*[[PADDING-ORACLE-Schwachstelle/DE|PADDING-ORACLE-VULNERABLE]]<br />
-*[[POODLE-Schwachstelle/DE|POODLE-VULNERABLE]]<br />
-*[[TLS-POODLE-Schwachstelle/DE|TLS-POODLE VULNERABLE]]<br />
-*[[Sweet32-Schwachstelle/DE|SWEET32-VULNERABLE]]<br />
+[[Bleichenbacher-Schwachstelle/DE|BLEICHENBACHER-VULNERABLE]]
+[[Crime-Schwachstelle/DE|CRIME-VULNERABLE]]
+[[Heartbleed-Schwachstelle/DE|HEARTBLEED-VULNERABLE]]
+[[Invalid-Curve-Ephemeral-Schwachstelle/DE|INVALID-CURVE-EPHEMERAL-VULNERABLE]]
+[[Invalid-Curve-Schwachstelle/DE|INVALID-CURVE-VULNERABLE]]
+[[PADDING-ORACLE-Schwachstelle/DE|PADDING-ORACLE-VULNERABLE]]
+[[POODLE-Schwachstelle/DE|POODLE-VULNERABLE]]
+[[TLS-POODLE-Schwachstelle/DE|TLS-POODLE VULNERABLE]]
+[[Sweet32-Schwachstelle/DE|SWEET32-VULNERABLE]]
+</poem>
