@@ -63,6 +63,5 @@ Some widely used elements are:
 |}
 
 [[Category:Sicherheitstipps]]
-[[Category:Was_ist_Was]]
 [[Category:Glossar]]
 [[Category:FAQ]]
