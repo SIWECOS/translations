@@ -15,9 +15,9 @@ use constant ONE_LINE  => 1;
 use constant NOT_EMPTY => 2;
 
 
-my %TOPICS= (
-    Category      => NOT_EMPTY,
+my @TOPICS= (
     Headline      => ONE_LINE,
+    Category      => NOT_EMPTY,
     Description   => NOT_EMPTY,
     Background    => NOT_EMPTY,
     Consequence   => NOT_EMPTY,
@@ -26,6 +26,11 @@ my %TOPICS= (
     Negative      => NOT_EMPTY,
     Positive      => NOT_EMPTY,
 );
+my %TOPICS= @TOPICS;
+@TOPICS= do { # filter just topic names
+    my $i=0;
+    grep { ++$i & 1 } @TOPICS;
+};
 
 sub new {
     my($class, $id, $content)= @_;
@@ -133,6 +138,21 @@ sub write {
     }
     foreach my $topic (keys %TOPICS) {
         $self->topic($topic)->write($dirname) or return undef;
+    }
+    return 1;
+}
+
+sub write_md {
+    my($self, $filehandle, $language)= @_;
+    if (not defined fileno $filehandle) {
+        carp "Not a filehandle";
+        return undef;
+    }
+    print $filehandle
+        "\n## ",$self->id,"\n",
+        ;
+    foreach my $topic (@TOPICS) {
+        $self->topic($topic)->write_md($filehandle, $language) or return undef;
     }
     return 1;
 }

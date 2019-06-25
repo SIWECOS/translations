@@ -44,15 +44,18 @@ sub validate {
 sub result {
     my($self, $content)= @_;
     my $type= ref $content;
-    if ($type eq 'SIWECOS::Text') {
-        my $result_id= $content->id;
-        $self->{results}{$result_id}= $content;
-        ++$self->{languages}{$_} foreach ($content->languages);
-    } else {
-        carp "Cannot add object of type $type as a result";
-        return undef;
+    if ($type) {
+        if ($type eq 'SIWECOS::Text') {
+            my $result_id= $content->id;
+            $self->{results}{$result_id}= $content;
+            ++$self->{languages}{$_} foreach ($content->languages);
+        } else {
+            carp "Cannot add object of type $type as a result";
+            return undef;
+        }
+        return $content;
     }
-    return $self;
+    return $self->{results}{$content};
 }
 
 sub results {
@@ -100,6 +103,21 @@ sub write {
     }
     foreach my $result (values %{$self->results}) {
         $result->write($dirname) or return undef;
+    }
+    return 1;
+}
+
+sub write_md {
+    my($self, $filehandle, $language)= @_;
+    if (not defined fileno $filehandle) {
+        carp "Not a filehandle";
+        return undef;
+    }
+    print $filehandle
+        "\n## ",$self->id,"\n",
+        ;
+    foreach my $result_id (sort keys %{$self->results}) {
+        $self->result($result_id)->write_md($filehandle, $language) or return undef;
     }
     return 1;
 }

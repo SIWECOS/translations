@@ -145,6 +145,19 @@ sub write {
     return 1;
 }
 
+sub write_md {
+    my($self, $filehandle, $language)= @_;
+    if (not defined fileno $filehandle) {
+        carp "Not a filehandle";
+        return undef;
+    }
+    print $filehandle
+        "\n### ",$self->id,"\n",
+        "\n",
+        trim($self->text($language) || ''),"\n",
+        ;
+    return 1;
+}
 
 sub dircheck {
     my($dirname, $check_write) = @_;
@@ -161,6 +174,12 @@ sub dircheck {
         return "Cannot access directory: $dirname";
     }
     return '';
+}
+
+sub trim {
+    local($_)= @_;
+    s/[\s\012\015]+$//s;
+    return $_;
 }
 
 1;

@@ -4,6 +4,7 @@ use strict;
 use warnings;
 use Carp;
 use File::Basename;
+use SIWECOS::Markdown;
 use SIWECOS::Text;
 use SIWECOS::Text::Scanner::Test;
 use SIWECOS::Text::Scanner::Results;
@@ -58,22 +59,26 @@ sub _initialize {
 sub test {
     my($self, $test) = @_;
     my $type= ref $test;
-    my $id= $self->{id};
-    if ($type ne 'SIWECOS::Text::Scanner::Test') {
-        carp "Cannot add object of type $type as a test to $id";
-        return undef;
+    if ($type) {
+        my $id= $self->id;
+        if ($type ne 'SIWECOS::Text::Scanner::Test') {
+            carp "Cannot add object of type $type as a test to $id";
+            return undef;
+        }
+        my $testid= $test->id;
+        if (defined $testid) {
+            $self->{tests}{$test->id}= $test;
+        } else {
+            carp "Cannot add a test without id to $id";
+            return undef;
+        }
+        while (my($language, $count) = each %{$test->languages}) {
+            $self->{languages}{$language}+= $count;
+        }
+        $test->languages($self->{languages});
+        return $test;
     }
-    my $testid= $test->id;
-    if (defined $testid) {
-        $self->{tests}{$test->id}= $test;
-    } else {
-        carp "Cannot add a test without id to $id";
-        return undef;
-    }
-    while (my($language, $count) = each %{$test->languages}) {
-        $self->{languages}{$language}+= $count;
-    }
-    $test->languages($self->{languages});
+    return $self->{tests}{$test}
 }
 
 sub results {
@@ -167,10 +172,101 @@ sub write {
         carp $check;
         return undef;
     }
-    $self->name->write($dirname) or return undef;
-    $self->results->write($dirname) or return undef;
-    foreach (values %{$self->tests}) {
-        $_->write($dirname) or return undef;
+    if ($self->name) {
+        $self->name->write($dirname) or return undef;
+    }
+    if ($self->results) {
+        $self->results->write($dirname) or return undef;
+    }
+    if ($self->tests) {
+        foreach (values %{$self->tests}) {
+            $_->write($dirname) or return undef;
+        }
+    }
+    return 1;
+}
+
+sub read_md {
+    my($class, $filename)= @_;
+    $class= ref $class || $class;
+    my $filehandle;
+    my $file_name_id= basename $filename;
+    $file_name_id=~ s/\.(\w+)\.md$//;
+    my $language= $1;
+    if (not defined $language) {
+        carp "Wrong filename $filename: extension '.LANGUAGE.md' missing.";
+        return undef;
+    }
+    my $markdown= SIWECOS::Markdown::read($filename);
+    return undef unless $markdown;
+    if (1 != scalar @$markdown) {
+        carp "Wrong structure in $filename. Too many headlines at level 1.";
+        return undef;
+    }
+    $markdown= $markdown->[0];
+    my $id= $markdown->{headline};
+    if ($id ne $file_name_id) {
+        carp "Warning: $file_name_id does not match $id.";
+    }
+    my $self= $class->new( $id );
+    $self->name({ 
+        $language => $markdown->{text}
+    });
+    foreach my $content (@{$markdown->{content}}) {
+        my $id= $content->{headline};
+        if ($id eq '_RESULTS') {
+            my $results= SIWECOS::Text::Scanner::Results->new();
+            foreach my $result (@{$content->{content}}) {
+                my $text= SIWECOS::Text->new(
+                    $result->{headline},
+                    {$language => $result->{text},},
+                );
+                $results->result($text);
+            }
+            $self->results($results);
+        } else {
+             my $test= SIWECOS::Text::Scanner::Test->new($id);
+            foreach my $topic (@{$content->{content}}) {
+                my $text= SIWECOS::Text->new(
+                    $topic->{headline},
+                    {$language => $topic->{text},},
+                );
+                $test->topic($text);
+            }
+            $self->test($test);
+        }
+    }
+    return $self;
+}
+
+sub write_md {
+    my($self, $dirname)= @_;
+    my $id= $self->{id};
+    if (my $check= SIWECOS::Text::dircheck($dirname, 1)) {
+        carp $check;
+        return undef;
+    }
+    foreach my $language ($self->languages) {
+        my $filename= "$dirname/$id.$language.md";
+        my $filehandle;
+        if (not open $filehandle, '>:utf8', $filename) {
+            carp "Cannot write to $filename: $!";
+            return undef;
+        }
+        print $filehandle 
+            "\n# ",$self->id,"\n",
+            "\n",
+            SIWECOS::Text::trim($self->name->text($language)),"\n",
+            ;
+        if ($self->tests) {
+            foreach my $testname (sort keys %{$self->tests}) {
+                $self->test($testname)->write_md($filehandle, $language) or return undef;
+            }
+        }
+        if ($self->results) {
+            $self->results->write_md($filehandle, $language);
+        }
+        close $filehandle;
     }
     return 1;
 }
@@ -178,13 +274,22 @@ sub write {
 sub validate {
     my ($self)= @_;
     my $id= $self->{id};
-    my @issues;
-    warn "$id: $_\n" foreach (
+    my $issues=0;
+    foreach (
         $self->name->check_one_line,
         $self->name->missing_translations(sort keys %{$self->{languages}}),
         $self->{results}->validate,
         map $_->validate, values %{$self->{tests}},
-    );
+    ) {
+        ++$issues;
+        warn "$id: $_\n" 
+    }
+    return $issues;
+}
+
+sub languages {
+    my($self)= @_;
+    return keys %{$self->{languages}};
 }
 
 1;
