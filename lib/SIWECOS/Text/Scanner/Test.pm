@@ -91,13 +91,13 @@ sub topic {
             $self->{topics}{$topic}= $content;
             ++$self->{languages}{$_} foreach ($content->languages);
         }
+        return $content;
     } elsif ($type) {
         carp "Cannot add object of type $type as a topic to $id";
             return undef;
     } else {
         return $self->{topics}{$content};
     }
-    return $content;
 }
 
 sub id {
