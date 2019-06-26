@@ -1,3 +1,0 @@
-There is both a header check and a check of the META tags. Please specify both variables in the technical overview.
-
-The HEADER check may be more secure than the META tag element.

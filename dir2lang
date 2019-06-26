@@ -26,14 +26,11 @@ use MediaWiki::API;
 use Config::Simplest;
 use File::Basename;
 use File::Path qw(make_path);
-use utf8;
+use SIWECOS::Text::SCANNER;
 
 my $EXT='.wiki';
-my $SCANNER_NAME= 'SCANNER_NAME';
-my $RESULTS= 'RESULTS';
 $|= 1;
 
-binmode(STDOUT, ":utf8");
 my $settings= get_config("$Bin/wiki.conf", qw(WIKI API));
 my $config= get_config("$Bin/siwecos.conf");
 
@@ -147,114 +144,43 @@ if ( not -d $lang_dir ) {
 die "Can't write to $lang_dir.\n"
     unless -w $lang_dir;
 
-my %LANGUAGES;
-my %test_translations;
-my %translations;
-my %scanners;
-my $warning= 0;
 my $specific= '*';
 if (@ARGV) {
     $specific= '{' . join(",", splice(@ARGV)) . '}';
 }
+
+my @scanners;
+my $all_okay= 1;
+my %languages;
 foreach my $dir (glob("$TRANSLATIONS/$specific")) {
-    my $scanner= basename $dir;
-    ++$scanners{$scanner};
-    print "$scanner\n" if $verbose;
-    foreach my $dir (glob("$dir/*")) {
-        my $test= basename $dir;
-        print "  $test\n" if $verbose;
-        # Special cases _$RESULTS an _$SCANNER_NAME
-        if ($test=~ /^_/) {
-            #
-            # _$SCANNER_NAME
-            #
-            if ($test eq "_$SCANNER_NAME") {
-                my $text= read_text($dir);
-                if (ref $text) {
-                    $translations{$scanner}{$SCANNER_NAME}= $text;
-                } else {
-                    ++$warning;
-                    warn "$text\n";
-                }
-            #
-            # _$RESULTS
-            #
-            } else {
-                foreach my $dir (glob("$dir/*")) {
-                    my $textname= basename $dir;
-                    my $text= read_text($dir);
-                    if (ref $text) {
-                        $translations{$scanner}{$textname}= $text;
-                    } else {
-                        ++$warning;
-                        warn "$text\n";
-                    }
-                }
-            }
-        } else {
-            #
-            # TESTS
-            #
-            foreach my $purpose (@PURPOSES) {
-                my $text= read_text("$dir/$purpose");
-                if (ref $text) {
-                    $test_translations{$scanner}{$test}{$purpose}= $text;
-                } else {
-                    ++$warning;
-                    warn "$text\n";
-                }
-            }
-        }
-    }
-}
-my @LANGUAGES= sort keys %LANGUAGES;
-
-die "Too many errors.\n" if $warning;
-
-# Check missing translations
-my @scanners= sort keys %scanners;
-my $count= 0;
-foreach my $scanner (@scanners) {
-    # Data structure is
-    # test_translations {scanner} -> {test} -> {purpose} -> {language} -> text|location
-    foreach my $test (sort keys %{$test_translations{$scanner}}) {
-        foreach my $purpose (@PURPOSES) {
-            foreach my $lang (@LANGUAGES) {
-                ++$count;
-                next if exists $test_translations{$scanner}{$test}{$purpose}{$lang}{text};
-                ++$warning;
-                warn "No $lang translation for $scanner/$test/$purpose\n";
-            }
-        }
-    }
-    # Data structure is
-    # translations {scanner} -> {textname} -> {language} -> text|location
-    foreach my $textname (sort keys %{$translations{$scanner}}) {
-        foreach my $lang (@LANGUAGES) {
-            ++$count;
-            next if exists $translations{$scanner}{$textname}{$lang}{text};
-            ++$warning;
-            if ($textname eq $SCANNER_NAME) {
-                warn "No $lang translation for $scanner/_$SCANNER_NAME\n";
-            } else {
-                warn "No $lang translation for $scanner/_$RESULTS/$textname\n";
-            }
-        }
+    print "$dir\n";
+    my $scanner= SIWECOS::Text::Scanner->read($dir);
+    if ($scanner) {
+        $all_okay&&= $scanner->validate == 0;
+        push @scanners, $scanner;
+        ++$languages{$_} foreach ($scanner->languages)
+    } else {
+        warn "Issues with $dir\n";
     }
 }
 
-die "Too many errors.\n" if $warning;
-
-# We need to use the wiki now
 my $mw = MediaWiki::API->new({
     api_url => $settings->{API},
 });
 
-my $done= 0;
 my $standard_prepare= $PREPARE{$HEADLINE};
+my $warning= 0;
 foreach my $scanner (@scanners) {
-    foreach my $lang (@LANGUAGES) {
-        print "\rScanner $scanner, $lang\n" if $verbose;
+    my %missing_language;
+    @missing_language{keys %languages}= ();
+    delete @missing_language{ $scanner->languages};
+    my $scanner_name= $scanner->id;
+    foreach my $lang (keys %languages) {
+        if ($missing_language{$lang}) {
+            print "\rScanner $scanner_name: No translation for $lang\n";
+            next;
+        }
+        print "\rScanner $scanner_name, $lang\n" if $verbose;
         my $output= '';
         # go through the template, line by line
         foreach (@template) {
@@ -264,49 +190,41 @@ foreach my $scanner (@scanners) {
                 # Remember the indent
                 my $indent= $1;
                 # SCANNER_NAME COMES FIRST!
-                my $textname= $SCANNER_NAME;
-                my $text= $translations{$scanner}{$textname}{$lang}{text};
-                my $location= $translations{$scanner}{$textname}{$lang}{location};
+                my $textname= $scanner_name;
+                my $text= $scanner->name->text($lang);
                 if (defined $text) {
-                    update_percent(\$done,$count);
                     $output.= "$indent// These are the $lang texts for\n";
                     if( $standard_prepare ){
-                        ($text, $err)= $standard_prepare->($mw, $text, $location, $lang);
+                        ($text, $err)= $standard_prepare->($mw, $text, "Name of $scanner_name", $lang);
                     }
                     $output.= qq:$indent'$textname' => '$text',\n\n:;
                     $warning+= $err;
                     # Data structure is
-                    # test_translations {scanner} -> {test} -> {purpose} -> {language}
-                    foreach my $test (sort keys %{$test_translations{$scanner}}) {
-                        next if $test eq $SCANNER_NAME;
-                        $output.= "$indent// Test: $test\n";
-                        foreach my $purpose (@SEQUENCE) {
-                            my $text= $test_translations{$scanner}{$test}{$purpose}{$lang}{text};
-                            my $location= $test_translations{$scanner}{$test}{$purpose}{$lang}{location};
-                            my $prepare= $PREPARE{$purpose};
-                            update_percent(\$done,$count);
+                    foreach my $testname (sort keys %{$scanner->tests}) {
+                        my $test= $scanner->test($testname);
+                        $output.= "$indent// Test: $testname\n";
+                        foreach my $topic (@SEQUENCE) {
+                            my $text= $test->topic($topic)->text($lang);
+                            my $prepare= $PREPARE{$topic};
                             if( $prepare ){
-                                ($text, $err)= $prepare->($mw, $text, $location, $lang);
+                                ($text, $err)= $prepare->($mw, $text, "$scanner_name: $testname: $topic", $lang);
                             }
-                            my $suffix= uc $purpose;
+                            my $suffix= uc $topic;
                             my $fillstring= ' ' x ($fill - length $suffix);
-                            $output.= qq:$indent'${test}_$suffix'$fillstring => '$text',\n:;
+                            $output.= qq:$indent'${testname}_$suffix'$fillstring => '$text',\n:;
                             $warning+= $err;
                         }
                         $output.= "\n";
                     }
                     $output.= "$indent// Result texts follow\n";
                 }
-                # Data structure is
-                # translations {scanner} -> {textname} -> {language}
-                my $maxlen= maxlen (keys %{$translations{$scanner}});
-                foreach my $textname (sort keys %{$translations{$scanner}}) {
-                    next if $textname eq $SCANNER_NAME;
-                    my $text= $translations{$scanner}{$textname}{$lang}{text};
-                    my $location= $translations{$scanner}{$textname}{$lang}{location};
-                    update_percent(\$done,$count);
+                my $all_results= $scanner->results;
+                my @resultnames= sort keys %{$all_results->results};
+                my $maxlen= maxlen (@resultnames);
+                foreach my $textname (@resultnames) {
+                    my $text= $all_results->result($textname)->text($lang);
                     if( $standard_prepare ){
-                        ($text, $err)= $standard_prepare->($mw, $text, $location, $lang);
+                        ($text, $err)= $standard_prepare->($mw, $text, "$scanner_name: Resulttext $textname", $lang);
                     }
                     my $fillstring= ' ' x ($maxlen - length $textname);
                     $output.= qq:$indent'$textname'$fillstring => '$text',\n:;
@@ -322,7 +240,7 @@ foreach my $scanner (@scanners) {
                 make_path("$lang_dir/$lang") or
                     die "Cannot create $lang_dir/$lang: $!\n";
             }
-            my $outfilename= "$lang_dir/$lang/$scanner.php";
+            my $outfilename= "$lang_dir/$lang/$scanner_name.php";
             print "Writing $outfilename\n" if $verbose;
             open my $out, '>:utf8', $outfilename
                 or die "Failed to create $outfilename: $!\n";
@@ -338,12 +256,6 @@ print $/ unless $verbose;
 # done
 exit $warning;
 
-sub update_percent {
-    my($done, $max)= @_;
-    ++$$done;
-    printf "\r%5.1f%% ", $$done*100/$max;
-}
-
 sub maxlen {
     my $fill= 0;
     foreach ( @_ ) {
@@ -351,28 +263,6 @@ sub maxlen {
         $fill= $l if $l > $fill;
     }
     return $fill;
-}
-
-sub read_text {
-    my($path)= @_;
-    return "Missing $path" unless -d $path;
-    return "Can't read $path" unless -r $path;
-    my $result;
-    foreach my $file (glob("$path/??$EXT")) {
-        my $lang= lc basename $file, $EXT;
-        ++$LANGUAGES{$lang};
-        $result||= {};
-        $result->{$lang}{location}= $file;
-        open my $in, '<:utf8', $file
-            or return "Can't read $file";
-        $result->{$lang}{text}= do { local $/; <$in>; };
-        close $in;
-        for ($result->{$lang}) {
-            s/[\012\015]+$//s;
-            s/[ \t]+$//gm;
-        }
-    }
-    return $result || "No translations in $path";
 }
 
 sub parse_wiki {
@@ -476,3 +366,50 @@ sub replace_target {
     $a=~ s/(?<=\btarget=)(["'']).*?\1/$1$target$1/g;
     return $a;
 }
+
+__DATA__
+
+
+# We need to use the wiki now
+my $done= 0;
+my $standard_prepare= $PREPARE{$HEADLINE};
+foreach my $scanner (@scanners) {
+
+
+sub update_percent {
+    my($done, $max)= @_;
+    ++$$done;
+    printf "\r%5.1f%% ", $$done*100/$max;
+}
+
+sub maxlen {
+    my $fill= 0;
+    foreach ( @_ ) {
+        my $l= length $_;
+        $fill= $l if $l > $fill;
+    }
+    return $fill;
+}
+
+sub read_text {
+    my($path)= @_;
+    return "Missing $path" unless -d $path;
+    return "Can't read $path" unless -r $path;
+    my $result;
+    foreach my $file (glob("$path/??$EXT")) {
+        my $lang= lc basename $file, $EXT;
+        ++$LANGUAGES{$lang};
+        $result||= {};
+        $result->{$lang}{location}= $file;
+        open my $in, '<:utf8', $file
+            or return "Can't read $file";
+        $result->{$lang}{text}= do { local $/; <$in>; };
+        close $in;
+        for ($result->{$lang}) {
+            s/[\012\015]+$//s;
+            s/[ \t]+$//gm;
+        }
+    }
+    return $result || "No translations in $path";
+}
+

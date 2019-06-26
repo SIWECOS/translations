@@ -1,111 +1,76 @@
 #!/usr/bin/perl
+=head1 NAME
+
+md2dir - Convert SIWECOS Markdown files into directory structure.
+
+=head1 SYNOPSIS
+
+B<md2dir> [MARKDOWNFILE…]
+
+B<md2dir> B<--help>|B<--man>
+
+=head1 Description
+
+md2dir will take each markdown file and put its content into SIWECOS' directory structure.
+
+Markdownfiles have to have an extension of the form ".LANGUAHGE.md" where LANGUAGE
+is the two-letter languagecode.
+
+=cut
 use strict;
 use warnings;
-use File::Path qw(make_path);
-my $TRANSLATIONS= 'texts';
+use FindBin qw($Bin $Script);
+use Getopt::Long qw(:config no_ignore_case);
+use Pod::Usage;
+use lib "$Bin/lib";
+use SIWECOS::Text::Scanner;
 
-use open ":std", ":encoding(utf8)";
+=head1 options
 
-my $scanner; # '# scanner name'
-my $test;    # '## test name' | '## _RESULTS'
-my $purpose; # '### purpose'  | '### translationStringId'
-my $text;
-my $scanner_name;
+=over 4
 
-my %PURPOSES= (
-  Background    => 1,
-  Category      => 1,
-  Consequence   => 1,
-  Description   => 1,
-  Headline      => 1,
-  Link          => 1,
-  Negative      => 1,
-  Positive      => 1,
-  Solution_Tips => 1,
+=item B<--force>
+
+=cut
+
+my $force;
+
+=item B<-f>
+
+Write output files even if validation failed.
+
+=cut
+
+help() unless GetOptions(
+    'f|force'    => \$force,
+    'h|help'     => \&help,
+    'm|man'      => \&man,
 );
 
-my $language;
-while (<>) {
-  last unless defined $_;
-  tr/\015\012//d;
-  next if /^\s*$/ and not defined $text;
+=item B<--help>
 
-  if (/^#\s+(.*?)\s*$/) { # Neuer Scanner
-    my $s=$1;
-    write_text($language, $scanner, $test, $purpose, $text);
-    $language= get_language($ARGV);
-    $scanner= $s;
-    undef $test;
-    undef $purpose;
-    undef $text;
-    next;
-  }
+short help page
 
-  if (/^##\s+(.*?)\s*$/) { ## Neuer Test
-    do_die( "Test »$1« ohne Scanner.\n" ) unless $scanner;
-    my $t= $1;
-    write_text($language, $scanner, $test, $purpose, $text);
-    $test= $t;
-    undef $purpose;
-    undef $text;
-    next;
-  }
+=item B<--man>
 
-  if (/^###\s+(.*?)\s*$/) { ### Neuer Purpose
-    do_die( "Verwendungszweck »$1« ohne Test.\n" ) unless $test;
-    do_die( "Unbekannter Verwendungszweck »$1«.\n") if $test ne "_RESULTS" and not defined $PURPOSES{$1};
-    my $p= $1;
-    write_text($language, $scanner, $test, $purpose, $text);
-    $purpose= $p;
-    $text= '';
-    next;
-  }
+show man page
 
-  if (not defined $scanner_name) {
-    $scanner_name= $_;
-    next;
-  }
+=back
 
-  do_die ("Text ohne Zuordnung.\n") unless $purpose;
-  
-  $text.= $_."\n";
-} continue {
-  if (eof) {
-    write_text($language, $scanner, $test, $purpose, $text);
-    write_text($language, $scanner, '_SCANNER_NAME', '', $scanner_name);
-    close ARGV; # Line Number reset
-    undef $scanner;
-    undef $scanner_name;
-    undef $test;
-    undef $purpose;
-    undef $text;
-  }
-}
+=cut
 
-sub do_die {
-  die "Fehler in Zeile $. von $ARGV: ".join("", @_);
-}
+sub help { pod2usage(-verbose=>1); }
+sub man  { pod2usage(-verbose=>2); }
 
-sub write_text {
-  my($language, $scanner, $test, $purpose, $text)= @_;
-  return unless defined $text;
-  my $path= "$TRANSLATIONS/$scanner/$test/$purpose";
-  my $filename= "$path/$language.wiki";
-  do_die("Kein Text für $filename") unless $text;
-  for ($text) {
-    s/^[ \t]*\n//s;
-    do {
-      s/\n[ \t]*\n$/\n/s;
-    } while (s/\n- -(?: -)+$//s or s/\n---+$//s)
-  }
-  die unless defined make_path($path);
-  open my $out, '>', $filename or die "Can't create $filename: $!\n";
-  print $out $text;
-  close $out;
-}
+# Location and names of some directories / files
+# $Bin = absolute path of this script
+# $Script = filename of this script
+my $TRANSLATIONS= "$Bin/texts";
 
-sub get_language {
-  my($fname)= @_;
-  die("$fname: Keine Sprachkennzeichnung (XXX.de.md | XXX.en.md | …|)\n") unless $fname=~ /\.(..)\.md$/;
-  return $1;
+foreach my $file (@ARGV) {
+    print $file,"\n";
+    my $scanner= SIWECOS::Text::Scanner->read_md($file);
+    if ($scanner->validate == 0 or $force) {
+        $scanner->write($TRANSLATIONS);
+    }
 }

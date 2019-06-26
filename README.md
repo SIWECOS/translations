@@ -181,7 +181,7 @@ Mit diesen Scripten lassen sich die Dateien in Markdown Dateien konvertieren.
 Die Markdown Dateien haben einen vereinfachten Aufbau und beinhalten sämtliche
 Texte für einen Scanner. Sie fassen also den Inhalt eines Scannerverzeichnisses
 in einer Datei pro Sprache zusammen. Die erzeugten Dateien haben den Namen
-*`scannerbezeichner`*-texts.*`sprachkürzel`*.md
+*`scannerbezeichner`*.*`sprachkürzel`*.md
 
 ### `dir2po` **in Arbeit**
 

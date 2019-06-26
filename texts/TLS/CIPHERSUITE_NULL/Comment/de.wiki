@@ -1,1 +1,0 @@
-Bei Auswirkung: Wenn NULL [[Cipher Suite|Cipher Suites]] verwendet, wird gar nicht verschlüsselt. Das hat die Folge, dass man die Daten wortwörtlich direkt mitlesen kann.

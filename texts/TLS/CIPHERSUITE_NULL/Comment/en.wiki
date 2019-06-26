@@ -1,1 +1,0 @@
-In Consequence: If NULL [https://en.wikipedia.org/wiki/Cipher_suite cipher suites] are used, there is no encryption at all. This means that the data can be read directly, word for word.

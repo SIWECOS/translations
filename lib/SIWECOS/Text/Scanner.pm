@@ -11,13 +11,7 @@ use SIWECOS::Text::Scanner::Results;
 
 our $VERSION = '0.0.1';
 
-# id => id
-# name => SIWECOS::Text
-# tests => \%tests
-# results => \%results
-# 
-# my $scannertext= SIWECOS::Text::Scanner->new( $name );
-# 
+our $LINE_BEFORE_TESTS_IN_MD= "\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
 
 sub new {
     my($class, $id, @content)= @_;
@@ -40,16 +34,16 @@ sub _initialize {
     my $success= 1;
     foreach my $content (@content) {
         my $type= ref $content;
-        if ($type eq 'SIWECOS::Text' or $type eq 'HASH') {
-            next if $self->name($content);
-        } 
         if ($type eq 'SIWECOS::Text::Scanner::Test') {
             next if $self->test($content);
-        } 
-        if ($type eq 'SIWECOS::Text::Scanner::Results') {
+        } elsif ($type eq 'SIWECOS::Text::Scanner::Results') {
             next if $self->results($content);
-        } else {
+        } elsif ($type eq 'SIWECOS::Text' or $type eq 'HASH') {
+            next if $self->name($content);
+        } elsif ($type) {
             carp "Cannot add object of type $type to $id";
+        } else {
+            carp "Cannot add $content to $id";
         }
         undef $success;
     }
@@ -209,9 +203,12 @@ sub read_md {
         carp "Warning: $file_name_id does not match $id.";
     }
     my $self= $class->new( $id );
-    $self->name({ 
-        $language => $markdown->{text}
-    });
+    my $name_text= SIWECOS::Text::trim($markdown->{text});
+    if ( $name_text ne '' ) {
+        $self->name({ 
+            $language => $name_text
+        });
+    }
     foreach my $content (@{$markdown->{content}}) {
         my $id= $content->{headline};
         if ($id eq '_RESULTS') {
@@ -254,16 +251,24 @@ sub write_md {
             return undef;
         }
         print $filehandle 
-            "\n# ",$self->id,"\n",
+            "\n# ",$self->id,"\n";
+        print $filehandle 
             "\n",
-            SIWECOS::Text::trim($self->name->text($language)),"\n",
-            ;
+            SIWECOS::Text::trim($self->name->text($language)),"\n"
+            if ($self->name);
+        my $count_level2= 0;
         if ($self->tests) {
             foreach my $testname (sort keys %{$self->tests}) {
+                if ($count_level2++ and $LINE_BEFORE_TESTS_IN_MD) {
+                    print $filehandle $LINE_BEFORE_TESTS_IN_MD;
+                }
                 $self->test($testname)->write_md($filehandle, $language) or return undef;
             }
         }
         if ($self->results) {
+            if ($count_level2++ and $LINE_BEFORE_TESTS_IN_MD) {
+                print $filehandle $LINE_BEFORE_TESTS_IN_MD;
+            }
             $self->results->write_md($filehandle, $language);
         }
         close $filehandle;
@@ -274,17 +279,21 @@ sub write_md {
 sub validate {
     my ($self)= @_;
     my $id= $self->{id};
-    my $issues=0;
-    foreach (
-        $self->name->check_one_line,
-        $self->name->missing_translations(sort keys %{$self->{languages}}),
-        $self->{results}->validate,
-        map $_->validate, values %{$self->{tests}},
-    ) {
-        ++$issues;
-        warn "$id: $_\n" 
+    my @issues;
+    if ($self->name) {
+        push @issues,
+            $self->name->check_one_line,
+            $self->name->missing_translations(sort keys %{$self->{languages}});
+        if ($self->{results}) {
+            push @issues,
+                $self->{results}->validate
+        }
     }
-    return $issues;
+    if ($self->{tests}) {
+        push @issues, $_->validate foreach (values %{$self->{tests}});
+    }
+    warn "$id: $_\n" foreach (@issues);
+    return scalar @issues;
 }
 
 sub languages {
