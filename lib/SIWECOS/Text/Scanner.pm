@@ -274,17 +274,21 @@ sub write_md {
 sub validate {
     my ($self)= @_;
     my $id= $self->{id};
-    my $issues=0;
-    foreach (
-        $self->name->check_one_line,
-        $self->name->missing_translations(sort keys %{$self->{languages}}),
-        $self->{results}->validate,
-        map $_->validate, values %{$self->{tests}},
-    ) {
-        ++$issues;
-        warn "$id: $_\n" 
+    my @issues;
+    if ($self->name) {
+        push @issues,
+            $self->name->check_one_line,
+            $self->name->missing_translations(sort keys %{$self->{languages}});
+        if ($self->{results}) {
+            push @issues,
+                $self->{results}->validate
+        }
     }
-    return $issues;
+    if ($self->{tests}) {
+        push @issues, $_->validate foreach (values %{$self->{tests}});
+    }
+    warn "$id: $_\n" foreach (@issues);
+    return scalar @issues;
 }
 
 sub languages {
