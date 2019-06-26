@@ -47,34 +47,41 @@ sub read {
         }
     }
     close $filehandle;
-    my $result= {};
-    $level= 0;
-    my @stack= ( );
+    my @stack= ( { headline =>'BOS', comtent => [] } );
     foreach (@content) {
-        $_->{text}=~ s/^[\t ]*[\012\015]*\z//m;
+        my $level= $#stack;
+        $_->{text}= trim($_->{text});
+        #delete $_->{text}; # was used for debugging
+        $_->{content}= [];
         if ($_->{level} > $level) {
-            push @stack, $result;
-            $result->{content}= [ $_ ];
-            $result= $_;
-            $level= $_->{level};
+            push @{$stack[-1]{content}}, $_;
+            push @stack, $_;
         } elsif ($_->{level} == $level) {
-            $result= $stack[-1];
-            push @{$result->{content}}, $_;
-            $result= $_;
+            my $tos= pop @stack;
+            delete $tos->{content} if 0 == scalar @{$tos->{content}};
+            push @{$stack[-1]{content}}, $_;
+            push @stack, $_;
         } else {
             while ($_->{level} <= $level ) {
-                $result= pop @stack;
-                $level= scalar @stack;
+                my $tos= pop @stack;
+                delete $tos->{content} if 0 == scalar @{$tos->{content}};
+                $level= $#stack;
             }
-            push @{$result->{content}}, $_;
-            $result= $_;
+            push @{$stack[-1]{content}}, $_;
+            push @stack, $_;
         }
     }
-    return ($stack[0] || $result)->{content};
+    my $tos;
+    while (scalar @stack) {
+        $tos= pop @stack;
+        delete $tos->{content} if 0 == scalar @{$tos->{content}};
+    }
+    return  $tos->{content};
 }
 
 sub trim {
     local($_)= @_;
-    s/[\s\012\015]+$//s;
+    s/[\s\012\015]+\z//s;
+    s/[ \t\012\015]+(?:(?:- ){2,}|--+)-[ \t\012\015]*\z//s;
     return $_;
 }

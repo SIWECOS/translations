@@ -134,7 +134,7 @@ sub write {
         my $filename= "$dirname/$language.wiki";
         foreach my $text ($self->text($language)) {
             if (open my $textfile, '>:utf8', $filename) {
-                print $textfile $text;
+                print $textfile $text,"\n";
                 close $textfile;
             } else {
                 carp "Cannot create $filename: $!";

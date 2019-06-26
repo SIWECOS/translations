@@ -68,6 +68,7 @@ sub man  { pod2usage(-verbose=>2); }
 my $TRANSLATIONS= "$Bin/texts";
 
 foreach my $file (@ARGV) {
+    print $file,"\n";
     my $scanner= SIWECOS::Text::Scanner->read_md($file);
     if ($scanner->validate == 0 or $force) {
         $scanner->write($TRANSLATIONS);
