@@ -72,7 +72,7 @@ sub validate {
             }
             push @issues, map "$id: $topic", $t->missing_translations(sort keys %{$self->{languages}});
         } else {
-            push @issues, "$topic missing";
+            push @issues, "$id: $topic missing";
         } 
     }
     return @issues;
