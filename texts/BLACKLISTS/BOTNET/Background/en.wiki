@@ -1,0 +1,1 @@
+Malicious bots can be used to send e-mail spam or for DDoS attacks, among other things.

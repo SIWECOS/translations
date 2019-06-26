@@ -1,0 +1,1 @@
+[[Botnetze|Botnet]] bezeichnet eine Anzahl von Geräten, die über das Internet verbunden sind und auf denen mindestens ein [[Bot]] läuft.
