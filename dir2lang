@@ -26,7 +26,7 @@ use MediaWiki::API;
 use Config::Simplest;
 use File::Basename;
 use File::Path qw(make_path);
-use SIWECOS::Text::SCANNER;
+use SIWECOS::Text::Scanner;
 
 my $EXT='.wiki';
 $|= 1;
