@@ -1,1 +1,1 @@
-    In <a href=":LISTURL" target=":LISTNAME">:LISTNAME</a> wurde ihre domain :DOMAIN gefunden.
+    In <a href=":LISTURL" target=":LISTNAME">:LISTNAME</a> wurde Ihre domain :DOMAIN gefunden.
