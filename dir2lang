@@ -191,15 +191,18 @@ foreach my $scanner (@scanners) {
                 my $indent= $1;
                 # SCANNER_NAME COMES FIRST!
                 my $textname= $scanner_name;
-                my $text= $scanner->name->text($lang);
-                if (defined $text) {
-                    $output.= "$indent// These are the $lang texts for\n";
+                $output.= "$indent// These are the $lang texts for $scanner_name\n";
+                my $translations= $scanner->name;
+                if (defined $translations) {
+                    my $text= $translations->text($lang);
                     if( $standard_prepare ){
                         ($text, $err)= $standard_prepare->($mw, $text, "Name of $scanner_name", $lang);
                     }
                     $output.= qq:$indent'$textname' => '$text',\n\n:;
                     $warning+= $err;
-                    # Data structure is
+                }
+                # Texts for Tests
+                if (defined $scanner->tests) {
                     foreach my $testname (sort keys %{$scanner->tests}) {
                         my $test= $scanner->test($testname);
                         $output.= "$indent// Test: $testname\n";
@@ -216,19 +219,22 @@ foreach my $scanner (@scanners) {
                         }
                         $output.= "\n";
                     }
-                    $output.= "$indent// Result texts follow\n";
                 }
+                # Texts for results
                 my $all_results= $scanner->results;
-                my @resultnames= sort keys %{$all_results->results};
-                my $maxlen= maxlen (@resultnames);
-                foreach my $textname (@resultnames) {
-                    my $text= $all_results->result($textname)->text($lang);
-                    if( $standard_prepare ){
-                        ($text, $err)= $standard_prepare->($mw, $text, "$scanner_name: Resulttext $textname", $lang);
+                if (defined $all_results) {
+                    $output.= "$indent// Result texts follow\n";
+                    my @resultnames= sort keys %{$all_results->results};
+                    my $maxlen= maxlen (@resultnames);
+                    foreach my $textname (@resultnames) {
+                        my $text= $all_results->result($textname)->text($lang);
+                        if( $standard_prepare ){
+                            ($text, $err)= $standard_prepare->($mw, $text, "$scanner_name: Resulttext $textname", $lang);
+                        }
+                        my $fillstring= ' ' x ($maxlen - length $textname);
+                        $output.= qq:$indent'$textname'$fillstring => '$text',\n:;
+                        $warning+= $err;
                     }
-                    my $fillstring= ' ' x ($maxlen - length $textname);
-                    $output.= qq:$indent'$textname'$fillstring => '$text',\n:;
-                    $warning+= $err;
                 }
             } else {
                 # Print an unmodified template line
