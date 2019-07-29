@@ -3,6 +3,7 @@ language: perl
 if: tag IS blank
 
 before_script:
+  - cpanm MediaWiki::API
   - cp siwecos.conf.sample siwecos.conf
   - cp wiki.conf.sample wiki.conf
 
