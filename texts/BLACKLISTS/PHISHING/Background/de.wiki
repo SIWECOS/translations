@@ -1,1 +1,0 @@
-Kriminelle verschaffen sich Zugang zur Webseite und hinterlegen dort Schadcode. Sie kopieren bekannte Webseiten, um über diese gefälschten Seiten sensible Daten wie Passwörter, Kreditkartennummern und andere persönliche Daten der Seitenbesuchers zu erlangen.

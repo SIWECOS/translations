@@ -1,1 +1,1 @@
-Check for potential spam content
+Spam-Check

@@ -1,26 +1,17 @@
-If your domain was found in phishing lists:
+If your domain was found in a phishing list:
 
-'''Take down the website!'''
+**Take the website offline!**
 
-There is a risk that your website contains phishing content and that criminals are using it to collect personal data. Taking down the website will also prevent Google from removing your website from its index, which would delete a positive ranking. You also avoid being blocked by your hosting provider.
+It is possible for you to provide phishing content with the website and for criminals to collect personal information with it. It also prevents Google from removing your website from the index, which would cancel any positive ranking. This will also prevent your provider/host from blocking your website.
 
-'''- Find out how and when it was possible for third parties to access your domain. '''
+* Find out how and when strangers were able to access your domain.
+Check your log files for unauthorized access from unknown source IP addresses. The time stamp of the manipulated or uploaded file could serve as the starting point for your search and give you an indication of the time of the attack and the so-called gateway.
+* Change your access data!
+* Web frontend (hosting contract, content management system)
+* FTP, SSH accesses
+* Database - use strong passwords
+* Import a malware-free backup!
+Delete all files on your webspace. This ensures that you do not take over any foreign files that the attackers use as "back doors" from the previously compromised environment. Before restoring, check whether your backup already contains the malicious code found by us and use an even older backup if necessary. If the backup is "malware-free", restore it and then update the system. Only then do you put the website online again.
 
-Check your logfiles for unauthorized access from unknown IP addresses. As a starting point for your investigation, the time stamp of the manipulated or uploaded file can give you a hint when the attack happened and by which gateway the attackers gained access.
-<poem>
-'''- Change your login data!'''
-'''- Web frontend (hosting contract, [https://en.wikipedia.org/wiki/Content_management_system content management system (CMS)])'''
-'''- FTP or SSH access'''
-'''- Database - use strong passwords'''
-</poem>
-
-'''- Restore a malware-free backup!'''
-
-To do this, delete all the files on your webspace. In this way, you will make sure that you do not overlook malicious files from the compromised system which were used as a backdoor by the attackers.
-Before restoring from the backup, make sure that the intended backup is not yet infected by the malicious code that we detected, and if necessary, use an even older backup.
-If the backup is malware-free, restore it and then install any updates for your system. Only after this is done, put the website back online.
-
-'''- If you do not have a backup of your website, consider a completely new installation.''' Manual cleanups usually take up a lot of time and should only be carried out by qualified experts.
-
-'''- Check your local computer for malicious software!''' The website [https://www.botfrei.de botfrei.de] offers helpful information and software. With the EU-Cleaner, you can remove various malicious programs from your computer 
-https://www.botfrei.de/de/eucleaner/index.html
+* If you do not have a backup of your website, consider a complete new installation. Manual cleanups usually take much more time and should only be carried out by qualified personnel.
+* Check your local computers for malware! On the website botfrei.de you will find help and programs. With the help of the DE-Cleaner you can clean your PC of different malware. (https://www.botfrei.de/de/eucleaner/index.html)

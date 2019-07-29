@@ -1,1 +1,1 @@
-Check for potential phishing content
+Phishing Check

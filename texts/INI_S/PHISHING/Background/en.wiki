@@ -1,1 +1,1 @@
-Criminals hack the website to gain access, unnoticed by the owner, and deposit malicious code or [https://en.wikipedia.org/wiki/Social_engineering_(security)#Phishing phishing content] on the web space in order to steal the visitor's personal data.
+Criminals gain access to the website and deposit malicious code there. They copy known websites in order to obtain sensitive data such as passwords, credit card numbers and other personal data of the site visitors via these fake sites.

@@ -1,1 +1,0 @@
-Criminals gain access to the website and deposit malicious code there. They copy known websites in order to obtain sensitive data such as passwords, credit card numbers and other personal data of the site visitors via these fake sites.

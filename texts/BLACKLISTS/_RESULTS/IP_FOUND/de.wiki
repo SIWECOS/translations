@@ -1,1 +1,0 @@
-    In <a href=":LISTURL" target=":LISTNAME">:LISTNAME</a> wurde Ihre IP :IP gefunden.

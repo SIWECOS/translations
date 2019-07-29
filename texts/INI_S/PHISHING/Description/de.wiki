@@ -1,1 +1,1 @@
-Beim [[Phishing]] wird in der Regel trickreich versucht, sensible persönliche Daten wie Passwörter, Kreditkartennummern und persönliche Daten des Besuchers der Seite zu entwenden. Dabei versenden Kriminelle üblicherweise [[Spam|Spam-E-Mails]]. Diese E-Mails enthalten u. a. Links zu einer [[Phishing]]-Seite, die sich als legitime Webseite ausgibt.
+Wenn Ihre Domain in einer Phishing-Blacklist aufgeführt wird, wurde sie vermutlich zu [[Phishing|Phishing Zwecken]] missbraucht und dem Listenbetreiber gemeldet.
