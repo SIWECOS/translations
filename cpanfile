@@ -1,1 +1,1 @@
-requires 'MediaWiki::API';
+requires 'MediaWiki::API' 0.41;
