@@ -97,6 +97,7 @@ my $LANGUAGE_DIR=  $config->{LANGUAGE_DIR}       || "$Bin/lang";
 my $WIKI_LINK=     $config->{TARGET_WIKI_LINK}   || "siwecos_wiki";
 my $WIKI_EXTERN=   $config->{TARGET_EXTERN_LINK} || "siwecos_extern";
 my $TEMPLATEFILE= "$Bin/$Script.txt";
+my $SCANNER_NAME= 'SCANNER_NAME';
 
 # Expected purposes
 my $DESCRIPTION  = 'Description';
@@ -198,7 +199,7 @@ foreach my $scanner (@scanners) {
                     if( $standard_prepare ){
                         ($text, $err)= $standard_prepare->($mw, $text, "Name of $scanner_name", $lang);
                     }
-                    $output.= qq:$indent'$textname' => '$text',\n\n:;
+                    $output.= qq:${indent}'${SCANNER_NAME}' => '$text',\n\n:;
                     $warning+= $err;
                 }
                 # Texts for Tests
