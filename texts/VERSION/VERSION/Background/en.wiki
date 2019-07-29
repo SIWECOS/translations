@@ -1,0 +1,1 @@
+Security-relevant updates for popular Content-Management-Systems (CMS) are released on a regular base, therefore it's important to keep the CMS version up-to-date.

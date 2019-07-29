@@ -1,1 +1,0 @@
-Using outdated CMS versions allows attackers to attack a site using well-known attacks, that have been fixed in up-to-date CMS versions. A successful attack often allows full control over the website.
