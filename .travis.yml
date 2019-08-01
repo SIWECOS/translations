@@ -16,7 +16,7 @@ before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "$GITHUB_SIWECOSBOT_USERNAME"
   - git config --local user.email "$GITHUB_SIWECOSBOT_EMAIL"
-  - git remote add gh https://${GITHUB_SIWECOSBOT_TOKEN}@github.com/siwecos/translations
+  - git remote add gh https://${GITHUB_SIWECOSBOT_TOKEN}@github.com/SIWECOS/translations
   # Needed for deploy section
   - export TRAVIS_TAG=latest
   - git tag -f $TRAVIS_TAG
