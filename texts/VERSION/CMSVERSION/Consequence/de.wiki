@@ -1,0 +1,1 @@
+Wenn eine veraltete CMS-Version eingesetzt wird, können Angreifer bekannte und in neueren Versionen bereits geschlossene Lücken ausnutzen, um die Kontrolle über die Website zu übernehmen.
