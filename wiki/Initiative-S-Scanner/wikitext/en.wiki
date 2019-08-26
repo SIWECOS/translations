@@ -1,7 +1,7 @@
 == Initiative-S Scanner ==
 
 
-This Initiative-S scanner matches the domain with known blacklists for phishing, malware and spam.
+This Initiative-S scanner matches the domain with known blacklists for botnets, phishing, malware and spam.
 
 * [[Phishing-Content/EN|PHISHING-Content]]
 * [[Spam-Content/EN|SPAM-Content]]

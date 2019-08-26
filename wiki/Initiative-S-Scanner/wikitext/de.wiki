@@ -1,7 +1,7 @@
 == Initiative-S Scanner ==
 
 
-Dieser Scanner der [https://initiative-s.de/de/index.html Initiative-S] gleicht die [[Domain]] mit uns bekannten Sperrlisten ([https://de.wikipedia.org/wiki/Schwarze_Liste Blacklisten]) auf [[Phishing]], [[Malware]] und [[Spam]] ab.
+Dieser Scanner der [https://initiative-s.de/de/index.html Initiative-S] gleicht die [[Domain]] mit uns bekannten Sperrlisten ([https://de.wikipedia.org/wiki/Schwarze_Liste Blacklisten]) auf [[Botnetze]], [[Phishing]], [[Malware]] und [[Spam]] ab.
 
 * [[Phishing-Inhalte/DE|PHISHING-Inhalte]]
 * [[Spam-Inhalte/DE|SPAM-Inhalte]]
