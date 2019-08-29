@@ -1,1 +1,0 @@
-Urgently update your [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS implementation]. Current software no longer allows this type of configuration.

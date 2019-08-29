@@ -1,1 +1,0 @@
-The scanner "%scanner%" was stopped after %timeoutvalue% seconds because it did not return a result.

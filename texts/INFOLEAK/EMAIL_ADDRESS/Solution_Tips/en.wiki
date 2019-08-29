@@ -1,0 +1,5 @@
+If email addresses were found, ask yourself if you really want to publish them.
+
+Enter your contact addresses, for example in the imprint, as follows: mail at siwecos.de / mail @ siwecos.de. However, keep in mind that crawlers are largely able to detect and evaluate such "tricks". E-mail addresses become illegible for crawlers if you store them as graphics. This has the disadvantage that visually impaired visitors to your website cannot have your e-mail address read to them. 
+
+Alternatively, you can use a small JavaScript which embeds your e-mail address as an encrypted, but clickable '''mailto:'''. Such a script can be created e.g. at [http://www.jottings.com/obfuscator.htm ANTI-SPAM EMAIL LINK OBFUSCATOR]. 

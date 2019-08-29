@@ -1,0 +1,1 @@
+In case of vulnerability update your [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS] implementation on your server immediately.

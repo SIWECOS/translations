@@ -1,0 +1,1 @@
+The long-established encryption algorithm RC4 has been considered insecure for many years. Security researchers are aware of many critical gaps. In 2015, the IETF (Internet Engineering Task Force) banned the use of RC4 for TLS Connections in [https://tools.ietf.org/html/rfc7465 RFC7465]. 

@@ -1,0 +1,1 @@
+The content management system (:cms) is installed in the up-to-date version (:version).

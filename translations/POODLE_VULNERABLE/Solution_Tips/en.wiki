@@ -1,1 +1,0 @@
-Deactivate the outdated encryption protocol SSL3 on your server immediately!

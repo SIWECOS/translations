@@ -1,1 +1,0 @@
-Nicht verwundbar durch [[Invalid-Curve-Ephemeral-Schwachstelle/DE/Background|Ephemeral Invalid Curve Angriff]] Angriffe.

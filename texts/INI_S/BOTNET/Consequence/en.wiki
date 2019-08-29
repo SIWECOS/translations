@@ -1,0 +1,1 @@
+A system integrated into a botnet can respond to remote commands from cybercriminals as soon as it is connected to the Internet. This allows the system to be used unnoticed for sending [[spam]], performing [[DDoS|DDoS attacks]] or [[phishing]]. A botnet maintains and expands itself by spreading the corresponding malware and thus infecting other computers.

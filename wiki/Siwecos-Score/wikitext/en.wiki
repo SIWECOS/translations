@@ -33,3 +33,5 @@ Please understand that it is not possible for us to give you a detailed account 
 
 We are open for any kind of feedback, notes and comments on SIWECOS. Of course, this includes our calculation of the SIWECOS score, or the weighting of individual scan and test results.
 We look forward to your professional input concerning error detection and calculation of the SIWECOS score. Contact: technik@siwecos.de
+
+[[Category:FAQ]]

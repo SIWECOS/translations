@@ -1,1 +1,0 @@
-The header "%HEADER%" is set correctly and corresponds to the recommendations.

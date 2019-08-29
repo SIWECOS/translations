@@ -1,1 +1,0 @@
-The header <b>%HEADER_NAME%</b> contains characters which cannot be processed.

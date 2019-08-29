@@ -1,1 +1,0 @@
-The so-called [https://en.wikipedia.org/wiki/RSA_(cryptosystem)#Adaptive_chosen_ciphertext_attacks Bleichenbacher] attack (ROBOT) is a returning 19-year-old security flaw that allows RSA decryption and signature operations to be performed with the private key of a [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS server].

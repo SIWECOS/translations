@@ -1,0 +1,11 @@
+nosniff; 
+
+'''Beispielcode einer .htaccess auf einem Apache Webserver'''
+
+ <IfModule mod_headers.c>
+   # prevent mime based attacks like drive-by download attacks, IE and Chrome
+   '''Header set X-Content-Type-Options "nosniff"'''
+ </IfModule>
+
+Hier finden Sie ein Beispiel, wie eine .htaccess-Datei aussehen kann, um einen höheren Wert beim '''Header Scanner''' zu erzielen.
+([[Htaccess/DE|.htaccess-Beispiel]])

@@ -1,1 +1,0 @@
-The header is set correctly and improves the protection of your website against clickjacking attacks.

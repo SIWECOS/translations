@@ -1,13 +1,12 @@
 == Header Scanner ==
-<br>
 
-Unseen by the user, the header ([[Header|HTTP-Header Protokoll]]) of a website is exchanged between the [[Client]] and the [[Server]] for every query and response. The [[Header]] influences the behavior of the browser on the user side. Largely, these are handled independently of the queried [[Webanwendung|Webapplikation]] and are defined in the webserver configurations. The Header_Scanner now allows you to examine the header ([[HTTP]]-Header) of your web application for insecure configurations. The scanner ([[Crawler]]) checks the information of the [[HTTP]]-header of your website and generates a report on any vulnerabilities found that could enable an attacker to execute attacks via faked sender IP addresses ([[IP-Spoofing|Spoofing]]).<br>
+Unseen by the user, the header ([[Header/EN|HTTP-Header Protokoll]]) of a website is exchanged between the [[Client]] and the [[Server]] for every query and response. The [[Header/EN|Header]] influences the behavior of the browser on the user side. Largely, these are handled independently of the queried [[Webanwendung|Webapplikation]] and are defined in the webserver configurations. The Header_Scanner now allows you to examine the [[Header/EN|HTTP header]] of your web application for insecure configurations. The scanner ([[Crawler]]) checks the information of the [[HTTP]]-header of your website and generates a report on any vulnerabilities found that could enable an attacker to execute attacks via faked sender IP addresses ([[IP-Spoofing|Spoofing]]).
 
-*[[Content-Security-Policy-Vulnerability/EN|CONTENT-SECURITY-POLICY]]<br>
-*[[Content-Type-Not-Correct/EN|CONTENT-TYPE]]<br>
-* PUBLIC-KEY-PINS (The result does not influence the score)<br>
-<!--[[Public-Key-Pins-Disabled/EN|PUBLIC-KEY-PINS]] (<span style="color:#c31622"><b>Achtung:</b></span> HPKP wird derzeit nicht überprüft)<br>-->
-*[[No-Encryption-Found/EN|STRIKT-TRANSPORT-SECURITY]]<br>
-*[[X-Content-Type-Options-Vulnerability/EN|X-CONTENT-TYPE-OPTIONS]]<br>
-*[[X-Frame-Options-Vulnerability/EN|X-FRAME-OPTIONS]]<br>
+*[[Content-Security-Policy-Vulnerability/EN|CONTENT-SECURITY-POLICY]]
+*[[Content-Type-Not-Correct/EN|CONTENT-TYPE]]
+* PUBLIC-KEY-PINS (The result does not influence the score)
+<!--[[Public-Key-Pins-Disabled/EN|PUBLIC-KEY-PINS]] (<span style="color:#c31622">'''Achtung:'''</span> HPKP wird derzeit nicht überprüft)-->
+*[[No-Encryption-Found/EN|STRIKT-TRANSPORT-SECURITY]]
+*[[X-Content-Type-Options-Vulnerability/EN|X-CONTENT-TYPE-OPTIONS]]
+*[[X-Frame-Options-Vulnerability/EN|X-FRAME-OPTIONS]]
 *[[XSS-Vulnerability/EN|X-XSS-PROTECTION]]

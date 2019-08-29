@@ -1,0 +1,1 @@
+Die Telefonnummer :number wurde gefunden. Wollen Sie diese Telefonnummer wirklich veröffentlichen? Ein Angreifer kann diese bspw. für [[Social_engineering|Social Engineering]] (zwischenmenschliche Beeinflussungen) Angriffe einsetzen.

@@ -1,1 +1,0 @@
-The phone number %number% was found. Do you really want to publish this phone number? An attacker could use it, for example for social engineering attacks (interpersonal manipulation).

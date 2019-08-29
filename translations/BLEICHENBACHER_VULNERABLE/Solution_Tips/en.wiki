@@ -1,1 +1,0 @@
-Check your [[Certificate|certificate]] or update your [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS implementation] on your server immediately.

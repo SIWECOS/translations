@@ -1,1 +1,0 @@
-The server is vulnerable to a padding oracle attack, which allows an attacker to decrypt the communication.

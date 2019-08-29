@@ -1,1 +1,0 @@
-Your website is probably not sufficiently protected from [https://en.wikipedia.org/wiki/Cross-site_scripting XSS attacks].

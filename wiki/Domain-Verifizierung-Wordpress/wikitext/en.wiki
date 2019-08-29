@@ -1,0 +1,22 @@
+== Verification by META tag in Wordpress! ==
+
+You can confirm ownership of a website by adding an individual <meta> tag, specified by us, to the '''HTML code of the start page of your domain'''. Our scanner checks whether the meta tag is at the correct position. If the tag is not found, information about the detected errors is given. This tag is assigned to a specific domain. The easiest way to do this in Wordpress is with the plugin "All Meta Tags". Proceed as follows:
+
+{| class="wikitable"
+|-
+| 1. In your Wordpress-Admin go to the menu item "Plugins" and on the right side click on "Install". || [[File:1wp_plugins_installieren-en.png]]
+|-
+| 2. Enter "meta tag" as keyword, select "All Meta Tags" and install the plugin. || [[File:2wp_all_meta_tags-en.png|400px]]
+|-
+| 3. Call the installed plugins. || [[File:3wp_installierte_plugins-en.png]]
+|-
+| 4. Activate "All Meta Tags" and click on "Settings". || [[File:4wp_all_meta_tags_aktivieren_und_einstellungen-en.png]]
+|-
+| 5. Enter your personal meta tag "siwecostoken" and save your entry.  || [[File:5wp_token_eintragen_save.png]]
+|-
+| 6. Test the input via [https://search.google.com/structured-data/testing-tool Test structured data]. || [[File:6wp_testen-en.png|400px]]
+|-
+| 7. The result should look like this, of course with your personal token. || [[File:7wp_testergebnis-en.png]]
+|}
+
+[[Category:FAQ]]

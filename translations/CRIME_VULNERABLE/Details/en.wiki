@@ -1,1 +1,0 @@
-The server is vulnerable to [https://en.wikipedia.org/wiki/CRIME], an attack which allows an attacker to decrypt the communication.

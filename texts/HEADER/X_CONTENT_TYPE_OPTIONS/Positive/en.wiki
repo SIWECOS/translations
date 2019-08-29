@@ -1,0 +1,1 @@
+The HTTP [[Header/EN|header]] is set correctly.

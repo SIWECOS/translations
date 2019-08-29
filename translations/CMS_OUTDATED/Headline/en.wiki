@@ -1,1 +1,0 @@
-The content management system (%cms%) is outdated. You have version (%version%) installed, please update to (%latest%).

@@ -1,0 +1,1 @@
+There is a variant of the POODLE attack which also attacks newer TLS versions. This is possible due to an implementation error in the TLS servers.

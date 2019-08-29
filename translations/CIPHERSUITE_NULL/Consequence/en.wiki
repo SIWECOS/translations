@@ -1,1 +1,0 @@
-If no encryption is used, attackers can easily decode the communication between your website and your customer's browser. In this way, information such as passwords, data entered in forms, or credit card information can be intercepted and misused for criminal purposes. This type of attack is called [https://en.wikipedia.org/wiki/Man-in-the-middle_attack man-in-the-middle-attack].

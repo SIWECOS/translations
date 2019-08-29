@@ -1,1 +1,0 @@
-The connection to your page is not encrypted. All communication between your site and its users can be intercepted and manipulated.

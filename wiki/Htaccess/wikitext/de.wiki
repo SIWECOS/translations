@@ -37,43 +37,31 @@ Einige häufig genutzte Elemente sind:
 == Beispieldatei ==
 
 '''Beispiel einer .htaccess''' angepasst für den '''HTTP Security Header Scanner''' (Achtung: Es handelt sich hier um ein Beispiel und muss entsprechend den eigenen Seiten angepasst werden).
-<pre>
 
-#Content Security Policy
-Header set Content-Security-Policy "default-src 'none'; frame-src 'self'; font-src 'self'; img-src 'self' siwecos.de; script-src 'self'; style-src 'self';"
-
-#HTTP Content-Types
-AddCharset UTF-8 .html
-
-#Public Key Pins
-Header set Public-Key-Pins "pin-sha256=\"base64+primary==\"; pin-sha256=\"base64+backup==\"; max-age=5184000; includeSubDomains"
-
-#Strict-Transport-Security
-Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-
-#X-Content-Type-Options
-Header always set X-Content-Type-Options "nosniff"
-
-#X-Frame-Options
-Header always set X-Frame-Options "SAMEORIGIN"
-
-#X-Xss-Protection
-Header always set X-Xss-Protection "1; mode=block"
-
-#Referrer-Policy
-Header set Referrer-Policy "no-referrer"
-
-
-</pre>
+ #Content Security Policy
+ Header set Content-Security-Policy "default-src 'none'; frame-src 'self'; font-src 'self'; img-src 'self' siwecos.de; script-src 'self'; style-src 'self';"
+ #HTTP Content-Types
+ AddCharset UTF-8 .html
+ #Public Key Pins
+ Header set Public-Key-Pins "pin-sha256=\"base64+primary==\"; pin-sha256=\"base64+backup==\"; max-age=5184000; includeSubDomains"
+ #Strict-Transport-Security
+ Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+ #X-Content-Type-Options
+ Header always set X-Content-Type-Options "nosniff"
+ #X-Frame-Options
+ Header always set X-Frame-Options "SAMEORIGIN"
+ #X-Xss-Protection
+ Header always set X-Xss-Protection "1; mode=block"
+ #Referrer-Policy
+ Header set Referrer-Policy "no-referrer"
 
 == Weiterführende Links zum Thema ==
 
-SelfHTML Wiki: https://wiki.selfhtml.org/wiki/Webserver/htaccess <br />
-Wikipedia: https://de.wikipedia.org/wiki/Htaccess <br />
-SEO Anwendungsbeispiele: https://www.seo-trainee.de/htaccess-datei-basics-und-anwendungsbeispiele/
+* SelfHTML Wiki: https://wiki.selfhtml.org/wiki/Webserver/htaccess 
+* Wikipedia: https://de.wikipedia.org/wiki/Htaccess 
+* SEO Anwendungsbeispiele: https://www.seo-trainee.de/htaccess-datei-basics-und-anwendungsbeispiele/
 |}
 
 [[Category:Sicherheitstipps]]
-[[Category:Was_ist_Was]]
 [[Category:Glossar]]
 [[Category:FAQ]]

@@ -1,0 +1,1 @@
+HTTP-[[Header/DE|Header]] X-Frame Optionen nicht gesetzt.

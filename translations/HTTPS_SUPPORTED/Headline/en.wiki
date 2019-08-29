@@ -1,1 +1,0 @@
-The server “%HOST%“ does not seem to support [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS] (Transport Layer Security). This means that you are not using encryption to protect your own and your customers' data.

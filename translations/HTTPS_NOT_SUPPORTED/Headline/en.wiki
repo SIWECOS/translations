@@ -1,1 +1,0 @@
-Check response time of the HTTPS header

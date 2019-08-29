@@ -1,0 +1,6 @@
+This [[Header/EN|header]] entry determines whether a browser is allowed to render a page in a ''frame'' or ''iframe''. This can prevent so-called clickjacking attacks by making sure that the website is not embedded in another website. The following options are available:
+<poem>
+'''DENY:''' The page is not rendered if it is being loaded in a ''frame'' or ''iframe''.
+'''SAMEORIGIN:''' The page is only rendered if the ''frame'' or ''iframe'' is located in the same domain.
+'''ALLOW-FROM DOMAIN:''' The page is not rendered if the domain is different from the domain specified here.
+</poem>

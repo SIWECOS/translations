@@ -1,1 +1,0 @@
-The server supports the latest [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS 1.3 protocol version]. This version is still going through the standardisation process. If you do not understand what this means, you can deactivate the version, because most browsers do not yet support this version, and TLS 1.3 is still in development.

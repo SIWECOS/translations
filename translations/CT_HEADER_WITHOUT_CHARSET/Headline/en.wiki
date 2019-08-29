@@ -1,1 +1,0 @@
-The header is used without a character set and thus not safe.

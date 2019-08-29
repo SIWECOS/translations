@@ -1,0 +1,17 @@
+If the content type declaration is not configured correctly, your website is probably vulnerable to attacks.
+
+Add the appropriate HTTP [[Header/EN|header]] or, alternatively, add a <meta> tag. Please note that, unlike a HTTP [[Header/EN|header]], the <meta> tag can be attacked more easily.
+
+'''text/html; charset=utf-8''';
+
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></pre>
+
+Furthermore, the server must be configured to send the correct charset information. In order to make these changes on the server, particular access rights are required. For further information about the different server configuration options, please refer to [https://www.w3.org/International/articles/http-charset/index.de W3.org].
+
+Moreover, it is also possible to pass the correct charset information to the [http://httpd.apache.org/docs/2.0/howto/htaccess.html '''.htaccess'''] file, which will overwrite the declaration in the HTTP [[Header/EN|header]]. [https://www.w3.org/International/questions/qa-htaccess-charset charset in .htaccess]
+
+'''Enter in the .htaccess file:'''
+ AddType 'text/html; charset=UTF-8' html 
+
+Here is an example of an .htaccess file which will set the '''Header Scanner''' to green.
+([[Htaccess/EN|.htaccess example]])

@@ -1,0 +1,1 @@
+Obsolete JavaScript libraries can contain security holes and should therefore be updated regularly.

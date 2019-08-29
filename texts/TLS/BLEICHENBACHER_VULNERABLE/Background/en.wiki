@@ -1,0 +1,1 @@
+The so-called Bleichenbacher attack (also known under the name ROBOT) is a 19 year old security flaw that allows RSA decryption and signature operations to be performed with the private key of a TLS server. The attack is an error in the program code.

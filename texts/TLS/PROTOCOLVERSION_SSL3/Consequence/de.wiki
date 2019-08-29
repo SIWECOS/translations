@@ -1,0 +1,1 @@
+Durch das serverseitige Anbieten von SSL3 erlauben Sie Angriffe auf die Verbindungen mit älteren Clients. Dadurch kann ein Angreifer potentiell Teile der Verbindung entschlüsseln und Kundendaten stehlen.

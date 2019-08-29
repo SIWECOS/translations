@@ -1,1 +1,0 @@
-The server is vulnerable to an Ephemeral Invalid Curve attack. This allows an attacker to attack connections.

@@ -1,1 +1,0 @@
-Responsible selection of encryption methods

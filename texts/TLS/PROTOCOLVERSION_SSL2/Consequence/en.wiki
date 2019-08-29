@@ -1,0 +1,1 @@
+SSL2 is no longer supported by almost all Internet browsers, but still leads to fatal security problems on your website. SSL2 is one of the oldest components of the Internet and must be switched off immediately. Search engines will potentially penalize your website for using SSLv2.  

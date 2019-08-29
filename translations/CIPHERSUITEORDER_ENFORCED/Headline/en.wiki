@@ -1,1 +1,0 @@
-Check of client encryption method

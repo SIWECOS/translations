@@ -33,3 +33,5 @@ Bitte haben Sie Verständnis dafür, dass es uns nicht möglich ist Ihnen eine d
 
 Wir sind für Feedback, Anmerkungen und Kommentare jeder Art zu SIWECOS offen. Dazu gehört selbstverständlich auch unsere Berechnung des SIWECOS Scores oder die Gewichtung einzelner Scan-und Testergebnisse.
 Wir freuen uns deshalb über Ihren fachlichen Input bei der Erkennung und Berechnung des SIWECOS Scores. Kontakt: technik@siwecos.de
+
+[[Category:FAQ]]

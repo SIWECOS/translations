@@ -1,0 +1,1 @@
+If "irresponsible selection of encryption algorithms" has been reported, configure your web server so that your web server determines the encryption algorithms for communication between your web page and the visitor's web browser.

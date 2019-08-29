@@ -1,0 +1,1 @@
+Veraltete JavaScript-Bibliotheken können Sicherheitslücken beinhalten und sollten daher regelmäßig aktuallisiert werden.

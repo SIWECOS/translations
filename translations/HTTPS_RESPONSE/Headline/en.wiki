@@ -1,1 +1,0 @@
-The server “%HOST%“ does not respond to encrypted HTTP (HTTPS) requests.

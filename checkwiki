@@ -56,16 +56,17 @@ sub man  { pod2usage(-verbose=>2); }
 # Location and names of some directories / files
 # $Bin = absolute path of this script
 # $Script = filename of this script
-my $TRANSLATIONS= "$Bin/translations";
+my $TRANSLATIONS= "$Bin/texts";
 my $WIKITEXTS= "$Bin/wiki";
-my $settings= get_config("$Bin/wiki.conf", qw(API WIKI USER PASS));
+my $settings= get_config("$Bin/wiki.conf", qw(API WIKI));
 
 # log in to the wiki
 my $mw = MediaWiki::API->new({
     api_url => $settings->{API},
 });
-$mw->login( { lgname => $settings->{USER}, lgpassword => $settings->{PASS} } )
-  || die  $mw->{error}->{details}. ' ('. $mw->{error}->{code} . ')';
+die "Can't connect to the wiki\n" unless defined $mw;
+#$mw->login( { lgname => $settings->{USER}, lgpassword => $settings->{PASS} } )
+#  || die  $mw->{error}->{details}. ' ('. $mw->{error}->{code} . ')';
 
 
 # Get all existing translations
@@ -96,7 +97,7 @@ find( sub {
   if (exists $existing{$pagename}{$lang}) {
     warn "Duplicat page $pagename/$lang\n  for $placeholder\n  and ".$existing{$pagename}{$lang}."\n";
   } else {
-    $existing{$pagename}{$lang}= $placeholder;
+    $existing{$pagename}{$lang}= dirname $File::Find::dir; # $placeholder;
     ++$existcount;
   }
 }, $TRANSLATIONS, $WIKITEXTS);
@@ -144,8 +145,7 @@ foreach my $article (sort keys %found) {
   foreach my $lang (sort keys %{$found{$article}}) {
     next if exists $missing_in_repo{$article}{$lang};
     my $fname= lc($lang).$EXT;
-    my $dir;
-    $dir= "$TRANSLATIONS/" . $existing{$article}{$lang} if defined $existing{$article}{$lang};
+    my $dir= $existing{$article}{$lang};
     foreach my $subpage (sort keys %{$found{$article}{$lang}}) {
       next if $subpage eq '*';
       next if $dir and -r join('/', $dir, $subpage, $fname);

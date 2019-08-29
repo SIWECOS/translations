@@ -1,1 +1,0 @@
-The [https://en.wikipedia.org/wiki/Content_management_system CMS plug-in] %plugin% in DOM node %node% with content %node_content% was detected. However, this is not a vulnerability in itself and requires further inspection.

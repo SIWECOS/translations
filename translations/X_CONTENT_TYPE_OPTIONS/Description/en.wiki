@@ -1,1 +1,0 @@
-The X-Content-Type-Options settings in the header prevent that the browser interprets data as anything other than declared by the content type in the HTTP header. The header settings are not set here.

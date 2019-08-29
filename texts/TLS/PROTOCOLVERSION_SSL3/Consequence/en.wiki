@@ -1,0 +1,1 @@
+By offering SSL3 on the server side, you allow attacks on connections with older clients. This allows an attacker to potentially decrypt parts of the connection and steal customer data.

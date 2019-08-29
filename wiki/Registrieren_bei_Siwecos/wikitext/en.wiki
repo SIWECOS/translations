@@ -1,81 +1,126 @@
+{|
+|-
+|
 [[File:siwecos_was.jpg|right|400px]]
-
-<br>
-== Registration with Siwecos ==
-
+<!--
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-
+-
+-->== Registration with Siwecos ==<!--
+-
+-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 The project '''Siwecos''' was founded by [https://www.eco.de/ Eco] (Verband der Internetwirtschaft) and [http://www.ruhr-uni-bochum.de/ RUB] (Ruhruniversität Bochum) to help small and medium-sized companies to have their websites checked for security flaws and potentially malicious code. To do this, a number of scanners have been developed that will alert you to configuration errors and malware.
 
 In order to have your domains checked for security flaws with the Siwecos scanners, you must first register and then login with your personal data. Your data will '''in no case be passed on to third parties'''.
-<br />
-<br />
-
-== Registration ==
-
-{|
 |-
-| [[File:siwecos_anmeldung.png|left]] <br />
-
-[[File:Anmeldedaten.png|left|400px]] On the website [https://siwecos.de/ Startseite von Siwecos], in the top right section, select "Account" and click the button '''"Register"'''. Fill out the form '''completely''', at least the '''required fields(*)''', confirm the captcha, and then click '''Register'''.
-|}
-<br />
-<br />
-
-== Confirmation ==
-
-{|
+|
+---------------------------------------------------------
+<!--
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-
+-
+-->=== Registration ===<!--
+-
+-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+[[File:siwecos_anmeldung.png|left]] [[File:Anmeldedaten.png|thumb|100px|registration form]] On the website [https://siwecos.de/ Siwecos.de], in the top right section, select "Account" and click the button '''"Register"'''. Fill out the form '''completely''', at least the '''required fields(*)''', confirm the captcha, and then click '''Register'''.
 |-
-| [[File:siwecos_email_bestaetigung.jpg|left|400px]] When you have entered your registration data, confirmed the captcha, and submitted the form, you will receive a confirmation by email that your registration was successful. This email also contains a link that you must click to activate your account. Click on this link to finish the registration.
+|
+---------------------------------------------------------
+<!--
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-
+-
+-->=== Confirmation ===<!--
+-
+-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+[[File:siwecos_email_bestaetigung.jpg|thumb|left|80px|Mail]]
+When you have entered your registration data, confirmed the captcha, and submitted the form, you will receive a confirmation by email that your registration was successful. This email also contains a link that you must click to activate your account. Click on this link to finish the registration.
 |-
-| [[File:aktivierung_bestaetigung.png|left|400px]] If your account was activated successfully, this image is shown. Now you can log in to your account via the button in the right-hand menu, under Account - '''"Login"''', by entering your registered email address and your chosen password.
-
-|}
-<br />
-<br />
-
-== Forgot password ==
-{|
+|
+[[File:aktivierung_bestaetigung.png|left|thumb|80px]]
+If your account was activated successfully, this image is shown. Now you can log in to your account via the button in the right-hand menu, under Account - '''"Login"''', by entering your registered email address and your chosen password.
 |-
-| If you have lost your password, you can request a new password via email by clicking on the link "Forgot password".
-<br />
-[[File:passwort1.png|left|400px]] <br />
-[[File:passwort3.png|left|400px]]
-|}
-<br />
-<br />
-
-== Domain administration ==
-{|
+|
+---------------------------------------------------------
+<!--
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-
+-
+-->=== Forgot password ===<!--
+-
+-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+If you have lost your password, you can request a new password via email by clicking on the link "Forgot password".
+<gallery mode="packed-overlay">
+File:passwort1.png|Passwort vergessen|alt=Passwort vergessen
+File:passwort3.png|E-Mail Adresse eintragen|alt=E-Mail Adresse eintragen
+</gallery>
 |-
-| [[File:siwecos_konto_verwalten.png|left]] When you have logged in, at the top right under "Account" the options '''My data''', '''Domain overview''', '''Logout''' and '''Delete account''' are available. Under '''Domain overview''' you can now enter your domains and have them checked. Verification can be done in two different ways.
-|}
-<br />
-<br />
+|
+---------------------------------------------------------
+<!--
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-
+-
+-->== Domain administration ==<!--
+-
+-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+[[File:siwecos_konto_verwalten.png|left]]
+When you have logged in, at the top right under "Account" the options '''My data''', '''Domain overview''', '''Logout''' are available. 
 
-== Verification ==
-
-All domains which are registered for verification at Siwecos must be verified and cross-checked. To do this, two different methods are available (meta tag or file).
-
-
-'''Verification by file or meta tag'''
-{|
+Under '''Domain overview''' you can now enter your domains and have them checked. 
 |-
-| [[File:domain_hinzufuegen2.jpg|left|400px]] First enter your domain in the domain overview by clicking the button "'''Add domain'''". For detailed instructions how to proceed during verification, please refer to [[Domain-Verification/EN|here]].
-|}
-<br />
-<br />
+|
+---------------------------------------------------------
+<!--
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-
+-
+-->=== Verification ===<!--
+-
+-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+All domains which are registered for verification at Siwecos must be verified and cross-checked. 
 
-== Delete domain ==
-{|
-|-
-| [[File:Loeschen.png|left]] You can remove the registered domain at any time from the '''Domain overview from the Siwecos monitoring service'''. The domain will be deleted from our system completely, including all scan results. It is not possible to restore the deleted data. However, you can register the domain again with the verification procedure. '''Please note:''' When the domain has been deleted from our system, please remove any stored '''Meta tags or HTML files''' from your system.
-|}
-<br />
-<br />
+To do this, two different methods are available (meta tag or file).
 
-== Delete account ==
-{|
+* Meta tag - Here you enter a certain character string in the start page of your domain.
+* File - Here you save a file with a predefined content on your web server.
+
+[[File:domain_hinzufuegen2.jpg|thumb|left|40px]]
+First enter your domain in the domain overview by clicking the button "'''Add domain'''". For detailed instructions how to proceed during verification, please refer to [[Domain-Verification/EN|here]].
 |-
-|If you do not need this service any longer, you can log in and delete your account with the link "Delete account". All your data and all your listed domains will be deleted from our system completely, it is not possible to restore them. You can register again at any time on our start page at [https://siwecos.de Siwecos].
+|
+---------------------------------------------------------
+<!--
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-
+-
+-->=== Delete domain ===<!--
+-
+-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+You can remove the registered domain at any time from the '''Domain overview from the Siwecos monitoring service'''. The domain will be deleted from our system completely, including all scan results. It is not possible to restore the deleted data. However, you can register the domain again with the verification procedure. 
+
+'''Please note:''' When the domain has been deleted from our system, please remove any stored '''Meta tags or HTML files''' from your system.
+|-
+|
+---------------------------------------------------------
+<!--
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-
+-
+-->== Delete account ==<!--
+-
+-
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+If you do not need this service any longer, you can log in and delete your account with the link "Delete account". 
+
+All your data and all your listed domains will be deleted from our system completely, it is not possible to restore them. You can register again at any time on our start page at [https://siwecos.de Siwecos].
 |}
 
 [[Category:FAQ]]

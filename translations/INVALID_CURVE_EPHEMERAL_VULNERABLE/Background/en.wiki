@@ -1,1 +1,0 @@
-Because of its security and performance characteristics, Elliptic Curve Cryptography (ECC) is one of the cornerstones of modern cryptography. It is used in key exchange protocols, in signature calculation, or in building secure random number generators with backdoors (Dual_EC_DRBG).

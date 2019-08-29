@@ -10,6 +10,8 @@ use utf8;
 use Getopt::Long qw(:config no_ignore_case);
 
 my $EXT='.wiki';
+my $SCANNER_NAME= 'SCANNER_NAME';
+my $RESULTS= 'RESULTS';
 
 binmode(STDOUT, ":utf8");
 
@@ -26,26 +28,27 @@ $Text::Wrap::columns= 75;
 # Location and names of some directories / files
 # $Bin = absolute path of this script
 # $Script = filename of this script
-my $TRANSLATIONS= "$Bin/translations";
+my $TRANSLATIONS= "$Bin/texts";
 my $WIKITEXT= "$Bin/wiki";
 my $LANGUAGE_DIR= "$Bin/poedit";
 my $LANGUAGE_FILE="siwecos";
 my $TEMPLATEFILE= "$Bin/$Script.txt";
 
 # Expected purposes
-my $BACKGROUND   = 'Background';
 my $CATEGORY     = 'Category';
-my $COMMENT      = 'Comment';
-my $CONSEQUENCE  = 'Consequence';
-my $DESCRIPTION  = 'Description';
-my $DETAILS      = 'Details';
 my $HEADLINE     = 'Headline';
-my $IMPACT       = 'Impact';
+my $DESCRIPTION  = 'Description';
+my $BACKGROUND   = 'Background';
+my $CONSEQUENCE  = 'Consequence';
+my $TIPP         = 'Solution_Tips';
 my $LINK         = 'Link';
 my $ERROR_TEXT   = 'Negative';
 my $SUCCESS_TEXT = 'Positive';
-my $TIPP         = 'Solution_Tips';
-my $TECHNICAL    = 'Technical';
+
+# my $COMMENT      = 'Comment';
+# my $DETAILS      = 'Details';
+# my $IMPACT       = 'Impact';
+# my $TECHNICAL    = 'Technical';
 
 my %IGNORE= (
     Template => 1,
@@ -68,11 +71,11 @@ foreach (
     # above suffixes are required by the application
     # below suffixes are not used yet
     $BACKGROUND   => 'Background',
-    $COMMENT      => 'Comment',
+    # $COMMENT      => 'Comment',
     $CONSEQUENCE  => 'Consequence',
-    $DETAILS      => 'Details',
-    $IMPACT       => 'Impact',
-    $TECHNICAL    => 'Technical',
+    # $DETAILS      => 'Details',
+    # $IMPACT       => 'Impact',
+    # $TECHNICAL    => 'Technical',
 ) {
     # This will set up the required data structures
     if ($v) {
@@ -96,7 +99,7 @@ unless -d $TRANSLATIONS
    and -r $TRANSLATIONS
    and -x $TRANSLATIONS;
 # get all translation filenames
-# Directory structure is $TRANSLATIONS / placeholder / purpose / language $EXT
+# Directory structure is $TRANSLATIONS / SCANNER / TEST / purpose / language $EXT
 # Also collect categories
 my $language_data= {};
 my $categories= {};
@@ -105,9 +108,10 @@ my %category_found;
 my %translations_found;
 my %translations_language;
 my %all_placeholders;
-while( glob("$TRANSLATIONS/*/*/*$EXT") ) {
+
+while( glob("$TRANSLATIONS/*/*/*/*$EXT") ) {
     # Split pathname into parts
-    my ($placeholder, $purpose, $lang)= (split(m#/#, $_))[-3..-1];
+    my ($scanner, $test, $purpose, $lang)= (split(m#/#, $_))[-4..-1];
     # remove filename extension
     $lang=~ s#\.[^./]+$##;
     # Read the file
@@ -117,8 +121,20 @@ while( glob("$TRANSLATIONS/*/*/*$EXT") ) {
             local $/;
             <$trans>;
         };
+        # Special cases _$RESULTS an _$SCANNER_NAME
+        if ($test=~/^_/) {
+            #
+            # _$SCANNER_NAME
+            #
+            if ($test eq "_$SCANNER_NAME") {
+            #
+            # _$RESULTS
+            #
+            } else {
+            }
+        }
         # If a category is set, setup the category data structure
-        if( $purpose eq "Category" ) {
+        } elsif( $purpose eq "Category" ) {
             chomp($text);
             $language_data->{$lang}->{$placeholder} ||= {};
             $categories->{$lang}->{$text}->{$placeholder}= $language_data->{$lang}->{$placeholder};
@@ -131,6 +147,10 @@ while( glob("$TRANSLATIONS/*/*/*$EXT") ) {
             ++$translations_found{$text};
             ++$translations_language{$lang}->{$text};
             $all_placeholders{$placeholder}->{$purpose}= "$placeholder" . $SUFFIX{$purpose};
+        } elsif( $purpose eq $SCANNER_NAME ) {
+
+        } elsif( $purpose eq $RESULTS ) {
+
         } elsif( not defined $IGNORE{$purpose} ) {
             warn "Unknown Purpose: $purpose for $placeholder\n";
         }
@@ -152,7 +172,6 @@ while( glob("$WIKITEXT/*/*/*$EXT") ) {
             local $/;
             <$trans>;
         };
-        # If a category is set, setup the category data structure
         $language_data->{$lang}->{$placeholder}->{$purpose}= $text;
         $text= "$purpose for $placeholder";
         ++$translations_found{$text};
@@ -306,3 +325,26 @@ sub quoted_form_of {
     my $splitted= /\n/ ? qq'""\n' : '';
     return qq'$splitted"$_"';
 }
+
+sub read_text {
+    my($path)= @_;
+    return "Missing $path" unless -d $path;
+    return "Can't read $path" unless -r $path;
+    my $result;
+    foreach my $file (glob("$path/??$EXT")) {
+        my $lang= lc basename $file, $EXT;
+        ++$LANGUAGES{$lang};
+        $result||= {};
+        $result->{$lang}{location}= $file;
+        open my $in, '<', $file
+            or return "Can't read $file";
+        $result->{$lang}{text}= do { local $/; <$in>; };
+        close $in;
+        for ($result->{$lang}) {
+            s/[\012\015]+$//s;
+            s/[ \t]+$//gm;
+        }
+    }
+    return $result || "No translations in $path";
+}
+

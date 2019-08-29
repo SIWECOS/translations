@@ -1,1 +1,0 @@
-Not vulnerable to [https://en.wikipedia.org/wiki/CRIME]

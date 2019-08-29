@@ -1,1 +1,0 @@
-Usually your server will determine the encryption method of the client, not the other way around. As in the real world, you have domestic authority on your server - you establish the rules, and the guest must observe them.

@@ -1,0 +1,1 @@
+Wenn ''Veraltete RC4 Verschlüsselung unterstützt'' gemeldet wurde, deaktivieren Sie die Unterstützung der [[RC4|RC4 Verschlüsselung]].

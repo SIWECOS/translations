@@ -1,0 +1,1 @@
+Der lange sehr verbereitete Verschlüsselungsalgorithmus [[RC4|RC4]] gilt seit vielen Jahren als unsicher. Sicherheitsforschern sind viele kritische Lücken bekannt. Im Jahr 2015 hat die IETF (Internet Engineering Task Force) den Einsatz von RC4 für [[Transport Layer Security|TLS-Verbindungen]] im [https://tools.ietf.org/html/rfc7465 RFC7465] verboten. 

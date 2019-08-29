@@ -1,1 +1,0 @@
-Vulnerable by Ephemeral Invalid Curve attacks.

@@ -1,10 +1,8 @@
 
 == The seal is not shown correctly ==
-<br>
 
-[[File:Siw_error.png]] [[File:Zertifikat_siw.png| 500px]]
+[[File:Siw_error.png|150px]] [[File:Zertifikat_siw.png| 500px]]
 
-<br>
 
-*If the seal is not shown correctly, check the integrated code for the seal ([[Siwecos-Seal/EN|Siwecos-Seal]])
-*If no date is shown, or if the certificate page that is shown after clicking on the seal is empty or incorrect, then open your profile in [[https://siwecos.de | Siwecos.de]], click on the domain overview and start a new scan for the domain. Wait for the result to show (until the button is green). After this, the date and the correct information should be entered on the Siwecos certificate page.
+* If the seal is not shown correctly, check the integrated code for the seal ([[Siwecos-Seal/EN|Siwecos-Seal]])
+* If no date is shown, or if the certificate page that is shown after clicking on the seal is empty or incorrect, then open your profile in [[https://siwecos.de | Siwecos.de]], click on the domain overview and start a new scan for the domain. Wait for the result to show (until the button is green). After this, the date and the correct information should be entered on the Siwecos certificate page.

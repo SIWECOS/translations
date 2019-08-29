@@ -1,1 +1,0 @@
-Heartbleed is described as the most serious security gap of all times, and has existed since 2011. The security gap is located in a software called OpenSSL, which is supposed to protect the communication of data through the internet via the SSL security protocol. The source code of the OpenSSL software was checked and the security gap has been closed.

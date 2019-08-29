@@ -1,16 +1,4 @@
-# simple config file
-# - # starts a comment
-# - empty lines are ignored
-# - settings are lines
-#   - starting with a word
-#   - followed by
-#     - whitespace or
-#     - an = surrounded by optional whitespace
-#   - followed by the settings' value
-#     - optionally enclosed with " or '
-#     - backslashes will escape the next character
-#
-API  https://www.siwecos.de/wiki/api.php
-WIKI https://www.siwecos.de/wiki
+API  https://siwecos.de/wiki/api.php
+WIKI https://siwecos.de/wiki
 USER siwebot
 # PASS "Look it up in keepass"

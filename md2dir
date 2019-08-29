@@ -1,0 +1,76 @@
+#!/usr/bin/perl
+=head1 NAME
+
+md2dir - Convert SIWECOS Markdown files into directory structure.
+
+=head1 SYNOPSIS
+
+B<md2dir> [MARKDOWNFILE…]
+
+B<md2dir> B<--help>|B<--man>
+
+=head1 Description
+
+md2dir will take each markdown file and put its content into SIWECOS' directory structure.
+
+Markdownfiles have to have an extension of the form ".LANGUAHGE.md" where LANGUAGE
+is the two-letter languagecode.
+
+=cut
+use strict;
+use warnings;
+use FindBin qw($Bin $Script);
+use Getopt::Long qw(:config no_ignore_case);
+use Pod::Usage;
+use lib "$Bin/lib";
+use SIWECOS::Text::Scanner;
+
+=head1 options
+
+=over 4
+
+=item B<--force>
+
+=cut
+
+my $force;
+
+=item B<-f>
+
+Write output files even if validation failed.
+
+=cut
+
+help() unless GetOptions(
+    'f|force'    => \$force,
+    'h|help'     => \&help,
+    'm|man'      => \&man,
+);
+
+=item B<--help>
+
+short help page
+
+=item B<--man>
+
+show man page
+
+=back
+
+=cut
+
+sub help { pod2usage(-verbose=>1); }
+sub man  { pod2usage(-verbose=>2); }
+
+# Location and names of some directories / files
+# $Bin = absolute path of this script
+# $Script = filename of this script
+my $TRANSLATIONS= "$Bin/texts";
+
+foreach my $file (@ARGV) {
+    print $file,"\n";
+    my $scanner= SIWECOS::Text::Scanner->read_md($file);
+    if ($scanner->validate == 0 or $force) {
+        $scanner->write($TRANSLATIONS);
+    }
+}

@@ -1,0 +1,2 @@
+The following elements of your [[Header/EN|Header]]] are invalid:
+:HEADER

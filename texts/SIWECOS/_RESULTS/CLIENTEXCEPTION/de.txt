@@ -1,0 +1,3 @@
+Die Domain konnte nicht verfiziert werden.
+Es trat ein Client-Fehler auf.
+Die Fehlermeldung lautet: :EXCEPTION

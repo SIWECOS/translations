@@ -1,0 +1,1 @@
+Der Angriff nutzt 64-Bit Blockchiffren aus. Der Sweet32-Angriff ermöglicht es einem Angreifer, unter bestimmten Umständen kleine Teile eine Textes wiederherzustellen, wenn er mit 64-Bit-Blockchiffren (wie bspw. 3DES) verschlüsselt wurde. Der Angriff ist nicht besonders einfach durchzuführen, weswegen sich die  Bedrohung in Grenzen hält.

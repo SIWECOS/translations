@@ -1,137 +1,132 @@
-== Siwecos-Siegel auf Ihrer Webseite einbinden ==
-<br />
-[[File:siwecos_siegel.png|left|200px]] Um zu sehen, wann die Scanner von Siwecos Ihre Webseite das letzte Mal überprüft haben, können Sie unser Siwecos-Siegel auf Ihrer Webseite einbinden.
-<br />
-<br />
-<br />
+<!--
+#########################################################
+-
+-
+-->== Siwecos-Siegel auf Ihrer Webseite einbinden ==<!--
+-
+-
+#########################################################
+-->
+[[File:siwecos_siegel.png|left|150px]] Um zu sehen, wann die Scanner von Siwecos Ihre Webseite das letzte Mal überprüft haben, können Sie unser Siwecos-Siegel auf Ihrer Webseite einbinden.
+{{#if: {{#urlget:userdomain}} | |
 '''Bitte beachten Sie, dass das Siwecos-Siegel nur eingebunden werden kann, wenn Sie sich bei Siwecos [https://siwecos.de/app/#/register registriert] haben!'''
-<br />
-<span style="color:#c31622"><font size="5">
-Es gibt drei Möglichkeiten, das Siegel von Siwecos auf Ihre Webseite zu integrieren.
-</font><span>
-<br />
-<p>
+}}
 '''Hinweis''': Momentan kann das Siegel nicht, auf "Umlautdomains" eingebunden werden.
-</p>
-<br />
-== Möglichkeit 1: (Siegel wird lokal auf dem eigenen Webspace abgelegt)==
 
+Es gibt drei Möglichkeiten, das Siegel von Siwecos auf Ihre Webseite zu integrieren.
+<!--
+#########################################################
+-
+-
+-->=== Siegel auf dem eigenen Webspace ablegen ===<!--
+-
+-
+#########################################################
+-->
 Hier legen Sie ein kleines JavaScript lokal auf Ihrem Server ab. Der Vorteil ist, dass auf Ihrer Webseite auch dann das Siegel erscheint, wenn der Siwecos-Server nicht erreichbar ist. Es fehlt dann lediglich das Datum des letzten Scans, welches durch '''Standby''' ersetzt wird.
 
-<br />
-'''Anleitung:'''
-* Klicken Sie dazu mit der "'''rechten Maustaste'''" auf '''[https://siwecos.de/plugins/content/sealoftrust/seal.js seal.js]''' und wählen je nach Betriebssystem "'''Link speichern unter'''" bzw. "'''Ziel speichern unter'''" (siehe Bilder) und speichern die Datei des Siegels an einem Ort Ihrer Wahl (z. B. auf dem Desktop).<br />
+==== Anleitung ====
 
-{|
-|-
-|[[File:kontextmenue_speichern.png|Link speichern unter]] |[[File:kontext_menue_speichern2.png|Ziel speichern unter|200px]]<br />
-
-* Im Anschluss laden Sie die Datei auf den Webspace Ihrer Internetseite bei Ihrem Hoster. In der Regel gibt es im Verzeichnis einen Ordner für '''JavaScript (z. B. 'src')'''. Speichern Sie dort die Datei '''"seal.js"'''.<br />
+* Klicken Sie dazu mit der "'''rechten Maustaste'''" auf '''[https://siwecos.de/plugins/content/sealoftrust/seal.js seal.js]''' und wählen je nach Betriebssystem "'''Link speichern unter'''" bzw. "'''Ziel speichern unter'''" (siehe Bilder) und speichern die Datei des Siegels an einem Ort Ihrer Wahl (z. B. auf dem Desktop).
+-----
+[[File:kontextmenue_speichern.png|left|Link speichern unter]] [[File:kontext_menue_speichern2.png|Ziel speichern unter|200px]]
+-----
+* Im Anschluss laden Sie die Datei auf den Webspace Ihrer Internetseite bei Ihrem Hoster. In der Regel gibt es im Verzeichnis einen Ordner für '''JavaScript (z. B. 'src')'''. Speichern Sie dort die Datei '''"seal.js"'''. 
 * Anschließend muss auf der Hauptseite bzw. dort, wo das Siegel dargestellt werden soll, folgendes eingetragen werden:
-|}
-<br />
+ <a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|eigene_Webseite}}">
+    <svg width="150" height="58" id="siwecos-seal" data-format="d.m.y"/>
+    <script src="Pfad zum seal.js"></script>
+ </a>
 
-'''Siegel mit Verlinkung direkt zu unserer "Zertifikatsseite".'''
-
---snip
-
-<code>
-<a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|eigene_Webseite}}">
-
-&nbsp;&nbsp;<svg width="150" height="58" id="siwecos-seal" data-format="d.m.y"/>
-
-&nbsp;&nbsp;<script src="Pfad zum seal.js"></script>
-
-</a>
-</code>
-
---snap
-
-
-Agenda zum Quelltext:
+==== Anmerkungen ====
 
 *'''width''' die Breite, in der das Siegel erscheinen soll.
 *'''height''' die Höhe, in der das Siegel erscheinen soll.
 *'''data-siwecos''' Ihre Domain ohne http / https{{#if:{{#urlget:userdomain}} | &nbsp;({{#urlget: userdomain}}) }}.
-*'''format''' (optional) das gewünschte Format.
+*'''format''' (optional) das gewünschte Format. Es stehen zwei Formate zur Verfügung:
+**'''d.m.y''' für das gewohnte deutsche Format.
+**'''y-m-d''' für das ISO-8601 Format.
 *'''src''' der Pfad über den das Scipt erreichbar ist z. B. /src/seal.js.
-
-Das Format setzt sich idealerweise aus 5 Zeichen zusammen. Die empfohlenen Formate sind:
-
-*'''d.m.y''' für das gewohnte deutsche Format.
-*'''y-m-d''' für das ISO-8601 Format.
-
-== Möglichkeit 2: (Siegel wird vom Siwecos-Server geladen) ==
-
+<!--
+#########################################################
+-
+-
+-->=== Siegel vom Siwecos-Server laden ===<!--
+-
+-
+#########################################################
+-->
 Bei dieser Variante ist nur wenig technisches KnowHow nötig. Hierbei brauchen Sie nur den angegebenen Code in den Quelltext der Webseite zu platzieren und den Namen der eigenen Webseite '''("eigene_Webseite")''' zu ergänzen. '''Der Nachteil dieser Variante ist''', dass das Bild für das Siegel direkt vom Siwecos-Server geladen wird. Ist der Siwecos-Server nicht erreichbar, wird das Siegel auf Ihrer Webseite nicht angezeigt.
 
+==== Anleitung ====
 
-* Kopieren Sie den Code in Ihren Quelltext z. B. der Startseite des Webauftritts.
-
---snip
-
-<code>
-<a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|eigene_Webseite}}"><img width="150" src="http&#58;//siegel.siwecos.de/{{#urlget:userdomain|eigene_Webseite}}/d.m.y.svg"></a>
-</code>
-
---snap
+* Kopieren Sie den Code in den Quelltext der Startseite Ihres Webauftritts.
+ <a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|eigene_Webseite}}">
+   <img width="150" height="58" src="http&#58;//siegel.siwecos.de/{{#urlget:userdomain|eigene_Webseite}}/d.m.y.svg">
+ </a>
 
 {{#if: {{#urlget:userdomain}} | |
-* Ändern Sie '''"eigene_Webseite"''' im Code durch den '''Namen Ihrer Domain''' (ohne http/https)
-* '''<span style="color:#c31622">Achtung:</span>''' Hier werden die meisten Fehler gemacht, tragen Sie die Domain bitte so ein, wie Sie diese bei Siwecos registriert haben (Beispiel: Registriert wurde www.botfrei.de, so muss auch www.botfrei.de ins Siegel integriert werden!)
-<br />
+* Ändern Sie '''"eigene_Webseite"''' im Code durch den '''Namen Ihrer Domain''' (ohne http/https) 
+** '''Achtung:''' Hier werden die meisten Fehler gemacht, tragen Sie die Domain bitte so ein, wie Sie diese bei Siwecos registriert haben (Beispiel: Registriert wurde www.botfrei.de, so muss auch www.botfrei.de ins Siegel integriert werden!)
 }}
 
-Das Format für das Datum setzt sich idealerweise aus 5 Zeichen zusammen. Die zulässigen Formate sind:
+==== Anmerkung ====
 
-*'''d.m.y''' für das gewohnte deutsche Format.
-*'''y-m-d''' für das ISO-8601 Format.
-<br />
-'''Empfehlung:''' Einbinden des Siegels für die [[Content-Security-Policy-Schwachstelle/DE|Content Security Policy]] ("img-src 'self' siwecos.de;")
+*'''width''' die Breite, in der das Siegel erscheinen soll.
+*'''height''' die Höhe, in der das Siegel erscheinen soll.
+*'''data-siwecos''' Ihre Domain ohne http / https{{#if:{{#urlget:userdomain}} | &nbsp;({{#urlget: userdomain}}) }}.
+*'''d.m.y''' Das Datum wird im gewohnten deutschen Format angezeigt.
+**'''Alternativ:''' '''y-m-d''' für das ISO-8601 Format.
 
+'''Empfehlung:''' Einbinden des Siegels für die [[Content-Security-Policy-Schwachstelle/DE|Content Security Policy]] ("img-src 'self' siegel.siwecos.de;")
+<!--
+#########################################################
+-
+-
+-->=== Siegel als statisches Bild ===<!--
+-
+-
+#########################################################
+-->
+Bei dieser Variante wird das Siegel statisch auf Ihrer Webseite hinterlegt. Es werden keine Daten (z. B. das Datum der täglichen Überprüfung) von Siwecos in das Siegel nachgeladen.
 
-
-
-
-== Möglichkeit 3: (Siegel als statisches Bild) ==
-
-Bei dieser Variante wird das Siegel statisch auf Ihrer Webseite hinterlegt. Es werden keine Daten ('''z. B. das Datum der täglichen Überprüfung''') von Siwecos in das Siegel nachgeladen.
-
+==== Anleitung ====
 
 * Statisches Siegel
-[[File:seal_siwecos_static_final.png]]
-
+[[File:seal_siwecos_static_final.png|150px]]
 * Laden Sie das Siegel herunter (rechte Maus auf das Siegel, '''Bild speichern unter''')
 * Kopieren Sie den unten stehenden Code in Ihren Quelltext z. B. der Startseite des Webauftritts und ergänzen Sie {{#if: {{#urlget:userdomain}} | | den Namen der eigenen Webseite '''("eigene_Webseite")''' und }} den '''"Speicherort des Bildes"'''.
+ <a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|eigene_Webseite}}">
+   <img width="150" height="58" src="Speicherort des Bildes/seal_siwecos_static_final.png">
+ </a>
 
+==== Anmerkungen ====
 
---snip
-
-<code>
-<a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|eigene_Webseite}}"><img width="150" src="Speicherort des Bildes/seal_siwecos_static_final.png"></a>
-</code>
-
---snap
-
-<br />
-
-== Siegel aus Sicht des Datenschutzes ==
-<br />
-'''SiWECOS - Siegel'''
-<br /><br />
+*'''width''' die Breite, in der das Siegel erscheinen soll.
+*'''height''' die Höhe, in der das Siegel erscheinen soll.
+<!--
+#########################################################
+-
+-
+-->== Das Siegel aus Sicht des Datenschutzes ==<!--
+-
+-
+#########################################################
+-->
 Als Nutzer des SIWECOS Webseitenscanners haben Sie die Möglichkeit auf Ihrer Website das SIWECOS-Siegel einzubinden. Das SIWECOS Siegel verdeutlicht dem Besucher Ihrer Webseite, dass es sich bei der angesurften Seite um eine sichere Webseite handelt, die regelmäßig einer Sicherheitsüberprüfung durch Nutzung des SIWECOS Webseitenscanners unterliegt. Beim Aufruf des Siegels speichert der Webserver automatisch ein sogenanntes Server-Logfile des Webseitenbesuchers. Dieses Server-Logfile enthält folgende Nutzungsdaten:
 
-'''-	IP-Adresse des zugreifenden Rechners<br />'''
-'''-	Datum und Uhrzeit des Abrufs<br />'''
-'''-	übertragene Datenmenge und den anfragenden Provider.<br />'''
+* IP-Adresse des zugreifenden Rechners.
+* Datum und Uhrzeit des Abrufs.
+* übertragene Datenmenge und den anfragenden Provider.
 
 Die Rechtsgrundlage für die Verarbeitung der IP-Adresse ist Art. 6 Abs. 1 lit. f DS-GVO. Unser berechtigtes Interesse folgt aus den nachfolgend aufgelisteten Zwecken der Datenerhebung.
+
 Die IP-Adresse Ihres Endgerätes sowie die weiteren oben aufgelisteten Daten werden durch uns für folgende Zwecke genutzt:
 
-'''-	Darstellung des SIWECOS Siegels auf der angesurften Webseite<br />'''
+* Darstellung des SIWECOS Siegels auf der angesurften Webseite
 
 Aus diesen Nutzungsdaten werden durch SIWECOS keine Nutzungsprofile erstellt und keine Rückschlüsse auf die Person des Webseitenbesuchers gezogen. Diese Daten werden ausschließlich zur Sicherstellung eines störungsfreien Betriebs ausgewertet und spätestens sieben Tage nach Ende des Seitenbesuchs automatisch überschrieben.
 
-<br />
-'''Weitere Informationen finden Sie in unserem [[Fragen_und_Antworten/DE | FAQ]]'''
+Weitere Informationen finden Sie in unserem [[Fragen_und_Antworten/DE | FAQ]]
 
+[[Category:FAQ]]

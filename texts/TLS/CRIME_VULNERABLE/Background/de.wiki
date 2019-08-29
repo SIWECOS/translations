@@ -1,0 +1,1 @@
+Bei dem CRIME Angriff wird ausgenutzt, dass sich durch eine Datenkompression die Länge der verschlüsselten Nachrichten ändern kann, und dies Rückschlüsse auf den Klartext liefert. Dies kann von einem geschickten Angreifer genutzt werden, um bspw. Cookies zu stehlen.

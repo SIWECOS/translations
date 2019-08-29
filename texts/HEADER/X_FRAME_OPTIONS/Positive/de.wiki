@@ -1,0 +1,1 @@
+Der [[Header/DE|Header]] ist korrekt gesetzt und verbessert den Schutz gegen Framing-Angriffe wie beispielsweise UI-Redressing bzw. Clickjacking.

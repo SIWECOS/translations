@@ -1,0 +1,1 @@
+Der [[Header/DE|Header]] ''':HEADER_NAME''' enthält [[Ersetzungszeichen|nicht-verarbeitbare]] Zeichen.

@@ -1,1 +1,0 @@
-Der [[Server]] ist verwundbar durch [https://www.golem.de/news/sweet32-kurze-verschluesselungsbloecke-sorgen-fuer-kollisionen-1608-122887.html SWEET32], was es einem Angreifer erlaubt, die Kommunikation zu entschlüsseln.

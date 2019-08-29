@@ -1,1 +1,0 @@
-Deactivating the certificate is not good advice. A customer should either use his or her old certificate or a certificate that is already valid. We should not recommend deactivating encryption, otherwise customer data will be in immediate danger.

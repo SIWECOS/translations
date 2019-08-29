@@ -1,0 +1,3 @@
+Die Domain konnte nicht verfiziert werden. 
+Der Server antwortete nicht erwartungsgemäß. 
+Die Fehlermeldung lautet: :EXCEPTION

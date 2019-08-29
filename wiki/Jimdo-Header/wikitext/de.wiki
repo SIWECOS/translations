@@ -4,3 +4,5 @@
 Wie Sie den Jimdo-Header bearbeiten können, wird bei [https://www.homepage-ratgeber.de/magazin/jimdo-com-so-bearbeitest-du-den-header/ Homepage Ratgeber] genau erklärt. 
 
 Weiter zu [https://siwecos.de siwecos.de]
+
+[[Category:FAQ]]

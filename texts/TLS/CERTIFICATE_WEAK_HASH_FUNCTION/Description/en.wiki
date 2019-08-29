@@ -1,0 +1,1 @@
+This message means that your [[Certificate|server certificate]] has a weak hash algorithm. This can potentially cause it to be falsified and is displayed as insecure in many browsers.

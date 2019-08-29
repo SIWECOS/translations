@@ -1,1 +1,0 @@
-Vulnerable plug-in %plugin% in version %plugin_version% detected.

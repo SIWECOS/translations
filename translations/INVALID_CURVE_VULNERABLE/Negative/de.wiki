@@ -1,1 +1,0 @@
-Verwundbar durch [[Invalid-Curve-Schwachstelle/DE/Background|Invalid Curve Angriffe]].

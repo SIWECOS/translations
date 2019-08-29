@@ -1,0 +1,22 @@
+=== {{:{{PAGENAME}}/Headline}} ===
+
+Bei positivem Ergebnis besteht kein weiterer Handlungsbedarf, bei negativen Ergebnis lesen Sie bitte die folgenden Hinweise.
+
+{| class="wikitable"
+|'''Ergebnis positiv''' || {{:{{PAGENAME}}/Positive}}
+|-
+|'''Ergebnis negativ'''|| {{:{{PAGENAME}}/Negative}}
+|-
+|'''Beschreibung'''||  {{:{{PAGENAME}}/Description}}
+|-
+|'''Hintergrund'''||  {{:{{PAGENAME}}/Background}}
+|-
+|'''Auswirkung'''||  {{:{{PAGENAME}}/Consequence}}
+|-
+|'''Lösung/Tipps'''||  {{:{{PAGENAME}}/Solution_Tips}}
+|}
+
+
+[[Category:Siwecos-Scanner]]
+{{:{{PAGENAME}}/Category}}
+

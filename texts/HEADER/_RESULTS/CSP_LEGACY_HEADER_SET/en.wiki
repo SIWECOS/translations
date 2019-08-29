@@ -1,0 +1,1 @@
+The outdated [[Header/EN|header]] '':HEADER_NAME'' is used. The new standardized [[Header/EN|header]] is ''Content-Security-Policy''.

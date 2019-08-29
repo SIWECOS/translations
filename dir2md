@@ -1,0 +1,79 @@
+#!/usr/bin/perl
+=head1 NAME
+
+dir2md - Convert SIWECOS translations used by the application into an Markdown file.
+
+=head1 SYNOPSIS
+
+B<dir2md> [SCANNER…]
+
+B<dir2md> B<--help>|B<--man>
+
+=head1 Description
+
+dir2md will take all SIWECOS translations found and copy them into Markdown files.
+
+If scanner names are given on the commandline, just the texts from those are taken.
+
+=cut
+use strict;
+use warnings;
+use FindBin qw($Bin $Script);
+use Getopt::Long qw(:config no_ignore_case);
+use Pod::Usage;
+use lib "$Bin/lib";
+use SIWECOS::Text::Scanner;
+use SIWECOS::Markdown;
+
+=head1 options
+
+=over 4
+
+=item B<--force>
+
+=cut
+
+my $force;
+
+=item B<-f>
+
+Write output file even if validation failed.
+
+=cut
+
+help() unless GetOptions(
+    'f|force'    => \$force,
+    'h|help'     => \&help,
+    'm|man'      => \&man,
+);
+
+=item B<--help>
+
+short help page
+
+=item B<--man>
+
+show man page
+
+=back
+
+=cut
+
+sub help { pod2usage(-verbose=>1); }
+sub man  { pod2usage(-verbose=>2); }
+
+# Location and names of some directories / files
+# $Bin = absolute path of this script
+# $Script = filename of this script
+my $TRANSLATIONS= "$Bin/texts";
+
+my $specific= '*';
+if (@ARGV) {
+    $specific= '{' . join(",", splice(@ARGV)) . '}';
+}
+foreach my $dir (glob("$TRANSLATIONS/$specific")) {
+    my $scanner= SIWECOS::Text::Scanner->read($dir);
+    if ($scanner->validate == 0 or $force) {
+        $scanner->write_md('.');
+    }
+}

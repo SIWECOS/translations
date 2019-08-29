@@ -1,1 +1,0 @@
-Die Meldung bedeutet, dass Ihr [[Zertifikate|Server-Zertifikat]] einen schwachen [[Hashing|Hash-Algorithmus]] (Verschlüsselung) besitzt. Es stellt möglicherweise ein leichtes Ziel für Hacker-Angriffe dar.

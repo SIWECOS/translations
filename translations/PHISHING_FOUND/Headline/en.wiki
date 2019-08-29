@@ -1,1 +1,0 @@
-Your domain '%site%' was found in the following phishing lists: %where%

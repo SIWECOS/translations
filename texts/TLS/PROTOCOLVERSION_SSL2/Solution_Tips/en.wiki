@@ -1,0 +1,1 @@
+If ''Outdated protocol version SSL2 supported'' was reported: [https://en.wikipedia.org/wiki/Transport_Layer_Security TLS encoding] is considered to be the standard today. Therefore you should not use SSL2.

@@ -1,1 +1,0 @@
-Der [[Server]] ist verwundbar durch einen [https://www.golem.de/news/verschluesselung-punkte-auf-der-falschen-elliptischen-kurve-1511-117643.html Invalid Curve Angriff]. Dadurch kann ein Angreifer den geheimen Schlüssel Ihres [[Zertifikate|Zertifikats]] stehlen.

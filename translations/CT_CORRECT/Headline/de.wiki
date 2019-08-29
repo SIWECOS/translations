@@ -1,1 +1,0 @@
-Der [[Header]] "%HEADER%" ist korrekt gesetzt und entspricht den Empfehlungen.

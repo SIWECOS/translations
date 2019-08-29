@@ -1,0 +1,1 @@
+HTTP [[Header/EN|header]] X-Frame-Options not set.

@@ -1,0 +1,2 @@
+Wenn unsicherer JavaScript-Code gemeldet wird, ist die [[Webanwendung]] eventuell anfällig für sog. [[DOMXSS-Sinks|DOMXSS]]-Angriffe.
+Das Ergebnis der Untersuchung kann nur als Hinweis auf Sicherheitslücken verwendet werden. Weitere Tests sind erforderlich, um die [[Schwachstellen|Schwachstellen]] auf der Webseite zu bestätigen.

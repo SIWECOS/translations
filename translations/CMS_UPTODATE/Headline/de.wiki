@@ -1,1 +1,0 @@
-Das von Ihnen verwendete Content Management System (%cms%) ist in der aktuellen Version (%version%) installiert.

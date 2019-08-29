@@ -1,1 +1,0 @@
-If the FTP section of your website is attacked and compromised, hackers can misuse your account as a host for a phishing website.

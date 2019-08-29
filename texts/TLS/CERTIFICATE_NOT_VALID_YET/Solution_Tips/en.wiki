@@ -1,0 +1,1 @@
+If ''Certificate is not yet valid'' was reported, insert your old [[Certificate|certificate]] as long as it is still valid. You can find out how to renew [[Certificate|certificates]], please refer to: [[Certificate-Expired/EN|certificate expired]].

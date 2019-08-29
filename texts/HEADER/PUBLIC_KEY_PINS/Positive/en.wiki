@@ -1,0 +1,1 @@
+[[Public-Key-Pins-Disabled/EN|Public Key Pinning]] is active (The result does not influence the score).

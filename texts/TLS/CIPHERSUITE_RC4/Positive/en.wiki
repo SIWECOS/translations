@@ -1,0 +1,1 @@
+Outdated RC4 encryption not supported

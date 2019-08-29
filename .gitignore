@@ -2,3 +2,5 @@
 poedit/*
 work/*
 /.idea
+build/
+.vscode/*

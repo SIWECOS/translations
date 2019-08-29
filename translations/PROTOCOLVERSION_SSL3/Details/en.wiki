@@ -1,1 +1,0 @@
-The server supports the outdated protocol version SSL3, which is considered to be highly insecure. By using this version, you massively compromise the security of the server and possibly your entire company network.

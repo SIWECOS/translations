@@ -1,1 +1,0 @@
-Deactivate support for the DES encryption method in your web server software.

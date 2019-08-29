@@ -1,0 +1,1 @@
+Attackers can use a weak encryption method to decode communication between your Web page and the browser of your customer without any problems. It can be used, for example, to read passwords, form data or credit card information and misuse them for criminal purposes.  This make possible Man-in-the-middle attacks.

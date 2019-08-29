@@ -1,0 +1,3 @@
+If your CMS was reported as old, update your CMS-Installation. Normally, smaller updates within the same version branch (i.e. from 1.5 to 1.6) can be applied with just a mouseclick directly from the CMS administration interface. Bigger update leaps (i.e. from 1.5 to 2.0) often require adjustments to the actual site's code and therefore have to be applied by the initial website developer. Please create a backup before each update.
+
+Check your CMS at least once a day for available updates. If you aren't able to do so, making a maintenance-contract with a service provider is highly recommended!

@@ -1,0 +1,1 @@
+Not vulnerable to [[Invalid-Curve-Vulnerability/EN|Invalid Curve attacks]].

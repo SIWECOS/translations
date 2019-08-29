@@ -1,0 +1,1 @@
+Your web server/website is configured so that the encryption algorithms of the website visitor are preferred to those of your web server. Server should not leave the choice of encryption algorithms to your customers, but actively select strong connections.
