@@ -26,9 +26,9 @@ deploy:
   provider: releases
   api_key: $GITHUB_SIWECOSBOT_TOKEN
   file: translation-files.zip
-  name: 'Translation-Update'
+  name: "Translation-Update"
   body: "Translation files update"
   overwrite: true
   skip_cleanup: true
   on:
-    branch: v2
+    branch: master
