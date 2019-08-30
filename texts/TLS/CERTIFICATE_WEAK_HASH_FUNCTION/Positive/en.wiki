@@ -1,1 +1,1 @@
-Strong hash algorithm
+Strong hash algorithm is used
