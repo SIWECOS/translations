@@ -1,1 +1,1 @@
-Starker [[Hashing|Hash-Algorithmus]]
+Starker [[Hashing|Hash-Algorithmus]] wird genutzt
