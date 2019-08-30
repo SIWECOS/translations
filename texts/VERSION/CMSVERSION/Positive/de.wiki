@@ -1,1 +1,1 @@
-Das verwendete CMS ist aktuell.
+Dieser Test ist positiv ausgefallen. Wenn Sie ein CMS verwenden, ist es aktuell oder wir konnten nicht feststellen, welches Sie in Verwendung haben. Bitte schauen Sie in unter "Hintergrundinformationen" nach den Details.

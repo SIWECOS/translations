@@ -1,1 +1,1 @@
-The installed CMS is up-to-date.
+This test turned out positive. If you are using a CMS, it is up-to-date or we could not determine which one you have in use. Please have a look at "Background information" for the details.
