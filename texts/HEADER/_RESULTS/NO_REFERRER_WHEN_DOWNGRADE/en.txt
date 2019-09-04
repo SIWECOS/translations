@@ -1,1 +1,0 @@
-The no-referrer-when-downgrade header is not optimal because it only protects users' privacy when HTTPS links to HTTP. This may allow an external site to access sensitive information. We recommend the no-referrer option.
