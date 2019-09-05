@@ -1,0 +1,1 @@
+Die [[Content-Security-Policy]] ist ungültig.
