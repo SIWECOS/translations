@@ -1,1 +1,1 @@
-Die verwendete CMS-Version ist möglicherweise veraltet. Nur eine der in Frage kommenden Versionen (%version) ist aktuell. Bitte prüfen Sie manuell die verwendete Version.
+Die verwendete CMS-Version ist möglicherweise veraltet. Nur eine der in Frage kommenden Versionen (:version) ist aktuell. Bitte prüfen Sie manuell die verwendete Version.

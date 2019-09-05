@@ -1,1 +1,1 @@
-The CMS version you are using may be out of date. Only one of the versions in question (%version) is up-to-date. Please check the version manually.
+The CMS version you are using may be out of date. Only one of the versions in question (:version) is up-to-date. Please check the version manually.
