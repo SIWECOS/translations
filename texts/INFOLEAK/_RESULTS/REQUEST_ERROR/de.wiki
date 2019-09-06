@@ -1,0 +1,2 @@
+Es trat ein Anfrage-Fehler auf.
+Der Server antwortete nicht erwartungsgemäß.
