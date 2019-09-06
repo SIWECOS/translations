@@ -1,0 +1,2 @@
+Es trat ein Client-Fehler auf. 
+Der Server antwortete nicht erwartungsgemäß. 

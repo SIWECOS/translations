@@ -1,0 +1,2 @@
+Es trat ein Verbindungsfehler auf.
+Der Server antwortete nicht erwartungsgemäß.
