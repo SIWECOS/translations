@@ -1,1 +1,1 @@
-Der [[Header/DE|Header]] ist korrekt gesetzt und entspricht den Empfehlungen.
+Wir empfehlen, im [[Header/DE|Header]] den `mode=block` zu aktivieren.
