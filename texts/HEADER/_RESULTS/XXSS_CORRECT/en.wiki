@@ -1,1 +1,1 @@
-The [[Header/EN|header]] is set correctly and corresponds to the recommendations.
+We recommend to activate the `mode=block` in the [[Header/EN|Header]].

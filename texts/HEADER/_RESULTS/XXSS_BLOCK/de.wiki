@@ -1,1 +1,1 @@
-Die `mode=block`-Direktive ist aktiviert.
+Der [[Header/DE|Header]] ist korrekt gesetzt und entspricht den Empfehlungen.
