@@ -62,7 +62,7 @@ Bei dieser Variante ist nur wenig technisches KnowHow nötig. Hierbei brauchen S
 
 * Kopieren Sie den Code in den Quelltext der Startseite Ihres Webauftritts.
  <a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|eigene_Webseite}}">
-   <img width="150" height="58" src="http&#58;//siegel.siwecos.de/{{#urlget:userdomain|eigene_Webseite}}/d.m.y.svg">
+   <img width="150" height="58" src="https&#58;//siegel.siwecos.de/{{#urlget:userdomain|eigene_Webseite}}/d.m.y.svg">
  </a>
 
 {{#if: {{#urlget:userdomain}} | |
@@ -129,3 +129,4 @@ Aus diesen Nutzungsdaten werden durch SIWECOS keine Nutzungsprofile erstellt und
 Weitere Informationen finden Sie in unserem [[Fragen_und_Antworten/DE | FAQ]]
 
 [[Category:FAQ]]
+
