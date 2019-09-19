@@ -1,0 +1,1 @@
+The Early-CCS vulnerability is an implementation vulnerability in a 2014 TLS software library. If you are affected by this vulnerability, you should urgently update your software. The vulnerability is relatively minor, but a clear indicator that you have not updated your software for at least 5 years and are therefore affected by more serious attacks.
