@@ -7,7 +7,7 @@
 -
 #########################################################
 -->
-[[File:siwecos_siegel.png|left|150px]] Um zu sehen, wann die Scanner von Siwecos Ihre Webseite das letzte Mal überprüft haben, können Sie unser Siwecos-Siegel auf Ihrer Webseite einbinden.
+[[File:siwecos_siegel.png|left|150px|alt=Das Siwecos-Siegel zeigt Ihnen, wann Ihre Seite zuletzt geprüft wurde|link=https://siwecos.de]] Um zu sehen, wann die Scanner von Siwecos Ihre Webseite das letzte Mal überprüft haben, können Sie unser Siwecos-Siegel auf Ihrer Webseite einbinden.
 {{#if: {{#urlget:userdomain}} | |
 '''Bitte beachten Sie, dass das Siwecos-Siegel nur eingebunden werden kann, wenn Sie sich bei Siwecos [https://siwecos.de/app/#/register registriert] haben!'''
 }}
@@ -31,7 +31,7 @@ Hier legen Sie ein kleines JavaScript lokal auf Ihrem Server ab. Der Vorteil ist
 -----
 [[File:kontextmenue_speichern.png|left|Link speichern unter]] [[File:kontext_menue_speichern2.png|Ziel speichern unter|200px]]
 -----
-* Im Anschluss laden Sie die Datei auf den Webspace Ihrer Internetseite bei Ihrem Hoster. In der Regel gibt es im Verzeichnis einen Ordner für '''JavaScript (z. B. 'src')'''. Speichern Sie dort die Datei '''"seal.js"'''. 
+* Im Anschluss laden Sie die Datei auf den Webspace Ihrer Internetseite bei Ihrem Hoster. In der Regel gibt es im Verzeichnis einen Ordner für '''JavaScript (z. B. 'src')'''. Speichern Sie dort die Datei '''"seal.js"'''.
 * Anschließend muss auf der Hauptseite bzw. dort, wo das Siegel dargestellt werden soll, folgendes eingetragen werden:
  <a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|eigene_Webseite}}">
     <svg width="150" height="58" id="siwecos-seal" data-format="d.m.y"/>
@@ -66,7 +66,7 @@ Bei dieser Variante ist nur wenig technisches KnowHow nötig. Hierbei brauchen S
  </a>
 
 {{#if: {{#urlget:userdomain}} | |
-* Ändern Sie '''"eigene_Webseite"''' im Code durch den '''Namen Ihrer Domain''' (ohne http/https) 
+* Ändern Sie '''"eigene_Webseite"''' im Code durch den '''Namen Ihrer Domain''' (ohne http/https)
 ** '''Achtung:''' Hier werden die meisten Fehler gemacht, tragen Sie die Domain bitte so ein, wie Sie diese bei Siwecos registriert haben (Beispiel: Registriert wurde www.botfrei.de, so muss auch www.botfrei.de ins Siegel integriert werden!)
 }}
 
@@ -93,9 +93,8 @@ Bei dieser Variante wird das Siegel statisch auf Ihrer Webseite hinterlegt. Es w
 ==== Anleitung ====
 
 * Statisches Siegel
-[[File:seal_siwecos_static_final.png|150px]]
-* Laden Sie das Siegel herunter (rechte Maus auf das Siegel, '''Bild speichern unter''')
-* Kopieren Sie den unten stehenden Code in Ihren Quelltext z. B. der Startseite des Webauftritts und ergänzen Sie {{#if: {{#urlget:userdomain}} | | den Namen der eigenen Webseite '''("eigene_Webseite")''' und }} den '''"Speicherort des Bildes"'''.
+* [[File:seal_siwecos_static_final.png|left|150px|alt=Das Siwecos-Siegel zeigt Ihnen, dass Ihre Seite geprüft wurde|link=https://siwecos.de]] Laden Sie das Siegel herunter (rechte Maus auf das Siegel, '''Bild speichern unter''').
+Kopieren Sie den unten stehenden Code in Ihren Quelltext z. B. der Startseite des Webauftritts und ergänzen Sie {{#if: {{#urlget:userdomain}} | | den Namen der eigenen Webseite '''("eigene_Webseite")''' und }} den '''"Speicherort des Bildes"'''.
  <a href="https&#58;//siwecos.de/scanned-by-siwecos/?data-siwecos={{#urlget:userdomain|eigene_Webseite}}">
    <img width="150" height="58" src="Speicherort des Bildes/seal_siwecos_static_final.png">
  </a>

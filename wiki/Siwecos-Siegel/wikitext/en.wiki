@@ -7,7 +7,7 @@
 -
 #########################################################
 -->
-[[File:siwecos_siegel.png|left|150px]] To show when the Siwecos scanners last checked your website, you can embed our Siwecos seal on your website.
+[[File:siwecos_siegel.png|left|150px|alt=The Siwecos seal shows you when your page was last checked|link=https://siwecos.de]] To show when the Siwecos scanners last checked your website, you can embed our Siwecos seal on your website.
 {{#if: {{#urlget:userdomain}} | |
 '''Please note that the seal can only be embedded if you have [https://siwecos.de/app/#/register registered] with Siwecos!'''
 }}
@@ -97,7 +97,7 @@ For this option you store the seal statically on your website. No data (e.g. the
 ==== Instructions ====
 
 * Static Seal
-[[File:seal_siwecos_static_final.png|150px]]
+[[File:seal_siwecos_static_final.png|150px|alt=The Siwecos seal shows you that your site has been checked|link=https://siwecos.de]]
 * Download the seal (right mouse click on the seal, '''Save Image as…''')
 * Copy the code below into your source code, for example into the start page of your website. Adjust {{#if: {{#urlget:userdomain}} | | the name of your website '''("your_website")''' and }} the '''("path to the image")'''.
  <a href="https&#58;//siwecos.de/scanned-by-siwecos?data-siwecos={{#urlget:userdomain|your_website}}">
