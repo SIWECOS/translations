@@ -100,6 +100,7 @@ sub read {
         carp $check;
         return undef;
     }
+    my $no_text=    1;
     foreach my $lang_file (glob("$dirname/*.wiki")) {
         next unless -f $lang_file;
         my $language= basename($lang_file, '.wiki');
@@ -110,9 +111,14 @@ sub read {
             };
             close $text;
             $self->text($language, $content);
-        } else {
+            undef $no_text;
+            } else {
             carp "Cannot read $lang_file: $!";
         }
+    }
+    if ($no_text) {
+        carp "No text found at $dirname.\n";
+        return undef;
     }
     return $self;
 }
