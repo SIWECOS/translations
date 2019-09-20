@@ -43,6 +43,7 @@ sub validate {
 
 sub result {
     my($self, $content)= @_;
+    return undef unless defined $content;
     my $type= ref $content;
     if ($type) {
         if ($type eq 'SIWECOS::Text') {
