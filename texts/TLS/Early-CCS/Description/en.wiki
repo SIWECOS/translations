@@ -1,0 +1,1 @@
+The server is vulnerable to the Early-CCS vulnerability. This vulnerability allows an attacker to decrypt communication and read user input such as passwords under special circumstances.
