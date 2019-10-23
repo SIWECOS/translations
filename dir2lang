@@ -177,7 +177,7 @@ foreach my $scanner (@scanners) {
     delete @missing_language{ $scanner->languages};
     my $scanner_name= $scanner->id;
     foreach my $lang (keys %languages) {
-        if ($missing_language{$lang}) {
+        if (exists $missing_language{$lang}) {
             print "\rScanner $scanner_name: No translation for $lang\n";
             next;
         }
@@ -276,45 +276,50 @@ sub parse_wiki {
     my($mw, $text, $location, $lang)= @_;
     my $warning= 0;
     local($_)= $text;
-    if (/\[|''/) {
-        s#^(\s*):(?=\w)#$1<nowiki>:</nowiki>#mg;
-        print "Parsing $location\n" if $verbose;
-        my $result= $mw->api({
-            action => 'parse',
-            format => 'json',
-            title => 'none',
-            text => $_,
-            prop => 'text|links|externallinks',
-            disablelimitreport => 'true',
-        });
-        if( not $result ) {
-            die $mw->{error}->{details}. ' ('. $mw->{error}->{code} . ')';
-        }
-        $_= $result->{parse}->{text}->{'*'};
-        foreach my $link (@{$result->{parse}->{links}}) {
-            my $printable_link= $link->{'*'};
-            my $linktext= quotemeta($printable_link);
-            if (not exists $link->{exists}) {
-                warn "Missing link: $printable_link in $location.\n";
-                ++$warning;
+    if (defined $_) {
+        if (/\[|''/) {
+            s#^(\s*):(?=\w)#$1<nowiki>:</nowiki>#mg;
+            print "Parsing $location\n" if $verbose;
+            my $result= $mw->api({
+                action => 'parse',
+                format => 'json',
+                title => 'none',
+                text => $_,
+                prop => 'text|links|externallinks',
+                disablelimitreport => 'true',
+            });
+            if( not $result ) {
+                die $mw->{error}->{details}. ' ('. $mw->{error}->{code} . ')';
             }
-            s#(<a\b[^>]+\b)(href=")/wiki(/[^>"]+"[^>]+\btitle="$linktext")#"$1target=\x22$WIKI_LINK\x22 $2".$settings->{WIKI}.$3#ge;
+            $_= $result->{parse}->{text}->{'*'};
+            foreach my $link (@{$result->{parse}->{links}}) {
+                my $printable_link= $link->{'*'};
+                my $linktext= quotemeta($printable_link);
+                if (not exists $link->{exists}) {
+                    warn "Missing link: $printable_link in $location.\n";
+                    ++$warning;
+                }
+                s#(<a\b[^>]+\b)(href=")/wiki(/[^>"]+"[^>]+\btitle="$linktext")#"$1target=\x22$WIKI_LINK\x22 $2".$settings->{WIKI}.$3#ge;
+            }
+            foreach my $link (@{$result->{parse}->{externallinks}}) {
+                my $linktext= quotemeta $link;
+                s#(<a\b[^>]*href="$linktext"[^>]*>)#replace_target($1, $WIKI_EXTERN)#ge;
+            }
+        } else {
+            print "Noparse $location\n" if $verbose;
+            s/\s+$//s;
+            s#\s\s+# </p><p>#sg;
+            $_= "<p>$_ </p>";
         }
-        foreach my $link (@{$result->{parse}->{externallinks}}) {
-            my $linktext= quotemeta $link;
-            s#(<a\b[^>]*href="$linktext"[^>]*>)#replace_target($1, $WIKI_EXTERN)#ge;
-        }
-    } else {
-        print "Noparse $location\n" if $verbose;
+        s/\\/\\\\/sg;
+        s/\n/ /sg;
+        s/\r//sg;
+        s/'/\\'/sg;
         s/\s+$//s;
-        s#\s\s+# </p><p>#sg;
-        $_= "<p>$_ </p>";
+    } else {
+        warn "No text in $location.\n";
+        ++$warning;
     }
-    s/\\/\\\\/sg;
-    s/\n/ /sg;
-    s/\r//sg;
-    s/'/\\'/sg;
-    s/\s+$//s;
     return ($_, $warning);
 }
 
@@ -322,9 +327,11 @@ sub oneline_wiki {
     local($_);
     my($warning);
     ($_, $warning)= parse_wiki(@_);
-    s#</?p>##sg;
-    s/&#160;/ /sg;
-    s/\s+$//s;
+    if (defined $_) {
+        s#</?p>##sg;
+        s/&#160;/ /sg;
+        s/\s+$//s;
+    }
     return ($_, $warning);
 }
 
