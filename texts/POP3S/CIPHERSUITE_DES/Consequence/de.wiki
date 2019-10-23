@@ -1,0 +1,1 @@
+Angreifer können mit dem Einsatz der DES [[Verschlüsselung]] die Kommunikation zwischen Ihrer Webseite und dem Browser Ihres Kunden entschlüsseln, da DES keine ausreichende Sicherheit bietet. Darüber lassen sich z. B. eingegebene Passwörter, Formular-Daten oder Kreditkarten-Informationen entschlüsseln und für kriminelle Zwecke missbrauchen.

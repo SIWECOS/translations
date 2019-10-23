@@ -1,0 +1,1 @@
+[[SSL|SSL2]] wird von fast allen Mail-Programmen nicht mehr unterstützt, führt aber trozdem zu fatalen Sicherheitsproblemen auf Ihrem Server. [[SSL|SSL2]] ist ein Urgestein des Internets und muss umgehend abgeschaltet werden.

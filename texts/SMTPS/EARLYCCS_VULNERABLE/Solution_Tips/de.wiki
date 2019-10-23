@@ -1,0 +1,1 @@
+Wenn Verwundbarkeit gemeldet wurde, spielen Sie umgehend ein Update für Ihre TLS-Implementierung auf Ihrem Server ein.

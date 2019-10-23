@@ -1,0 +1,1 @@
+Ihr Server ist so konfiguriert, dass Sie die mittlerweile als unsicher geltende Verschlüsselungsfunktion DES ([[Verschlüsselungsmethodik|Cipher Suites)]] unterstützt. Dies ermöglicht [[Man-in-the-middle|Man-in-the-middle Attacken]].

@@ -1,0 +1,1 @@
+Wo es möglich ist, sollte man am besten auf den Einsatz von Triple-DES verzichten. Deaktivieren Sie Blockchiffren mit einer Blocklänge von 64 Bit.

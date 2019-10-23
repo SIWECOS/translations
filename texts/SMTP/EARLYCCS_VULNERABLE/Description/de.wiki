@@ -1,0 +1,1 @@
+Der Server ist verwundbar durch die Early-CCS Schwachstelle. Diese Schwachstelle erlaubt es einem Angreifer unter speziellen Umständen die Kommunikation zu entschlüsseln und Nutzereingaben wie Passwörter mitzulesen.

@@ -1,0 +1,1 @@
+Wenn ''Unsichere NULL Chiffren unterstützt'' gemeldet wurde, deaktivieren Sie die Unterstützung von NULL [[Verschlüsselungsmethodik|Verschlüsselungsmethoden]].

@@ -1,0 +1,1 @@
+[[Transport_Layer_Security|TLS 1.3]] ist die neueste Version von TLS. Sie ist schneller und besser.

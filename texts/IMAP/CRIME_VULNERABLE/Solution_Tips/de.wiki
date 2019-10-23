@@ -1,0 +1,1 @@
+CRIME kann verhindert werden, indem die Verwendung von Komprimierung von Daten in TLS abgeschaltet wird. Deaktivieren Sie [[Transport Layer Security|TLS-Compression]] auf Ihrem Server.

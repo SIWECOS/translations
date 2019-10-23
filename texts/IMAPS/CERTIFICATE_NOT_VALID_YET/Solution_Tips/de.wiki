@@ -1,0 +1,1 @@
+Wenn ''Zertifikat noch nicht gültig'' gemeldet wurde, setzen sie Ihr altes [[Zertifikate|Zertifikat]] ein, so lange dies noch gültig ist. Wie Sie [[Zertifikate|Zertifikate]] verlängern können, lesen Sie hier: [[Zertifikat-Abgelaufen/DE|Zertifikat abgelaufen]].

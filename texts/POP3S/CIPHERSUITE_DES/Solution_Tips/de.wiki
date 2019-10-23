@@ -1,0 +1,1 @@
+Wenn ''Veraltete DES Verschlüsselung unterstützt'' gemeldet wurde, deaktivieren Sie die Unterstützung der DES [[Verschlüsselung|Cipher Suites]] in Ihrer Webserver-Software.

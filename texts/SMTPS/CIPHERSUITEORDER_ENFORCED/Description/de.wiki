@@ -1,0 +1,1 @@
+Ihr Server ist so konfiguriert, dass die Verschlüsselungsalgorithmen des Besuchers bevorzugt wird, statt die Ihres Servers. [[Server]] sollten die Auswahl der Verschlüsselungsalgorithmen nicht Ihren Kunden überlassen, sondern aktiv starke Verbindungen auswählen.

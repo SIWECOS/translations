@@ -1,0 +1,1 @@
+Die Meldung bedeutet, dass Ihr [[Zertifikate|Server-Zertifikat]] noch nicht gültig ist. Ihr Server wird Besuchern als unsicher bzw. nicht vertrauenswürdig angezeigt. Sollte ein Nutzer Ihren Server mit [[TLS]] aufrufen, wird ihm möglicherweise eine Fehlermeldung angezeigt.

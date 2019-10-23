@@ -1,0 +1,1 @@
+Wenn ''Verantwortungslose Auswahl von Verschlüsselungsalgorithmen'' gemeldet wurden, konfigurieren Sie Ihren Webserver so, dass Ihr Webserver die Verschlüsselungsalgorithmen bei der Kommunikation zwischen Ihrerm Server und dem Mail-Programm des Nutzers bestimmt.

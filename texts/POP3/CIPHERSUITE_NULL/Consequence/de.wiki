@@ -1,0 +1,2 @@
+
+Angreifer können bei einer schwachen [[Verschlüsselungsmethodik|Verschlüsselungsmethodik]] die Kommunikation zwischen Ihrem Server und dem Mail-Programm problemlos entschlüsseln. Damit lassen sich z. B. eingegebene Passwörter, E-Mails oder Kreditkarten-Informationen auslesen und für kriminelle Zwecke missbrauchen.

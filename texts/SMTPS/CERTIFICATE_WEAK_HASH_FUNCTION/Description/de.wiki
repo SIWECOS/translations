@@ -1,0 +1,1 @@
+Die Meldung bedeutet, dass Ihr [[Zertifikate|Server-Zertifikat]] einen schwachen [[Hashing|Hash-Algorithmus]] besitzt. Dadurch kann es potentiell gefälscht werden und wird in vielen Mail-Programmen als unsicher angezeigt.

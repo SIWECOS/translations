@@ -1,0 +1,1 @@
+Der [[Server]] ist verwundbar durch einen POODLE-Angriff, welcher es einem Angreifer potentiell erlaubt, die Kommunikation zu entschlüsseln.

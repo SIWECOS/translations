@@ -1,0 +1,1 @@
+Die Elliptic Curve Cryptography (ECC) ist aufgrund ihrer Sicherheits- und Leistungsmerkmale einer der Grundfeiler der modernen Kryptographie. Es wird in [[Schlüsselaustauschverfahren|Schlüsselaustauschprotokollen]] sowie zur Berechnung von Signaturen verwendet. Durch eine falsche Verwendung können allerdings fatale Sicherheitslücken entstehen.

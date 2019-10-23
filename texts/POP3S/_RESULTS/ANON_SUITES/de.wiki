@@ -1,0 +1,1 @@
+Ihr Server ist so konfiguriert, dass eine anonyme [[Verschlüsselungsmethodik|Verschlüsselungsmethodik]] ohne [[Authentifizierung]] bei der Verbindung erfolgt. Dies ermöglicht [[Man-in-the-middle|Man-in-the-middle Attacken]].

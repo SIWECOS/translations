@@ -1,0 +1,1 @@
+Der [[Server]] unterstützt die neueste [[Transport_Layer_Security|TLS-Protokollversion 1.3]].

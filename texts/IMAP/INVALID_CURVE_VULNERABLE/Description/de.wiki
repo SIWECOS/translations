@@ -1,0 +1,1 @@
+Der [[Server]] ist verwundbar durch einen Invalid Curve Angriff. Dadurch kann ein Angreifer den geheimen Schlüssel Ihres [[Zertifikate|Zertifikats]] stehlen. Danach sind alle Ihre zukünfigen Verbindungen ebenfalls gefährdet, sowie Teile Ihrer vergangenen Kommunikation.

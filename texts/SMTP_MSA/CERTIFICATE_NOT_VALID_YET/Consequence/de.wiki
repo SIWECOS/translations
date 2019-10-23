@@ -1,0 +1,1 @@
+Die meisten Mail-Programme sind so konfiguriert, dass sie per Standard-Einstellung Servern mit einem abgelaufenen [[Zertifikate|Zertifikat]] nicht vertrauen. Ein Server mit abgelaufenen [[Zertifikate|Zertifikat]] erzeugt somit eine Warnung bei jedem Aufruf Ihres Servers.

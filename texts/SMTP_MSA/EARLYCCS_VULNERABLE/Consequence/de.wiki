@@ -1,0 +1,1 @@
+Der Server ist verwundbar durch eine Schwachstelle, welche es einem Angreifer in speziellen Situationen erlaubt, die Kommunikation zu entschlüsseln. Die verwendete Software ist veraltet.
