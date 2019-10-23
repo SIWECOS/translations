@@ -162,8 +162,11 @@ foreach my $dir (glob("$TRANSLATIONS/$specific")) {
         ++$languages{$_} foreach ($scanner->languages)
     } else {
         warn "Issues with $dir\n";
+        $all_okay= undef;
     }
 }
+
+die "Please fix issues first.\n" unless $all_okay;
 
 my $mw = MediaWiki::API->new({
     api_url => $settings->{API},

@@ -66,11 +66,11 @@ sub validate {
     while (my($topic, $condition) = each %TOPICS) {
         if (my $t= $self->topic($topic) ) {
             if ($condition == ONE_LINE) {
-                push @issues, map "$id: $topic", $t->check_one_line;
+                push @issues, map "$id: $_", $t->check_one_line;
             } elsif ($condition == NOT_EMPTY) {
-                push @issues, map "$id: $topic", $t->check_not_empty;
+                push @issues, map "$id: $_", $t->check_not_empty;
             }
-            push @issues, map "$id: $topic", $t->missing_translations(sort keys %{$self->{languages}});
+            push @issues, map "$id: $_", $t->missing_translations(sort keys %{$self->{languages}});
         } else {
             push @issues, "$id: $topic missing";
         } 
