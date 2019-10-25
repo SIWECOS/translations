@@ -1,1 +1,1 @@
-Obsolete-Protocol-Version-SSL2-IMAPS
+Obsolete-Protocol-Version-SSL2-IMAP

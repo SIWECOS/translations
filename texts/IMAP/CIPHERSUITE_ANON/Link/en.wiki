@@ -1,1 +1,1 @@
-Key-Exchange-Method-IMAPS
+Key-Exchange-Method-IMAP

@@ -1,1 +1,1 @@
-Certificate-Not-Valid-IMAPS
+Certificate-Not-Valid-IMAP

@@ -1,1 +1,1 @@
-Unsecure-RC4-Encryption-IMAPS
+Unsecure-RC4-Encryption-IMAP

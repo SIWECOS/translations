@@ -1,1 +1,1 @@
-Weak-DE-Encryption-IMAPS
+Weak-DE-Encryption-IMAP

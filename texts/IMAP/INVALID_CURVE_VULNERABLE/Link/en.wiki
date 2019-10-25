@@ -1,1 +1,1 @@
-Invalid-Curve-Vulnerabilty-IMAPS
+Invalid-Curve-Vulnerabilty-IMAP

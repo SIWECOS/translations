@@ -1,1 +1,1 @@
-Unencrypted-Communication-IMAPS
+Unencrypted-Communication-IMAP

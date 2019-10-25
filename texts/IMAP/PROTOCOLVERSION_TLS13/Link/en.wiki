@@ -1,1 +1,1 @@
-Protocol-Version-TLS13-Found-IMAPS
+Protocol-Version-TLS13-Found-IMAP

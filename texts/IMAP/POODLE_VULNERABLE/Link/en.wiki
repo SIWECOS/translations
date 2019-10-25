@@ -1,1 +1,1 @@
-POODLE-Vulnerability-IMAPS
+POODLE-Vulnerability-IMAP

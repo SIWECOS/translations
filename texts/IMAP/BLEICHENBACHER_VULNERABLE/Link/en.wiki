@@ -1,1 +1,1 @@
-Bleichenbacher-Vulnerability-IMAPS
+Bleichenbacher-Vulnerability-IMAP
