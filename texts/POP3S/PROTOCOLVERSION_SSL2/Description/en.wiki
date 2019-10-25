@@ -1,0 +1,1 @@
+The server supports the outdated protocol version SSL2, which is considered highly insecure. By using this version, you massively endanger the security of the entire server and possibly your entire corporate network.

@@ -1,0 +1,1 @@
+Obsolete-Protocol-Version SSL2-POP3S

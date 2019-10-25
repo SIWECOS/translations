@@ -1,0 +1,1 @@
+If ''Obsolete DES encryption supported'' was reported, disable support for DES Cipher Suites in your web server software.

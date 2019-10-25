@@ -1,0 +1,1 @@
+Usually your server determines the encryption algorithms of the connection, not the other way around. Similar to the real world, you have house rules on your server - you define the rules, the guest has to follow them. You should not leave it to chance whether your connections are secure.

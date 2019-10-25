@@ -1,0 +1,1 @@
+If ''Obsolete RC4 encryption supported'' was reported, disable RC4 encryption support.

@@ -1,0 +1,1 @@
+If ''Weak Export Encryption Supported'' is reported, disable support for EXPORT encryption methods in the web server.

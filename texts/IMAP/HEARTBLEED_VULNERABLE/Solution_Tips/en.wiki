@@ -1,0 +1,1 @@
+In case of vulnerability, immediately install an update for your TLS implementation on your server.

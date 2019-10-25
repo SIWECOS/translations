@@ -1,0 +1,1 @@
+CRIME can be prevented by disabling the use of compression of data in TLS. Disable TLS compression on your server.

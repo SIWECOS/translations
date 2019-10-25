@@ -1,0 +1,1 @@
+If ''Server does not seem to support TLS'' is reported, enable TLS.

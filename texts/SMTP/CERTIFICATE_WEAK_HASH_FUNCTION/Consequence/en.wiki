@@ -1,0 +1,1 @@
+In the worst case, a weak hashing algorithm can cause attackers to create a fake certificate for your servers and impersonate your servers. This means that a server can impersonate another server. Criminals may be able to access your customers' personal data such as passwords or credit card information.

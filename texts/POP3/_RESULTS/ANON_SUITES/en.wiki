@@ -1,0 +1,1 @@
+Your server is configured to use an anonymous encryption method without authentication on connection. This allows man-in-the-middle attacks.

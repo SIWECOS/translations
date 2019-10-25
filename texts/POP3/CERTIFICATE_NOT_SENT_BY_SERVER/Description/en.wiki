@@ -1,0 +1,1 @@
+The server did not send a certificate. This is unusual and should not happen. You should check the TLS configuration of your server and disable anonymous cipher suites if necessary.

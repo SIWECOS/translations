@@ -1,0 +1,1 @@
+The message means that your server certificate has a weak hashing algorithm. This can potentially cause it to be falsified and is displayed as insecure in many mail programs.

@@ -1,0 +1,1 @@
+If ''weak hash algorithm'' is reported, you should install a new certificate with a secure hash function. To find out how to get a secure certificate, click here: [[Zertifikate#Wie_wird_ein_SSL-Zertifikat_installiert.3F|Install_Certificate]] (German only).

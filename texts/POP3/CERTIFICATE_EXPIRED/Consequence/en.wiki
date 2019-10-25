@@ -1,0 +1,1 @@
+Most Internet browsers are configured so that by default you do not trust websites with an expired certificate. A server with an expired certificate thus generates a warning every time you connect. A warning message during the communication of your server thus has a negative effect on your company presentation on the Internet.

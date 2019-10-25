@@ -1,0 +1,1 @@
+If ''Outdated protocol version SSL2 is supported'' was reported: TLS encryption is now the default. You should therefore refrain from using SSL2.

@@ -1,0 +1,1 @@
+If ''Insecure NULL ciphers supported'' was reported, disable support for NULL encryption methodology.
