@@ -1,0 +1,1 @@
+Your web server/website is configured to allow connections without verifying the identity of your server.

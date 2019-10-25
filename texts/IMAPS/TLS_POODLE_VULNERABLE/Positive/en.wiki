@@ -1,0 +1,1 @@
+Not vulnerable to [[TLS-POODLE-Vulnerability/EN|TLS-POODLE]].

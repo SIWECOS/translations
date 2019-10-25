@@ -4,3 +4,4 @@ work/*
 /.idea
 build/
 .vscode/*
+*.??.md

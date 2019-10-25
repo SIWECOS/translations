@@ -1,1 +1,1 @@
-Nicht verwundbar durch [[Invalid-Curve-Ephemeral-Schwachstelle/DE|Ephemeral Invalid Curve Angriff]] Angriffe.
+Nicht verwundbar durch [[Invalid-Curve-Ephemeral-Schwachstelle/DE|Ephemeral Invalid Curve]] Angriffe.

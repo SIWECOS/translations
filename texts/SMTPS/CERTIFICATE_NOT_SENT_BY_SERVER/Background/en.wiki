@@ -1,0 +1,1 @@
+It is theoretically possible to configure a TLS server so that it does not send any certificate to identify itself and only encrypts it without signing its Public Key. A client who wants to connect to the server cannot check if he is really talking to the server he expects. This type of configuration is extremely rare.

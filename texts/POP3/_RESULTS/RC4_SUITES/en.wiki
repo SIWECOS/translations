@@ -1,0 +1,1 @@
+Your server is configured to continue supporting the RC4 encryption feature, which is now considered insecure. This allows man-in-the-middle attacks.

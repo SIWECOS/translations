@@ -1,0 +1,1 @@
+If ''Vulnerability'' has been reported, immediately install an update to your TLS Implementation on your server.

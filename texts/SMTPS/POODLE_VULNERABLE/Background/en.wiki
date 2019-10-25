@@ -1,0 +1,1 @@
+POODLE (Padding Oracle On Downgraded Legacy Encryption) is a serious security vulnerability in various Internet protocols that allows private data to be read from clients and servers via encrypted connections.

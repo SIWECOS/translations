@@ -1,0 +1,1 @@
+Your server certificate uses the weak hash algorithm :HASH. This makes it very easy to forge the certificate. However, a weak hash algorithm does not necessarily result in a warning when your server is called.

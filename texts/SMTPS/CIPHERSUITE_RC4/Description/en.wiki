@@ -1,0 +1,1 @@
+Your server is configured in such a way that the encryption function RC4, which is now considered insecure, is still supported. This weakens your connections and can lead to an attacker decrypting your data.

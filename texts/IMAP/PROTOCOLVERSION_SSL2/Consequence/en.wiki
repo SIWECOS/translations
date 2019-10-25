@@ -1,0 +1,1 @@
+SSL2 is no longer supported by almost all mail programs, but still leads to fatal security problems on your server. SSL2 is one of the oldest components of the Internet and must be switched off immediately.

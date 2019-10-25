@@ -1,0 +1,1 @@
+Your certificate will only be valid on :DATE. Until then, your server will be displayed to visitors as insecure or untrustworthy.

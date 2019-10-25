@@ -1,0 +1,1 @@
+If vulnerability has been reported, immediately disable the outdated SSL3 encryption protocol on your server!

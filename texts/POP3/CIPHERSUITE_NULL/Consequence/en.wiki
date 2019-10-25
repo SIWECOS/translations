@@ -1,0 +1,1 @@
+Attackers can easily decrypt the communication between your server and the mail program using a weak encryption methodology. This can be used, for example, to read passwords, e-mails or credit card information and misuse them for criminal purposes.

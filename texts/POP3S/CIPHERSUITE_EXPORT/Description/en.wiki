@@ -1,0 +1,1 @@
+Your web server/website is configured to deliberately use insecure encryption methods. This makes it possible to decrypt communication with your server using man-in-the-middle attacks.

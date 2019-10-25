@@ -1,0 +1,1 @@
+Attackers can use DES encryption to decrypt the communication between your website and your customer's browser, as DES does not offer sufficient security. This can be used, for example, to decrypt passwords, form data or credit card information and misuse them for criminal purposes.

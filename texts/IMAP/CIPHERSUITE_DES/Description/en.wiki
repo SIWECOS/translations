@@ -1,0 +1,1 @@
+Your web server/website is configured to support the encryption feature DES (Cipher Suites), which is now considered insecure. This allows Man-in-the-middle attacks.

@@ -1,0 +1,1 @@
+Checking for use of TLS 1.3 protocol

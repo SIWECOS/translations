@@ -1,0 +1,1 @@
+Most mail programs are configured so that by default they do not trust servers with expired certificate. A server with expired certificate thus generates a warning each time your server is called.
