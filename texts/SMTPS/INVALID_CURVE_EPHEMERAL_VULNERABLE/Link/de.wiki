@@ -1,1 +1,1 @@
-Invalid-Curve-Ephemeral-Schwachstelle
+Invalid-Curve-Ephemeral-Schwachstelle-SMTPS
