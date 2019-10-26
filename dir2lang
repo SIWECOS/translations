@@ -299,7 +299,7 @@ sub parse_wiki {
                 my $printable_link= $link->{'*'};
                 my $linktext= quotemeta($printable_link);
                 if (not exists $link->{exists}) {
-                    warn "Missing link: $printable_link in $location.\n";
+                    warn "Missing link: $printable_link in $location ($lang).\n";
                     ++$warning;
                 }
                 s#(<a\b[^>]+\b)(href=")/wiki(/[^>"]+"[^>]+\btitle="$linktext")#"$1target=\x22$WIKI_LINK\x22 $2".$settings->{WIKI}.$3#ge;
