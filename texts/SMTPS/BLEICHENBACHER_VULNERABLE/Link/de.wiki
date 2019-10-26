@@ -1,1 +1,1 @@
-Bleichenbacher-Schwachstelle-SMTPS-SMTPS
+Bleichenbacher-Schwachstelle-SMTPS
