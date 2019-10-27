@@ -164,7 +164,7 @@ foreach my $dir (glob("$TRANSLATIONS/$specific")) {
         push @scanners, $scanner;
         ++$languages{$_} foreach ($scanner->languages)
     } else {
-        warn "\${WARNCOLOR}Issues with $dir\$COLOROFF\n";
+        warn "${WARNCOLOR}Issues with $dir$COLOROFF\n";
         $all_okay= undef;
     }
 }
@@ -302,7 +302,7 @@ sub parse_wiki {
                 my $printable_link= $link->{'*'};
                 my $linktext= quotemeta($printable_link);
                 if (not exists $link->{exists}) {
-                    warn "\${WARNCOLOR}Missing link: $printable_link in $location ($lang).\$COLOROFF\n";
+                    warn "${WARNCOLOR}Missing link: $printable_link in $location ($lang).$COLOROFF\n";
                     ++$warning;
                 }
                 s#(<a\b[^>]+\b)(href=")/wiki(/[^>"]+"[^>]+\btitle="$linktext")#"$1target=\x22$WIKI_LINK\x22 $2".$settings->{WIKI}.$3#ge;
@@ -323,7 +323,7 @@ sub parse_wiki {
         s/'/\\'/sg;
         s/\s+$//s;
     } else {
-        warn "\${WARNCOLOR}No text in $location.\$COLOROFF\n";
+        warn "${WARNCOLOR}No text in $location.$COLOROFF\n";
         ++$warning;
     }
     return ($_, $warning);
@@ -370,12 +370,12 @@ sub wikilink {
         $mw->get_page( { title => $pagename } );
     };
     if ($@) {
-        warn "\${WARNCOLOR}Error   $@\$COLOROFF\n";
-        warn "\${WARNCOLOR}Page    $pagename\$COLOROFF\n" unless $verbose;
-        warn "\${WARNCOLOR}Check   $location\$COLOROFF\n";
+        warn "${WARNCOLOR}Error   $@$COLOROFF\n";
+        warn "${WARNCOLOR}Page    $pagename$COLOROFF\n" unless $verbose;
+        warn "${WARNCOLOR}Check   $location$COLOROFF\n";
         ++$warning;
     } elsif (exists $page->{missing}) {
-        warn "\${WARNCOLOR}New     $pagename\$COLOROFF\n";
+        warn "${WARNCOLOR}New     $pagename$COLOROFF\n";
         ++$warning;
     }
     return ($settings->{WIKI}."/".$pagename, $warning);
