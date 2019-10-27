@@ -1,0 +1,313 @@
+#!/usr/bin/perl
+=head1 NAME
+
+dir2po - Convert SIWECOS translations into poedit files.
+
+=head1 SYNOPSIS
+
+B<dir2md> [B<-v>] [SCANNER…]
+
+B<dir2md> B<--help>|B<--man>
+
+=head1 Description
+
+dir2po will take all SIWECOS translations found and copy them into poedit files.
+
+If scanner names are given on the commandline, just the texts from those are taken.
+
+=cut
+use strict;
+use warnings;
+use FindBin qw($Bin $Script);
+use Getopt::Long qw(:config no_ignore_case);
+use Pod::Usage;
+use lib "$Bin/lib";
+use Config::Simplest;
+use File::Basename;
+use File::Path qw(make_path);
+use open ":std", ":encoding(utf8)";
+use utf8;
+
+my $EXT='.wiki';
+my $SCANNER_NAME= 'SCANNER_NAME';
+my $RESULTS= 'RESULTS';
+$|= 1;
+
+=head1 options
+
+=over 4
+
+=cut
+
+my $verbose= 0;
+
+=item B<-v>
+
+Verbose output.
+
+=cut
+
+help() unless GetOptions(
+    'v+'         => \$verbose,
+    'h|help'     => \&help,
+    'm|man'      => \&man,
+);
+
+=item B<--help>
+
+short help page
+
+=item B<--man>
+
+show man page
+
+=back
+
+=cut
+
+sub help { pod2usage(-verbose=>1); }
+sub man  { pod2usage(-verbose=>2); }
+
+# Location and names of some directories / files
+# $Bin = absolute path of this script
+# $Script = filename of this script
+my $TRANSLATIONS= "$Bin/texts";
+my $WIKITEXTS= "$Bin/wiki";
+my $LANGUAGE_DIR= "$Bin/poedit";
+my $LANGUAGE_FILE="siwecos";
+my $TEMPLATEFILE= "$Bin/$Script.txt";
+
+# Expected purposes
+my @PURPOSES= qw(
+    Category
+    Headline
+    Description
+    Background
+    Consequence
+    Solution_Tips
+    Link
+    Negative
+    Positive
+);
+
+my @WIKI_REQUIRED= qw(
+    link
+    wikitext
+);
+
+my (
+    %LANGUAGES,
+    $specific,
+    %scanners,
+    %translations,
+    %test_translations,
+    %wiki_translations,
+);
+my $warning= 0;
+$specific= '*';
+if (@ARGV) {
+    $specific= '{' . join(",", splice(@ARGV)) . '}';
+}
+
+# First prepare the template
+open my $template, '<', $TEMPLATEFILE
+    or die "Cannot read template $TEMPLATEFILE: $!\n";
+my @template= <$template>;
+close $template;
+
+
+# Scanner texts
+foreach my $dir (glob("$TRANSLATIONS/$specific")) {
+    my $scanner= basename $dir;
+    ++$scanners{$scanner};
+    print "$scanner\n" if $verbose;
+    foreach my $dir (glob("$dir/*")) {
+        my $test= basename $dir;
+        print "  $test\n" if $verbose;
+        # Special cases _$RESULTS an _$SCANNER_NAME
+        if ($test=~ /^_/) {
+            #
+            # _$SCANNER_NAME
+            #
+            if ($test eq "_$SCANNER_NAME") {
+                my $text= read_text($dir);
+                if (ref $text) {
+                    $translations{$scanner}{$SCANNER_NAME}= $text;
+                } else {
+                    ++$warning;
+                    warn "$text\n";
+                }
+            #
+            # _$RESULTS
+            #
+            } else {
+                foreach my $dir (glob("$dir/*")) {
+                    my $textname= basename $dir;
+                    my $text= read_text($dir);
+                    if (ref $text) {
+                        $translations{$scanner}{$textname}= $text;
+                    } else {
+                        ++$warning;
+                        warn "$text\n";
+                    }
+                }
+            }
+        } else {
+            #
+            # TESTS
+            #
+            foreach my $purpose (@PURPOSES) {
+                my $text= read_text("$dir/$purpose");
+                if (ref $text) {
+                    $test_translations{$scanner}{$test}{$purpose}= $text;
+                } else {
+                    ++$warning;
+                    warn "$text\n";
+                }
+            }
+        }
+    }
+}
+
+# Wikitexts
+if ($specific eq '*') {
+    foreach my $dir (glob("$WIKITEXTS/*")) {
+        my $textname= basename $dir;
+        next if $textname=~ /^_/;
+        foreach my $purpose (@WIKI_REQUIRED) {
+            my $text= read_text("$dir/$purpose");
+            if (ref $text) {
+                $wiki_translations{$textname}{$purpose}= $text;
+            } else {
+                ++$warning;
+                warn "$text\n";
+            }
+        }
+    }
+}
+
+my @LANGUAGES= sort keys %LANGUAGES;
+
+die "Too many errors.\n" if $warning;
+
+# Check missing translations
+my @scanners= sort keys %scanners;
+my $count= 0;
+foreach my $scanner (@scanners) {
+    # Data structure is
+    # test_translations {scanner} -> {test} -> {purpose} -> {language} -> text|location
+    foreach my $test (sort keys %{$test_translations{$scanner}}) {
+        foreach my $purpose (@PURPOSES) {
+            foreach my $lang (@LANGUAGES) {
+                ++$count;
+                next if exists $test_translations{$scanner}{$test}{$purpose}{$lang}{text};
+                ++$warning;
+                warn "No $lang translation for $scanner/$test/$purpose\n";
+            }
+        }
+    }
+    # Data structure is
+    # translations {scanner} -> {textname} -> {language} -> text|location
+    foreach my $textname (sort keys %{$translations{$scanner}}) {
+        foreach my $lang (@LANGUAGES) {
+            ++$count;
+            next if exists $translations{$scanner}{$textname}{$lang}{text};
+            ++$warning;
+            if ($textname eq $SCANNER_NAME) {
+                warn "No $lang translation for $scanner/_$SCANNER_NAME\n";
+            } else {
+                warn "No $lang translation for $scanner/_$RESULTS/$textname\n";
+            }
+        }
+    }
+}
+
+foreach my $textname (sort keys %wiki_translations) {
+    # Data structure is
+    # wiki_translations {textname} -> {language} -> text|location
+    foreach my $purpose (@WIKI_REQUIRED) {
+        foreach my $lang (@LANGUAGES) {
+            ++$count;
+            next if exists $wiki_translations{$textname}{$purpose}{$lang}{text};
+            ++$warning;
+            warn "No $lang translation for $textname/$purpose\n";
+        }
+    }
+}
+
+die "Too many errors.\n" if $warning;
+
+my $done= 0;
+foreach my $lang (@LANGUAGES) {
+    my $output= '';
+    my $err= 0;
+    if ( not -d $LANGUAGE_DIR ) {
+        mkdir($LANGUAGE_DIR) or die "Failed to create $LANGUAGE_DIR: $!\n";
+    }
+    foreach my $scanner (@scanners) {
+        # SCANNER_NAME COMES FIRST!
+        my $textname= $SCANNER_NAME;
+        my $text= $translations{$scanner}{$textname}{$lang}{text};
+        my $location= $translations{$scanner}{$textname}{$lang}{location};
+        if (defined $text) {
+            $output.= md_section("# $scanner") . md_section($text);
+            # Data structure is
+            # test_translations {scanner} -> {test} -> {purpose} -> {language}
+            foreach my $test (sort keys %{$test_translations{$scanner}}) {
+                next if $test eq $SCANNER_NAME;
+                $output.= md_section("## $test");
+                foreach my $purpose (@PURPOSES) {
+                    my $text= $test_translations{$scanner}{$test}{$purpose}{$lang}{text};
+                    my $location= $test_translations{$scanner}{$test}{$purpose}{$lang}{location};
+                    $output.= md_section("### $purpose") . md_section($text);
+                }
+                $output.= md_section(('- ' x 39) . '-');
+            }
+            # Data structure is
+            # translations {scanner} -> {textname} -> {language}
+            $output.= md_section("## _$RESULTS");
+            foreach my $textname (sort keys %{$translations{$scanner}}) {
+                next if $textname eq $SCANNER_NAME;
+                my $text= $translations{$scanner}{$textname}{$lang}{text};
+                my $location= $translations{$scanner}{$textname}{$lang}{location};
+                $output.= md_section("### $textname") . md_section($text);
+            }
+        }
+        my $mdfile= "$scanner-texts.$lang.md";
+        open my $md, '>', $mdfile or die "Cannot create $mdfile: $!\n";
+        print "Writing $mdfile\n" if $verbose;
+        print $md $output;
+        close $md;
+    }
+}
+
+# done
+exit $warning;
+
+sub read_text {
+    my($path)= @_;
+    return "Missing $path" unless -d $path;
+    return "Can't read $path" unless -r $path;
+    my $result;
+    foreach my $file (glob("$path/??$EXT")) {
+        my $lang= lc basename $file, $EXT;
+        ++$LANGUAGES{$lang};
+        $result||= {};
+        $result->{$lang}{location}= $file;
+        open my $in, '<', $file
+            or return "Can't read $file";
+        $result->{$lang}{text}= do { local $/; <$in>; };
+        close $in;
+        for ($result->{$lang}) {
+            s/[\012\015]+$//s;
+            s/[ \t]+$//gm;
+        }
+    }
+    return $result || "No translations in $path";
+}
+
+sub md_section {
+    my($text)= @_;
+    $text=~ s/[\012\015]+$//s;
+    return "\n$text\n";
+}

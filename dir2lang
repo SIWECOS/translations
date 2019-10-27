@@ -29,7 +29,7 @@ use File::Path qw(make_path);
 use SIWECOS::Text::Scanner;
 
 my $WARNCOLOR="\e[\$7;31;48m";
-my $COLOROFF="\e[0m"
+my $COLOROFF="\e[0m";
 
 my $EXT='.wiki';
 $|= 1;
