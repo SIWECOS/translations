@@ -1,0 +1,1 @@
+Your server is ready to establish very weak connections, which are vulnerable to Man-in-the-middle attacks. This can be used, for example, to read out passwords or credit card information and misuse them for criminal purposes.

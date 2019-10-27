@@ -1,0 +1,1 @@
+The server ":HOST" does not seem to support TLS. This means that you do not use any encryption to protect your data.

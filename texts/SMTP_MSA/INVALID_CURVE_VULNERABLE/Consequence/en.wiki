@@ -1,0 +1,1 @@
+The server is vulnerable to an implementation vulnerability that allows an attacker to decrypt the communication and steal the private key of your certificate.

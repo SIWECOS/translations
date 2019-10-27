@@ -1,0 +1,81 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use FindBin qw($Bin $Script);
+use Getopt::Long qw(:config no_ignore_case);
+use Pod::Usage;
+use lib "$Bin/lib";
+
+my $EXT='.wiki';
+
+my $verbose;
+
+help() unless GetOptions(
+    'v+'         => \$verbose,
+    'h|help'     => \&help,
+    'm|man'      => \&man,
+);
+
+sub help { pod2usage(-verbose=>1); }
+sub man  { pod2usage(-verbose=>2); }
+
+my (
+    %cat2ph,
+    %wikicat,
+    %ph2cat,
+    %wikiph,
+    %lang,
+);
+my $matcher= "/([^/]+)/Category/(..)" . quotemeta($EXT) . '$';
+$matcher= qr/$matcher/;
+my $TRANSLATIONS= "$Bin/translations";
+
+while (<$TRANSLATIONS/*/Category/*$EXT>) {
+    die "Can't find language in $_" unless $_=~$matcher;
+    my $lang=lc $2;
+    my $placeholder= $1;
+    ++$lang{$lang};
+    my $iswiki;
+    if ( -d "$TRANSLATIONS/$placeholder/Link") {
+        ++$wikiph{$placeholder}{$lang};
+        $iswiki= 1;
+    }
+    open my $catfile, '<:utf8', $_ or die "Can't read $_: $!\n";
+    my $categories= do { local $/; <$catfile> };
+    close $catfile;
+    foreach my $cat (split /\n/, $categories) {
+        for ($cat) {
+            tr/\012\015//d;
+            $cat=~ s/^\s+|\s+$//g;
+        }
+        ++$cat2ph{$cat}{$lang}{$placeholder};
+        ++$ph2cat{$placeholder}{$lang}{$cat};
+        if ($iswiki) {
+            ++$wikicat{$cat}{$lang};
+        }
+    }
+}
+
+print "Categories for Wiki Entries:\n";
+foreach my $cat (sort keys %cat2ph) {
+    next unless exists $wikicat{$cat};
+    foreach my $lang (sort keys %lang) {
+        next unless exists $cat2ph{$cat}{$lang};
+        print "$cat\t$lang\t",scalar keys %{$cat2ph{$cat}{$lang}},"\n";
+        next unless $verbose;
+        print "\t$_\n" foreach (sort keys %{$cat2ph{$cat}{$lang}})
+    }
+}
+print "\n";
+
+print "Other Categories:\n";
+foreach my $cat (sort keys %cat2ph) {
+    next if exists $wikicat{$cat};
+    foreach my $lang (sort keys %lang) {
+        next unless exists $cat2ph{$cat}{$lang};
+        print "$cat\t$lang\t",scalar keys %{$cat2ph{$cat}{$lang}},"\n";
+        next unless $verbose;
+        print "\t$_\n" foreach (sort keys %{$cat2ph{$cat}{$lang}})
+    }
+}
+print "\n";

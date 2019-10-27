@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+  translations:
+    build: .
+    image: siwecos/translations:v1.0
+    volumes:
+    - type: bind
+      source: ./lib
+      target: /home/scripts/lib
+    - type: bind
+      source: ./texts
+      target: /home/scripts/texts
+    - type: bind
+      source: ./wiki
+      target: /home/scripts/wiki
+    - type: bind
+      source: $HOME/.ssh
+      target: /home/scripts/.ssh
+    tty: true
+
+  #  docker-compose up -d csascripts
+  #  docker-compose exec csascripts bash

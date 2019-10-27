@@ -1,0 +1,1 @@
+If ''Certificate not yet valid'' has been reported, use your old certificate as long as it is still valid. You can find out how to renew certificates here: [[Zertifikat-Abgelaufen/DE||Certificate expired]] (German only).

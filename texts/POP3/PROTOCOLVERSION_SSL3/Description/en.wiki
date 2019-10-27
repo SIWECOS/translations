@@ -1,0 +1,1 @@
+The server supports the outdated SSL3 protocol version, which is considered highly insecure. By using this version you massively endanger the security of the connections to this server.

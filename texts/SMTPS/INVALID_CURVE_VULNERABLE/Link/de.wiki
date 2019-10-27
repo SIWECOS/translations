@@ -1,1 +1,1 @@
-Invalid-Curve-Schwachstelle
+Invalid-Curve-Schwachstelle-SMTPS

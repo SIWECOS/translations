@@ -1,0 +1,1 @@
+Your server is configured to allow unencrypted communication over a protected channel. This allows man-in-the-middle attacks.

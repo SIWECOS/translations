@@ -1,0 +1,1 @@
+The server is vulnerable to a [[Bleichenbacher-Vulnerability/EN|Bleichenbacher]]] Attack. The communication can be decrypted and user inputs such as passwords can be read.

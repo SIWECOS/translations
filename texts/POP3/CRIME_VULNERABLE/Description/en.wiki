@@ -1,0 +1,1 @@
+The server is vulnerable to CRIME. A vulnerability that allows an attacker to decrypt the communication.

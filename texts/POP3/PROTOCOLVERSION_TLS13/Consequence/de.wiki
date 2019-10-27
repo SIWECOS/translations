@@ -1,1 +1,1 @@
-[[Transport_Layer_Security|TLS 1.3]] wird von keinem [[Browser|Internetbrowser]] in der Standardkonfiguration unterstützt, weswegen sie keine Kunden gewinnen/verlieren, falls Sie diese Version nicht unterstützen.
+[[Transport_Layer_Security|TLS 1.3]] wird von keinem [[Browser|Internetbrowser]] in der Standardkonfiguration unterstützt, weswegen Sie keine Kunden gewinnen/verlieren, falls Sie diese Version nicht unterstützen.

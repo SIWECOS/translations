@@ -1,0 +1,1 @@
+Weak export encryption supported

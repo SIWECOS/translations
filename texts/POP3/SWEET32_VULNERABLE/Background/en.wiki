@@ -1,0 +1,1 @@
+The attack exploits 64-bit block ciphers. The Sweet32 attack allows an attacker, under certain circumstances, to recover small pieces of text when encrypted with 64-bit block ciphers (such as 3DES). The attack is not very easy to perform, so the threat is limited.

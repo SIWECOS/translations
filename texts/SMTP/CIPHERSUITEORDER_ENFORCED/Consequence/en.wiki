@@ -1,0 +1,1 @@
+You leave it to the visitor of your server to decide how securely they communicate.

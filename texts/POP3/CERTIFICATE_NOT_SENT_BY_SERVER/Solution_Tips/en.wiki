@@ -1,0 +1,1 @@
+If ''Server does not send certificate'' was reported, update your TLS implementation urgently. Modern software no longer allows this type of configuration.

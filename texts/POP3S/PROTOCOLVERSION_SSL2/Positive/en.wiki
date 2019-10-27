@@ -1,0 +1,1 @@
+Obsolete protocol version SSL2 is not supported.

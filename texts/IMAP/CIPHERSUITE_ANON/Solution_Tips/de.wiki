@@ -1,1 +1,1 @@
-Wenn ''Anonymer Schlüsselaustausch wird unterstützt'' gemeldet wird, deaktivieren Sie die Unterstützung des "Anonymen Schlüsselaustauschs" in der  [[Verschlüsselungsmethodik|Verschlüsselungsmethodik]].
+Wenn ''Anonymer Schlüsselaustausch wird unterstützt'' gemeldet wird, deaktivieren Sie die Unterstützung des "Anonymen Schlüsselaustauschs" in der  [[Verschlüsselungsmethodik]].

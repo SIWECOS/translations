@@ -1,0 +1,1 @@
+The server ":HOST" does not seem to support TLS (transport layer security). This means that you do not use any encryption to protect your data and that of your customers.

@@ -1,1 +1,1 @@
-Veraltete-Protokollversion-SSL3
+Veraltete-Protokollversion-SSL3-POP3S

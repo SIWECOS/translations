@@ -1,0 +1,1 @@
+The message means that your server certificate has expired. Your website is displayed to visitors as insecure or untrustworthy. If a user visits your server via TLS, an error message may be displayed, e.g. "Your certificate expired on (date)".

@@ -1,0 +1,1 @@
+If ''Anonymous key exchange is supported'' is reported, disable the "Anonymous key exchange" support in the encryption methodology.
