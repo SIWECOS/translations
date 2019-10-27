@@ -9,7 +9,7 @@ before_script:
   - cp wiki.conf.sample wiki.conf
 
 script:
-  - time perl ./dir2lang -t build
+  - time perl ./dir2lang -v -t build
   - cd build; zip -r ../translation-files.zip *; cd ../
 
 before_deploy:
