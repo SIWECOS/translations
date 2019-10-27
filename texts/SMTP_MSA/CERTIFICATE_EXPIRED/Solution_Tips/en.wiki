@@ -1,1 +1,1 @@
-If ''Certificate expired'' has been reported, renew the [[Certificates|Certificate]] used. You can find out how to renew certificates here: [[Zertifikate#Was_tun.2C_wenn_ein_SSL-Zertifikat_abgelaufen_ist.3F|Certificate expired]] (German only).
+If ''Certificate expired'' has been reported, renew the certificate used. You can find out how to renew certificates here: [[Zertifikate#Was_tun.2C_wenn_ein_SSL-Zertifikat_abgelaufen_ist.3F|Certificate expired]] (German only).
