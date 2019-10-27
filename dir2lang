@@ -28,6 +28,9 @@ use File::Basename;
 use File::Path qw(make_path);
 use SIWECOS::Text::Scanner;
 
+my $WARNCOLOR="\e[\$7;31;48m";
+my $COLOROFF="\e[0m"
+
 my $EXT='.wiki';
 $|= 1;
 
@@ -161,7 +164,7 @@ foreach my $dir (glob("$TRANSLATIONS/$specific")) {
         push @scanners, $scanner;
         ++$languages{$_} foreach ($scanner->languages)
     } else {
-        warn "Issues with $dir\n";
+        warn "\${WARNCOLOR}Issues with $dir\$COLOROFF\n";
         $all_okay= undef;
     }
 }
@@ -299,7 +302,7 @@ sub parse_wiki {
                 my $printable_link= $link->{'*'};
                 my $linktext= quotemeta($printable_link);
                 if (not exists $link->{exists}) {
-                    warn "Missing link: $printable_link in $location ($lang).\n";
+                    warn "\${WARNCOLOR}Missing link: $printable_link in $location ($lang).\$COLOROFF\n";
                     ++$warning;
                 }
                 s#(<a\b[^>]+\b)(href=")/wiki(/[^>"]+"[^>]+\btitle="$linktext")#"$1target=\x22$WIKI_LINK\x22 $2".$settings->{WIKI}.$3#ge;
@@ -320,7 +323,7 @@ sub parse_wiki {
         s/'/\\'/sg;
         s/\s+$//s;
     } else {
-        warn "No text in $location.\n";
+        warn "\${WARNCOLOR}No text in $location.\$COLOROFF\n";
         ++$warning;
     }
     return ($_, $warning);
@@ -367,12 +370,12 @@ sub wikilink {
         $mw->get_page( { title => $pagename } );
     };
     if ($@) {
-        warn "Error   $@\n";
-        warn "Page    $pagename\n" unless $verbose;
-        warn "Check   $location\n";
+        warn "\${WARNCOLOR}Error   $@\$COLOROFF\n";
+        warn "\${WARNCOLOR}Page    $pagename\$COLOROFF\n" unless $verbose;
+        warn "\${WARNCOLOR}Check   $location\$COLOROFF\n";
         ++$warning;
     } elsif (exists $page->{missing}) {
-        warn "New     $pagename\n";
+        warn "\${WARNCOLOR}New     $pagename\$COLOROFF\n";
         ++$warning;
     }
     return ($settings->{WIKI}."/".$pagename, $warning);
