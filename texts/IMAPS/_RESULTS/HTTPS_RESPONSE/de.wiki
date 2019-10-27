@@ -1,1 +1,1 @@
-Der [[Server]] “:HOST“ antwortet nicht auf TLS ([[TLS]]) Anfragen.
+Der [[Server]] “:HOST“ antwortet nicht auf TLS ([[Transport_Layer_Security|TLS]]) Anfragen.
