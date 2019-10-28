@@ -1,1 +1,1 @@
-Invalid-Curve-Eephemeral-Vulnerability-SMTP
+Invalid-Curve-Ephemeral-Vulnerability-SMTP
