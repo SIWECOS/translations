@@ -1,1 +1,1 @@
-Invalid-Curve-Eephemeral-Vulnerability-IMAP
+Invalid-Curve-Ephemeral-Vulnerability-IMAP
