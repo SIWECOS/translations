@@ -1,1 +1,1 @@
-Invalid-Curve-Eephemeral-Vulnerability-SMTP_MSA
+Invalid-Curve-Ephemeral-Vulnerability-SMTP_MSA

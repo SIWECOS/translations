@@ -1,1 +1,1 @@
-Invalid-Curve-Eephemeral-Vulnerability-SMTPS
+Invalid-Curve-Ephemeral-Vulnerability-SMTPS
