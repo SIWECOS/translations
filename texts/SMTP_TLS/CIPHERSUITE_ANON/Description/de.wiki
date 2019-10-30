@@ -1,1 +1,1 @@
-Ihr Webserver/Ihre Webseite ist so konfiguriert, dass Verbindungen ohne Überprüfung der Identität Ihrers Servers erlaubt sind.
+Ihr Server ist so konfiguriert, dass Verbindungen ohne Überprüfung der Identität Ihrers Servers erlaubt sind.

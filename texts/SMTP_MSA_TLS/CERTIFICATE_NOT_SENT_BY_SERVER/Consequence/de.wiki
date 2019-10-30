@@ -1,1 +1,1 @@
-Ohne [[Zertifikate|Zertifikat]] für Ihre Webseiten können Angreifer Ihre Kommunikation belauschen. Kriminelle könnten so anonym persönliche Daten Ihrer Kunden wie z. B. Passwörter abgreifen.
+Ohne [[Zertifikate|Zertifikat]] können Angreifer Ihre Kommunikation belauschen. Kriminelle könnten so anonym persönliche Daten Ihrer Kunden wie z. B. Passwörter abgreifen.

@@ -1,1 +1,1 @@
-Attackers can use DES encryption to decrypt the communication between your website and your customer's browser because DES does not provide sufficient security. This can be used, for example, to decrypt entered passwords, form data or credit card information and misuse it for criminal purposes.
+Attackers can use DES encryption to decrypt the communication between your server and your customer's mail-client, as DES does not offer sufficient security. This can be used to decrypt mail content and misuse them for criminal purposes.
