@@ -1,1 +1,1 @@
-Ihr Webserver/Ihre Webseite ist so konfiguriert, dass sich vorsätzlich unsichere [[Verschlüsselungsmethodik|Verschlüsselungsmethoden]] nutzen lassen. Dies ermöglicht es mittels [[Man-in-the-middle|Man-in-the-middle-Attacken]]  die Kommunikation mit Ihrem Server zu entschlüsseln.
+Ihr Server ist so konfiguriert, dass sich vorsätzlich unsichere [[Verschlüsselungsmethodik|Verschlüsselungsmethoden]] nutzen lassen. Dies ermöglicht es mittels [[Man-in-the-middle|Man-in-the-middle-Attacken]]  die Kommunikation mit Ihrem Server zu entschlüsseln.

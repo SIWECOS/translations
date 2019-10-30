@@ -1,1 +1,1 @@
-Your web server/website is configured to use intentionally insecure encryption methods. This allows you to decrypt communication with your server using Man-in-the-middle attacks.
+Your server is configured to use intentionally insecure encryption methods. This allows you to decrypt communication with your server using Man-in-the-middle attacks.

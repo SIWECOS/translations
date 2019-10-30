@@ -1,1 +1,1 @@
-Your web server/website is configured to use intentionally weakened cryptographic functions (cipher suites). This enables man-in-the-middle attacks.
+Your server is configured to use intentionally weakened cryptographic functions (cipher suites). This enables man-in-the-middle attacks.

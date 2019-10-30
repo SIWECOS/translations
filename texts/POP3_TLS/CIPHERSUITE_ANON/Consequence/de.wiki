@@ -1,1 +1,1 @@
-Ihr Server ist bereit sehr schwache Verbindungen aufzubauen, welche für [[Man-in-the-middle|Man-in-the-middle Attacken]] verwundbar sind. Damit lassen sich z. B. eingegebene Passwörter oder Kreditkarten-Informationen auslesen und für kriminelle Zwecke missbrauchen.
+Ihr Server ist bereit sehr schwache Verbindungen aufzubauen, welche für [[Man-in-the-middle|Man-in-the-middle Attacken]] verwundbar sind. Damit lassen sich z. B. Mail-Inhalte auslesen und für kriminelle Zwecke missbrauchen.

@@ -1,1 +1,1 @@
-Ihr Webserver/Ihre Webseite ist so konfiguriert, dass sich vorsätzlich geschwächte kryptographische Funktionen ([[Cipher Suite|Cipher Suites]]) nutzen lassen. Dies ermöglicht [[Man-in-the-middle|Man-in-the-middle-Attacken]].
+Ihr Server ist so konfiguriert, dass sich vorsätzlich geschwächte kryptographische Funktionen ([[Cipher Suite|Cipher Suites]]) nutzen lassen. Dies ermöglicht [[Man-in-the-middle|Man-in-the-middle-Attacken]].
