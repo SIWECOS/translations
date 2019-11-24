@@ -1,0 +1,3 @@
+:cookie :<br>
+- Das Secure-Flag ist gesetzt: :secure <br>
+- Das HttpOnly-Flag ist gesetzt: :httponly <br>

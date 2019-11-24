@@ -1,1 +1,0 @@
-The HttpOnly flag is not set.
