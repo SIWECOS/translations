@@ -1,3 +1,3 @@
-:cookie :<br>
-- The Secure flag is set: :secure <br>
-- The HttpOnly flag is set: :httponly <br>
+:NAME :<br>
+- The Secure flag is set: :SECURE <br>
+- The HttpOnly flag is set: :HTTPONLY <br>
