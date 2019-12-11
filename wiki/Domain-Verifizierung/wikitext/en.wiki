@@ -3,6 +3,8 @@
 
 All domains which are registered for verification at Siwecos must be verified and cross-checked. To do this, Siwecos offers two different methods (file, meta tag). '''Which of the two methods you use is up to you, but it must be either of the two.'''
 
+<span style="color:#C31622">'''In the current SIWECOS it is no longer necessary to enter a separate token for each domain. All domains of an owner use the same token.'''</span>
+
 What is the purpose of verification? Verification ensures that you are the real domain owner in compliance with data protection regulation.
 
 [[File:Verifizierung_st1.png]]
