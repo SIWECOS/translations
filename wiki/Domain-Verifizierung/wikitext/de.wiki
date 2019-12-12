@@ -2,6 +2,8 @@
 
 Alle Domains, die bei Siwecos zur Überprüfung eingetragen werden, müssen verifiziert bzw. gegengeprüft werden. Dazu bietet Siwecos zwei verschiedene Verfahren (Datei, Meta-Tag) an. '''Welches Verfahren Sie dabei integrieren, bleibt Ihnen überlassen. Doch eines der beiden Verfahren muss es sein.'''
 
+<span style="color:#C31622">'''Im aktuellen SIWECOS ist es nicht mehr nötig, für jede Domain ein eigenes Token einzutragen. Alles Domains eines Besitzers verwenden dasselbe Token.'''</span>
+
 Wozu wird eine Verifizierung gemacht? Bei einer Verifizierung wird aus datenschutzrechtlichen Gründen nachgewiesen, dass Sie der wirkliche Inhaber der Domain sind.
 
 [[File:Verifizierung_st1.png]]
