@@ -1,0 +1,24 @@
+== Which security tools can block Siwecos scans? ==
+
+=== Firewall ===
+
+Make sure your firewall whitelists our IP addresses.
+
+We currently use the following IP addresses:
+
+- 159.69.220.230 (scanner)<br>
+- 116.203.133.16 (test scanner)
+
+=== PortSentry ===
+
+Security tools such as "PortSentry" could be a reason why our scanners cannot perform port scans (which are part of the investigation). 
+
+To prevent own systems from getting caught by portsentry, there is the file »/etc/portsentry/portsentry.ignore.static« . Here you can define single hosts or whole networks that are spared from all countermeasures.
+
+We currently use the following IP addresses:
+
+- 159.69.220.230 (scanner)<br>
+- 116.203.133.16 (test scanner)
+
+
+[[Category:FAQ]]

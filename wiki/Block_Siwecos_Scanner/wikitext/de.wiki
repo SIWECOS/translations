@@ -1,0 +1,25 @@
+== Welche Sicherheitstools können Siwecos-Scans blockieren? ==
+
+=== Firewall ===
+
+Sorgen Sie dafür, dass in Ihrer Firewall unsere IP-Adressen gewhitelisted werden:
+
+Wir nutzen momentan folgende IP-Adressen:
+
+- 159.69.220.230 (Scanner)<br>
+- 116.203.133.16 (Test-Scanner)
+
+=== PortSentry ===
+
+Sicherheitstools wie "PortSentry" könnte eine Ursache sein, warum unsere Scanner Portscans (die Teil der Untersuchung sind) nicht durchführen können. Um unsere Scanner nicht mehr auszuschließen, lesen Sie bitte folgenden Artikel:
+
+[https://www.linux-magazin.de/ausgaben/2012/02/einfuehrung2/ Linux-Magazin: Aus dem Alltag eines Sysadmin: Portsentry]
+
+"Um zu verhindern, dass eigene Systeme in Portsentrys Fänge geraten, gibt es die Datei »/etc/portsentry/portsentry.ignore.static« . Hier kann ich einzelne Hosts oder ganze Netze definieren, die von allen Gegenmaßnahmen verschont bleiben.”
+
+Wir nutzen momentan folgende IP-Adressen:
+
+- 159.69.220.230 (Scanner)<br>
+- 116.203.133.16 (Test-Scanner)
+
+[[Category:FAQ]]
