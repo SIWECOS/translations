@@ -13,6 +13,7 @@ Zurück zur [[Hauptseite]]
 * [[Das_Siwecos-Siegel_wird_nicht_angezeigt/DE| Warum wird das Siwecos-Siegel nicht richtig angezeigt?]]
 * [[Domain-Verifizierung-Wordpress/DE|Domain-Verifizierung in Wordpress]]
 * [[Wordpress-Security-Headers/DE|Security Headers in Wordpress eintragen]]
+* [[Was_blockiert_Siwecos_Scanner/DE|Welche Sicherheitstools können Siwecos-Scans blockieren?]]
 </div>
 
 
